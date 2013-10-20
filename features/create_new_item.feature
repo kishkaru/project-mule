@@ -1,20 +1,31 @@
-Feature: create a new vendor to be stored in the database
+Feature: create a new item to be stored in the database
 
 	As an admin
 	So that I can add Items to different Menus
 	I want to store an Item in the database
 
-Scenario: get form to create new vendor
-  Given I am on the vendors page
-  And I press "new_vendor"
-  Then I should be on the create vendor Page
+Scenario: get form to create new item
+	Given I am on the all_items page
+	And I press "new_item"
+	Then I should be on the create_new_item page
 
-Scenario: create a new vendor
-  Given I am on the create vendor page
-  And I fill in the following information:
-  | name | phone_number | address                                |
-  | Ikes | 123-456-7890 | 1234 56th St. San Francisco, Ca, 12345 |
+Scenario: successfully create a new item
+	Given I am on the create_new_item page
+	And I fill in the following information:
+	| name | description | price | ingredients | vendor |
+	| Wet_Burrito | super_juicy_and_wet | $4.50 | cheese, rice, beans | la_buritta |
 
-  And I press "Save"
-  Then I should be on the vendors page
-  And I should see "Ikes"
+	And I press "Create"
+	Then I should be on the all_items page
+	And I should see "Wet_Burrito"
+
+Scenario: create a new item: empty
+	Given I am on the create_new_item page
+	And I fill in the following information:
+	| name | description | price | ingredients | vendor |
+	|	   |			 |		 |			   |		|
+
+	And I press "Create"
+	Then I should be on the create_new_item page
+	And I should see "Error: empty fields!"
+	And I should not be on the all_items page
