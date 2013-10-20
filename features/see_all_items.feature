@@ -1,20 +1,19 @@
-Feature: create a new vendor to be stored in the database
+Feature: see all items
 
 	As an admin
-	So that I can add Items to different Menus
-	I want to store an Item in the database
+	So that I know what food Items we offer
+	I want to see a list of all the Items
 
-Scenario: get form to create new vendor
-  Given I am on the vendors page
-  And I press "new_vendor"
-  Then I should be on the create vendor Page
+Background: items have been added to the database
 
-Scenario: create a new vendor
-  Given I am on the create vendor page
-  And I fill in the following information:
-  | name | phone_number | address                                |
-  | Ikes | 123-456-7890 | 1234 56th St. San Francisco, Ca, 12345 |
+	Given the following items exist:
+	| name | description | price | ingredients | vendor |
+	| Regular_Burrito | the usual | $2.50 | rice, beans | la_buritta |
+	| Spicy_Burrito | your tongue, on fire | $3.50 | chile porblano, jalapenos | la_buritta |
+	| Carne_Asada_Burrito | roasted beef | $5.50 | carne asada, cheese, beans | la_buritta |
 
-  And I press "Save"
-  Then I should be on the vendors page
-  And I should see "Ikes"
+	And I am on the all_items page
+
+Scenario: successfully see all items
+	Then I should see the following items: Regular_Burrito, Spicy_Burrito, Carne_Asada_Burrito
+
