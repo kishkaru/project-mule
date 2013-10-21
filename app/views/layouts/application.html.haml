@@ -10,16 +10,18 @@
     = csrf_meta_tags
   %body
     %nav.navbar.navbar-default.navbar-fixed-top{role: "navigation"}
-      %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %ul.nav.navbar-nav.navbar-left
-        %a.navbar-brand{href: "#"} ProjectMule
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{href: "#"} About
-        %li.dropdown
-          %a{href: "#"} Login
-    = yield
+      .container
+        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %ul.nav.navbar-nav.navbar-left
+          %a.navbar-brand{href: "#"} ProjectMule
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %a{href: "#"} About
+          %li.dropdown
+            %a{href: "#"} Login
+    .main
+      = yield
