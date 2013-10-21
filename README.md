@@ -1,7 +1,7 @@
 # Project-Mule
 
 Making it easy and affordable to eat better food. *Coming soon!*  
-Visit us at http://XXXXXX.herokuapp.com  
+Visit us at http://projectmule.herokuapp.com/
 Tracker is at https://www.pivotaltracker.com/s/projects/929294
 
 ## Usage
