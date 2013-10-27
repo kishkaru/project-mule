@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
     attr_accessible :name, :role
 
     has_and_belongs_to_many :served_vendors, :class_name => "Project", :join_table => :servers_vendors, :foreign_key => :vendor_id
+    has_one :served_area, :class_name => 'DeliveryArea'
 end
