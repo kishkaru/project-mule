@@ -15,5 +15,5 @@ Background: items have been added to the database
 	And I am on the all_items page
 
 Scenario: successfully see all items
-	Then I should see the following items: Regular_Burrito, Spicy_Burrito, Carne_Asada_Burrito
+	Then I should see all the items
 
