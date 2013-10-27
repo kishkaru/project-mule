@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
 
     has_and_belongs_to_many :served_vendors, :class_name => "Project", :join_table => :servers_vendors, :foreign_key => :vendor_id
     has_one :served_area, :class_name => 'DeliveryArea'
+    has_one :pickup_point, :class_name => 'DeliveryPoint'
 end
