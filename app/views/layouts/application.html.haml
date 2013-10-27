@@ -17,15 +17,19 @@
           %span.icon-bar
           %span.icon-bar
         %ul.nav.navbar-nav.navbar-left
-          %a.navbar-brand{href: "#"} ProjectMule
+          %a.navbar-brand{href: root_path} ProjectMule
         %ul.nav.navbar-nav.navbar-right
           %li
             %a{href: "#"} About
           %li.dropdown
             %a{href: "#"} Login
+<<<<<<< HEAD
     .main
       - flash.each do |type, message|
         %p{:class => type}
           = message
 
+=======
+    .main.container
+>>>>>>> e181d034e9f89cafec7d1f801a046401e3db655b
       = yield
