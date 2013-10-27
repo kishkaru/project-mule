@@ -37,6 +37,7 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'html2haml'
+gem 'devise'
 
 # Use unicorn as the web server
 # gem 'unicorn'
