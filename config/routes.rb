@@ -1,5 +1,8 @@
 Projectmule::Application.routes.draw do
 
+  resources :menus
+
+
   resources :ingredients
 
 
