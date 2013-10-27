@@ -36,9 +36,11 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'html2haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+
