@@ -7,10 +7,10 @@ Feature: see all items
 Background: items have been added to database
 
 	Given the following items exist:
-	| name | nickname_and_nearest_address | |stop_number| estimated_time |
-	| Ryan_Quan | (Unit_1, 2650_Durant_Ave_94704) | 1 | |12:00 PM|
-	| Ryan_Higgins | (Soda_Hall, 2521_Hearst_Ave_94704) | | 2 | | 1:00 PM |
-	| Rick_Bhardwaj | (G_House, 2727_Dwight_Way_94704) | | 3 | | 2:00 PM |
+	| name | nickname_and_nearest_address | stop_number| estimated_time |
+	| Ryan_Quan | (Unit_1, 2650_Durant_Ave_94704) | 1 | 12:00 PM |
+	| Ryan_Higgins | (Soda_Hall, 2521_Hearst_Ave_94704) | 2 | 1:00 PM |
+	| Rick_Bhardwaj | (G_House, 2727_Dwight_Way_94704) | 3 | 2:00 PM |
 
 	And I am on the all_delivery_points page
 
