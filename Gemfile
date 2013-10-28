@@ -14,6 +14,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov', :require => false
+  gem 'html2haml'
 end
 
 group :test do
@@ -36,7 +37,6 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
-gem 'html2haml'
 gem 'devise'
 
 # Use unicorn as the web server
