@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @delivery_area.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @delivery_area.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_delivery_area_path(@delivery_area) %> |
+<%= link_to 'Back', delivery_areas_path %>

@@ -13,6 +13,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'simplecov', :require => false
 end
 
 group :test do
@@ -35,9 +36,12 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'html2haml'
+gem 'devise'
 
 # Use unicorn as the web server
 # gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+

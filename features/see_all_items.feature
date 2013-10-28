@@ -7,13 +7,13 @@ Feature: see all items
 Background: items have been added to the database
 
 	Given the following items exist:
-	| name | description | price | ingredients | vendor |
-	| Regular_Burrito | the usual | $2.50 | rice, beans | la_buritta |
-	| Spicy_Burrito | your tongue, on fire | $3.50 | chile porblano, jalapenos | la_buritta |
-	| Carne_Asada_Burrito | roasted beef | $5.50 | carne asada, cheese, beans | la_buritta |
+	| name | price | description | quantity | expires_at |
+	| Regular_Burrito | $2.50 | the usual | 55 | 6/30/2020 |
+	| Spicy_Burrito | $3.50 | your tongue, on fire | 91 | 3/3/2014 |
+	| Carne_Asada_Burrito | $5.50 | roasted beef | 2 | 12/3/1976 |
 
 	And I am on the all_items page
 
 Scenario: successfully see all items
-	Then I should see the following items: Regular_Burrito, Spicy_Burrito, Carne_Asada_Burrito
+	Then I should see all the items
 

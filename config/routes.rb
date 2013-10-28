@@ -1,5 +1,31 @@
 Projectmule::Application.routes.draw do
 
+  resources :phone_numbers
+
+
+  resources :delivery_points
+
+
+  resources :delivery_areas
+
+
+  devise_for :users
+
+  resources :users
+
+
+  resources :vendors
+
+
+  resources :menus
+
+
+  resources :ingredients
+
+
+  resources :items
+
+
     root :to => 'main#home'
 
     # The priority is based upon order of creation:
