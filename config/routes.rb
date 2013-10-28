@@ -9,9 +9,8 @@ Projectmule::Application.routes.draw do
   resources :delivery_areas
 
 
-  devise_for :users
-
   resources :users
+  devise_for :users
 
 
   resources :vendors
