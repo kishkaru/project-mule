@@ -1,16 +1,17 @@
 # Project-Mule
 
 Making it easy and affordable to eat better food. *Coming soon!*  
-Visit us at http://projectmule.herokuapp.com/
+Visit us at http://projectmule.herokuapp.com/  
 Tracker is at https://www.pivotaltracker.com/s/projects/929294
 
 ## Usage
 
-Clone repo. `git clone git@github.com:kishkaru/project-mule.git`
+**Clone repo**  
+`git clone git@github.com:kishkaru/project-mule.git`
 
 ## Dev Workflow
 
-Basic workflow:
+**Basic workflow:**
 ```
 git pull origin master
 git branch myBranch
@@ -23,10 +24,18 @@ git commit -m "new files for my branch"
 git push origin myBranch
 ```
 
-Merging into master:
+**Merging into master:**
 
   1. Create pull request for your branch.
   2. Wait for three +1's.
   3. Merge branch into Master.
   4. Delete branch on GitHub.
   5. Delete branch on local machine: `git branch -D myBranch`
+
+## Testing
+
+**Run unit tests (TDD)**  
+`rake spec`  
+
+**Run integration tests (BDD)**  
+`rake cucumber`

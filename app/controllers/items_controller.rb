@@ -41,16 +41,33 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(params[:item])
+  
+	puts "LASERS"
+	puts @item.attributes
 
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render json: @item, status: :created, location: @item }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+    broken = false
+    @item.attributes.each do |name, value|
+      if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" ))
+		broken = true
+		puts "name: #{name} value: #{value}"        
+		break
       end
     end
+    
+	if !broken
+		respond_to do |format|
+		  if @item.save
+		    format.html { redirect_to @item, notice: 'Item was successfully created.' }
+		    format.json { render json: @item, status: :created, location: @item }
+		  else
+		    format.html { render action: "new" }
+		    format.json { render json: @item.errors, status: :unprocessable_entity }
+		  end 
+		end
+	else
+		redirect_to new_item_path, notice: 'Error: empty fields!'
+	end
+	
   end
 
   # PUT /items/1

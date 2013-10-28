@@ -23,5 +23,8 @@
             %a{href: "#"} About
           %li.dropdown
             %a{href: "#"} Login
-    .main
+    .main.container
+      - flash.each do |type, message|
+        %p{:class => type}
+          = message
       = yield
