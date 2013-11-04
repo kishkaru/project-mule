@@ -7,12 +7,25 @@ Feature: see all items
 Background: items have been added to database
 
 	Given the following items exist:
-	| name | nickname_and_nearest_address | stop_number| estimated_time |
-	| Ryan_Quan | (Unit_1, 2650_Durant_Ave_94704) | 1 | 12:00 PM |
-	| Ryan_Higgins | (Soda_Hall, 2521_Hearst_Ave_94704) | 2 | 1:00 PM |
-	| Rick_Bhardwaj | (G_House, 2727_Dwight_Way_94704) | 3 | 2:00 PM |
+	| Address | Latitude| Longitude| Delivery Area |
+	| 2650_Durant_Ave_94704) | 15.7 | 45.6 | Unit_1|
+	| 2521_Hearst_Ave_94704) | 26.3 | 76.7 | Soda  |
+	| 2727_Dwight_Way_94704) | 32.2 | 23.3 | G_house|
 
 	And I am on the all_delivery_points page
 
 Scenario: successfully see all delivery points
-	Then I should see the following delivery points: (Unit_1, 2650_Durant_Ave_94704), (Soda_Hall, 2521_Hearst_Ave_94704), (G_House, 2727_Dwight_Way_94704)
+	Given I am on the Home page
+	And I follow Delivery Points	
+	Then I should see the following delivery points: (2650_Durant_Ave_94704, Unit_1), (2521_Hearst_Ave_94704, Soda Hall), (2727_Dwight_Way_94704, G_House)
+
+
+Scenario: delete a delivery point
+       Given I am on the Delivery_Points page
+       When I select "Soda"
+       And I press "Delete"
+       Then I should see "Alert: Are you sure you want to delete?"
+       And I follow "Yes"
+       Then I should see "Delivery point successfully deleted"
+       And I should see (Unit_1, G_House)
+       And I should not see (Soda)
