@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :password, :password_confirmation, :remember_me
-    attr_accessible :name, :role
+    attr_accessible :first_name, :last_name
+    attr_protected :role, :user_name
 
     has_and_belongs_to_many :served_vendors, :class_name => "Project", :join_table => :servers_vendors, :foreign_key => :vendor_id
     has_one :served_area, :class_name => 'DeliveryArea'

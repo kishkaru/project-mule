@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  include UsersHelper
   # GET /users
   # GET /users.json
   def index
@@ -40,7 +42,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new
+    update_user_attributes(@user)
 
     respond_to do |format|
       if @user.save
@@ -59,7 +62,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if update_user_attributes(@user)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
