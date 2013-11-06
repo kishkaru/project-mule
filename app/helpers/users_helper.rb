@@ -1,15 +1,13 @@
 module UsersHelper
 
-	# Updates USER_TO_UPDATE using the values in params[:user]. Returns true if successful
+	# Updates USER_TO_UPDATE using the values in params[:user]. Returns true if save is successful
 	def update_user_attributes(user_to_update)
 		admin_updateable_attributes.each do |attr|
 			if params[:user][attr]
-				if !user_to_update.update_attribute(attr, params[:user][attr]) 
-					return false
-				end
+				user_to_update.send("#{attr}=", params[:user][attr])
 			end
 		end
-		return true
+		user_to_update.save
 	end
 
 	# All the user attributes to update from admin edit page
