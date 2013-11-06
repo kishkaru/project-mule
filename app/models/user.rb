@@ -21,4 +21,14 @@ class User < ActiveRecord::Base
     has_one :served_area, :class_name => 'DeliveryArea'
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
+
+    def self.admin_updateable_nonrelational_attributes
+        [:role,
+          :user_name,
+          :password,
+          :password_confirmation,
+          :first_name,
+          :last_name,
+          :email]
+  end
 end
