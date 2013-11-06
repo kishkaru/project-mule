@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     attr_accessible :email, :password, :password_confirmation, :remember_me
     attr_accessible :name, :role
 
-    has_and_belongs_to_many :served_vendors, :class_name => "Project", :join_table => :servers_vendors, :foreign_key => :vendor_id
+    has_and_belongs_to_many :served_vendors, :class_name => "Vendor", :join_table => :servers_vendors, :foreign_key => :vendor_id
     has_one :served_area, :class_name => 'DeliveryArea'
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
