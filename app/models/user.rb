@@ -1,4 +1,12 @@
 class User < ActiveRecord::Base
+    #Constants for user roles
+    ADMIN = 1
+    VENDOR = 2
+    SERVER = 3
+    CUSTOMER = 4 
+
+    ROLES_MAPPING = {1 => 'Admin', 2 => 'Vendor', 3 => 'Server', 4 => 'Customer'}
+
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,

@@ -10,7 +10,7 @@
   .field
     = f.label :role
     %br/
-    = f.number_field :role
+    = f.select(:role, options_for_select([ ['Admin', User::ADMIN], ['Vendor', User::VENDOR], ['Server', User::SERVER], ['Customer', User::CUSTOMER]], :selected => @user.role))
   .field
     = f.label :user_name
     %br/

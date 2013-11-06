@@ -1,7 +1,7 @@
 %p#notice= notice
 %p
   %b Role:
-  = @user.role
+  = User::ROLES_MAPPING[@user.role]
 %p
   %b Name:
   = @user.user_name

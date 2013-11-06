@@ -8,7 +8,7 @@
     %th
   - @users.each do |user|
     %tr
-      %td= user.role
+      %td= User::ROLES_MAPPING[user.role]
       %td= user.user_name
       %td= link_to 'Show', user
       %td= link_to 'Edit', edit_user_path(user)
