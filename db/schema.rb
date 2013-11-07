@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131107053532) do
+ActiveRecord::Schema.define(:version => 20131107063028) do
 
   create_table "delivery_areas", :force => true do |t|
     t.string   "name"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20131107053532) do
   add_index "servers_vendors", ["vendor_id"], :name => "index_servers_vendors_on_vendor_id"
 
   create_table "users", :force => true do |t|
-    t.integer  "role"
+    t.integer  "role",                   :default => 4
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
