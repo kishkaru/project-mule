@@ -3,7 +3,6 @@ require 'spec_helper'
 describe User do
   describe 'should return the list of nonrelational attributes' do
   	User.admin_updateable_nonrelational_attributes.should == [:role,
-      :user_name,
       :password,
       :password_confirmation,
       :first_name,

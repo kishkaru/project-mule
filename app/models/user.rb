@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :password, :password_confirmation, :remember_me
     attr_accessible :first_name, :last_name
-    attr_protected :role, :user_name
+    attr_protected :role
 
     has_and_belongs_to_many :served_vendors, :class_name => "Vendor", :join_table => :servers_vendors, :foreign_key => :vendor_id
     has_one :served_area, :class_name => 'DeliveryArea'
@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
 
     def self.admin_updateable_nonrelational_attributes
         [:role,
-          :user_name,
           :password,
           :password_confirmation,
           :first_name,
