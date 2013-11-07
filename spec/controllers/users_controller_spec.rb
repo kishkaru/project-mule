@@ -30,6 +30,10 @@ describe UsersController do
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before :each do
+    UsersController.any_instance.stub(:verify_if_admin).and_return(true)
+  end
+
   describe "GET index" do
     it "assigns all users as @users" do
       user = User.create! valid_attributes

@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 
+  before_filter :verify_if_admin
+
+  def verify_if_admin
+    if current_user.nil?
+      redirect_to(root_path) and return
+    else
+      redirect_to(root_path) and return unless current_user.admin?
+    end
+  end
+
   include UsersHelper
   # GET /users
   # GET /users.json
@@ -82,4 +92,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private :verify_if_admin
 end

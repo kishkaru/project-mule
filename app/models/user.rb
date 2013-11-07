@@ -22,12 +22,16 @@ class User < ActiveRecord::Base
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
 
-    def self.admin_updateable_nonrelational_attributes
+  def self.admin_updateable_nonrelational_attributes
         [:role,
           :password,
           :password_confirmation,
           :first_name,
           :last_name,
           :email]
+  end
+
+  def admin?
+    role == User::ADMIN
   end
 end
