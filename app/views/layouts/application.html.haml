@@ -28,7 +28,7 @@
               = link_to 'Logout', destroy_user_session_path, method: :delete
           - else
             %li.dropdown
-              %a{href: new_user_session_path} Login
+              = link_to 'Login', new_user_session_path
     .main.container
       - flash.each do |type, message|
         %p{:class => type}

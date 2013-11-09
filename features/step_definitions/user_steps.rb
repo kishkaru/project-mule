@@ -5,7 +5,7 @@ Given /the following user accounts exist/ do |users_table|
 		user.keys.each do |k|
 			val = user[k]
 			if (k == :role || k == 'role')
-				val = map[users[k]]
+				val = map[user[k]]
 			end
 			user_to_make.send("#{k}=", val)
 		end
@@ -28,14 +28,14 @@ Given /a non admin account is set up/ do
 end
 
 Given /I am logged in with an admin account/ do
-	step %{I follow "Login"}
+	step %{I press "Login"}
 	step %{I fill in "email" with "admin@admin.com"}
 	step %{I fill in "password" with "aaaaaaaa"}
 	step %{I press "Sign in"}
 end
 
 Given /I am logged in with a user account/ do
-	step %{I follow "Login"}
+	step %{I press "Login"}
 	step %{I fill in "email" with "a@b.com"}
 	step %{I fill in "password" with "bbbbbbbb"}
 	step %{I press "Sign in"}
