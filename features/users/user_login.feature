@@ -6,44 +6,44 @@ Feature: Login to LuckyBolt
     
     Background:
         Given the following user accounts exist
-        | account_name | password | role     | email   |
-        | admin        | aaaaaaaa | admin    | c@b.com |
-        | vendor       | bbbbbbbb | vendor   | b@c.com |
-        | customer     | cccccccc | customer | f@g.com |
-        | server       | dddddddd | server   | g@h.com |
+        | password | password_confirmation | role     | email   |
+        | aaaaaaaa | aaaaaaaa              | admin    | c@b.com |
+        | bbbbbbbb | bbbbbbbb              | vendor   | b@c.com |
+        | cccccccc | cccccccc              | customer | f@g.com |
+        | dddddddd | dddddddd              | server   | g@h.com |
            
     Scenario: Admin login to LuckyBolt
         Given I am on the home page
         And I press "Login"
-        Then I should be on the login home page
-        And I fill in "user_name" with "admin"
+        Then I should be on the login page
+        And I fill in "email" with "admin"
         And I fill in "password" with "aaaaaaaa"
-        And I press "Login"
-        Then I should see "Admin Dashboard"
+        And I press "Sign in"
+        Then I should see "Signed in successfully"
         
     Scenario: Vendor login to LuckyBolt
         Given I am on the home page
         And I press "Login"
-        Then I should be on the login home page
-        And I fill in "user_name" with "vendor"
+        Then I should be on the login page
+        And I fill in "email" with "vendor"
         And I fill in "password" with "bbbbbbbb"
-        And I press "Login"
-        Then I should see "Vendor Dashboard"
+        And I press "Sign in"
+        Then I should see "Signed in successfully"
   
     Scenario: Customer login to LuckyBolt
         Given I am on the home page
         And I press "Login"
-        Then I should be on the login home page
-        And I fill in "user_name" with "customer"
+        Then I should be on the login page
+        And I fill in "email" with "customer"
         And I fill in "password" with "cccccccc"
-        And I press "Login"
-        Then I should see "Customer Dashboard"
+        And I press "Sign in"
+        Then I should see "Signed in successfully"
        
     Scenario: Server login to LuckyBolt
         Given I am on the home page
         And I press "Login"
-        Then I should be on the login home page
-        And I fill in "user_name" with "server"
+        Then I should be on the login page
+        And I fill in "email" with "server"
         And I fill in "password" with "dddddddd"
-        And I press "Login"
-        Then I should see "Server Dashboard"
+        And I press "Sign in"
+        Then I should see "Signed in successfully"
