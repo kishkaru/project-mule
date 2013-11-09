@@ -28,14 +28,14 @@ Given /a non admin account is set up/ do
 end
 
 Given /I am logged in with an admin account/ do
-	step %{I press "Login"}
+	step %{I follow "Login"}
 	step %{I fill in "email" with "admin@admin.com"}
 	step %{I fill in "password" with "aaaaaaaa"}
 	step %{I press "Sign in"}
 end
 
 Given /I am logged in with a user account/ do
-	step %{I press "Login"}
+	step %{I follow "Login"}
 	step %{I fill in "email" with "a@b.com"}
 	step %{I fill in "password" with "bbbbbbbb"}
 	step %{I press "Sign in"}
