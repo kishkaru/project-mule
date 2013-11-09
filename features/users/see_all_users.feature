@@ -30,3 +30,7 @@ Feature: see all the users
         Given I am logged in with a user account
         And I am on the users page
         Then I should be on the home page
+
+    Scenario: guests should not see all users
+        Given I am on the users page
+        Then I should be on the home page
