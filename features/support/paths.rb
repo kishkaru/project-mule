@@ -25,6 +25,9 @@ module NavigationHelpers
     when /^the users page$/
       users_path
 
+    when /^the users page for "(.*)"$/
+      user_path(User.find_by_email($1))
+
     when /^the login page$/
       user_session_path
 
