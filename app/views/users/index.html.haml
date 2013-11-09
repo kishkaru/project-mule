@@ -1,10 +1,13 @@
 %h1 Listing users
-%table
+%table.table.table-centered
   %tr
     %th Role
     %th First Name
     %th Last Name
     %th Email
+    %th
+    %th
+    %th
   - @users.each do |user|
     %tr
       %td= User::ROLES_MAPPING[user.role]
