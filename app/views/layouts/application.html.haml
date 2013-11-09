@@ -21,6 +21,8 @@
         %ul.nav.navbar-nav.navbar-right
           %li
             %a{href: "#"} About
+          %li
+            = image_tag('/admin_icon.png', :alt => 'Admin Icon', :id => 'admin-icon')
           - if (user_signed_in?)
             %li
               = link_to 'Logout', destroy_user_session_path, method: :delete
