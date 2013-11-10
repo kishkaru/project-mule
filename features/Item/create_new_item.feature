@@ -17,7 +17,6 @@ Scenario: successfully create a new item
 	And I fill in "Quantity" with "5"
 	
 	And I press "Create Item"
-	
 	Then I should see "Wet Burrito"
 	
 Scenario: create a new item: empty

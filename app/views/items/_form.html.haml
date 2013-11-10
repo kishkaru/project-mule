@@ -18,7 +18,11 @@
   .field
     = f.label :description
     %br/
-    = f.text_area :description
+    = f.text_area :description, :rows => 3
+  .field
+    = f.label :ingredients
+    %br/
+    = collection_select :item, :ingredient_ids, Ingredient.all, :id, :name, {:prompt => 'please select an ingredient.' }, {:multiple => true}
   .field
     = f.label :quantity
     %br/
@@ -27,5 +31,6 @@
     = f.label :expires_at
     %br/
     = f.datetime_select :expires_at
+
   .actions
     = f.submit

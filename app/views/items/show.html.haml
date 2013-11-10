@@ -8,12 +8,19 @@
 %p
   %b Description:
   = @item.description
+
+%p
+  %b Ingredients:
+  - @item.ingredients.each do |ingredient|
+    %br/
+    = ingredient.name
 %p
   %b Quantity:
   = @item.quantity
 %p
   %b Expires at:
   = @item.expires_at
+
 = link_to 'Edit', edit_item_path(@item)
 |
 \#{link_to 'Back', items_path}

@@ -2,35 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/step_definitions/ingredient_steps.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/create_new_delivery_area.feature" afterPath="$PROJECT_DIR$/app/create_new_delivery_area.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/create_new_delivery_point.feature" afterPath="$PROJECT_DIR$/app/create_new_delivery_point.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/create_new_ingredient.feature" afterPath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/create_new_item.feature" afterPath="$PROJECT_DIR$/app/Item/create_new_item.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/create_new_vendor.feature" afterPath="$PROJECT_DIR$/app/create_new_vendor.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/create_user_account.feature" afterPath="$PROJECT_DIR$/app/create_user_account.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/home_page.feature" afterPath="$PROJECT_DIR$/app/home_page.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/menu_features/create_menu.feature" afterPath="$PROJECT_DIR$/app/menu_features/create_menu.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/menu_features/edit_menu.feature" afterPath="$PROJECT_DIR$/app/menu_features/edit_menu.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/menu_features/show_menu.feature" afterPath="$PROJECT_DIR$/app/menu_features/show_menu.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/see_all_delivery_areas.feature" afterPath="$PROJECT_DIR$/app/see_all_delivery_areas.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/see_all_delivery_points.feature" afterPath="$PROJECT_DIR$/app/see_all_delivery_points.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/see_all_ingredients.feature" afterPath="$PROJECT_DIR$/features/Ingredient/see_all_ingredients.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/see_all_items.feature" afterPath="$PROJECT_DIR$/app/Item/see_all_items.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/see_all_vendors.feature" afterPath="$PROJECT_DIR$/app/see_all_vendors.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/user_log_out.feature" afterPath="$PROJECT_DIR$/app/user_log_out.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/user_login.feature" afterPath="$PROJECT_DIR$/app/user_login.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/users/create_user.feature" afterPath="$PROJECT_DIR$/app/users/create_user.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/users/create_user_account.feature" afterPath="$PROJECT_DIR$/app/users/create_user_account.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/users/see_all_users.feature" afterPath="$PROJECT_DIR$/app/users/see_all_users.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/users/user_log_out.feature" afterPath="$PROJECT_DIR$/app/users/user_log_out.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/users/user_login.feature" afterPath="$PROJECT_DIR$/app/users/user_login.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.last_run.json" afterPath="$PROJECT_DIR$/coverage/.last_run.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Item/create_new_item.feature" afterPath="$PROJECT_DIR$/features/Item/create_new_item.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Item/see_all_items.feature" afterPath="$PROJECT_DIR$/features/Item/see_all_items.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_new_delivery_area.feature" afterPath="$PROJECT_DIR$/future_cuke/create_new_delivery_area.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_new_delivery_point.feature" afterPath="$PROJECT_DIR$/future_cuke/create_new_delivery_point.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_new_vendor.feature" afterPath="$PROJECT_DIR$/future_cuke/create_new_vendor.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_user_account.feature" afterPath="$PROJECT_DIR$/future_cuke/create_user_account.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/home_page.feature" afterPath="$PROJECT_DIR$/future_cuke/home_page.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/menu_features/create_menu.feature" afterPath="$PROJECT_DIR$/future_cuke/menu_features/create_menu.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/menu_features/edit_menu.feature" afterPath="$PROJECT_DIR$/future_cuke/menu_features/edit_menu.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/menu_features/show_menu.feature" afterPath="$PROJECT_DIR$/future_cuke/menu_features/show_menu.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/see_all_delivery_areas.feature" afterPath="$PROJECT_DIR$/future_cuke/see_all_delivery_areas.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/see_all_delivery_points.feature" afterPath="$PROJECT_DIR$/future_cuke/see_all_delivery_points.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/see_all_vendors.feature" afterPath="$PROJECT_DIR$/future_cuke/see_all_vendors.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/user_log_out.feature" afterPath="$PROJECT_DIR$/future_cuke/user_log_out.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/user_login.feature" afterPath="$PROJECT_DIR$/future_cuke/user_login.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/create_user.feature" afterPath="$PROJECT_DIR$/future_cuke/users/create_user.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/create_user_account.feature" afterPath="$PROJECT_DIR$/future_cuke/users/create_user_account.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/see_all_users.feature" afterPath="$PROJECT_DIR$/future_cuke/users/see_all_users.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/user_log_out.feature" afterPath="$PROJECT_DIR$/future_cuke/users/user_log_out.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/user_login.feature" afterPath="$PROJECT_DIR$/future_cuke/users/user_login.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" afterPath="$PROJECT_DIR$/future_cuke/Ingredient/create_new_ingredient.feature" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/features/Ingredient/see_all_ingredients.feature" afterPath="$PROJECT_DIR$/future_cuke/Ingredient/see_all_ingredients.feature" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/items/_form.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ingredients_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ingredients_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/step_definitions/item_steps.rb" afterPath="$PROJECT_DIR$/features/step_definitions/item_steps.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/support/paths.rb" afterPath="$PROJECT_DIR$/features/support/paths.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/item.rb" afterPath="$PROJECT_DIR$/app/models/item.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/items_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/items_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/show.html.haml" afterPath="$PROJECT_DIR$/app/views/items/show.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project-mule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,6 +40,12 @@
     <file path="/create_new_ingredient.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053974008" ignored="false" />
     <file path="/ingredient_steps.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053870620" ignored="false" />
     <file path="/item_steps.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053935667" ignored="false" />
+    <file path="$PROJECT_DIR$/log/test.log" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384054210582" ignored="false" />
+    <file path="$PROJECT_DIR$/log/development.log" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384054210582" ignored="false" />
+    <file path="/items_controller.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384062163455" ignored="false" />
+    <file path="/_form.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384065909923" ignored="false" />
+    <file path="/item.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384064687956" ignored="false" />
+    <file path="/show.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384065686622" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,64 +65,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="26" selection-start="2552" selection-end="2552" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ingredient.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/ingredient.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/item.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="60" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="21" selection-start="216" selection-end="216" vertical-scroll-proportion="-9.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="items_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="31" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0">
+            <state line="37" column="87" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ingredients_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ingredients_controller.rb">
+      <file leaf-file-name="_form.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/items/_form.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="21" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.5813953">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_new_ingredient.feature" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="53" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="see_all_ingredients.feature" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/Ingredient/see_all_ingredients.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="46" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_steps.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/step_definitions/item_steps.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="34" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ingredient_steps.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/step_definitions/ingredient_steps.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="5" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paths.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/support/paths.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="15" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
+            <state line="34" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.4028436">
               <folding />
             </state>
           </provider>
@@ -140,20 +146,78 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
         <option value="$PROJECT_DIR$/features/create_new_item.feature" />
         <option value="$PROJECT_DIR$/features/support/paths.rb" />
         <option value="$PROJECT_DIR$/app/controllers/ingredients_controller.rb" />
         <option value="$PROJECT_DIR$/features/step_definitions/ingredient_steps.rb" />
         <option value="$PROJECT_DIR$/features/step_definitions/item_steps.rb" />
         <option value="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
+        <option value="$PROJECT_DIR$/features/Item/see_all_items.feature" />
+        <option value="$PROJECT_DIR$/features/Item/create_new_item.feature" />
+        <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/item.rb" />
+        <option value="$PROJECT_DIR$/app/views/items/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/items/_form.html.haml" />
       </list>
     </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1599" />
     <option name="width" value="2562" />
     <option name="height" value="1441" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Code style issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Portability issues</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Ruby</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -212,10 +276,6 @@
               <option name="myItemId" value="features" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -228,56 +288,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="features" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="step_definitions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project-mule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project-mule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="features" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ingredient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project-mule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project-mule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project-mule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project-mule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -295,11 +305,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -313,9 +337,11 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="419" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="421" />
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="419" />
@@ -328,9 +354,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/future_cuke" />
       <recent name="$PROJECT_DIR$/features" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/features/Ingredient" />
@@ -579,6 +608,8 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
     <list size="4">
@@ -589,6 +620,23 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" name="Default" comment="" />
@@ -601,24 +649,24 @@
     <frame x="1599" y="0" width="2562" height="1441" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15234686" sideWeight="0.67021275" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15234686" sideWeight="0.67021275" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -692,41 +740,111 @@
     <entry file="file://$PROJECT_DIR$/features/support/paths.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="15" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1384053445421" expanded="true" signature="-1:-1" placeholder=" ... end" />
+            <marker date="1384053445421" expanded="true" signature="-1:-1" placeholder="case ... end" />
+            <marker date="1384053445421" expanded="true" signature="-1:-1" placeholder="#..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/features/step_definitions/item_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="34" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1384053975841" expanded="true" signature="-1:-1" placeholder="do ... end" />
+            <marker date="1384053975841" expanded="true" signature="-1:-1" placeholder="do ... end" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/future_cuke/Ingredient/see_all_ingredients.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="88" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/features/Ingredient/see_all_ingredients.feature">
+    <entry file="file://$PROJECT_DIR$/future_cuke/Ingredient/create_new_ingredient.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="46" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="53" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="31" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0">
+        <state line="23" column="2" selection-start="812" selection-end="812" vertical-scroll-proportion="0.26744187">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ingredients_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="21" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.5813953">
+        <state line="40" column="64" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/edit.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/Item/create_new_item.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="29" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/Item/see_all_items.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.23255815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="26" selection-start="2552" selection-end="2552" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ingredient.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="21" selection-start="216" selection-end="216" vertical-scroll-proportion="-9.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="87" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/item.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="60" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.4028436">
           <folding />
         </state>
       </provider>
