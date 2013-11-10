@@ -12,6 +12,10 @@
     %br/
     = f.text_field :name
   .field
+    = f.label :vendor
+    %br/
+    = collection_select :item, :vendor_id, Vendor.all, :id, :name, {:prompt => 'Select a vendor' }
+  .field
     = f.label :price
     %br/
     = f.text_field :price

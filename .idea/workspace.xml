@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/items/_form.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/index.html.haml" afterPath="$PROJECT_DIR$/app/views/items/index.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/item.rb" afterPath="$PROJECT_DIR$/app/models/item.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/items_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/items_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/show.html.haml" afterPath="$PROJECT_DIR$/app/views/items/show.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project-mule.iws" />
@@ -17,10 +20,10 @@
     <file path="$PROJECT_DIR$/log/test.log" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384054210582" ignored="false" />
     <file path="$PROJECT_DIR$/log/development.log" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384054210582" ignored="false" />
     <file path="/items_controller.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384066330393" ignored="false" />
-    <file path="/_form.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384066703577" ignored="false" />
-    <file path="/item.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384064687956" ignored="false" />
-    <file path="/show.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384065686622" ignored="false" />
-    <file path="/index.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384066945046" ignored="false" />
+    <file path="/_form.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384067369165" ignored="false" />
+    <file path="/item.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384067469913" ignored="false" />
+    <file path="/show.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384067628116" ignored="false" />
+    <file path="/index.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384067598589" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
       <file leaf-file-name="item.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/item.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="60" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
+            <state line="1" column="100" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -70,7 +73,7 @@
       <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="65" selection-start="46" selection-end="46" vertical-scroll-proportion="-1.875">
+            <state line="9" column="22" selection-start="122" selection-end="122" vertical-scroll-proportion="-5.625">
               <folding />
             </state>
           </provider>
@@ -79,16 +82,7 @@
       <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/items/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="60" selection-start="99" selection-end="99" vertical-scroll-proportion="-3.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.875">
+            <state line="1" column="94" selection-start="18" selection-end="18" vertical-scroll-proportion="-0.625">
               <folding />
             </state>
           </provider>
@@ -97,7 +91,7 @@
       <file leaf-file-name="items_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="40" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0">
+            <state line="49" column="74" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,7 +100,7 @@
       <file leaf-file-name="_form.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/items/_form.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="12" selection-start="532" selection-end="652" vertical-scroll-proportion="0.2843602">
+            <state line="13" column="90" selection-start="330" selection-end="330" vertical-scroll-proportion="0.15402843">
               <folding />
             </state>
           </provider>
@@ -138,11 +132,11 @@
         <option value="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
         <option value="$PROJECT_DIR$/features/Item/see_all_items.feature" />
         <option value="$PROJECT_DIR$/features/Item/create_new_item.feature" />
+        <option value="$PROJECT_DIR$/app/views/items/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/models/item.rb" />
+        <option value="$PROJECT_DIR$/app/views/items/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/items/show.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/items/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/items/index.html.haml" />
       </list>
     </option>
   </component>
@@ -816,42 +810,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/item.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="60" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="60" selection-start="99" selection-end="99" vertical-scroll-proportion="-3.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="65" selection-start="46" selection-end="46" vertical-scroll-proportion="-1.875">
+        <state line="1" column="100" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="40" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0">
+        <state line="49" column="74" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="0.035545025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="122" selection-end="122" vertical-scroll-proportion="-5.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="94" selection-start="18" selection-end="18" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/items/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="12" selection-start="532" selection-end="652" vertical-scroll-proportion="0.2843602">
+        <state line="13" column="90" selection-start="330" selection-end="330" vertical-scroll-proportion="0.15402843">
           <folding />
         </state>
       </provider>

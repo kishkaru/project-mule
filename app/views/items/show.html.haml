@@ -3,8 +3,11 @@
   %b Name:
   = @item.name
 %p
+  %b Vendor:
+  = @item.vendor.name
+%p
   %b Price:
-  = @item.price
+  = "$ #{@item.price}"
 %p
   %b Description:
   = @item.description
