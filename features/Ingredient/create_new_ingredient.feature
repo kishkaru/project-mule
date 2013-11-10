@@ -20,4 +20,4 @@ Scenario: create a new ingredient: empty
     And I press "Create Ingredient"
     Then I should be on the create_new_ingredient page
     And I should see "Error: empty fields!"
-    And I should not be on the all_ingredient page
+    And I should not be on the all_ingredients page
