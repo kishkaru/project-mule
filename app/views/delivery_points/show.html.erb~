@@ -19,4 +19,4 @@
 
 <%= link_to 'Edit', edit_delivery_point_path(@delivery_point) %> |
 <%= link_to 'Back', delivery_points_path %>
-
+<%= link_to 'Destroy', delivery_points_path(@delivery_point) %>

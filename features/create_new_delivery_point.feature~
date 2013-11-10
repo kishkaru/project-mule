@@ -25,7 +25,6 @@ Scenario: create a new delivery point
 	Then I should see "Delivery point was successfully created."
 	When I follow "Back"
 	Then I should be on the Listing delivery_points page
-        And I should see "1010 Computer Science Way 11000 Berkeley, CA 56.6 34.6"
 	
 
 

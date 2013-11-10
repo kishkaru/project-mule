@@ -5,7 +5,7 @@
     <th>Address</th>
     <th>Latitude</th>
     <th>Longitude</th>
-
+    <th>Delivery area</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,6 +16,8 @@
     <td><%= delivery_point.address %></td>
     <td><%= delivery_point.latitude %></td>
     <td><%= delivery_point.longitude %></td>
+    <td><%= delivery_point.customer %></td>
+    <td><%= delivery_point.delivery_area.name %></td>
     <td><%= link_to 'Show', delivery_point %></td>
     <td><%= link_to 'Edit', edit_delivery_point_path(delivery_point) %></td>
     <td><%= link_to 'Destroy', delivery_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>

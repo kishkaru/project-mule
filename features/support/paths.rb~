@@ -32,7 +32,7 @@ module NavigationHelpers
       delivery_areas_path
 
     when /^the New delivery_area page$/
-	new_delivery_area_path
+	new_delivery_area
 	
 
     # Add more mappings here.

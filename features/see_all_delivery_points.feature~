@@ -11,7 +11,10 @@ Scenario: delete a delivery point
 		| 2650 Durant Ave | 15.7 | 45.6 | 1|
        And I am on the Listing delivery_points page   
        When I follow "Destroy"
-       Then I should not see "2650 Durant Ave 15.7 45.6"
+       Then I should see "Are you sure?"
+       And I press "yes"
+       Then I should see "Delivery point successfully deleted"
+       And I should not see "2650 Durant Ave 15.7 45.6"
 
 
 

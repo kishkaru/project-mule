@@ -5,7 +5,10 @@
   <%= @delivery_area.name %>
 </p>
 
-
+<p>
+  <b>User:</b>
+  <%= @delivery_area.user %>
+</p>
 
 
 <%= link_to 'Edit', edit_delivery_area_path(@delivery_area) %> |

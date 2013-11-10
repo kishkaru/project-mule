@@ -41,6 +41,8 @@ class DeliveryPointsController < ApplicationController
   # POST /delivery_points.json
   def create
     @delivery_point = DeliveryPoint.new(params[:delivery_point])
+    if DeliveryPoint.find(params[:delivery_point]) == ""
+	format.json { render json: @delivery_point.errors, status: :unprocessable_entity }
     respond_to do |format|
 
       if @delivery_point.save
