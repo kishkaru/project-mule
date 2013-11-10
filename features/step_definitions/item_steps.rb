@@ -9,3 +9,9 @@ Then /I should see all the items/ do
    page.should have_content(t.name)
  end
 end
+
+Given /I select the following from "(.*?)"/ do |all_ingredients_list, ingredients_table|
+  ingredients_table.hashes.each do |ingredient|
+    select(ingredient['name'], :from => all_ingredients_list)
+  end
+end
