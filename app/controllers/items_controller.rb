@@ -46,8 +46,11 @@ class ItemsController < ApplicationController
 	puts @item.attributes
 
     broken = false
+    time1 = Time.new
+    @item.created_at = time1.inspect
+    @item.updated_at = time1.inspect
     @item.attributes.each do |name, value|
-      if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" ))
+      if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" && name != "vendor_id" && name != "menu_id"))
 		broken = true
 		puts "name: #{name} value: #{value}"        
 		break
