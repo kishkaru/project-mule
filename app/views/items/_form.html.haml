@@ -22,7 +22,7 @@
   .field
     = f.label :ingredients
     %br/
-    = collection_select :item, :ingredient_ids, Ingredient.all, :id, :name, {:prompt => 'please select an ingredient.' }, {:multiple => true}
+    = collection_select :item, :ingredient_ids, Ingredient.all, :id, :name, {:prompt => 'Select ingredients:' }, {:multiple => true}
   .field
     = f.label :quantity
     %br/

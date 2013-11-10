@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Item/create_new_item.feature" afterPath="$PROJECT_DIR$/features/Item/create_new_item.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Item/see_all_items.feature" afterPath="$PROJECT_DIR$/features/Item/see_all_items.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_new_delivery_area.feature" afterPath="$PROJECT_DIR$/future_cuke/create_new_delivery_area.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_new_delivery_point.feature" afterPath="$PROJECT_DIR$/future_cuke/create_new_delivery_point.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_new_vendor.feature" afterPath="$PROJECT_DIR$/future_cuke/create_new_vendor.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/create_user_account.feature" afterPath="$PROJECT_DIR$/future_cuke/create_user_account.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/home_page.feature" afterPath="$PROJECT_DIR$/future_cuke/home_page.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/menu_features/create_menu.feature" afterPath="$PROJECT_DIR$/future_cuke/menu_features/create_menu.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/menu_features/edit_menu.feature" afterPath="$PROJECT_DIR$/future_cuke/menu_features/edit_menu.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/menu_features/show_menu.feature" afterPath="$PROJECT_DIR$/future_cuke/menu_features/show_menu.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/see_all_delivery_areas.feature" afterPath="$PROJECT_DIR$/future_cuke/see_all_delivery_areas.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/see_all_delivery_points.feature" afterPath="$PROJECT_DIR$/future_cuke/see_all_delivery_points.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/see_all_vendors.feature" afterPath="$PROJECT_DIR$/future_cuke/see_all_vendors.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/user_log_out.feature" afterPath="$PROJECT_DIR$/future_cuke/user_log_out.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/user_login.feature" afterPath="$PROJECT_DIR$/future_cuke/user_login.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/create_user.feature" afterPath="$PROJECT_DIR$/future_cuke/users/create_user.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/create_user_account.feature" afterPath="$PROJECT_DIR$/future_cuke/users/create_user_account.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/see_all_users.feature" afterPath="$PROJECT_DIR$/future_cuke/users/see_all_users.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/user_log_out.feature" afterPath="$PROJECT_DIR$/future_cuke/users/user_log_out.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/users/user_login.feature" afterPath="$PROJECT_DIR$/future_cuke/users/user_login.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" afterPath="$PROJECT_DIR$/future_cuke/Ingredient/create_new_ingredient.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/Ingredient/see_all_ingredients.feature" afterPath="$PROJECT_DIR$/future_cuke/Ingredient/see_all_ingredients.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/items/_form.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/item.rb" afterPath="$PROJECT_DIR$/app/models/item.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/items_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/items_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/show.html.haml" afterPath="$PROJECT_DIR$/app/views/items/show.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project-mule.iws" />
@@ -42,10 +16,11 @@
     <file path="/item_steps.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053935667" ignored="false" />
     <file path="$PROJECT_DIR$/log/test.log" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384054210582" ignored="false" />
     <file path="$PROJECT_DIR$/log/development.log" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384054210582" ignored="false" />
-    <file path="/items_controller.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384062163455" ignored="false" />
-    <file path="/_form.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384065909923" ignored="false" />
+    <file path="/items_controller.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384066330393" ignored="false" />
+    <file path="/_form.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384066703577" ignored="false" />
     <file path="/item.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384064687956" ignored="false" />
     <file path="/show.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384065686622" ignored="false" />
+    <file path="/index.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384066945046" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +70,16 @@
       <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="216" selection-end="216" vertical-scroll-proportion="-9.375">
+            <state line="3" column="65" selection-start="46" selection-end="46" vertical-scroll-proportion="-1.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/items/index.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="60" selection-start="99" selection-end="99" vertical-scroll-proportion="-3.75">
               <folding />
             </state>
           </provider>
@@ -113,7 +97,7 @@
       <file leaf-file-name="items_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="87" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0">
+            <state line="44" column="40" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -122,7 +106,7 @@
       <file leaf-file-name="_form.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/items/_form.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.4028436">
+            <state line="24" column="12" selection-start="532" selection-end="652" vertical-scroll-proportion="0.2843602">
               <folding />
             </state>
           </provider>
@@ -154,10 +138,11 @@
         <option value="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
         <option value="$PROJECT_DIR$/features/Item/see_all_items.feature" />
         <option value="$PROJECT_DIR$/features/Item/create_new_item.feature" />
-        <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/item.rb" />
         <option value="$PROJECT_DIR$/app/views/items/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/items/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/items/index.html.haml" />
       </list>
     </option>
   </component>
@@ -305,7 +290,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -319,11 +308,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="items" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -730,13 +737,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/features/step_definitions/ingredient_steps.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="5" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/features/support/paths.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="15" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
@@ -800,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="26" selection-start="2552" selection-end="2552" vertical-scroll-proportion="0.0">
@@ -821,20 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="216" selection-end="216" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="87" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/item.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="60" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
@@ -842,9 +821,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="60" selection-start="99" selection-end="99" vertical-scroll-proportion="-3.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="65" selection-start="46" selection-end="46" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="40" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/items/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.4028436">
+        <state line="24" column="12" selection-start="532" selection-end="652" vertical-scroll-proportion="0.2843602">
           <folding />
         </state>
       </provider>
