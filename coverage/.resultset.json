@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jsm/Repositories/luckybolt/app/models/user.rb": [
+      "/home/saasbook/test3/app/models/user.rb": [
         1,
         null,
         1,
@@ -40,44 +40,44 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/application_controller.rb": [
+      "/home/saasbook/test3/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/application_helper.rb": [
+      "/home/saasbook/test3/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/delivery_areas_helper.rb": [
+      "/home/saasbook/test3/app/helpers/delivery_areas_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/delivery_points_helper.rb": [
+      "/home/saasbook/test3/app/helpers/delivery_points_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/ingredients_helper.rb": [
+      "/home/saasbook/test3/app/helpers/ingredients_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/items_helper.rb": [
+      "/home/saasbook/test3/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/main_helper.rb": [
+      "/home/saasbook/test3/app/helpers/main_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/menus_helper.rb": [
+      "/home/saasbook/test3/app/helpers/menus_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/phone_numbers_helper.rb": [
+      "/home/saasbook/test3/app/helpers/phone_numbers_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/users_helper.rb": [
+      "/home/saasbook/test3/app/helpers/users_helper.rb": [
         1,
         null,
         null,
@@ -91,11 +91,11 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/vendors_helper.rb": [
+      "/home/saasbook/test3/app/helpers/vendors_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/delivery_areas_controller.rb": [
+      "/home/saasbook/test3/app/controllers/delivery_areas_controller.rb": [
         1,
         null,
         null,
@@ -180,7 +180,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/delivery_area.rb": [
+      "/home/saasbook/test3/app/models/delivery_area.rb": [
         1,
         1,
         null,
@@ -190,7 +190,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/delivery_points_controller.rb": [
+      "/home/saasbook/test3/app/controllers/delivery_points_controller.rb": [
         1,
         null,
         null,
@@ -275,14 +275,14 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/delivery_point.rb": [
+      "/home/saasbook/test3/app/models/delivery_point.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/ingredients_controller.rb": [
+      "/home/saasbook/test3/app/controllers/ingredients_controller.rb": [
         1,
         null,
         null,
@@ -380,13 +380,13 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/ingredient.rb": [
+      "/home/saasbook/test3/app/models/ingredient.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/items_controller.rb": [
+      "/home/saasbook/test3/app/controllers/items_controller.rb": [
         1,
         null,
         null,
@@ -489,7 +489,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/item.rb": [
+      "/home/saasbook/test3/app/models/item.rb": [
         1,
         1,
         1,
@@ -497,13 +497,13 @@
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/main_controller.rb": [
+      "/home/saasbook/test3/app/controllers/main_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/menus_controller.rb": [
+      "/home/saasbook/test3/app/controllers/menus_controller.rb": [
         1,
         null,
         null,
@@ -591,7 +591,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/menu.rb": [
+      "/home/saasbook/test3/app/models/menu.rb": [
         1,
         1,
         1,
@@ -599,7 +599,7 @@
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/phone_numbers_controller.rb": [
+      "/home/saasbook/test3/app/controllers/phone_numbers_controller.rb": [
         1,
         null,
         null,
@@ -684,14 +684,14 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/phone_number.rb": [
+      "/home/saasbook/test3/app/models/phone_number.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/users_controller.rb": [
+      "/home/saasbook/test3/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -790,7 +790,7 @@
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/vendors_controller.rb": [
+      "/home/saasbook/test3/app/controllers/vendors_controller.rb": [
         1,
         null,
         null,
@@ -875,7 +875,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/vendor.rb": [
+      "/home/saasbook/test3/app/models/vendor.rb": [
         1,
         1,
         1,
@@ -884,7 +884,7 @@
         null
       ]
     },
-    "timestamp": 1384155895
+    "timestamp": 1384158022
   },
   "Cucumber Features": {
     "coverage": {
