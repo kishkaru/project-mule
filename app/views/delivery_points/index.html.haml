@@ -1,0 +1,23 @@
+%h1 Listing delivery_points
+%table
+  %tr
+    %th Address
+    %th Latitude
+    %th Longitude
+    %th Customer
+    %th Delivery area
+    %th
+    %th
+    %th
+  - @delivery_points.each do |delivery_point|
+    %tr
+      %td= delivery_point.address
+      %td= delivery_point.latitude
+      %td= delivery_point.longitude
+      %td= delivery_point.customer
+      %td= delivery_point.delivery_area
+      %td= link_to 'Show', delivery_point
+      %td= link_to 'Edit', edit_delivery_point_path(delivery_point)
+      %td= link_to 'Destroy', delivery_point, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Delivery point', new_delivery_point_path

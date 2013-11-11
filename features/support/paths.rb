@@ -14,13 +14,16 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      root_path
 
     when /^the all_items page$/
 	    items_path
 
 	when /^the create_new_item page$/
 	  new_item_path
+
+    when /^the Show Menu page$/
+      menu_path(Menu.first)
 
     when /^the users page$/
       users_path
