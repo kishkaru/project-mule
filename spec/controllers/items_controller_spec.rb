@@ -65,7 +65,7 @@ describe ItemsController do
     describe "with valid params" do
       it "creates a new Item" do
         expect {
-          post :create, {:item => valid_attributes}, valid_session
+        post :create, {:item => valid_attributes}, valid_session
         }.to change(Item, :count).by(1)
       end
 
