@@ -42,13 +42,26 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(params[:ingredient])
 
-    respond_to do |format|
-      if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
-        format.json { render json: @ingredient, status: :created, location: @ingredient }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+    broken = false
+    @ingredient.attributes.each do |name, value|
+      if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" ))
+        broken = true
+        #puts "name: #{name} value: #{value}"
+        break
+      end
+    end
+
+    if broken
+      redirect_to new_ingredient_path, notice: 'Error: empty fields!'
+    else
+      respond_to do |format|
+        if @ingredient.save
+          format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
+          format.json { render json: @ingredient, status: :created, location: @ingredient }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

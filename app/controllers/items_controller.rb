@@ -42,20 +42,23 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
   
-	puts "LASERS"
-	puts @item.attributes
-
     broken = false
+    time1 = Time.new
+    @item.created_at = time1.inspect
+    @item.updated_at = time1.inspect
+
     @item.attributes.each do |name, value|
-      if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" ))
-		broken = true
-		puts "name: #{name} value: #{value}"        
-		break
+      if ((value == nil || value == "") && (name != "id" && name != "menu_id" ))
+	      broken = true
+		    #puts "name: #{name} value: #{value}"
+		    break
       end
     end
-    
-	if !broken
-		respond_to do |format|
+
+	  if broken
+      redirect_to new_item_path, notice: 'Error: empty fields!'
+    else
+		  respond_to do |format|
 		  if @item.save
 		    format.html { redirect_to @item, notice: 'Item was successfully created.' }
 		    format.json { render json: @item, status: :created, location: @item }
@@ -63,10 +66,8 @@ class ItemsController < ApplicationController
 		    format.html { render action: "new" }
 		    format.json { render json: @item.errors, status: :unprocessable_entity }
 		  end 
-		end
-	else
-		redirect_to new_item_path, notice: 'Error: empty fields!'
-	end
+		  end
+	  end
 	
   end
 
