@@ -16,6 +16,7 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+<<<<<<< HEAD
 	  when /^the all_items page$/
 	    items_path
 
@@ -28,8 +29,30 @@ module NavigationHelpers
     when /^the create_new_ingredient page$/
       new_ingredient_path
 	
+=======
+    when /^the all_items page$/
+      items_path
 
-    # Add more mappings here.
+    when /^the create_new_item page$/
+      new_item_path
+>>>>>>> 5466283403bc441220c7cab01f50ca6dec52a28e
+
+    when /^the new vendor page$/
+      new_vendor_path
+
+    when /^the show vendors page$/
+      vendors_path
+
+    when /^the vendor page for "(.*)"/
+      vendor_path(Vendor.find_by_name($1).id)
+ 
+    when /^the item page for "(.*)"/
+      item_path(Item.find_by_name($1).id)
+
+    when /^the show items page$/
+      items_path
+
+#number Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i

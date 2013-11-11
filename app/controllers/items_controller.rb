@@ -43,11 +43,21 @@ class ItemsController < ApplicationController
     @item = Item.new(params[:item])
   
     broken = false
+    time1 = Time.new
+    @item.created_at = time1.inspect
+    @item.updated_at = time1.inspect
     @item.attributes.each do |name, value|
+<<<<<<< HEAD
       if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" && name != "menu_id" ))
 		    broken = true
 		    #puts "name: #{name} value: #{value}"
 		    break
+=======
+      if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" && name != "vendor_id" && name != "menu_id"))
+		broken = true
+		puts "name: #{name} value: #{value}"        
+		break
+>>>>>>> 5466283403bc441220c7cab01f50ca6dec52a28e
       end
     end
     
