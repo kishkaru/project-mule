@@ -6,7 +6,8 @@ describe "items/show" do
       :name => "Name",
       :price => 1.5,
       :description => "MyText",
-      :quantity => 1
+      :quantity => 1,
+      :vendor => stub_model(Vendor, :name => 'Chipotle')
     ))
   end
 
