@@ -1,4 +1,16 @@
 class UsersController < ApplicationController
+
+  before_filter :verify_if_admin
+
+  def verify_if_admin
+    if current_user.nil?
+      redirect_to(root_path) and return
+    else
+      redirect_to(root_path) and return unless current_user.admin?
+    end
+  end
+
+  include UsersHelper
   # GET /users
   # GET /users.json
   def index
@@ -40,10 +52,10 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new
 
     respond_to do |format|
-      if @user.save
+      if update_user_attributes(@user)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -59,7 +71,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if update_user_attributes(@user)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,4 +92,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private :verify_if_admin
 end

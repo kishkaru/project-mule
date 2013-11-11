@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %b Role:
+  = User::ROLES_MAPPING[@user.role]
+%p
+  %b First Name:
+  = @user.first_name
+%p
+  %b Last Name:
+  = @user.last_name
+%p
+  %b Email:
+  = @user.email
+= link_to 'Edit', edit_user_path(@user)
+|
+\#{link_to 'Back', users_path}
