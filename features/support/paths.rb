@@ -16,14 +16,28 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/items'
 
-	when /^the all_items page$/
-	  items_path
+    when /^the all_items page$/
+      items_path
 
-	when /^the create_new_item page$/
-	  new_item_path
-	
+    when /^the create_new_item page$/
+      new_item_path
 
-    # Add more mappings here.
+    when /^the new vendor page$/
+      new_vendor_path
+
+    when /^the show vendors page$/
+      vendors_path
+
+    when /^the vendor page for "(.*)"/
+      vendor_path(Vendor.find_by_name($1).id)
+ 
+    when /^the item page for "(.*)"/
+      item_path(Item.find_by_name($1).id)
+
+    when /^the show items page$/
+      items_path
+
+#number Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i
