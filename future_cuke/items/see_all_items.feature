@@ -13,7 +13,7 @@ Feature: see all the items
 
   Scenario: admin should see all items 
 
-  Given I am on the show items page
+  Given I am on the all_items page
   Then I should see "Cheese Pizza"
   And I should see "Latte"
   And I should see "Green Salad"
