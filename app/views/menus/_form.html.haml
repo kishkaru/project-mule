@@ -1,0 +1,19 @@
+= form_for(@menu) do |f|
+  - if @menu.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@menu.errors.count, "error")
+        prohibited this menu from being saved:
+      %ul
+        - @menu.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    .form-group
+      %label{for: "menu-date"} What Day is this Menu For?
+      %input#menu-date.form-control{name: "menu[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.to_date) }
+    .form-group
+      %label{for: "menu-template"} Choose a Menu to start from?
+      %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
+        %option{value: "blank"} Blank Menu
+  .actions
+    = f.submit( class: "btn btn-primary" )
