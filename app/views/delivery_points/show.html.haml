@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %b Address:
+  = @delivery_point.address
+%p
+  %b Latitude:
+  = @delivery_point.latitude
+%p
+  %b Longitude:
+  = @delivery_point.longitude
+%p
+  %b Customer:
+  = @delivery_point.customer
+%p
+  %b Delivery area:
+  = @delivery_point.delivery_area
+= link_to 'Edit', edit_delivery_point_path(@delivery_point)
+|
+\#{link_to 'Back', delivery_points_path}
