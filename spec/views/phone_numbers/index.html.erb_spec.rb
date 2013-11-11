@@ -29,7 +29,6 @@ describe "phone_numbers/index" do
     assert_select "tr>td", :text => "Area".to_s, :count => 2
     assert_select "tr>td", :text => "Number".to_s, :count => 2
     assert_select "tr>td", :text => "Extension".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 4
   end
 end
