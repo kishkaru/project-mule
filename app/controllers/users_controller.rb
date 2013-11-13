@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :verify_if_admin
+  before_filter :verify_if_admin, :except => [:dashboard]
 
   def verify_if_admin
     if current_user.nil?
@@ -90,6 +90,22 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+
+  def dashboard
+    role = current_user.role
+    case role
+    when User::ADMIN
+
+    when User::VENDOR
+
+    when User::SERVER
+
+    when USER::CUSTOMER
+
+    else
+
     end
   end
 

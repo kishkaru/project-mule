@@ -6,6 +6,7 @@
     %script{src: "//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"}
     %script{src: "http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"}
     %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"}
+    %script{src: '/script/dropdown_test.js'}
     %title ProjectMule
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
@@ -26,9 +27,14 @@
           %li.divider-vertical
           %li
             %a{href: "#"} About
-          %li
-            = image_tag('/admin_icon.png', :alt => 'Admin Icon', :id => 'admin-icon')
           - if (user_signed_in?)
+            %li.dropdown{:id => 'list_item'}
+              %a{href: dashboard_path, 'data-toggle' => 'dropdown', :id => 'the_link'}
+                = image_tag('/user_icon.png', :alt => 'Dashboard', :id => 'user-icon')
+              %ul.dropdown-menu
+                %li hi
+                %li bye
+                %li hello
             %li
               = link_to 'Logout', destroy_user_session_path, method: :delete
           - else

@@ -32,4 +32,16 @@ class User < ActiveRecord::Base
   def admin?
     role == User::ADMIN
   end
+
+  def customer?
+    role == User::CUSTOMER
+  end
+
+  def vendor?
+    role == User::VENDOR
+  end
+
+  def server?
+    role == User::SERVER
+  end
 end

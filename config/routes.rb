@@ -18,6 +18,8 @@ Projectmule::Application.routes.draw do
   put '/admin/users/:id', :to => 'users#update'
   delete '/admin/users/:id', :to => 'users#destroy'
 
+  get '/dashboard', :to => 'users#dashboard', :as => :dashboard
+
   resources :vendors
 
 
