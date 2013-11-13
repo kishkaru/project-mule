@@ -5,9 +5,8 @@ Feature: Home Page
     I want to be able to Create an Account
 
 Background: On the Home Page
-    Given I am on page "Home"
+    Given I am on the home page
 
-Scenario: successfully see all delivery points
-    When I type "user@luckybolt.com" into "enter-email"
-    And I click "sign-up"
-    Then I should be on page "sign_up"
+Scenario: Sign Up
+    When I follow "Login"
+    Then I should be on the login page

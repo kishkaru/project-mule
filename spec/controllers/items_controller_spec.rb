@@ -93,7 +93,7 @@ describe ItemsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Item.any_instance.stub(:save).and_return(false)
         post :create, {:item => { "name" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        response.should redirect_to(new_item_path)
       end
     end
   end

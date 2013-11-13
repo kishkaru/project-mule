@@ -4,7 +4,7 @@
   = @item.name
 %p
   %b Vendor:
-  = @item.vendor.name
+  = @item.vendor ? @item.vendor.name : ""
 %p
   %b Price:
   = "$ #{@item.price}"

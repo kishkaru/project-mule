@@ -6,11 +6,11 @@ Feature: see all items
 
 Background: items have been added to database
 
-	Given the following items exist:
-	| Address | Latitude| Longitude| Delivery Area |
-	| 2650_Durant_Ave_94704) | 15.7 | 45.6 | Unit_1|
-	| 2521_Hearst_Ave_94704) | 26.3 | 76.7 | Soda  |
-	| 2727_Dwight_Way_94704) | 32.2 | 23.3 | G_house|
+    Given the following delivery_points exist:
+    | address               | lattitude | longtitude | delivery_area |
+    | 2650_Durant_Ave_94704 |      15.7 |       45.6 | Unit_1        |
+    | 2521_Hearst_Ave_94704 |      26.3 |       76.7 | Soda          |
+    | 2727_Dwight_Way_94704 |      32.2 |       23.3 | G_house       |
 
 	And I am on the all_delivery_points page
 

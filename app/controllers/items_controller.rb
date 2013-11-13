@@ -47,7 +47,9 @@ class ItemsController < ApplicationController
                 format.html { redirect_to @item, notice: 'Item was successfully created.' }
                 format.json { render json: @item, status: :created, location: @item }
             else
-                format.html { render action: "new" }
+                flash[:error] = "Error: empty fields!"
+                flash.keep
+                format.html { redirect_to action: "new" }
                 format.json { render json: @item.errors, status: :unprocessable_entity }
             end
         end
