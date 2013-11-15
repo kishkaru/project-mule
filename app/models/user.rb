@@ -3,14 +3,14 @@ class User < ActiveRecord::Base
     ADMIN = 1
     VENDOR = 2
     SERVER = 3
-    CUSTOMER = 4 
+    CUSTOMER = 4
 
     ROLES_MAPPING = {1 => 'Admin', 2 => 'Vendor', 3 => 'Server', 4 => 'Customer'}
 
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+        :recoverable, :rememberable, :trackable, :validatable
 
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :password, :password_confirmation, :remember_me
@@ -20,16 +20,16 @@ class User < ActiveRecord::Base
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
 
-  def self.admin_updateable_nonrelational_attributes
+    def self.admin_updateable_nonrelational_attributes
         [:role,
-          :password,
-          :password_confirmation,
-          :first_name,
-          :last_name,
-          :email]
-  end
+            :password,
+            :password_confirmation,
+            :first_name,
+            :last_name,
+            :email]
+    end
 
-  def admin?
-    role == User::ADMIN
-  end
+    def admin?
+        role == User::ADMIN
+    end
 end
