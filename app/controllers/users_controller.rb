@@ -7,6 +7,7 @@ class UsersController < ApplicationController
       redirect_to(root_path) and return
     else
       redirect_to(root_path) and return unless current_user.admin?
+      #redirect_to(dashboard_path) and return
     end
   end
 
@@ -94,19 +95,19 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    role = current_user.role
-    case role
-    when User::ADMIN
+      role = current_user.role
+      case role
+      when User::ADMIN
+          render('dashboard_admin')
+      when User::VENDOR
+          render('dashboard_vendor')
+      when User::SERVER
+          render('dashboard_server')
+      when User::CUSTOMER
+          render('dashboard_customer')
+      else
 
-    when User::VENDOR
-
-    when User::SERVER
-
-    when USER::CUSTOMER
-
-    else
-
-    end
+      end
   end
 
   private :verify_if_admin
