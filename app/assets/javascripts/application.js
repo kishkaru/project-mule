@@ -13,8 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-$( document ).ready( function() {
-	$('#user-icon').hover(function() {
-		$(this).trigger('click');
-	});
-})
