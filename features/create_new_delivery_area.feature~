@@ -14,7 +14,10 @@ Scenario: create a new delivery area
    Given I am on the New delivery_area page
    When I fill in "Name" with "Mission"
    And I press "Create Delivery area"
-   Then I should see "Mission"
+   Then I should see "Delivery area was successfully created."
+   When I follow "Back"
+   Then I should be on the Listing delivery_areas page
+   And I should see "Mission"
 
  Scenario: fail to create delivery area
    Given I am on the New delivery_area page

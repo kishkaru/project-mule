@@ -1,8 +1,8 @@
 Feature: create a new DeliveryArea to be stored in the database
 
-  As an admin
-  So that I can tell Servers exactly where the DeliverPoints are
-  I want to store a DeliveryArea in the database
+As an admin
+So that I can tell Servers exactly where the DeliverPoints are
+I want to store a DeliveryArea in the database
 
  
  Scenario: get form to create new DeliveryArea
