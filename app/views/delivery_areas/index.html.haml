@@ -1,0 +1,17 @@
+%h1 Listing delivery_areas
+%table
+  %tr
+    %th Name
+    %th User
+    %th
+    %th
+    %th
+  - @delivery_areas.each do |delivery_area|
+    %tr
+      %td= delivery_area.name
+      %td= delivery_area.user
+      %td= link_to 'Show', delivery_area
+      %td= link_to 'Edit', edit_delivery_area_path(delivery_area)
+      %td= link_to 'Destroy', delivery_area, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Delivery area', new_delivery_area_path

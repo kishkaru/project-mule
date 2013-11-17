@@ -20,141 +20,141 @@ require 'spec_helper'
 
 describe MenusController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Menu. As you add validations to Menu, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) { { "date" => "2013-10-27 01:01:21" } }
+    # This should return the minimal set of attributes required to create a valid
+    # Menu. As you add validations to Menu, be sure to
+    # adjust the attributes here as well.
+    let(:valid_attributes) { { "date" => "2013-10-27 01:01:21" } }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # MenusController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+    # This should return the minimal set of values that should be in the session
+    # in order to pass any filters (e.g. authentication) defined in
+    # MenusController. Be sure to keep this updated too.
+    let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all menus as @menus" do
-      menu = Menu.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:menus).should eq([menu])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested menu as @menu" do
-      menu = Menu.create! valid_attributes
-      get :show, {:id => menu.to_param}, valid_session
-      assigns(:menu).should eq(menu)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new menu as @menu" do
-      get :new, {}, valid_session
-      assigns(:menu).should be_a_new(Menu)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested menu as @menu" do
-      menu = Menu.create! valid_attributes
-      get :edit, {:id => menu.to_param}, valid_session
-      assigns(:menu).should eq(menu)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Menu" do
-        expect {
-          post :create, {:menu => valid_attributes}, valid_session
-        }.to change(Menu, :count).by(1)
-      end
-
-      it "assigns a newly created menu as @menu" do
-        post :create, {:menu => valid_attributes}, valid_session
-        assigns(:menu).should be_a(Menu)
-        assigns(:menu).should be_persisted
-      end
-
-      it "redirects to the created menu" do
-        post :create, {:menu => valid_attributes}, valid_session
-        response.should redirect_to(Menu.last)
-      end
+    describe "GET index" do
+        it "assigns all menus as @menus" do
+            menu = Menu.create! valid_attributes
+            get :index, {}, valid_session
+            assigns(:menus).should eq([menu])
+        end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved menu as @menu" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Menu.any_instance.stub(:save).and_return(false)
-        post :create, {:menu => { "date" => "invalid value" }}, valid_session
-        assigns(:menu).should be_a_new(Menu)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Menu.any_instance.stub(:save).and_return(false)
-        post :create, {:menu => { "date" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested menu" do
-        menu = Menu.create! valid_attributes
-        # Assuming there are no other menus in the database, this
-        # specifies that the Menu created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Menu.any_instance.should_receive(:update_attributes).with({ "date" => "2013-10-27 01:01:21" })
-        put :update, {:id => menu.to_param, :menu => { "date" => "2013-10-27 01:01:21" }}, valid_session
-      end
-
-      it "assigns the requested menu as @menu" do
-        menu = Menu.create! valid_attributes
-        put :update, {:id => menu.to_param, :menu => valid_attributes}, valid_session
-        assigns(:menu).should eq(menu)
-      end
-
-      it "redirects to the menu" do
-        menu = Menu.create! valid_attributes
-        put :update, {:id => menu.to_param, :menu => valid_attributes}, valid_session
-        response.should redirect_to(menu)
-      end
+    describe "GET show" do
+        it "assigns the requested menu as @menu" do
+            menu = Menu.create! valid_attributes
+            get :show, {:id => menu.to_param}, valid_session
+            assigns(:menu).should eq(menu)
+        end
     end
 
-    describe "with invalid params" do
-      it "assigns the menu as @menu" do
-        menu = Menu.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Menu.any_instance.stub(:save).and_return(false)
-        put :update, {:id => menu.to_param, :menu => { "date" => "invalid value" }}, valid_session
-        assigns(:menu).should eq(menu)
-      end
-
-      it "re-renders the 'edit' template" do
-        menu = Menu.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Menu.any_instance.stub(:save).and_return(false)
-        put :update, {:id => menu.to_param, :menu => { "date" => "invalid value" }}, valid_session
-        response.should render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE destroy" do
-    it "destroys the requested menu" do
-      menu = Menu.create! valid_attributes
-      expect {
-        delete :destroy, {:id => menu.to_param}, valid_session
-      }.to change(Menu, :count).by(-1)
+    describe "GET new" do
+        it "assigns a new menu as @menu" do
+            get :new, {}, valid_session
+            assigns(:menu).should be_a_new(Menu)
+        end
     end
 
-    it "redirects to the menus list" do
-      menu = Menu.create! valid_attributes
-      delete :destroy, {:id => menu.to_param}, valid_session
-      response.should redirect_to(menus_url)
+    describe "GET edit" do
+        it "assigns the requested menu as @menu" do
+            menu = Menu.create! valid_attributes
+            get :edit, {:id => menu.to_param}, valid_session
+            assigns(:menu).should eq(menu)
+        end
     end
-  end
+
+    describe "POST create" do
+        describe "with valid params" do
+            it "creates a new Menu" do
+                expect {
+                    post :create, {:menu => valid_attributes}, valid_session
+                }.to change(Menu, :count).by(1)
+            end
+
+            it "assigns a newly created menu as @menu" do
+                post :create, {:menu => valid_attributes}, valid_session
+                assigns(:menu).should be_a(Menu)
+                assigns(:menu).should be_persisted
+            end
+
+            it "redirects to the created menu" do
+                post :create, {:menu => valid_attributes}, valid_session
+                response.should redirect_to(Menu.last)
+            end
+        end
+
+        describe "with invalid params" do
+            it "assigns a newly created but unsaved menu as @menu" do
+                # Trigger the behavior that occurs when invalid params are submitted
+                Menu.any_instance.stub(:save).and_return(false)
+                post :create, {:menu => { "date" => "invalid value" }}, valid_session
+                assigns(:menu).should be_a_new(Menu)
+            end
+
+            it "re-renders the 'new' template" do
+                # Trigger the behavior that occurs when invalid params are submitted
+                Menu.any_instance.stub(:save).and_return(false)
+                post :create, {:menu => { "date" => "invalid value" }}, valid_session
+                response.should render_template("new")
+            end
+        end
+    end
+
+    describe "PUT update" do
+        describe "with valid params" do
+            it "updates the requested menu" do
+                menu = Menu.create! valid_attributes
+                # Assuming there are no other menus in the database, this
+                # specifies that the Menu created on the previous line
+                # receives the :update_attributes message with whatever params are
+                # submitted in the request.
+                Menu.any_instance.should_receive(:update_attributes).with({ "date" => "2013-10-27 01:01:21" })
+                put :update, {:id => menu.to_param, :menu => { "date" => "2013-10-27 01:01:21" }}, valid_session
+            end
+
+            it "assigns the requested menu as @menu" do
+                menu = Menu.create! valid_attributes
+                put :update, {:id => menu.to_param, :menu => valid_attributes}, valid_session
+                assigns(:menu).should eq(menu)
+            end
+
+            it "redirects to the menu" do
+                menu = Menu.create! valid_attributes
+                put :update, {:id => menu.to_param, :menu => valid_attributes}, valid_session
+                response.should redirect_to(menu)
+            end
+        end
+
+        describe "with invalid params" do
+            it "assigns the menu as @menu" do
+                menu = Menu.create! valid_attributes
+                # Trigger the behavior that occurs when invalid params are submitted
+                Menu.any_instance.stub(:save).and_return(false)
+                put :update, {:id => menu.to_param, :menu => { "date" => "invalid value" }}, valid_session
+                assigns(:menu).should eq(menu)
+            end
+
+            it "re-renders the 'edit' template" do
+                menu = Menu.create! valid_attributes
+                # Trigger the behavior that occurs when invalid params are submitted
+                Menu.any_instance.stub(:save).and_return(false)
+                put :update, {:id => menu.to_param, :menu => { "date" => "invalid value" }}, valid_session
+                response.should render_template("edit")
+            end
+        end
+    end
+
+    describe "DELETE destroy" do
+        it "destroys the requested menu" do
+            menu = Menu.create! valid_attributes
+            expect {
+                delete :destroy, {:id => menu.to_param}, valid_session
+            }.to change(Menu, :count).by(-1)
+        end
+
+        it "redirects to the menus list" do
+            menu = Menu.create! valid_attributes
+            delete :destroy, {:id => menu.to_param}, valid_session
+            response.should redirect_to(menus_url)
+        end
+    end
 
 end

@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %b Country:
+  = @phone_number.country
+%p
+  %b Area:
+  = @phone_number.area
+%p
+  %b Number:
+  = @phone_number.number
+%p
+  %b Extension:
+  = @phone_number.extension
+%p
+  %b Vendor:
+  = @phone_number.vendor
+%p
+  %b User:
+  = @phone_number.user
+= link_to 'Edit', edit_phone_number_path(@phone_number)
+|
+\#{link_to 'Back', phone_numbers_path}

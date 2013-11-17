@@ -1,9 +1,9 @@
 class CreateIngredients < ActiveRecord::Migration
-  def change
-    create_table :ingredients do |t|
-      t.string :name
+    def change
+        create_table :ingredients do |t|
+            t.string :name
 
-      t.timestamps
+            t.timestamps
+        end
     end
-  end
 end

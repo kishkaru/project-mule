@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+    describe 'should return the list of nonrelational attributes' do
+        User.admin_updateable_nonrelational_attributes.should == [:role,
+            :password,
+            :password_confirmation,
+            :first_name,
+            :last_name,
+            :email]
+    end
 end

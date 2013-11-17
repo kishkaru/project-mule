@@ -1,0 +1,18 @@
+#create-menu.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "create-menu", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      = form_for(Menu.new) do
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#myModalLabel.modal-title Create Menu
+          .modal-body
+            .form-group
+              %label{for: "menu-date"} What Day is this Menu For?
+              %input#menu-date.form-control{name: "menu[date]", placeholder: "Enter Date", type: "date", value: Date.tomorrow }
+            .form-group
+              %label{for: "menu-template"} Choose a Menu to start from?
+              %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
+                %option{value: "blank"} Blank Menu
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+          = submit_tag "Create", class: "btn btn-primary"

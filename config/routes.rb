@@ -1,28 +1,33 @@
 Projectmule::Application.routes.draw do
 
-  resources :phone_numbers
+    resources :phone_numbers
 
 
-  resources :delivery_points
+    resources :delivery_points
 
 
-  resources :delivery_areas
+    resources :delivery_areas
+
+    devise_for :users 
+    
+    get '/admin/users', :to => 'users#index', :as => :users
+    post '/admin/users', :to => 'users#create'
+    get '/admin/users/new', :to => 'users#new', :as => :new_user
+    get '/admin/users/:id/edit', :to => 'users#edit', :as => :edit_user
+    get '/admin/users/:id', :to => 'users#show', :as => :user
+    put '/admin/users/:id', :to => 'users#update'
+    delete '/admin/users/:id', :to => 'users#destroy'
+
+    resources :vendors
 
 
-  resources :users
-  devise_for :users
+    resources :menus
 
 
-  resources :vendors
+    resources :ingredients
 
 
-  resources :menus
-
-
-  resources :ingredients
-
-
-  resources :items
+    resources :items
 
 
     root :to => 'main#home'

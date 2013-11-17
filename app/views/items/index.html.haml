@@ -3,6 +3,7 @@
 %table.table.table-centered
   %tr
     %th Name
+    %th Vendor
     %th Price
     %th Description
     %th Quantity
@@ -13,7 +14,8 @@
   - @items.each do |item|
     %tr
       %td= item.name
-      %td= item.price
+      %td= item.vendor ? item.vendor.name : ""
+      %td= "$ #{item.price}"
       %td= item.description
       %td= item.quantity
       %td= item.expires_at
