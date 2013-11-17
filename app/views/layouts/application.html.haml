@@ -28,13 +28,24 @@
           %li
             %a{href: "#"} About
           - if (user_signed_in?)
-            %li.dropdown{:id => 'list_item'}
-              %a{href: dashboard_path, 'data-toggle' => 'dropdown', :id => 'the_link'}
-                = image_tag('/user_icon.png', :alt => 'Dashboard', :id => 'user-icon')
-              %ul.dropdown-menu
-                %li hi
-                %li bye
-                %li hello
+            %li.dropdown
+              %a{href: dashboard_path, 'data-toggle' => 'dropdown'}
+                = image_tag('/user_icon.png', :alt => 'Dashboard')
+              %ul.dropdown-menu.col-md-3
+                %li
+                  %a{href: users_path}Users
+                %li
+                  %a{href: menus_path}Menus
+                %li
+                  %a{href: vendors_path}Vendors
+                %li
+                  %a{href: items_path}Items
+                %li
+                  %a{href: ingredients_path}Ingredients
+                %li
+                  %a{href: delivery_areas_path}Delivery Areas
+                %li
+                  %a{href: delivery_points_path}Delivery Points
             %li
               = link_to 'Logout', destroy_user_session_path, method: :delete
           - else
