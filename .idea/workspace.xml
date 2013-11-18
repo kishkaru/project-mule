@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/step_definitions/address_steps.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/address/create_new_address.feature" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/phone_number/create_new_phone_number.feature" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/vendors/create_new_vendor.feature" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/step_definitions/phone_number_steps.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/features/Select/.select_delivery_areas.feature.swp" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/features/vendors/creat_vendor.feature" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/features/Select/select_area_steps.rb" afterPath="$PROJECT_DIR$/features/step_definitions/select_area_steps.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.last_run.json" afterPath="$PROJECT_DIR$/coverage/.last_run.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" afterPath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/Item/create_new_item.feature" afterPath="$PROJECT_DIR$/features/Item/create_new_item.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/support/paths.rb" afterPath="$PROJECT_DIR$/features/support/paths.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/vendors/see_all_vendors.feature" afterPath="$PROJECT_DIR$/features/vendors/see_all_vendors.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/features/vendors/create_vendor.feature" afterPath="" />
     </list>
     <ignored path="project-mule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,10 +52,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="item.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/item.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="18" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="59" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
+            <state line="76" column="62" selection-start="2901" selection-end="2901" vertical-scroll-proportion="0.5697674">
               <folding />
             </state>
           </provider>
@@ -79,16 +73,16 @@
       <file leaf-file-name="item_steps.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/step_definitions/item_steps.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="51" selection-start="0" selection-end="512" vertical-scroll-proportion="0.0">
+            <state line="3" column="26" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_new_item.feature" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="create_new_item.feature" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/Item/create_new_item.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="42" selection-start="1808" selection-end="1808" vertical-scroll-proportion="0.6627907">
+            <state line="28" column="26" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -840,23 +834,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/features/step_definitions/item_steps.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="51" selection-start="0" selection-end="512" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/features/phone_number/create_new_phone_number.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="673" selection-end="673" vertical-scroll-proportion="0.23255815">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/item.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="30" selection-start="245" selection-end="245" vertical-scroll-proportion="0.034883723">
           <folding />
         </state>
       </provider>
@@ -878,13 +858,6 @@
     <entry file="file://$PROJECT_DIR$/features/Item/see_all_items.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="149" selection-start="580" selection-end="580" vertical-scroll-proportion="0.1744186">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="59" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -931,9 +904,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/item_steps.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="26" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/features/Item/create_new_item.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="42" selection-start="1808" selection-end="1808" vertical-scroll-proportion="0.6627907">
+        <state line="28" column="26" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/item.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="18" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="62" selection-start="2901" selection-end="2901" vertical-scroll-proportion="0.5697674">
           <folding />
         </state>
       </provider>
