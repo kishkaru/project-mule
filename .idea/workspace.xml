@@ -2,23 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/step_definitions/vendor_steps.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/step_definitions/address_steps.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/address/create_new_address.feature" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/phone_number/create_new_phone_number.feature" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/vendors/create_new_vendor.feature" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/step_definitions/phone_number_steps.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/future_cuke/Ingredient/create_new_ingredient.feature" afterPath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/future_cuke/Ingredient/see_all_ingredients.feature" afterPath="$PROJECT_DIR$/features/Ingredient/see_all_ingredients.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/future_cuke/vendors/creat_vendor.feature" afterPath="$PROJECT_DIR$/features/vendors/creat_vendor.feature" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/future_cuke/vendors/see_all_vendors.feature" afterPath="$PROJECT_DIR$/features/vendors/see_all_vendors.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/features/Select/.select_delivery_areas.feature.swp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/features/vendors/creat_vendor.feature" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/features/Select/select_area_steps.rb" afterPath="$PROJECT_DIR$/features/step_definitions/select_area_steps.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.last_run.json" afterPath="$PROJECT_DIR$/coverage/.last_run.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" afterPath="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/Item/create_new_item.feature" afterPath="$PROJECT_DIR$/features/Item/create_new_item.feature" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/future_cuke/items/see_all_items.feature" afterPath="$PROJECT_DIR$/future_cuke/items/see_all_items.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/support/paths.rb" afterPath="$PROJECT_DIR$/features/support/paths.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/vendors/see_all_vendors.feature" afterPath="$PROJECT_DIR$/features/vendors/see_all_vendors.feature" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project-mule.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384143173505" ignored="false" />
-    <file path="/paths.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053434425" ignored="false" />
+    <file path="/Dummy.txt" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384739540835" ignored="false" />
+    <file path="/paths.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384745966382" ignored="false" />
     <file path="/ingredients_controller.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053651364" ignored="false" />
     <file path="/create_new_ingredient.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053974008" ignored="false" />
     <file path="/ingredient_steps.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384053870620" ignored="false" />
@@ -30,10 +36,18 @@
     <file path="/item.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384067469913" ignored="false" />
     <file path="/show.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384067628116" ignored="false" />
     <file path="/index.html.haml" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384067598589" ignored="false" />
-    <file path="/create_new_item.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384070679166" ignored="false" />
+    <file path="/create_new_item.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384749918022" ignored="false" />
     <file path="/see_all_items.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384144019859" ignored="false" />
     <file path="/vendor_steps.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384143894004" ignored="false" />
     <file path="$PROJECT_DIR$/coverage/assets/0.7.1/application.js" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384144269869" ignored="false" />
+    <file path="/create_new_phone_number.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384747078068" ignored="false" />
+    <file path="/phone_number.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384746633932" ignored="false" />
+    <file path="/create_new_address.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384747083218" ignored="false" />
+    <file path="/create_vendor.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384748412689" ignored="false" />
+    <file path="/see_all_vendors.feature" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384748893077" ignored="false" />
+    <file path="/phone_number_steps.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384749780764" ignored="false" />
+    <file path="/address_steps.rb" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384749835077" ignored="false" />
+    <file path="/.gitignore" changelist="8a5bdf75-ffd1-47ac-b63b-4fdd85a3478f" time="1384750013377" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,37 +67,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="item.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/item.rb">
+      <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="22" selection-start="261" selection-end="261" vertical-scroll-proportion="-11.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paths.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/features/support/paths.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="34" selection-start="797" selection-end="797" vertical-scroll-proportion="0.6068966">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="items_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="37" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0">
+            <state line="51" column="59" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -92,7 +79,16 @@
       <file leaf-file-name="item_steps.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/step_definitions/item_steps.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="45" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
+            <state line="18" column="51" selection-start="0" selection-end="512" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_new_item.feature" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/features/Item/create_new_item.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="42" selection-start="1808" selection-end="1808" vertical-scroll-proportion="0.6627907">
               <folding />
             </state>
           </provider>
@@ -116,21 +112,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/features/create_new_item.feature" />
-        <option value="$PROJECT_DIR$/app/controllers/ingredients_controller.rb" />
-        <option value="$PROJECT_DIR$/features/step_definitions/ingredient_steps.rb" />
-        <option value="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
-        <option value="$PROJECT_DIR$/app/views/items/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/models/item.rb" />
-        <option value="$PROJECT_DIR$/app/views/items/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/items/show.html.haml" />
-        <option value="$PROJECT_DIR$/features/Item/create_new_item.feature" />
-        <option value="$PROJECT_DIR$/features/step_definitions/item_steps.rb" />
         <option value="$PROJECT_DIR$/features/Item/see_all_items.feature" />
         <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
         <option value="$PROJECT_DIR$/features/step_definitions/vendor_steps.rb" />
         <option value="$PROJECT_DIR$/features/items/see_all_items.feature" />
         <option value="$PROJECT_DIR$/features/support/paths.rb" />
+        <option value="$PROJECT_DIR$/app/models/phone_number.rb" />
+        <option value="$PROJECT_DIR$/features/step_definitions/web_steps.rb" />
+        <option value="$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature" />
+        <option value="$PROJECT_DIR$/features/vendors/create_vendor.feature" />
+        <option value="$PROJECT_DIR$/features/address/create_new_address.feature" />
+        <option value="$PROJECT_DIR$/features/phone_number/create_new_phone_number.feature" />
+        <option value="$PROJECT_DIR$/features/vendors/see_all_vendors.feature" />
+        <option value="$PROJECT_DIR$/features/step_definitions/phone_number_steps.rb" />
+        <option value="$PROJECT_DIR$/features/step_definitions/address_steps.rb" />
+        <option value="$PROJECT_DIR$/features/Item/create_new_item.feature" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -142,9 +139,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="width" value="1602" />
-    <option name="height" value="876" />
+    <option name="x" value="1599" />
+    <option name="width" value="2562" />
+    <option name="height" value="1441" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -199,7 +196,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -218,7 +215,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -248,7 +244,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="future_cuke" />
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -276,11 +276,83 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="features" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="step_definitions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone_number" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ingredient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="address" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -295,6 +367,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-mule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,6 +408,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,23 +425,23 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="419" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="425" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1219" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1219" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1219" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="425" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="421" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/features/step_definitions" />
+      <recent name="$PROJECT_DIR$/features/Select" />
       <recent name="$PROJECT_DIR$/features" />
       <recent name="$PROJECT_DIR$/future_cuke" />
       <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/features/Ingredient" />
-      <recent name="$PROJECT_DIR$/features/Item" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: project-mule">
@@ -651,24 +742,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1602" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="1599" y="0" width="2562" height="1441" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15444015" sideWeight="0.6711052" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.096658714" sideWeight="0.6711052" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -735,112 +826,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+    <entry file="file://$PROJECT_DIR$/features/Ingredient/create_new_ingredient.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="26" selection-start="2552" selection-end="2552" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ingredient.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="0.035545025" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="94" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/step_definitions/web_steps.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="2462" selection-end="2493" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/Item/see_all_items.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/item.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/Item/create_new_item.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="68" selection-start="381" selection-end="381" vertical-scroll-proportion="0.24827586">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="66" selection-start="49" selection-end="49" vertical-scroll-proportion="0.021398002">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/show.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="22" selection-start="261" selection-end="261" vertical-scroll-proportion="-11.25">
+        <state line="23" column="43" selection-start="812" selection-end="812" vertical-scroll-proportion="0.26744187">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/features/vendors/see_all_vendors.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="31" selection-start="140" selection-end="140" vertical-scroll-proportion="0.10344828">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="37" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/step_definitions/vendor_steps.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="43" selection-start="131" selection-end="131" vertical-scroll-proportion="0.08275862">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/future_cuke/items/see_all_items.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="45" selection-start="43" selection-end="43" vertical-scroll-proportion="0.04137931">
+        <state line="5" column="134" selection-start="136" selection-end="136" vertical-scroll-proportion="0.058139537">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/features/step_definitions/item_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="45" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
+        <state line="18" column="51" selection-start="0" selection-end="512" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/phone_number/create_new_phone_number.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="673" selection-end="673" vertical-scroll-proportion="0.23255815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/item.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="30" selection-start="245" selection-end="245" vertical-scroll-proportion="0.034883723">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="82" selection-start="748" selection-end="748" vertical-scroll-proportion="0.3255814">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/features/support/paths.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="34" selection-start="797" selection-end="797" vertical-scroll-proportion="0.6068966">
+        <state line="80" column="0" selection-start="1952" selection-end="1952" vertical-scroll-proportion="0.9302326">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/Item/see_all_items.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="149" selection-start="580" selection-end="580" vertical-scroll-proportion="0.1744186">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="59" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/phone_numbers_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="37" selection-start="1303" selection-end="1303" vertical-scroll-proportion="0.54651165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/vendors/create_new_vendor.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="51" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.41860464">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/phone_number_steps.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="53" selection-start="167" selection-end="167" vertical-scroll-proportion="0.058139537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/address_steps.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="71" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/select_area_steps.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="66" selection-start="190" selection-end="190" vertical-scroll-proportion="0.034883723">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="472" selection-end="472" vertical-scroll-proportion="0.22093023">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/Item/create_new_item.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="42" selection-start="1808" selection-end="1808" vertical-scroll-proportion="0.6627907">
           <folding />
         </state>
       </provider>

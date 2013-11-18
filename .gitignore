@@ -14,7 +14,7 @@
 /log/*.log
 /tmp
 
-#Ignore vim undo files
+#Ignore temp files
 *.un~
-
-.DS_Store
+*.swp
+*.DS_Store
