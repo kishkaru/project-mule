@@ -22,3 +22,6 @@ tmp/
 
 # Ignore IDEA files
 .idea/
+
+# Ignore coverage files
+coverage/
