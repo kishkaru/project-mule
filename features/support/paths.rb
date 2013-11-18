@@ -4,6 +4,7 @@
 #
 # You have been warned
 module NavigationHelpers
+
     # Maps a name to a path. Used by the
     #
     #   When /^I go to (.+)$/ do |page_name|
@@ -60,6 +61,19 @@ module NavigationHelpers
         ### DELIVERY POINT ###
         when /^the all_delivery_points page$/
             delivery_points_path
+
+        when /^the Listing delivery_points page$/
+            delivery_points_path
+
+        when /^the new_delivery_point page$/
+            new_delivery_point_path
+
+        ### DELIVERY AREA ###
+        when /^the Listing delivery_areas page$/
+            delivery_areas_path
+
+        when /^the New delivery_area page$/
+            new_delivery_area_path
 
         ### MENU ###
         when /^the Show Menu page$/

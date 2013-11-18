@@ -14,7 +14,11 @@
 /log/*.log
 /tmp
 
-#Ignore temp files
+# Ignore temp files
 *.un~
 *.swp
 *.DS_Store
+*~
+
+# Ignore IDEA files
+/.idea
