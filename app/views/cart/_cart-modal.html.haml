@@ -4,7 +4,7 @@
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4#cartLabel.modal-title Cart
-        .moday-body
+        .modal-body
           %table.table.table-centered
             %tr
               %th Item
@@ -12,6 +12,8 @@
               %th
               %th Price
               %th
+            - total = 0
+            - tax = 0
             - if params[:cart] && params[:cart][:items]
               - params[:cart][:items].keys.each do |id|
                 %tr
@@ -23,6 +25,29 @@
                   %td= Item.find(id).price * params[:cart][:items][id]
                   %td
                     %button Remove
+                - params[:cart][:items].each do |id,qty|
+                  - total = total + Item.find(id).price * qty
+            %tr
+              %td 
+                %b Subtotal
+              %td
+              %td
+              %td= total
+              %td
+            %tr
+              %td
+                %b Tax
+              %td
+              %td
+              %td= tax
+              %td
+            %tr
+              %td
+                %b Total
+              %td
+              %td
+              %td= total + tax
+              %td
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Pay
       
