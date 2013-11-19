@@ -27,6 +27,8 @@
           %li
             %a{href: "#"} About
           %li
+            %a{href: "#cart", data: {toggle: "modal", target: "#cart"} } Cart
+          %li
             = image_tag('/admin_icon.png', :alt => 'Admin Icon', :id => 'admin-icon')
           - if (user_signed_in?)
             %li
@@ -42,4 +44,5 @@
 
     #modals
       = render "menus/new-modal"
+      = render "cart/cart-modal.html.haml"
 

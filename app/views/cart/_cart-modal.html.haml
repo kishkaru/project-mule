@@ -1,0 +1,28 @@
+#cart.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "create-menu", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#cartLabel.modal-title Cart
+        .moday-body
+          %table.table.table-centered
+            %tr
+              %th Item
+              %th Quantity
+              %th
+              %th Price
+              %th
+            - if params[:cart] && params[:cart][:items]
+              - params[:cart][:items].keys.each do |id|
+                %tr
+                  %td= Item.find(id).name
+                  %td= params[:cart][:items][id]
+                  %td
+                    %button +
+                    %button -
+                  %td= Item.find(id).price * params[:cart][:items][id]
+                  %td
+                    %button Remove
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Pay
+      
