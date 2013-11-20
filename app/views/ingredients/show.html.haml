@@ -2,6 +2,6 @@
 %p
   %b Name:
   = @ingredient.name
-= link_to 'Edit', edit_ingredient_path(@ingredient)
+= link_to 'Edit', edit_ingredient_path(@ingredient), :class =>  "btn btn-warning btn-sm"
 |
-\#{link_to 'Back', ingredients_path}
+\#{link_to 'Back', ingredients_path, :class =>  "btn btn-default btn-sm"}

@@ -43,7 +43,8 @@
           item_name.text(input_name.val() + "'s Ingredients");
           })
       = render('ingredients_table', :f => f )
-      = link_to_add_fields("Add Ingredient", f, :ingredients, :class => "btn btn-success btn-sm", :title => "Add a new Ingredient to this Item.")
+      = link_to_add_fields("Add Ingredient", f, :ingredients, :class => "btn btn-success btn-xs", :title => "Add a new Ingredient to this Item.")
 
   .actions
-    = f.submit
+    %br/
+    = f.submit(:class =>  "btn btn-primary btn-sm")
