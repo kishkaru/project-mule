@@ -32,10 +32,18 @@
     %br/
     = f.datetime_select :expires_at
 
-  %fieldset
-    %legend
-      = string = defined?(@item.name) ?  "#{@item.name}'s Ingredients" : nil
-    = render('ingredients_table', :f => f )
-    = link_to_add_fields("Add Ingredient", f, :ingredients, :class => "btn btn-primary", :title => "Add a new Ingredient to this Item.")
+  .field
+    %br/
+    %fieldset
+      %legend{:id => 'legend-id'}
+        :javascript
+          var input_name = $('#item_name');
+          var item_name = $('#legend-id');
+          input_name.keyup(function () {
+          item_name.text(input_name.val() + "'s Ingredients");
+          })
+      = render('ingredients_table', :f => f )
+      = link_to_add_fields("Add Ingredient", f, :ingredients, :class => "btn btn-success btn-sm", :title => "Add a new Ingredient to this Item.")
+
   .actions
     = f.submit

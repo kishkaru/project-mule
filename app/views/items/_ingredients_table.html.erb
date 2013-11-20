@@ -1,6 +1,6 @@
 <table id="ingredients-table" class="table table-hover table-striped">
   <thead>
-  <th>Name</th>
+  <th>Ingredient Name</th>
   <th></th>
   </thead>
   <tbody>
@@ -9,7 +9,7 @@
         <td><%= ingredients_form.text_field(:name) %></td>
         <% if current_page?(new_item_path) || current_page?(edit_item_path) %>
             <td>
-              <%= link_to_remove_fields('<i class="icon-remove"></i>'.html_safe, ingredients_form, :title => "Delete this Ingredient.") %>
+              <%= link_to_remove_fields('<i class="btn btn-danger btn-xs">Remove</i>'.html_safe, ingredients_form, :title => "Delete this Ingredient.") %>
             </td>
         <% end %>
       </tr>
