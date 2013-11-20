@@ -4,6 +4,16 @@ class ItemsController < ApplicationController
     def index
         @items = Item.all
 
+        i = {}
+        @items.each do |it|
+            i[it.id] = 3
+        end
+        params[:cart] = {}
+        params[:cart][:items] = i
+
+        puts 'HERE####################################'
+        puts params[:cart]
+
         respond_to do |format|
             format.html # index.html.erb
             format.json { render json: @items }

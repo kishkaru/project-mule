@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$( document ).ready( function() {
+	$('.plus').click(function() {
+		var row = this.parentNode.parentNode.id;
+		var t = $("#" + row + ".qty");
+		alert(t);
+	});
+
+	$('.minus').click( function() {
+		var row = this.parentNode.parentNode.id;
+		$("#" + row + ".qty").value -= 1;
+	});
+});

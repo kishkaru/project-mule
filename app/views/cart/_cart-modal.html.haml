@@ -16,12 +16,12 @@
             - tax = 0
             - if params[:cart] && params[:cart][:items]
               - params[:cart][:items].keys.each do |id|
-                %tr
+                %tr{:id => id}
                   %td= Item.find(id).name
-                  %td= params[:cart][:items][id]
+                  %td.qty= params[:cart][:items][id]
                   %td
-                    %button +
-                    %button -
+                    %button{:class => 'plus'} +
+                    %button{:class => 'minus'} -
                   %td= Item.find(id).price * params[:cart][:items][id]
                   %td
                     %button Remove
