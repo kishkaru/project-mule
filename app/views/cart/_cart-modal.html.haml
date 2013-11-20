@@ -8,21 +8,21 @@
           %table.table.table-centered
             %tr
               %th Item
-              %th Quantity
-              %th
               %th Price
+              %th Quantity
+              %th 
               %th
             - total = 0
-            - tax = 0
+            - tax = 0.09
             - if params[:cart] && params[:cart][:items]
               - params[:cart][:items].keys.each do |id|
                 %tr{:id => id}
                   %td= Item.find(id).name
+                  %td{:class => 'price'}= Item.find(id).price
                   %td.qty= params[:cart][:items][id]
                   %td
-                    %button{:class => 'plus'} +
-                    %button.minus -
-                  %td{:class => 'price'}= Item.find(id).price * params[:cart][:items][id]
+                    %button.plus.qty-buttons +
+                    %button.minus.qty-buttons -
                   %td
                     %button Remove
                 - params[:cart][:items].each do |id,qty|
@@ -32,21 +32,21 @@
                 %b Subtotal
               %td
               %td
-              %td= total
+              %td#subtotal= total
               %td
             %tr
               %td
                 %b Tax
               %td
-              %td
-              %td= tax
+              %td#tax-pct 9.00%
+              %td#tax-total= total * tax
               %td
             %tr
               %td
                 %b Total
               %td
               %td
-              %td= total + tax
+              %td#total= total + (total * tax)
               %td
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Pay

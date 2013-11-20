@@ -14,16 +14,16 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
-	$("button").click(function() {
+	$("button.qty-buttons").click(function() {
 		//if plus or minus
 		var row_id = this.parentNode.parentNode.id;
 		var current_quantity = get_quantity_value(get_quantity(row_id));
-		var current_price_value = get_price_value(get_price_object(row_id), current_quantity);
-		//var symbol = this.className;
-		//alert(symbol);
-		alter_quantity(row_id, current_quantity);
-		var new_quantity = get_quantity_value(get_quantity(row_id));
-		alter_price(row_id, current_price_value, new_quantity);
+		var price_value = get_price_value(get_price_object(row_id));
+		var symbol = this.className;
+		update_quantity(row_id, current_quantity, symbol);
+		update_subtotal(price_value, symbol);
+		update_tax();
+		update_total();
 	});
 
 	var get_quantity = function(row_id) {
@@ -38,22 +38,51 @@ $(document).ready(function() {
 		return $("#" + row_id).children(".price");
 	};
 
-	var get_price_value = function(price_object, quantity) {
-		return Number(price_object.html()) / quantity;
+	var get_price_value = function(price_object) {
+		return Number(price_object.html());
+	};
+
+	var get_subtotal = function() {
+		return $('#subtotal');
+	};
+
+	var get_tax_total = function() {
+		return $('#tax-total');
+	};
+
+	var get_total = function() {
+		return $('#total');
 	}
 
-	var alter_quantity = function(row_id, current_quantity) {
+	var update_quantity = function(row_id, current_quantity, symbol) {
 		var quantity = get_quantity(row_id);
-		//if symbol == 'plus':
-		var new_quantity_value = current_quantity + 1;
-		//else:
-		//	var new_quantity_value = current_quantity - 1;
+		if (symbol == 'plus qty-buttons') {
+			var new_quantity_value = current_quantity + 1;
+		} else {
+			var new_quantity_value = current_quantity - 1;
+		}
 		quantity.html(new_quantity_value);
 	};
 
-	var alter_price = function(row_id, current_price_value, quantity_value) {
-		var price = get_price_object(row_id);
-		var new_price_value = current_price_value * (quantity_value + 1);
-		price.html(new_price_value);
+	var update_subtotal = function(price_value, symbol) {
+		var subtotal = get_subtotal();
+		var subtotal_value = Number(subtotal.html());
+		if (symbol == 'plus qty-buttons') {
+			subtotal.html(subtotal_value + price_value);
+		} else {
+			subtotal.html(subtotal_value - price_value);
+		}
+	};
+
+	var update_tax = function() {
+		var tax_pct_str = $("#tax-pct").html();
+		tax_pct_str = tax_pct_str.substring(0, tax_pct_str.length - 1);
+		var tax_pct_value = Number(tax_pct_str);
+		var new_tax_total = tax_pct_value * Number(get_subtotal().html()) / 100.0;
+		get_tax_total().html(new_tax_total);
+	};
+
+	var update_total = function() {
+		get_total().html(Number(get_subtotal().html()) + Number(get_tax_total().html()));
 	};
 });
