@@ -21,8 +21,8 @@
                   %td.qty= params[:cart][:items][id]
                   %td
                     %button{:class => 'plus'} +
-                    %button{:class => 'minus'} -
-                  %td= Item.find(id).price * params[:cart][:items][id]
+                    %button.minus -
+                  %td{:class => 'price'}= Item.find(id).price * params[:cart][:items][id]
                   %td
                     %button Remove
                 - params[:cart][:items].each do |id,qty|
