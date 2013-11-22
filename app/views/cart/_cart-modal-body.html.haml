@@ -28,12 +28,12 @@
       %b Tax
     %td
     %td#tax-pct #{@tax}%
-    %td#tax-total= @tax_total
+    %td#tax-total= number_with_precision(@tax_total, :precision => 2)
     %td
   %tr
     %td
       %b Total
     %td
     %td
-    %td#total= @total
+    %td#total= number_with_precision(@total, :precision => 2)
     %td
