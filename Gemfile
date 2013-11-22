@@ -15,6 +15,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov', :require => false
   gem 'html2haml'
+  gem 'rack_session_access'
 end
 
 group :test do
