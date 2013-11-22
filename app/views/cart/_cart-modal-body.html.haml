@@ -5,16 +5,17 @@
     %th Quantity
     %th 
     %th
-    - @items.each do |item, qty|
-      %tr{:id => item.id}
-        %td= item.name
-        %td.price= item.price
-        %td.qty= qty
-        %td
-          %button.plus.qty-buttons +
-          %button.minus.qty-buttons -
-        %td
-          %button Remove
+    - if @items
+      - @items.each do |item, qty|
+        %tr{:id => item.id}
+          %td= item.name
+          %td.price= item.price
+          %td.qty= qty
+          %td
+            %button.plus.qty-buttons +
+            %button.minus.qty-buttons -
+          %td
+            %button Remove
   %tr
     %td 
       %b Subtotal
