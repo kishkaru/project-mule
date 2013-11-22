@@ -91,17 +91,16 @@ $(document).ready(function() {
 					update_tax();
 					update_total();
 				});*/
+				$("button.qty-buttons").click(function() {
+					var row_id = this.parentNode.parentNode.id;
+					$.ajax({type: "GET",
+						url: "/add_item/1/",
+						success: function(data) {
+							$("#cart-modal-body").html(data);
+						}});
+				});
 			}});
 	});
 
-	$("button.qty-buttons").click(function() {
-		var row_id = this.parentNode.parentNode.id;
-		$.ajax({type: "GET",
-				url: "/add_item/" + row_id + "/",
-				success: function(data) {
-					alert('asfa');
-					$("#cart-modal-body").html(data);
-				}
-		});
-	});
+
 });
