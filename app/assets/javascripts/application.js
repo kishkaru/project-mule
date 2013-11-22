@@ -14,17 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
-	$("button.qty-buttons").click(function() {
-		//if plus or minus
-		var row_id = this.parentNode.parentNode.id;
-		var current_quantity = get_quantity_value(get_quantity(row_id));
-		var price_value = get_price_value(get_price_object(row_id));
-		var symbol = this.className;
-		update_quantity(row_id, current_quantity, symbol);
-		update_subtotal(price_value, symbol);
-		update_tax();
-		update_total();
-	});
 
 	var get_quantity = function(row_id) {
 		return $("#" + row_id).children(".qty");
@@ -85,4 +74,23 @@ $(document).ready(function() {
 	var update_total = function() {
 		get_total().html(Number(get_subtotal().html()) + Number(get_tax_total().html()));
 	};
+
+	$("#cart_link").click( function () {
+		$.ajax({type: "GET",
+			url: "/cart/",
+			success: function(data) {
+				$("#cart-modal-body").html(data);
+				$("button.qty-buttons").click(function() {
+					//if plus or minus
+					var row_id = this.parentNode.parentNode.id;
+					var current_quantity = get_quantity_value(get_quantity(row_id));
+					var price_value = get_price_value(get_price_object(row_id));
+					var symbol = this.className;
+					update_quantity(row_id, current_quantity, symbol);
+					update_subtotal(price_value, symbol);
+					update_tax();
+					update_total();
+				});
+			}});
+	});
 });

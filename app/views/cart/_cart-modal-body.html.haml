@@ -1,0 +1,38 @@
+%table.table.table-centered
+  %tr
+    %th Item
+    %th Price
+    %th Quantity
+    %th 
+    %th
+    - @items.each do |item, qty|
+      %tr{:id => item.id}
+        %td= item.name
+        %td.price= item.price
+        %td.qty= qty
+        %td
+          %button.plus.qty-buttons +
+          %button.minus.qty-buttons -
+        %td
+          %button Remove
+  %tr
+    %td 
+      %b Subtotal
+    %td
+    %td
+    %td#subtotal= @subtotal
+    %td
+  %tr
+    %td
+      %b Tax
+    %td
+    %td#tax-pct #{@tax}%
+    %td#tax-total= @tax_total
+    %td
+  %tr
+    %td
+      %b Total
+    %td
+    %td
+    %td#total= @total
+    %td

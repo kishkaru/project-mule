@@ -8,11 +8,11 @@ class ItemsController < ApplicationController
         @items.each do |it|
             i[it.id] = 3
         end
-        params[:cart] = {}
-        params[:cart][:items] = i
+        session[:cart] = {}
+        session[:cart][:items] = i
 
         puts 'HERE####################################'
-        puts params[:cart]
+        puts session[:cart]
 
         respond_to do |format|
             format.html # index.html.erb

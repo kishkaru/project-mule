@@ -29,6 +29,8 @@ Projectmule::Application.routes.draw do
 
     resources :items
 
+    get '/cart', :to => 'cart#cart', :as => :cart
+
 
     root :to => 'main#home'
 
