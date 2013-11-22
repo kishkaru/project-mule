@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
-
+/*
 	var get_quantity = function(row_id) {
 		return $("#" + row_id).children(".qty");
 	};
@@ -74,11 +74,12 @@ $(document).ready(function() {
 	var update_total = function() {
 		get_total().html(Number(get_subtotal().html()) + Number(get_tax_total().html()));
 	};
-
+*/
 	$("#cart_link").click( function () {
 		$.ajax({type: "GET",
 			url: "/cart/",
 			success: function(data) {
+				alert('fasfa');
 				$("#cart-modal-body").html(data);
 				/*$("button.qty-buttons").click(function() {
 					//if plus or minus
@@ -95,10 +96,10 @@ $(document).ready(function() {
 		});
 	});
 
-	$("button.qty-buttons").click(function() {
+	/*$("button.qty-buttons").click(function() {
 		var row_id = this.parentNode.parentNode.id;
 		$.ajax({type: "POST",
-				url: "/add_item/" + row_id,
+				url: "/add_item/1",
 				success: function(data) {
 					$("#cart-modal-body").html(data);
 				};
