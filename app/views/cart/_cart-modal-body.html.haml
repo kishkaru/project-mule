@@ -5,8 +5,8 @@
     %th Quantity
     %th 
     %th
-    - if @items
-      - @items.each do |item, qty|
+    - if @cart_items
+      - @cart_items.each do |item, qty|
         %tr{:id => item.id}
           %td= item.name
           %td.price= item.price
