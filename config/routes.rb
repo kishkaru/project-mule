@@ -31,6 +31,10 @@ Projectmule::Application.routes.draw do
 
     get '/cart', :to => 'cart#cart', :as => :cart
 
+    get '/add_item/:item_to_add', :to => 'items#addItemToCart', :as => :add_item_to_cart
+
+    get '/remove_item/:item_to_minus' :to => 'items#minusItemFromCart', :as => :minus_item_from_cart
+
 
     root :to => 'main#home'
 

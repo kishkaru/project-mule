@@ -9,7 +9,7 @@ gem 'rails', '3.2.14'
 group :development, :test do
   gem 'sqlite3'
   gem 'ruby-debug19'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '< 1.1.0'
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'

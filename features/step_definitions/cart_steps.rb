@@ -9,7 +9,7 @@ end
 Given /I increase the quantity of "(.*)"/ do | item |
 	id = Item.where(:name => item).order("created_at").last.id
 	button_id = "#{id}-item-plus"
-	find_button("+").click
+	find_button(button_id).click
 end
 
 Given /I decrease the quantity of "(.*)"/ do | item |

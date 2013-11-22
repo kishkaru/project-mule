@@ -28,6 +28,7 @@ Feature: View cart and edit items
         And I should see "3.50"
         And I should see "12.00"
         
+    @javascript
     Scenario: alter quantity
         Given I increase the quantity of "Regular Burrito"
         And I decrease the quantity of "Regular Burrito"
@@ -37,6 +38,7 @@ Feature: View cart and edit items
         And I should see "3.50"
         And I should see "11.00"
     
+    @javascript
     Scenario: remove item
         Given I press "Remove" for "Regular Burrito"
         Then I should not see "Regular Burrito"
