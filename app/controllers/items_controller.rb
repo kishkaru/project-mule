@@ -106,7 +106,7 @@ class ItemsController < ApplicationController
     # Remove item with id in parms[:item_to_add] from the cart in session hash
     def minusItemFromCart
         id = params[:item_to_minus].to_i
-        new_quantity = getOldQuantity() - 1
+        new_quantity = getOldQuantity(id) - 1
         if new_quantity > 0
             session[:cart][:items][id] = new_quantity
         else
