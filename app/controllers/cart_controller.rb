@@ -10,8 +10,6 @@ class CartController < ApplicationController
       			@cart_items[Item.find(id)] = qty
       		end
       	end
-      	puts "##^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-      	puts @items
       	puts session[:cart]
       	@cart_items.each do |item_obj,qty|
         	@subtotal = @subtotal + item_obj.price * qty

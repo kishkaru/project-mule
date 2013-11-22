@@ -13,14 +13,14 @@ Feature: View cart and edit items
         
         And I have added 2 "Regular Burrito" to my cart
         And I have added 2 "Spicy Burrito" to my cart
-        And I press "Cart"
+        And I follow "Cart"
         
     Scenario: see the cart
         Then I should see "Regular Burrito"
         And I should see "Spicy Burrito"
         And I should see "2"
-        And I should see "$5.00"
-        And I should see "$7.00"
+        And I should see "5.00"
+        And I should see "7.00"
         And I should see "12.00"
         
     Scenario: alter quantity
@@ -28,9 +28,9 @@ Feature: View cart and edit items
         And I press "minus_spicy_burrito"
         Then I should see "3"
         And I should see "1"
-        And I should see "$7.50"
-        And I should see "$3.50"
-        And I should see "$11.00"
+        And I should see "7.50"
+        And I should see "3.50"
+        And I should see "11.00"
     
     Scenario: remove item
         Given I press "remove_regular_burrito"
