@@ -16,6 +16,7 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem 'html2haml'
   gem 'rack_session_access'
+  gem 'selenium-webdriver'
 end
 
 group :test do

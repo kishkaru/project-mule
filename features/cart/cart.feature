@@ -14,10 +14,12 @@ Feature: View cart and edit items
         And I have added the following items to my cart:
         | name                | qty |
         | Regular Burrito     | 2   |
-        | Spicy Burrito       | 2   |     
+        | Spicy Burrito       | 2   |
+         
         And I am on the home page
         And I follow "Cart"
-        
+    
+    @javascript
     Scenario: see the cart
         Then I should see "Regular Burrito"
         And I should see "Spicy Burrito"

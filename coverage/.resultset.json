@@ -96,23 +96,23 @@
       "/home/saasbook/iter3-2/app/controllers/cart_controller.rb": [
         1,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
         null,
         null,
-        0,
-        0,
-        0,
+        1,
+        1,
+        2,
         null,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -914,7 +914,7 @@
         null
       ]
     },
-    "timestamp": 1385105232
+    "timestamp": 1385109943
   },
   "RSpec": {
     "coverage": {
@@ -1026,8 +1026,6 @@
         2,
         2,
         2,
-        2,
-        2,
         null,
         2,
         2,
@@ -1833,6 +1831,6 @@
         null
       ]
     },
-    "timestamp": 1385101292
+    "timestamp": 1385105407
   }
 }
