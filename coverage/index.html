@@ -14,14 +14,14 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-22T00:45:43-08:00">2013-11-22T00:45:43-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-22T01:05:01-08:00">2013-11-22T01:05:01-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">34.56%</span></span>
+    (<span class="covered_percent"><span class="red">34.71%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>30</b> files in total.
-    <b>434</b> relevant lines. 
-    <span class="green"><b>150</b> lines covered</span> and
+    <b>435</b> relevant lines. 
+    <span class="green"><b>151</b> lines covered</span> and
     <span class="red"><b>284</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -63,11 +63,11 @@
       <tr>
         <td class="strong"><a href="#4d9bfe5a1abd49fd0d197174ba50ee207f928564" class="src_link" title="app/controllers/cart_controller.rb">app/controllers/cart_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>21</td>
-        <td>16</td>
-        <td>16</td>
+        <td>22</td>
+        <td>17</td>
+        <td>17</td>
         <td>0</td>
-        <td>1.1</td>
+        <td>1.2</td>
       </tr>
       
       <tr>
@@ -359,19 +359,19 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">24.04%</span></span>
+    (<span class="covered_percent"><span class="red">24.25%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.44
+         0.45
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>11</b> files in total.
-    <b>366</b> relevant lines. 
-    <span class="green"><b>88</b> lines covered</span> and
+    <b>367</b> relevant lines. 
+    <span class="green"><b>89</b> lines covered</span> and
     <span class="red"><b>278</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -401,11 +401,11 @@
       <tr>
         <td class="strong"><a href="#4d9bfe5a1abd49fd0d197174ba50ee207f928564" class="src_link" title="app/controllers/cart_controller.rb">app/controllers/cart_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>21</td>
-        <td>16</td>
-        <td>16</td>
+        <td>22</td>
+        <td>17</td>
+        <td>17</td>
         <td>0</td>
-        <td>1.1</td>
+        <td>1.2</td>
       </tr>
       
       <tr>
@@ -929,8 +929,8 @@
     <h3>app/controllers/cart_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>16</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
+      <b>17</b> relevant lines. 
+      <span class="green"><b>17</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -998,67 +998,73 @@
           <code class="ruby">    			@cart_items[Item.find(id)] = qty</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="covered" data-hits="2" data-linenumber="11">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    	end</code>
+          <code class="ruby">          puts Item.find(id).price</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    	end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="13">
           
-          <code class="ruby">  	puts @cart_items</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
+          <code class="ruby">  	puts @cart_items</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
           <code class="ruby">  	@cart_items.each do |item_obj,qty|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="15">
+        <li class="covered" data-hits="2" data-linenumber="16">
           <span class="hits">2</span>
           
           <code class="ruby">    	@subtotal = @subtotal + item_obj.price * qty</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">    @tax_total = @tax / 100.0 * @subtotal</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
           <code class="ruby">    @total = @tax_total + @subtotal</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
           <code class="ruby">  	render :partial =&gt; 'cart/cart-modal-body'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">end</code>
