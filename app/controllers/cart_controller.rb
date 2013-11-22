@@ -8,7 +8,6 @@ class CartController < ApplicationController
 		if session[:cart] && session[:cart][:items]
   		session[:cart][:items].each do |id, qty|
     			@cart_items[Item.find(id)] = qty
-          puts Item.find(id).price
     	end
     end
   	puts @cart_items

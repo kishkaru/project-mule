@@ -12,8 +12,8 @@
           %td.price= number_with_precision(item.price, :precision => 2)
           %td.qty= qty
           %td
-            %button.plus.qty-buttons +
-            %button.minus.qty-buttons -
+            %button.plus.qty-buttons{:id => "#{item.id}-item-plus"}+
+            %button.minus.qty-buttons{:id => "#{item.id}-item-minus"}-
           %td
             %button Remove
   %tr

@@ -29,8 +29,8 @@ Feature: View cart and edit items
         And I should see "12.00"
         
     Scenario: alter quantity
-        Given I press "plus_regular_burrito"
-        And I press "minus_spicy_burrito"
+        Given I increase the quantity of "Regular Burrito"
+        And I decrease the quantity of "Regular Burrito"
         Then I should see "3"
         And I should see "1"
         And I should see "2.50"
@@ -38,17 +38,5 @@ Feature: View cart and edit items
         And I should see "11.00"
     
     Scenario: remove item
-        Given I press "remove_regular_burrito"
-        Then I should see a strike through "Regular Burrito"
-        And I should see a strike through "quantity_regular_burrito"
-        And I should see a strike through "price_regular_burrito" 
-        And I should not see "$12.00"
-        And I should see "Undo"
-        
-    Scenario: undo remove item
-        Given I press "remove_regular_burrito"
-        And I press "Undo"
-        And I should not see a strike through "Regular Burrito"
-        And I should not see a strike through "quantity_regular_burrito"
-        And I should not see a string through "price_regular_burrito"
-        And I should see "$12.00"
+        Given I press "Remove" for "Regular Burrito"
+        Then I should not see "Regular Burrito"

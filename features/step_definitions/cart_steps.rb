@@ -5,3 +5,15 @@ Given /I have added the following items to my cart/ do | table |
 	end
 	page.set_rack_session(:cart => cart)
 end
+
+Given /I increase the quantity of "(.*)"/ do | item |
+	id = Item.where(:name => item).order("created_at").last.id
+	button_id = "#{id}-item-plus"
+	find_button("+").click
+end
+
+Given /I decrease the quantity of "(.*)"/ do | item |
+	id = Item.where(:name => item).order("created_at").last.id
+	button_id = "#{id}-item-minus"
+	click_button(button_id)
+end
