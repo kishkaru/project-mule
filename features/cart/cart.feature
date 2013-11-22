@@ -11,6 +11,7 @@ Feature: View cart and edit items
         | Spicy Burrito       | Chipotle | $3.50 | on fire      | 91       | 3/3/2014   |
         | Carne Asada Burrito | Chipotle | $5.50 | roasted beef | 2        | 12/3/1976  |
         
+        And I am on the home page
         And I have added 2 "Regular Burrito" to my cart
         And I have added 2 "Spicy Burrito" to my cart
         And I follow "Cart"

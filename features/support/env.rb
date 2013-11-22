@@ -7,6 +7,8 @@
 require 'simplecov'
 SimpleCov.start 'rails'
 require 'cucumber/rails'
+require 'capybara/rspec'
+require 'rack_session_access/capybara'
 
 
 # Capybara defaults to CSS3 selectors rather than XPath.
