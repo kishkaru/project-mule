@@ -80,7 +80,7 @@ $(document).ready(function() {
 			url: "/cart/",
 			success: function(data) {
 				$("#cart-modal-body").html(data);
-				$("button.qty-buttons").click(function() {
+				/*$("button.qty-buttons").click(function() {
 					//if plus or minus
 					var row_id = this.parentNode.parentNode.id;
 					var current_quantity = get_quantity_value(get_quantity(row_id));
@@ -90,7 +90,18 @@ $(document).ready(function() {
 					update_subtotal(price_value, symbol);
 					update_tax();
 					update_total();
-				});
-			}});
+				});*/
+			};
+		});
+	});
+
+	$("button.qty-buttons").click(function() {
+		var row_id = this.parentNode.parentNode.id;
+		$.ajax({type: "POST",
+				url: "/add_item/" + row_id,
+				success: function(data) {
+					$("#cart-modal-body").html(data);
+				};
+		});
 	});
 });
