@@ -4,8 +4,6 @@
     %th Address
     %th Latitude
     %th Longitude
-    %th Customer
-    %th Delivery area
     %th
     %th
     %th
@@ -14,8 +12,6 @@
       %td= delivery_point.address
       %td= delivery_point.latitude
       %td= delivery_point.longitude
-      %td= delivery_point.customer
-      %td= delivery_point.delivery_area
       %td= link_to 'Show', delivery_point
       %td= link_to 'Edit', edit_delivery_point_path(delivery_point)
       %td= link_to 'Destroy', delivery_point, method: :delete, data: { confirm: 'Are you sure?' }

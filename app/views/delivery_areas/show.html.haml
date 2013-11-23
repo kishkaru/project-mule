@@ -2,9 +2,7 @@
 %p
   %b Name:
   = @delivery_area.name
-%p
-  %b User:
-  = @delivery_area.user
+
 = link_to 'Edit', edit_delivery_area_path(@delivery_area)
 |
 \#{link_to 'Back', delivery_areas_path}
