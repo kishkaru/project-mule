@@ -16,9 +16,9 @@
   = f.fields_for :phone_number_attributes do |p|
     %div
     = p.text_field :country, {:class => "bfh-phone", "data-format" => "dd", :value => resource.phone_number ? resource.phone_number.country : "", :size => 2}
-    = p.text_field :area, {:class => "bfh-phone", "data-format" => "ddd", :value => resource.phone_number ? resource.phone_number.area : "", :size => 3, :placeholder => "Area"}
-    = p.text_field :number, {:class => "bfh-phone", "data-format" => "ddd-dddd", :value => resource.phone_number ? resource.phone_number.number : "", :size => 8, :placeholder => "Number"}
-    = p.text_field :extension, {:class => "bfh-phone", "data-format" => "ddddddd", :value => resource.phone_number ? resource.phone_number.extension : "", :size => 7, :placeholder => "Extension"}
+    = p.text_field :area, {:class => "bfh-phone area-text", "data-format" => "ddd", :value => resource.phone_number ? resource.phone_number.area : "", :size => 3, :placeholder => "Area"}
+    = p.text_field :number, {:class => "bfh-phone number-text", "data-format" => "ddd-dddd", :value => resource.phone_number ? resource.phone_number.number : "", :size => 8, :placeholder => "Number"}
+    = p.text_field :extension, {:class => "bfh-phone extension-text", "data-format" => "ddddddd", :value => resource.phone_number ? resource.phone_number.extension : "", :size => 7, :placeholder => "Extension"}
   %br/
   %div
     = f.label :email
