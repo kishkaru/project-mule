@@ -91,16 +91,29 @@ $(document).ready(function() {
 					update_tax();
 					update_total();
 				});*/
-				$("button.qty-buttons").click(function() {
-					var row_id = this.parentNode.parentNode.id;
-					$.ajax({type: "GET",
-						url: "/add_item/1/",
-						success: function(data) {
-							$("#cart-modal-body").html(data);
-						}});
-				});
+				bind_qty_buttons();
 			}});
 	});
 
+	var bind_qty_buttons = function() {
+		$("button.qty-buttons.plus").click(function() {
+			var row_id = this.parentNode.parentNode.id;
+			$.ajax({type: "GET",
+				url: "/add_item/1/",
+				success: function(data) {
+					$("#cart-modal-body").html(data);
+					bind_qty_buttons();
+				}});
+		});
+		$("button.qty-buttons.minus").click(function() {
+			var row_id = this.parentNode.parentNode.id;
+			$.ajax({type: "GET",
+				url: "/minus_item/1/",
+				success: function(data) {
+					$("#cart-modal-body").html(data);
+					bind_qty_buttons();
+				}});
+		});
+	};
 
 });

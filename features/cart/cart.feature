@@ -24,9 +24,9 @@ Feature: View cart and edit items
         Then I should see "Regular Burrito"
         And I should see "Spicy Burrito"
         And I should see "2"
-        And I should see "2.50"
-        And I should see "3.50"
-        And I should see "12.00"
+        And I should see "$2.50"
+        And I should see "$3.50"
+        And I should see "$12.00"
         
     @javascript
     Scenario: alter quantity
@@ -34,9 +34,9 @@ Feature: View cart and edit items
         And I decrease the quantity of "Regular Burrito"
         Then I should see "3"
         And I should see "1"
-        And I should see "2.50"
-        And I should see "3.50"
-        And I should see "11.00"
+        And I should see "$2.50"
+        And I should see "$3.50"
+        And I should see "$11.00"
     
     @javascript
     Scenario: remove item
