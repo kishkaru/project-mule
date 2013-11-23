@@ -9,8 +9,7 @@
       %span.input-group-btn
         %button.btn.btn-primary Sign Up!
   %h2 Let's get started! Where are you?
-  = form_for(@delivery_area, :url => {:action => :home}) do |f|
-    =f.collection_select(:name, DeliveryArea.all, :name, :name, {:include_blank => "Please select an Area", :selected => @delivery_area.first.name})
-    = link_to 'Show', DeliveryArea.find_by_name(:name)
-%br/
+  =collection_select(:customer_area, :name, DeliveryArea.all, :name, :name, {:include_blank => "Please select an Area", :selected => @delivery_area.first.name})
+
+  =link_to 'Show', DeliveryArea.find_by_name(:delivery_area[:name])
 
