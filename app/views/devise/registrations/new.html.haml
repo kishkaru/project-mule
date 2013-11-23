@@ -14,21 +14,10 @@
   %br/
   = f.fields_for :phone_number_attributes do |p|
     %div
-      = p.label :country_code
-      %br/
-      = p.text_field :country, {:value => "1"}
-    %div
-      = p.label :area_code
-      %br/
-      = p.text_field :area
-    %div
-      = p.label :number
-      %br/
-      = p.text_field :number
-    %div
-      = p.label :extension
-      %br/
-      = p.text_field :extension
+      = p.text_field :country, {:class => "bfh-phone", "data-format" => "dd", :value => "1", :size => 2}
+      = p.text_field :area, {:class => "bfh-phone", "data-format" => "ddd", :size => 3, :placeholder => "Area"}
+      = p.text_field :number, {:class => "bfh-phone", "data-format" => "ddd-dddd", :size => 8, :placeholder => "Number"}
+      = p.text_field :extension, {:class => "bfh-phone", "data-format" => "ddddddd", :size => 7, :placeholder => "Extension"}
   %br/
   %div
     = f.label :email

@@ -3,7 +3,7 @@ class PhoneNumber < ActiveRecord::Base
 	validates :area, format: {with: /^\d{3}$/,
 							message: "code must be 3 digits"}, :allow_blank => true
 	validates :number, format: {with: /^\d{3}-\d{4}$/,
-							message: "number must be of the form 'ddd-dddd'"}, :allow_blank => true
+							message: "number must be 7 digits and of the form 'ddd-dddd'"}, :allow_blank => true
     validates :country, format: {with: /^\d{1,2}$/,
                             message: "country code must be 1-2 digits"}, :allow_blank => true
     validate :area_number
