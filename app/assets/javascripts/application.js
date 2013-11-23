@@ -98,7 +98,7 @@ $(document).ready(function() {
 	var bind_qty_buttons = function() {
 		$("button.qty-buttons.plus").click(function() {
 			var row_id = this.parentNode.parentNode.id;
-			$.ajax({type: "GET",
+			$.ajax({type: "POST",
 				url: "/add_item/" + row_id + "/",
 				success: function(data) {
 					$("#cart-modal-body").html(data);
@@ -107,7 +107,7 @@ $(document).ready(function() {
 		});
 		$("button.qty-buttons.minus").click(function() {
 			var row_id = this.parentNode.parentNode.id;
-			$.ajax({type: "GET",
+			$.ajax({type: "POST",
 				url: "/minus_item/"  + row_id + "/",
 				success: function(data) {
 					$("#cart-modal-body").html(data);
