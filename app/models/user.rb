@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
 
+    accepts_nested_attributes_for :phone_number
+
     def self.admin_updateable_nonrelational_attributes
         [:role,
             :password,

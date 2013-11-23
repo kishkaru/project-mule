@@ -9,10 +9,32 @@
     = f.label :last_name
     %br/
     = f.text_field :last_name
+  %br/
+  %b Phone number
+  %br/
+  = f.fields_for :phone_number_attributes do |p|
+    %div
+      = p.label :country_code
+      %br/
+      = p.text_field :country, {:value => "1"}
+    %div
+      = p.label :area_code
+      %br/
+      = p.text_field :area
+    %div
+      = p.label :number
+      %br/
+      = p.text_field :number
+    %div
+      = p.label :extension
+      %br/
+      = p.text_field :extension
+  %br/
   %div
     = f.label :email
     %br/
     = f.email_field :email, :autofocus => true
+  %br/
   %div
     = f.label :password
     %br/

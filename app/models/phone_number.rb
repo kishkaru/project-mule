@@ -1,9 +1,14 @@
 class PhoneNumber < ActiveRecord::Base
 
 	validates :area, format: {with: /^\d{3}$/,
-							message: "Area code must be 3 digits"}
+							message: "Area code must be 3 digits",
+                            if: Proc.new { |p| p.number || p.country }}
 	validates :number, format: {with: /^\d{3}-\d{4}$/,
-							message: "Phone number must be of the form 'ddd-dddd'"}
+							message: "Phone number must be of the form 'ddd-dddd'",
+                            if: Proc.new { |p| p.area || p.country }}
+    validates :country, format: {with: /^\d{1,2}$/,
+                            message: "Country code must be 1-2 digits",
+                            if: Proc.new { |p| p.number || p.area }}
 
     belongs_to :vendor
     belongs_to :user
