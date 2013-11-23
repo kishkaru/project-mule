@@ -11,6 +11,6 @@
   %h2 Let's get started! Where are you?
   = form_for(@delivery_area, :url => {:action => :home}) do |f|
     =f.collection_select(:name, DeliveryArea.all, :name, :name, {:include_blank => "Please select an Area", :selected => @delivery_area.first.name})
-    = link_to 'Show', @delivery_area.find_by_name(:name)
+    = link_to 'Show', DeliveryArea.find_by_name(:name)
 %br/
 
