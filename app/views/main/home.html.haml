@@ -12,4 +12,4 @@
   = form_for(@delivery_area, :url => {:action => :home}) do |f|
     =f.collection_select :name, DeliveryArea.all, :id, :name, :include_blank => "Please select an Area"
     .actions
-= link_to 'Show', new_delivery_area
+= link_to 'Show', DeliveryArea.find(:id) 
