@@ -13,7 +13,7 @@
   = @user.email
 %p
   %b Phone number:
-  = @user.phone_number ? @user.phone_number.country + "- (" + @user.phone_number.area + ") " + @user.phone_number.number : ""
+  = @user.phone_number ? @user.phone_number.country + " (" + @user.phone_number.area + ") " + @user.phone_number.number : ""
 = link_to 'Edit', edit_user_path(@user)
 |
 \#{link_to 'Back', users_path}
