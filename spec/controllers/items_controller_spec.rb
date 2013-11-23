@@ -172,5 +172,13 @@ describe ItemsController do
             post :minusItemFromCart, {:item_to_minus => @item.id}, @session
             @session[:cart][:items][@item.id].should eq(1)
         end
+
+        it "cannot drop the quantity below 0" do
+            post :minusItemFromCart, {:item_to_minus => @item.id}, @session
+            post :minusItemFromCart, {:item_to_minus => @item.id}, @session
+            @session[:cart][:items][@item.id].should eq(0)
+            post :minusItemFromCart, {:item_to_minus => @item.id}, @session
+            @session[:cart][:items][@item.id].should eq(0)
+        end
     end
 end
