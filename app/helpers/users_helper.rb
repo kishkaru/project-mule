@@ -17,8 +17,11 @@ module UsersHelper
     		else
     			result = user_to_update.save
     			if result
-    				phone_number_instance.save
-    				user_to_update.phone_number = phone_number_instance
+    				if !user_to_update.phone_number.isEqualTo(phone_number_instance)
+    					phone_number_instance.save
+    					user_to_update.phone_number = phone_number_instance
+    				end
+    				puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{user_to_update.phone_number.id}"
     			end
     			return result
     		end
