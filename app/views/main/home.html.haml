@@ -10,6 +10,7 @@
         %button.btn.btn-primary Sign Up!
   %h2 Let's get started! Where are you?
   = form_for(@delivery_area, :url => {:action => :home}) do |f|
-    =f.collection_select :name, DeliveryArea.all, :id, :name, :include_blank => "Please select an Area"
-    .actions
-= link_to 'Show', new_delivery_area
+    =f.collection_select(:name, DeliveryArea.all, :name, :name, {:include_blank => "Please select an Area", :selected => @delivery_area.first.name})
+    = link_to 'Show', @delivery_area.find_by_name(:name)
+%br/
+
