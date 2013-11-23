@@ -99,7 +99,7 @@ $(document).ready(function() {
 		$("button.qty-buttons.plus").click(function() {
 			var row_id = this.parentNode.parentNode.id;
 			$.ajax({type: "GET",
-				url: "/add_item/1/",
+				url: "/add_item/" + row_id + "/",
 				success: function(data) {
 					$("#cart-modal-body").html(data);
 					bind_qty_buttons();
@@ -108,7 +108,7 @@ $(document).ready(function() {
 		$("button.qty-buttons.minus").click(function() {
 			var row_id = this.parentNode.parentNode.id;
 			$.ajax({type: "GET",
-				url: "/minus_item/1/",
+				url: "/minus_item/"  + row_id + "/",
 				success: function(data) {
 					$("#cart-modal-body").html(data);
 					bind_qty_buttons();

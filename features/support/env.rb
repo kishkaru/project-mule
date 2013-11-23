@@ -61,4 +61,4 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Capybara.javascript_driver = :selenium
-Capybara.default_wait_time = 30
+Capybara.default_wait_time = 5

@@ -31,7 +31,7 @@ Feature: View cart and edit items
     @javascript
     Scenario: alter quantity
         Given I increase the quantity of "Regular Burrito"
-        And I decrease the quantity of "Regular Burrito"
+        And I decrease the quantity of "Spicy Burrito"
         Then I should see "3"
         And I should see "1"
         And I should see "$2.50"
