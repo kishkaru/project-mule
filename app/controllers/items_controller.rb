@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+
+    include ItemsHelper
+
     # GET /items
     # GET /items.json
     def index
@@ -115,14 +118,13 @@ class ItemsController < ApplicationController
         redirect_to cart_path
     end
 
-    # Gets the old quantity of item referenced by ID in the session
-    # cart or returns 0 if there was none
+    # Gets the quantity of item in the card with id = ID
+    # or returns 0 if item is not in cart
     def getOldQuantity(id)
         old_quantity = 0
-        if session[:cart][:items][id]
-            old_quantity = session[:cart][:items][id]
+        if session[:cart][:items][id.to_i]
+            old_quantity = session[:cart][:items][id.to_i]
         end
-        return old_quantity
+        old_quantity
     end
-
 end

@@ -157,4 +157,20 @@ describe ItemsController do
         end
     end
 
+    describe "Alter cart quantities" do
+        before(:each) do
+            @item = Item.create! valid_attributes
+            @session = {:cart => {:items => {@item.id => 2}}}
+        end
+
+        it "can add to cart with addItemToCart method" do
+            post :addItemToCart, {:item_to_add => @item.id}, @session
+            @session[:cart][:items][@item.id].should eq(3)
+        end
+
+        it "can subtract from cart with minusItemFromCart method" do
+            post :minusItemFromCart, {:item_to_minus => @item.id}, @session
+            @session[:cart][:items][@item.id].should eq(1)
+        end
+    end
 end
