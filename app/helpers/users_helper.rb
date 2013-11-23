@@ -21,7 +21,6 @@ module UsersHelper
     					phone_number_instance.save
     					user_to_update.phone_number = phone_number_instance
     				end
-    				puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{user_to_update.phone_number.id}"
     			end
     			return result
     		end
