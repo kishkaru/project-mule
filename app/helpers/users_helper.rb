@@ -17,9 +17,14 @@ module UsersHelper
     		else
     			result = user_to_update.save
     			if result
-    				if !user_to_update.phone_number.isEqualTo(phone_number_instance)
-    					phone_number_instance.save
-    					user_to_update.phone_number = phone_number_instance
+    				if !user_to_update.phone_number.present? || !user_to_update.phone_number.isEqualTo(phone_number_instance)
+    					if phone_number_instance.save
+                            old_phone_number = user_to_update.phone_number
+        					result = user_to_update.update_attribute(:phone_number, phone_number_instance)
+                            if old_phone_number && !old_phone_number.vendor_id
+                                old_phone_number.destroy
+                            end
+                        end
     				end
     			end
     			return result
