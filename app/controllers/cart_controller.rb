@@ -15,6 +15,10 @@ class CartController < ApplicationController
     end
     @tax_total = @tax / 100.0 * @subtotal
     @total = @tax_total + @subtotal
-  	render :partial => 'cart/cart-modal-body'
+    if @cart_items.present?
+  	  render :partial => 'cart/cart-modal-body'
+    else
+      render :partial => 'cart/empty-cart'
+    end
   end
 end
