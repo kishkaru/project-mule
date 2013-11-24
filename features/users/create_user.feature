@@ -24,4 +24,4 @@ Feature: create a user
         And I should see "flay"
         And I should see "bobbyflay@flay.com"
         And I should see "Server"
-        And I should see "+1 (415) 123-4567"
+        And I should see "1 (415) 123-4567"

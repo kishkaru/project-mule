@@ -23,7 +23,7 @@ describe PhoneNumbersController do
     # This should return the minimal set of attributes required to create a valid
     # PhoneNumber. As you add validations to PhoneNumber, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) { { "country" => "MyString" } }
+    let(:valid_attributes) { { :country => "1", :area => "415", :number => "123-4567" } }
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in

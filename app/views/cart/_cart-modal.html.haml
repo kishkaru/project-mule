@@ -1,0 +1,13 @@
+#cart.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "cart", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#cartLabel.modal-title Cart
+      #cart-modal-body.modal-body
+        #spinner-cart-center{"style" => "position: absolute;display: block;top: 50%; left: 50%"}
+        #cart-modal-table
+          = render 'cart/cart-modal-body'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Pay
+      

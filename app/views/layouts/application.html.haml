@@ -28,11 +28,35 @@
           %li
             %a{href: "#"} About
           %li
-            = image_tag('/admin_icon.png', :alt => 'Admin Icon', :id => 'admin-icon')
+            %a{href: "#cart", :id => "cart_link", data: {toggle: "modal", target: "#cart"} }Cart
           - if (user_signed_in?)
+            - if (current_user.admin?)
+              %li
+                %li.dropdown
+                  %a{href: "#", 'data-toggle' => 'dropdown'}
+                    = image_tag('/admin_icon.png', :alt => 'Admin Icon', :id => 'admin-icon')
+                  %ul.dropdown-menu
+                    %li
+                      = link_to 'Users', users_path
+                    %li
+                      = link_to 'Menus', menus_path
+                    %li
+                      = link_to 'Vendors', vendors_path
+                    %li
+                      = link_to 'Items', items_path
+                    %li
+                      = link_to 'Ingredients', ingredients_path
+                    %li
+                      = link_to 'Delivery Areas', delivery_areas_path
+                    %li
+                      = link_to 'Delivery Points', delivery_points_path
+            %li
+              = link_to 'Edit Account', edit_user_registration_path
             %li
               = link_to 'Logout', destroy_user_session_path, method: :delete
           - else
+            %li
+              =link_to 'Sign Up', new_user_registration_path
             %li
               = link_to 'Login', new_user_session_path
     .main.container
@@ -43,4 +67,5 @@
 
     #modals
       = render "menus/new-modal"
+      = render "cart/cart-modal"
 
