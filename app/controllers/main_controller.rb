@@ -3,9 +3,8 @@ class MainController < ApplicationController
     @delivery_area = DeliveryArea.all
     @customer_area = DeliveryArea.new(params[:customer_area])
   end
-  def find
-    if params[:id] != nil 
-    	redirect_to DeliveryArea.find(params[:id])
-    end
+  def redirect
+    @customer_choice = DeliveryArea.find(1)
+    redirect_to @customer_choice
  end
 end

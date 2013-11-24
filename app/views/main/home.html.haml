@@ -9,7 +9,10 @@
       %span.input-group-btn
         %button.btn.btn-primary Sign Up!
   %h2 Let's get started! Where are you?
-  =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:include_blank => "Please select an Area", :selected => @delivery_area.first.name})
+  = form_tag root_url do	
+    =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:include_blank => "Please select an Area", :selected => @delivery_area.first.name})
+    = submit_tag "Update"
+  =link_to 'Show', :controller => "main", :action => "redirect"
 
-  =link_to 'Show', DeliveryArea.find(:customer_area[:id])
+
 
