@@ -40,5 +40,5 @@ Feature: View cart and edit items
     
     @javascript
     Scenario: remove item
-        Given I press "Remove" for "Regular Burrito"
+        Given I remove "Regular Burrito"
         Then I should not see "Regular Burrito"

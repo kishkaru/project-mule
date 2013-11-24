@@ -17,3 +17,9 @@ Given /I decrease the quantity of "(.*)"/ do | item |
 	button_id = "#{id}-item-minus"
 	click_button(button_id)
 end
+
+Given /I remove "(.*)"/ do |item|
+	id = Item.where(:name=> item).order("created_at").last.id
+	button_id = "#{id}-item-remove"
+	click_button(button_id)
+end

@@ -127,4 +127,10 @@ class ItemsController < ApplicationController
         end
         old_quantity
     end
+
+    # Remove the item in params[:item_to_remove] from the cart
+    def removeItemFromCart
+        session[:cart][:items].delete(params[:item_to_remove].to_i);
+        redirect_to cart_path
+    end
 end
