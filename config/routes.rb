@@ -1,5 +1,8 @@
 Projectmule::Application.routes.draw do
 
+  resources :addresses
+
+
     resources :phone_numbers
 
 
