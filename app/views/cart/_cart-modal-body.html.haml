@@ -1,9 +1,9 @@
 %table.table.table-centered
   %tr
-    %th.col-md.6 Item
-    %th.col-md-2 Price
-    %th.col-md-2 Quantity
-    %th.col-md-2
+    %th.col-md.6.no-top-border Item
+    %th.col-md-2.no-top-border Price
+    %th.col-md-2.no-top-border Quantity
+    %th.col-md-2.no-top-border
     - if @cart_items
       - @cart_items.each do |item, qty|
         %tr{:id => item.id}
@@ -16,20 +16,20 @@
           %td
             %button.btn.btn-xs.btn-danger.item-remove-button{:id => "#{item.id}-item-remove"} Remove
   %tr
-    %td{:align => 'right'}
+    %td.rightside
       %b Subtotal
     %td
     %td#subtotal.centered= "$#{number_with_precision(@subtotal, :precision =>2)}"
     %td
   %tr
-    %td{:align => 'right'}
+    %td.rightside.no-top-border
       %b Tax
-    %td#tax-pct #{@tax}%
-    %td#tax-total.centered= "$#{number_with_precision(@tax_total, :precision => 2)}"
-    %td
+    %td#tax-pct.no-top-border #{@tax}%
+    %td#tax-total.centered.no-top-border= "$#{number_with_precision(@tax_total, :precision => 2)}"
+    %td.no-top-border
   %tr
-    %td{:align => 'right'}
+    %td.rightside.no-top-border
       %b Total
-    %td
-    %td#total.centered= "$#{number_with_precision(@total, :precision => 2)}"
-    %td
+    %td.no-top-border
+    %td#total.centered.no-top-border= "$#{number_with_precision(@total, :precision => 2)}"
+    %td.no-top-border
