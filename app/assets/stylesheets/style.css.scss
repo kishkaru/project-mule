@@ -26,3 +26,11 @@ body {
 .centered {
     text-align: center;
 }
+
+.rightside {
+    text-align: right;
+}
+
+.table th.no-top-border, .table td.no-top-border {
+    border-top: none;
+}
