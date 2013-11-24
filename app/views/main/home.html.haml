@@ -9,7 +9,8 @@
       %span.input-group-btn
         %button.btn.btn-primary Sign Up!
   %h2 Let's get started! Where are you?
-  = form_for(@delivery_area, :url => {:action => :home}) do |f|
-    =f.collection_select :name, DeliveryArea.all, :id, :name, :include_blank => "Please select an Area"
-    .actions
-= link_to 'Show', DeliveryArea.find(:id) 
+  = form_tag "/random", :method => :get do	
+    =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:include_blank => "Please select an Area"})
+    = submit_tag "Update"
+
+

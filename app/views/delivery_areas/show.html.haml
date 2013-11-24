@@ -3,6 +3,23 @@
   %b Name:
   = @delivery_area.name
 
+
+%h1 Listing delivery_points
+%table
+  %tr
+    %th Address
+    %th Latitude
+    %th Longitude
+    %th
+    %th
+    %th
+  - @delivery_points.each do |delivery_point|
+    %tr
+      %td= delivery_point.address
+      %td= delivery_point.latitude
+      %td= delivery_point.longitude
+      %td= link_to 'Choose', :controller => "delivery_points", :action => "updateCustomer"
+
 = link_to 'Edit', edit_delivery_area_path(@delivery_area)
 |
 \#{link_to 'Back', delivery_areas_path}

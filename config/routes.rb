@@ -4,9 +4,15 @@ Projectmule::Application.routes.draw do
 
 
     resources :delivery_points
-
+	
 
     resources :delivery_areas
+    get '/delivery_areas/:id',  :as => :Choose, :to => 'delivery_points#updateCustomer' 
+
+    
+    resources :main
+    get '/act', :as => :Show, :to => 'main#redirect'
+    get '/random', :to => 'main#goToMenu'
 
     devise_for :users 
     

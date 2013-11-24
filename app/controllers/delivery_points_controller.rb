@@ -57,7 +57,6 @@ class DeliveryPointsController < ApplicationController
     # PUT /delivery_points/1.json
     def update
         @delivery_point = DeliveryPoint.find(params[:id])
-
         respond_to do |format|
             if @delivery_point.update_attributes(params[:delivery_point])
                 format.html { redirect_to @delivery_point, notice: 'Delivery point was successfully updated.' }
@@ -69,6 +68,14 @@ class DeliveryPointsController < ApplicationController
         end
     end
 
+    def updateCustomer
+	puts "ADDED YOUR DELIVERY POINT!!!!!!!!!!!!!!!!!!!!"
+	foundPoint = DeliveryPoint.find(params[:id])
+	session[:delivery_point] = foundPoint
+	if user_signed_in?
+	    current_user.delivery_point = foundPoint
+	end
+    end
     # DELETE /delivery_points/1
     # DELETE /delivery_points/1.json
     def destroy

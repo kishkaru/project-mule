@@ -1,0 +1,2 @@
+%h1 Select Delivery Point
+= collection_select(:customer_area, :id, @customer_points, :id, :address, {:include_blank => "Please select a Delivery Point"})

@@ -15,6 +15,8 @@ class DeliveryAreasController < ApplicationController
     def show
         @delivery_area = DeliveryArea.find(params[:id])
 
+	@delivery_points = DeliveryPoint.all
+
         respond_to do |format|
             format.html # show.html.erb
             format.json { render json: @delivery_area }
