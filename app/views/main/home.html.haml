@@ -8,8 +8,9 @@
       %input.form-control{:type => :text, :placeholder => "email" }
       %span.input-group-btn
         %button.btn.btn-primary Sign Up!
+  %br/
   %h2 Let's get started! Where are you?
   =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:include_blank => "Please select an Area", :selected => @delivery_area.first.name})
 
-  =link_to 'Show', DeliveryArea.find(:customer_area[:id])
+  =link_to 'Show'
 
