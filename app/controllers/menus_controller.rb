@@ -28,7 +28,7 @@ class MenusController < ApplicationController
         @menu.date = Date.tomorrow
 
         respond_to do |format|
-            format.html # new.html.erb
+            format.html # new.html.erbam
             format.json { render json: @menu }
         end
     end
@@ -41,9 +41,8 @@ class MenusController < ApplicationController
     # POST /menus
     # POST /menus.json
     def create
+        template = params[:menu].delete(:template)
         @menu = Menu.new(params[:menu])
-        puts "PARAMS"
-        puts params
 
         respond_to do |format|
             if @menu.save
