@@ -1,12 +1,13 @@
+%h3 Vendor
 %p
   %b Name:
   = @vendor.name
 %p
   %b Address:
-  = @vendor.address
+  = @vendor.address.to_s
 %p
   %b Email:
   = @vendor.email
-= link_to 'Edit', edit_vendor_path(@vendor)
+= link_to 'Edit', edit_vendor_path(@vendor), :class =>  "btn btn-warning btn-sm"
 |
-\#{link_to 'Back', vendors_path}
+\#{link_to 'Back', vendors_path, :class =>  "btn btn-default btn-sm"}

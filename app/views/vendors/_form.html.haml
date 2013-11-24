@@ -10,14 +10,21 @@
   .field
     = f.label :name
     %br/
-    = f.text_field :name
+    = f.text_field :name, class: "form-control"
   .field
     = f.label :address
     %br/
-    = f.text_field :address
+    .addreCss
+      = fields_for :address, @vendor.address do |address|
+        = address.text_field :line1, { placeholder: "StreetLine 1", class: "form-control" }
+        = address.text_field :line2, { placeholder:"Street Line 2", class: "form-control" }
+        .address-location
+          = address.text_field :city, { placeholder:"City", class: "form-control" }
+          = address.text_field :state, { placeholder:"State", class: "form-control" }
+          = address.text_field :zip, { placeholder:"Zip Code", class: "form-control" }
   .field
     = f.label :email
     %br/
-    = f.text_field :email
+    = f.text_field :email, class: "form-control"
   .actions
-    = f.submit
+    = f.submit(class: "btn btn-primary btn-sm")
