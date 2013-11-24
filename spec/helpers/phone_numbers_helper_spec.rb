@@ -11,5 +11,17 @@ require 'spec_helper'
 #   end
 # end
 describe PhoneNumbersHelper do
-    pending "add some examples to (or delete) #{__FILE__}"
+    
+    describe "parsePhoneNumber" do
+
+    	it "should return a hash for a valid number" do
+    		res = {:country => "1", :area => "123", :number => "456-7890"}
+    		parsePhoneNumber("+1 (123) 456-7890").should eq(res)
+    	end
+
+    	it "should return a hash for an invalid number" do
+    		res = {:country => "1", :area => nil, :number => nil}
+    		parsePhoneNumber("+1").should eq(res)
+    	end
+    end
 end

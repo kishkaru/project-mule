@@ -20,7 +20,6 @@
     = p.text_field :number, {:class => "bfh-phone number-text", "data-format" => "ddd-dddd", :value => resource.phone_number ? resource.phone_number.number : "", :size => 8, :placeholder => "Number"}
     = p.text_field :extension, {:class => "bfh-phone extension-text", "data-format" => "ddddddd", :value => resource.phone_number ? resource.phone_number.extension : "", :size => 7, :placeholder => "Extension"}
   %br/
-  - puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ #{[resource.phone_number]}"
   %div
     = f.label :email
     %br/
