@@ -13,12 +13,13 @@
     %th
     %th
     %th
-  - @delivery_points.each do |delivery_point|
-    %tr
-      %td= delivery_point.address
-      %td= delivery_point.latitude
-      %td= delivery_point.longitude
-      %td= link_to 'Choose', :controller => "delivery_points", :action => "updateCustomer"
+  - if @delivery_points
+    - @delivery_points.each do |delivery_point|
+      %tr
+        %td= delivery_point.address
+        %td= delivery_point.latitude
+        %td= delivery_point.longitude
+        %td= link_to 'Choose', :controller => "delivery_points", :action => "updateCustomer"
 
 = link_to 'Edit', edit_delivery_area_path(@delivery_area)
 |
