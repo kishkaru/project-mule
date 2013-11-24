@@ -1,39 +1,35 @@
 %table.table.table-centered
   %tr
-    %th Item
-    %th Price
-    %th Quantity
-    %th 
-    %th
+    %th.col-md.6 Item
+    %th.col-md-2 Price
+    %th.col-md-2 Quantity
+    %th.col-md-2
     - if @cart_items
       - @cart_items.each do |item, qty|
         %tr{:id => item.id}
           %td= item.name
           %td.price= "$#{number_with_precision(item.price, :precision => 2)}"
-          %td.qty= qty
+          %td.qty
+            = qty
+            %button.btn.btn-xs.btn-default.plus.item-qty-buttons{:id => "#{item.id}-item-plus"}+
+            %button.btn.btn-xs.btn-default.minus.item-qty-buttons{:id => "#{item.id}-item-minus"}-
           %td
-            %button.plus.item-qty-buttons{:id => "#{item.id}-item-plus"}+
-            %button.minus.item-qty-buttons{:id => "#{item.id}-item-minus"}-
-          %td
-            %button.item-remove-button{:id => "#{item.id}-item-remove"} Remove
+            %button.btn.btn-xs.btn-danger.item-remove-button{:id => "#{item.id}-item-remove"} Remove
   %tr
-    %td 
+    %td{:align => 'right'}
       %b Subtotal
     %td
-    %td
-    %td#subtotal= "$#{number_with_precision(@subtotal, :precision =>2)}"
+    %td#subtotal.centered= "$#{number_with_precision(@subtotal, :precision =>2)}"
     %td
   %tr
-    %td
+    %td{:align => 'right'}
       %b Tax
-    %td
     %td#tax-pct #{@tax}%
-    %td#tax-total= "$#{number_with_precision(@tax_total, :precision => 2)}"
+    %td#tax-total.centered= "$#{number_with_precision(@tax_total, :precision => 2)}"
     %td
   %tr
-    %td
+    %td{:align => 'right'}
       %b Total
     %td
-    %td
-    %td#total= "$#{number_with_precision(@total, :precision => 2)}"
+    %td#total.centered= "$#{number_with_precision(@total, :precision => 2)}"
     %td

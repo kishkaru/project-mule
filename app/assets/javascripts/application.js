@@ -58,6 +58,7 @@ $(document).ready(function() {
 					spinner.spin();
 					$("#cart-modal-table").html(data);
 					bind_qty_buttons();
+					bind_remove_buttons();
 				}});
 		});
 		$("button.item-qty-buttons.minus").click(function() {
@@ -69,6 +70,7 @@ $(document).ready(function() {
 					spinner.spin();
 					$("#cart-modal-table").html(data);
 					bind_qty_buttons();
+					bind_remove_buttons();
 				}});
 		});
 	};
@@ -83,6 +85,7 @@ $(document).ready(function() {
 					spinner.spin();
 					$("#cart-modal-table").html(data);
 					bind_remove_buttons();
+					bind_qty_buttons();
 				}});
 		});
 	};
