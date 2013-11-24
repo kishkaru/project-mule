@@ -7,16 +7,6 @@ class ItemsController < ApplicationController
     def index
         @items = Item.all
 
-        i = {}
-        @items.each do |it|
-            i[it.id] = 3
-        end
-        session[:cart] = {}
-        session[:cart][:items] = i
-
-        puts 'HERE####################################'
-        puts session[:cart]
-
         respond_to do |format|
             format.html # index.html.erb
             format.json { render json: @items }
