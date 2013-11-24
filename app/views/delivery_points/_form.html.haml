@@ -8,9 +8,25 @@
         - @delivery_point.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :address
+    = f.label :city
     %br/
-    = f.text_field :address
+    = f.text_field :city
+  .field
+    = f.label :line1
+    %br/
+    = f.text_field :line1
+  .field
+    = f.label :line2
+    %br/
+    = f.text_field :line2
+  .field
+    = f.label :state
+    %br/
+    = f.text_field :state
+  .field
+    = f.label :zip
+    %br/
+    = f.text_field :zip
   .field
     = f.label :latitude
     %br/
