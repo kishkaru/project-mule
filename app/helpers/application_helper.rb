@@ -12,4 +12,16 @@ module ApplicationHelper
 
     link_to_function(name, "add_fields(this, \"#{ association }\", \"#{ escape_javascript(fields) }\")", options)
   end
+
+  def flash_to_bootstrap(type)
+      return case type.downcase.to_sym
+             when :notice then
+                 :info
+             when :error then
+                 :danger
+             else
+                 type
+             end
+  end
+
 end
