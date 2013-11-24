@@ -11,6 +11,7 @@ Projectmule::Application.routes.draw do
 
     resources :main
     get '/act', :as => :Show, :to => 'main#redirect'
+    get '/random', :to => 'main#goToMenu'
 
     devise_for :users 
     
