@@ -8,9 +8,11 @@
       %input.form-control{:type => :text, :placeholder => "email" }
       %span.input-group-btn
         %button.btn.btn-primary Sign Up!
+  %br/
   %h2 Let's get started! Where are you?
   = form_tag "/random", :method => :get do	
     =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:include_blank => "Please select an Area"})
     = submit_tag "Update"
 
+  =link_to 'Show'
 

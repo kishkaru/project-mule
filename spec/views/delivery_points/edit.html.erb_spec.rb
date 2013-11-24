@@ -19,8 +19,6 @@ describe "delivery_points/edit" do
             assert_select "input#delivery_point_address[name=?]", "delivery_point[address]"
             assert_select "input#delivery_point_latitude[name=?]", "delivery_point[latitude]"
             assert_select "input#delivery_point_longitude[name=?]", "delivery_point[longitude]"
-            assert_select "input#delivery_point_customer[name=?]", "delivery_point[customer]"
-            assert_select "input#delivery_point_delivery_area[name=?]", "delivery_point[delivery_area]"
         end
     end
 end

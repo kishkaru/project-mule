@@ -884,7 +884,7 @@
   },
   "RSpec": {
     "coverage": {
-      "/home/saasbook/bugfix/app/models/user.rb": [
+      "/home/saasbook/rick/app/models/user.rb": [
         1,
         null,
         1,
@@ -921,44 +921,44 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/application_controller.rb": [
+      "/home/saasbook/rick/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/application_helper.rb": [
+      "/home/saasbook/rick/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/delivery_areas_helper.rb": [
+      "/home/saasbook/rick/app/helpers/delivery_areas_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/delivery_points_helper.rb": [
+      "/home/saasbook/rick/app/helpers/delivery_points_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/ingredients_helper.rb": [
+      "/home/saasbook/rick/app/helpers/ingredients_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/items_helper.rb": [
+      "/home/saasbook/rick/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/main_helper.rb": [
+      "/home/saasbook/rick/app/helpers/main_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/menus_helper.rb": [
+      "/home/saasbook/rick/app/helpers/menus_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/phone_numbers_helper.rb": [
+      "/home/saasbook/rick/app/helpers/phone_numbers_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/users_helper.rb": [
+      "/home/saasbook/rick/app/helpers/users_helper.rb": [
         1,
         null,
         null,
@@ -972,11 +972,11 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/helpers/vendors_helper.rb": [
+      "/home/saasbook/rick/app/helpers/vendors_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/delivery_areas_controller.rb": [
+      "/home/saasbook/rick/app/controllers/delivery_areas_controller.rb": [
         1,
         null,
         null,
@@ -992,6 +992,8 @@
         null,
         null,
         1,
+        1,
+        null,
         1,
         null,
         1,
@@ -1061,7 +1063,7 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/models/delivery_area.rb": [
+      "/home/saasbook/rick/app/models/delivery_area.rb": [
         1,
         1,
         1,
@@ -1072,7 +1074,7 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/delivery_points_controller.rb": [
+      "/home/saasbook/rick/app/controllers/delivery_points_controller.rb": [
         1,
         null,
         null,
@@ -1132,7 +1134,6 @@
         null,
         1,
         5,
-        null,
         5,
         5,
         4,
@@ -1144,6 +1145,14 @@
         null,
         null,
         null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
         null,
         null,
         1,
@@ -1157,7 +1166,7 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/models/delivery_point.rb": [
+      "/home/saasbook/rick/app/models/delivery_point.rb": [
         1,
         null,
         1,
@@ -1169,7 +1178,7 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/ingredients_controller.rb": [
+      "/home/saasbook/rick/app/controllers/ingredients_controller.rb": [
         1,
         null,
         null,
@@ -1267,13 +1276,13 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/models/ingredient.rb": [
+      "/home/saasbook/rick/app/models/ingredient.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/items_controller.rb": [
+      "/home/saasbook/rick/app/controllers/items_controller.rb": [
         1,
         null,
         null,
@@ -1361,7 +1370,7 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/models/item.rb": [
+      "/home/saasbook/rick/app/models/item.rb": [
         1,
         1,
         1,
@@ -1370,13 +1379,21 @@
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/main_controller.rb": [
+      "/home/saasbook/rick/app/controllers/main_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
         1,
         1,
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/menus_controller.rb": [
+      "/home/saasbook/rick/app/controllers/menus_controller.rb": [
         1,
         null,
         null,
@@ -1464,7 +1481,7 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/models/menu.rb": [
+      "/home/saasbook/rick/app/models/menu.rb": [
         1,
         1,
         1,
@@ -1472,7 +1489,7 @@
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/phone_numbers_controller.rb": [
+      "/home/saasbook/rick/app/controllers/phone_numbers_controller.rb": [
         1,
         null,
         null,
@@ -1557,14 +1574,14 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/models/phone_number.rb": [
+      "/home/saasbook/rick/app/models/phone_number.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/users_controller.rb": [
+      "/home/saasbook/rick/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -1663,7 +1680,7 @@
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/controllers/vendors_controller.rb": [
+      "/home/saasbook/rick/app/controllers/vendors_controller.rb": [
         1,
         null,
         null,
@@ -1748,7 +1765,7 @@
         null,
         null
       ],
-      "/home/saasbook/bugfix/app/models/vendor.rb": [
+      "/home/saasbook/rick/app/models/vendor.rb": [
         1,
         1,
         1,
@@ -1756,13 +1773,13 @@
         1,
         null
       ],
-      "/home/saasbook/bugfix/app/models/server.rb": [
+      "/home/saasbook/rick/app/models/server.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1384766884
+    "timestamp": 1385320977
   }
 }
