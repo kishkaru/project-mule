@@ -6,20 +6,26 @@ I want to choose a convinient delivery point from the delivery areas I can choos
 
 Background: the following delivery areas have been added to the database
 
-	Given the following delivery areas exist:
-	| delivery area | delivery points |
-	| Area A | 1st Street, 2nd Steet|
-	| Area B | 3rd Street |
+	Given the following Delivery Points exist with Area:
+	
+	| address| latitude| longitude| id|
+	| 2650 Durant Ave | 15.7 | 45.6 | 1|
+	| 2521 Hearst Ave | 26.3 | 76.7 | 2|
+
+	And the following DeliveryAreas exist:
+	   |name|
+	   |F&M District|
+	   |Berkeley|
+	   |Mission|
+ 	And I am on the home page
 
 Scenario: Listing delivery points in an area
-Given I am on the home page
-And I press "Area A"
-Then I should see "Choose a pick-up spot"  
-Then I should see "1st Street, 2nd Street"
-Then I should be on the the delivery points page for "Area A"
+When I select "Berkeley" from "customer_area_id"
+When I press "Update"
+Then I should see "Select Delivery Point"
 
-Scenario: Customer can choose pick-up spot to view menus from
-Given I am on the delivery points page for "Area B"
-And I follow "Area B"
-Then I should see "What to eat?"
-
+Scenario: Drop-Down
+Given I select "Mission" from "customer_area_id"
+And I press "Update"
+Then I should see "Select Delivery Point"
+And I should see "Please select a Delivery Point"
