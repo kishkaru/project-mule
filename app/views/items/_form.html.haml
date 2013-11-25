@@ -1,64 +1,60 @@
-= form_for(@item) do |f|
-  - if @item.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@item.errors.count, "error")
-        prohibited this item from being saved:
-      %ul
-        - @item.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name, class: "form-control"
-  .field
-    = f.label :vendor
-    %br/
-    = collection_select :item, :vendor_id, Vendor.all, :id, :name, { prompt: 'Select a vendor'}, { class: 'form-control' }
-  .field
-    = f.label :price
-    %br/
-    = f.text_field :price, class: "form-control"
-  .field
-    = f.label :description
-    %br/
-    = f.text_area :description, :rows => 3, class: "form-control"
-  .field
-    = f.label :quantity
-    %br/
-    = f.number_field :quantity, class: "form-control"
-  .field
-    = f.label :expires_at
-    %br/
-    = f.datetime_select :expires_at, {}
+.row
+  = form_for(@item) do |f|
+    .col-md-6
+      .field
+        = f.label :name
+        %br/
+        = f.text_field :name, class: "form-control"
+      .field
+        = f.label :vendor
+        %br/
+        = collection_select :item, :vendor_id, Vendor.all, :id, :name, { prompt: 'Select a vendor'}, { class: 'form-control' }
+      .field
+        = f.label :price
+        %br/
+        = f.text_field :price, class: "form-control"
+      .field
+        = f.label :description
+        %br/
+        = f.text_area :description, :rows => 3, class: "form-control"
+      .field
+        = f.label :quantity
+        %br/
+        = f.number_field :quantity, class: "form-control"
+      .field
+        = f.label :expires_at
+        %br/
+        = f.datetime_select :expires_at, {}
 
-  .field.ingredients
-    .panel.panel-default
-      .panel-heading
-        %strong Ingredients
-      #selected-ingredients.panel-body{}>
-        - @item.ingredients.each do |ingredient|
-          .ingredient{}>
-            %input{type:"hidden", name: "item[ingredients][]", value: ingredient.name}
-            %span= ingredient.name
-            %button.btn.btn-danger.btn-xs.remove-ingredient
-              X
-
-    #select-ingredient
-      %select
-        - (Ingredient.all - @item.ingredients).each do |ingredient|
-          %option= ingredient.name
-
-      %button#add-ingredient.btn.btn-success.btn-xs
-        Add Ingredient
-
-    #new-ingredient
-      %input{type: "text", placeholder: "New Ingredient Name"}
-
-      %button#create-ingredient.btn.btn-success.btn-xs
-        Create Ingredient
+        .actions
+          %br/
+          = f.submit(:class =>  "btn btn-primary btn-sm")
 
 
-  .actions
-    %br/
-    = f.submit(:class =>  "btn btn-primary btn-sm")
+    .col-md-6
+      .field.ingredients
+        .panel.panel-default
+          .panel-heading
+            %strong Ingredients
+          #selected-ingredients.panel-body{}>
+            - @item.ingredients.each do |ingredient|
+              .ingredient{}>
+                %input{type:"hidden", name: "item[ingredients][]", value: ingredient.name}
+                %span= ingredient.name
+                %button.btn.btn-danger.btn-xs.remove-ingredient
+                  X
+
+        #select-ingredient
+          %select
+            - (Ingredient.all - @item.ingredients).each do |ingredient|
+              %option= ingredient.name
+
+          %button#add-ingredient.btn.btn-success.btn-xs
+            Add Ingredient
+
+        #new-ingredient
+          %input{type: "text", placeholder: "New Ingredient Name"}
+
+          %button#create-ingredient.btn.btn-success.btn-xs
+            Create Ingredient
+

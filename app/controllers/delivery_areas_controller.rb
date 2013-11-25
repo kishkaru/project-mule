@@ -88,6 +88,11 @@ class DeliveryAreasController < ApplicationController
         @customer_points = customer_area.delivery_points
         @menu = customer_area.menu
 
+        unless @menu
+            flash[:error] = "There is no menu associated with this delivery area"
+            redirect_to delivery_area_path(customer_area) and return
+        end
+
         respond_to do |format|
             format.html { render "menus/show" }
         end
