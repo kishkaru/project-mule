@@ -17,6 +17,11 @@ describe "vendors/edit" do
             assert_select "input#vendor_name[name=?]", "vendor[name]"
 #assert_select "input#vendor_address[name=?]", "vendor[address]"
             assert_select "input#vendor_email[name=?]", "vendor[email]"
+            assert_select "input#vendor_address_attributes_line1[name=?]", "vendor[address_attributes][line1]"
+            assert_select "input#vendor_address_attributes_line2[name=?]", "vendor[address_attributes][line2]"
+            assert_select "input#vendor_address_attributes_city[name=?]", "vendor[address_attributes][city]"
+            assert_select "input#vendor_address_attributes_state[name=?]", "vendor[address_attributes][state]"
+            assert_select "input#vendor_address_attributes_zip[name=?]", "vendor[address_attributes][zip]"
         end
     end
 end
