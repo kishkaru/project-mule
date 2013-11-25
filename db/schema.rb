@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122122524) do
+ActiveRecord::Schema.define(:version => 20131124123722) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20131122122524) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "delivery_areas", :force => true do |t|
@@ -124,7 +126,6 @@ ActiveRecord::Schema.define(:version => 20131122122524) do
 
   create_table "vendors", :force => true do |t|
     t.string   "name"
-    t.string   "address"
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

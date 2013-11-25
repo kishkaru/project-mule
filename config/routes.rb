@@ -1,8 +1,5 @@
 Projectmule::Application.routes.draw do
 
-  resources :addresses
-
-
     resources :phone_numbers
 
 
@@ -38,6 +35,13 @@ Projectmule::Application.routes.draw do
 
     resources :items
 
+    get '/cart', :to => 'cart#cart', :as => :cart
+
+    post '/add_item/:item_to_add', :to => 'items#addItemToCart', :as => :add_item_to_cart
+
+    post '/minus_item/:item_to_minus', :to => 'items#minusItemFromCart', :as => :minus_item_from_cart
+
+    post '/remove_item/:item_to_remove', :to => 'items#removeItemFromCart', :as => :remove_item_from_cart
 
     root :to => 'main#home'
 

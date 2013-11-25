@@ -26,3 +26,19 @@ body {
 .centered {
     text-align: center;
 }
+
+.btn {
+    color:white;
+}
+
+a:visited {
+    color:white;
+}
+
+.rightside {
+    text-align: right;
+}
+
+.table th.no-top-border, .table td.no-top-border {
+    border-top: none;
+}

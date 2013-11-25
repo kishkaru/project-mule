@@ -14,11 +14,13 @@ class User < ActiveRecord::Base
 
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :password, :password_confirmation, :remember_me
-    attr_accessible :first_name, :last_name
+    attr_accessible :first_name, :last_name, :phone_number
     attr_protected :role
 
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
+
+    accepts_nested_attributes_for :phone_number, :update_only => true
 
     def self.admin_updateable_nonrelational_attributes
         [:role,

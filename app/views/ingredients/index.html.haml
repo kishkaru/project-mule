@@ -8,8 +8,8 @@
   - @ingredients.each do |ingredient|
     %tr
       %td= ingredient.name
-      %td= link_to 'Show', ingredient
-      %td= link_to 'Edit', edit_ingredient_path(ingredient)
-      %td= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= link_to 'Show', ingredient, :class =>  "btn btn-info btn-sm"
+      %td= link_to 'Edit', edit_ingredient_path(ingredient), :class =>  "btn btn-warning btn-sm"
+      %td= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' }, :class =>  "btn btn-danger btn-sm"
 %br/
-= link_to 'New Ingredient', new_ingredient_path
+= link_to 'New Ingredient', new_ingredient_path, :class =>  "btn btn-primary btn-sm"

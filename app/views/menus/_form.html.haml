@@ -1,19 +1,40 @@
 = form_for(@menu) do |f|
-  - if @menu.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@menu.errors.count, "error")
-        prohibited this menu from being saved:
-      %ul
-        - @menu.errors.full_messages.each do |msg|
-          %li= msg
+
+  .field.delivery_areas
+    .panel.panel-default
+      .panel-heading
+        %strong Delivery Areas
+      #selected-delivery_areas.panel-body{}>
+        - @menu.delivery_areas.each do |delivery_area|
+          .delivery_area{}>
+            %input{type:"hidden", name: "menu[delivery_areas][]", value: delivery_area.name}
+            %span= delivery_area.name
+            %button.btn.btn-danger.btn-xs.remove-delivery_area
+              X
+
+    #select-delivery_area
+      %select
+        - (DeliveryArea.all - @menu.delivery_areas).each do |delivery_area|
+          %option= delivery_area.name
+
+      %button#add-delivery_area.btn.btn-success.btn-xs
+        Add Delivery Area
+
+
   .field
     .form-group
       %label{for: "menu-date"} What Day is this Menu For?
       %input#menu-date.form-control{name: "menu[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.present? ? @menu.date.to_date : Date.tomorrow) }
-    .form-group
-      %label{for: "menu-template"} Choose a Menu to start from?
-      %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
-        %option{value: "blank"} Blank Menu
+
+  - unless @menu.id.present?
+    .field
+      .form-group
+        %label{for: "menu-template"} Choose a Menu to start from?
+        %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
+          %option{value: "blank"} Blank Menu
+          - Menu.last(10).reverse.each do |menu|
+            %option{value: menu.id}
+              = "Menu for #{menu.delivery_areas.collect(&:name).join(", ")} on #{menu.date.to_date.to_formatted_s(:long)}"
+
   .actions
     = f.submit( class: "btn btn-primary" )
