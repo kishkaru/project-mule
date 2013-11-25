@@ -81,4 +81,19 @@ class VendorsController < ApplicationController
             format.json { head :no_content }
         end
     end
+
+    def items
+        @vendor = Vendor.find(params[:id])
+
+        respond_to do |format|
+            format.html { flash[:error] = "That page does not exist" and redirect_to :root }
+            format.json { render :json => {
+                    :vendor => {
+                        :name => @vendor.name
+                    },
+                    :items => @vendor.items.select([:name, :description, :price, :id, :quantity])
+                }
+            }
+        end
+    end
 end

@@ -1,40 +1,88 @@
 = form_for(@menu) do |f|
+  .row
+    .col-md-6
 
-  .field.delivery_areas
-    .panel.panel-default
-      .panel-heading
-        %strong Delivery Areas
-      #selected-delivery_areas.panel-body{}>
-        - @menu.delivery_areas.each do |delivery_area|
-          .delivery_area{}>
-            %input{type:"hidden", name: "menu[delivery_areas][]", value: delivery_area.name}
-            %span= delivery_area.name
-            %button.btn.btn-danger.btn-xs.remove-delivery_area
-              X
+      .field.delivery_areas
+        .panel.panel-default
+          .panel-heading
+            %strong Delivery Areas
+          #selected-delivery_areas.panel-body{}>
+            - @menu.delivery_areas.each do |delivery_area|
+              .delivery_area{}>
+                %input{type:"hidden", name: "menu[delivery_areas][]", value: delivery_area.name}
+                %span= delivery_area.name
+                %button.btn.btn-danger.btn-xs.remove-delivery_area
+                  X
 
-    #select-delivery_area
-      %select
-        - (DeliveryArea.all - @menu.delivery_areas).each do |delivery_area|
-          %option= delivery_area.name
+        #select-delivery_area
+          %select
+            - (DeliveryArea.all - @menu.delivery_areas).each do |delivery_area|
+              %option= delivery_area.name
 
-      %button#add-delivery_area.btn.btn-success.btn-xs
-        Add Delivery Area
+          %button#add-delivery_area.btn.btn-success.btn-xs
+            Add Delivery Area
 
 
-  .field
-    .form-group
-      %label{for: "menu-date"} What Day is this Menu For?
-      %input#menu-date.form-control{name: "menu[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.present? ? @menu.date.to_date : Date.tomorrow) }
+      .field
+        .form-group
+          %label{for: "menu-date"} What Day is this Menu For?
+          %input#menu-date.form-control{name: "menu[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.present? ? @menu.date.to_date : Date.tomorrow) }
 
-  - unless @menu.id.present?
-    .field
-      .form-group
-        %label{for: "menu-template"} Choose a Menu to start from?
-        %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
-          %option{value: "blank"} Blank Menu
-          - Menu.last(10).reverse.each do |menu|
-            %option{value: menu.id}
-              = "Menu for #{menu.delivery_areas.collect(&:name).join(", ")} on #{menu.date.to_date.to_formatted_s(:long)}"
+      - unless @menu.id.present?
+        .field
+          .form-group
+            %label{for: "menu-template"} Choose a Menu to start from?
+            %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
+              %option{value: "blank", selected: true} Blank Menu
+              - Menu.last(10).reverse.each do |menu|
+                %option{value: menu.id}
+                  = "Menu for #{menu.delivery_areas.collect(&:name).join(", ")} on #{menu.date.to_date.to_formatted_s(:long)}"
 
-  .actions
-    = f.submit( class: "btn btn-primary" )
+      .field
+        #items
+          %h3 Items
+          %table.table.table-centered.table-striped.table-hover
+            %thead
+              %tr
+                %th Name
+                %th Description
+                %th Price
+                %th Quantity
+                %th Vendor
+                %th
+            %tbody
+              - @menu.items.each do |item|
+                %tr
+                  %td= item.name
+                  %td= item.description
+                  %td= item.price
+                  %td= item.quantity
+                  %td= item.vendor.name
+                  %td
+                    %button.remove-from-menu.btn.btn-xs.btn-primary{data: {"item-id" => item.id}}
+                      Remove
+                  %input{type: "hidden", name: "menu[items][]", value:item.id }
+
+
+      .actions
+        = f.submit( class: "btn btn-primary" )
+
+    .col-md-6
+      #add-item
+        %h3 Add Items to Menu
+        = f.label "Add Items by Vendor"
+
+        %select#select-vendor
+          - Vendor.all.each do |vendor|
+            %option{:value => vendor.id}
+              = vendor.name
+
+        %table.table.table-centered.table-striped.table-hover#item-choices
+          %thead
+            %tr
+              %th Item
+              %th Description
+              %th Price
+              %th
+          %tbody
+

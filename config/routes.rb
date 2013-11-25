@@ -4,15 +4,17 @@ Projectmule::Application.routes.draw do
 
 
     resources :delivery_points
-	
+
 
     resources :delivery_areas
-    
+
+    get '/delivery_areas/:id',  :as => :Choose, :to => 'delivery_points#updateCustomer'
+
     resources :main
     post '/area_chosen', :to => 'main#goToMenu', :as => :area_chosen
 
-    devise_for :users 
-    
+    devise_for :users
+
     get '/admin/users', :to => 'users#index', :as => :users
     post '/admin/users', :to => 'users#create'
     get '/admin/users/new', :to => 'users#new', :as => :new_user
@@ -21,8 +23,11 @@ Projectmule::Application.routes.draw do
     put '/admin/users/:id', :to => 'users#update'
     delete '/admin/users/:id', :to => 'users#destroy'
 
-    resources :vendors
-
+    resources :vendors do
+        member do
+            get 'items'
+        end
+    end
 
     resources :menus
 
