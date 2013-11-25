@@ -25,6 +25,7 @@ class DeliveryPointsController < ApplicationController
     # GET /delivery_points/new.json
     def new
         @delivery_point = DeliveryPoint.new
+        @delivery_point.build_address
 
         respond_to do |format|
             format.html # new.html.erb
