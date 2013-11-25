@@ -45,7 +45,7 @@ class MenusController < ApplicationController
         @delivery_areas = DeliveryArea.where(name: params[:menu].delete(:delivery_areas))
         @items = Item.where(id: params[:menu].delete(:items))
         template = params[:menu].delete(:template)
-        if template == "blank"
+        if template.blank? || template == "blank" || template.to_i < 1
             @menu = Menu.new(params[:menu])
         else
             @menu = Menu.new_from_template(template.to_i, params[:menu])

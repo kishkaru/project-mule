@@ -2,7 +2,7 @@
   %h1.centered
     Menu
   %h4.centered
-    = @menu.date.strftime("%A %B %e, %Y")
+    = @menu.date.strftime("%A %B %e, %Y") if @menu.date
 
 .row
   #menu-items
