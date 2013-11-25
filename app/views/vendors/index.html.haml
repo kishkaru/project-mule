@@ -10,7 +10,7 @@
   - @vendors.each do |vendor|
     %tr
       %td= vendor.name
-      %td= vendor.address
+      %td= vendor.address.to_s
       %td= vendor.email
       %td= link_to 'Show', vendor, :class =>  "btn btn-info btn-sm"
       %td= link_to 'Edit', edit_vendor_path(vendor), :class =>  "btn btn-warning btn-sm"
