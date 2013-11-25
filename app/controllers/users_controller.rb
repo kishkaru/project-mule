@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     # POST /users.json
     def create
         @user = User.new
-
+        
         respond_to do |format|
             if update_user_attributes(@user)
                 format.html { redirect_to @user, notice: 'User was successfully created.' }

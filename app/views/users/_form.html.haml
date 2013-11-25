@@ -34,7 +34,7 @@
   .field
     = f.label :phone_number
     %br/
-    = f.text_field :phone_number, {:class => "bfh-phone", "data-format" => "+1 (ddd) ddd-dddd", :value => @user.phone_number ? @user.phone_number.country + @user.phone_number.area + @user.phone_number.number.delete("-") : "", :size => 17}
+    = f.text_field :phone_number, {:class => "bfh-phone", "data-format" => "+1 (ddd) ddd-dddd",:value => @user.phone_number ? @user.phone_number.asString : "", :size => 17}
   .actions
     = f.submit
 
