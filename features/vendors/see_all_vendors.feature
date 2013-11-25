@@ -7,12 +7,20 @@ Feature: see all vendors
   Background: Vendors have been added to the database
 
     Given the following vendors exist:
-      | name        | phone number | email                | address                                         |
-      | Chipotle    | 111-111-1111 | buro@chipotle.com    | 1234 Maple Street, Suite 110, Berkeley CA 94704 |
-      | La Buritta  | 222-222-2222 | churro@laburitta.com | 4321 Grape Avenue, Suite 1, Berkeley CA 94709   |
-      | Cheeseboard | 333-333-3333 | duro@cheeseboard.com | 987 Oak Way, Berkeley 94705                     |
+      | name        | email                | address                                |
+      | Chipotle    | buro@chipotle.com    | 1234 Maple Street, Berkeley, CA, 94704 |
+      | La Buritta  | churro@laburitta.com | 4321 Grape Avenue, Berkeley, CA, 94709 |
+      | Cheeseboard | duro@cheeseboard.com | 987 Oak Way, Berkeley, CA, 94705       |
 
     And I am on the all_vendors page
 
   Scenario: successfully see all Vendors
-    Then I should see all the Vendors
+    Then I should see "Chipotle"
+    And I should see "La Buritta"
+    And I should see "Cheeseboard"
+    And I should see "buro@chipotle.com"
+    And I should see "churro@laburitta.com"
+    And I should see "duro@cheeseboard.com"
+    And I should see "1234 Maple Street Berkeley, CA 94704"
+    And I should see "4321 Grape Avenue Berkeley, CA 94709"
+    And I should see "987 Oak Way Berkeley, CA 94705"

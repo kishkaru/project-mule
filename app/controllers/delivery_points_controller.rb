@@ -25,6 +25,7 @@ class DeliveryPointsController < ApplicationController
     # GET /delivery_points/new.json
     def new
         @delivery_point = DeliveryPoint.new
+        @delivery_point.build_address
 
         respond_to do |format|
             format.html # new.html.erb
@@ -67,15 +68,7 @@ class DeliveryPointsController < ApplicationController
             end
         end
     end
-
-    def updateCustomer
-	puts "ADDED YOUR DELIVERY POINT!!!!!!!!!!!!!!!!!!!!"
-	foundPoint = DeliveryPoint.find(params[:id])
-	session[:delivery_point] = foundPoint
-	if user_signed_in?
-	    current_user.delivery_point = foundPoint
-	end
-    end
+    
     # DELETE /delivery_points/1
     # DELETE /delivery_points/1.json
     def destroy

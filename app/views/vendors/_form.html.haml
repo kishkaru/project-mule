@@ -15,7 +15,7 @@
     = f.label :address
     %br/
     .addreCss
-      = fields_for :address, @vendor.address do |address|
+      = f.fields_for :address, @vendor.address do |address|
         = address.text_field :line1, { placeholder: "StreetLine 1", class: "form-control" }
         = address.text_field :line2, { placeholder:"Street Line 2", class: "form-control" }
         .address-location

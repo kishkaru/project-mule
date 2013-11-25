@@ -6,11 +6,11 @@ I want to choose a convinient delivery point from the delivery areas I can choos
 
 Background: the following delivery areas have been added to the database
 
-	Given the following Delivery Points exist with Area:
+	Given the following Delivery Points exist:
 	
 	| address| latitude| longitude| id|
-	| 2650 Durant Ave | 15.7 | 45.6 | 1|
-	| 2521 Hearst Ave | 26.3 | 76.7 | 2|
+	| 2650 Durant Ave, Berkeley, CA, 11111 | 15.7 | 45.6 | 1|
+	| 2521 Hearst Ave, Berkeley, CA, 11111 | 26.3 | 76.7 | 2|
 
 	And the following DeliveryAreas exist:
 	   |name|

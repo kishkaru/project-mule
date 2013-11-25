@@ -7,7 +7,7 @@
       %ul
         - @delivery_point.errors.full_messages.each do |msg|
           %li= msg
-  f.fields_for :address_attributes do |a|
+  = f.fields_for :address do |a|
     .field
       = a.label :city
       %br/
@@ -29,13 +29,13 @@
       %br/
       = a.text_field :zip
   .field
-    = a.label :latitude
+    = f.label :latitude
     %br/
-    = a.text_field :latitude
+    = f.text_field :latitude
   .field
-    = a.label :longitude
+    = f.label :longitude
     %br/
-    = a.text_field :longitude
+    = f.text_field :longitude
 
   .actions
     = f.submit

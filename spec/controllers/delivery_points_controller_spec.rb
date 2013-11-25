@@ -23,7 +23,7 @@ describe DeliveryPointsController do
     # This should return the minimal set of attributes required to create a valid
     # DeliveryPoint. As you add validations to DeliveryPoint, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) { { "address" => "MyString", "longitude" => "20", "latitude" => "30"} }
+    let(:valid_attributes) { { :address_attributes => {:city => 'SF', :line1 => 'place', :state => "CA", :zip => "11111"}, "longitude" => "20", "latitude" => "30"} }
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe DeliveryPointsController do
             it "assigns a newly created but unsaved delivery_point as @delivery_point" do
                 # Trigger the behavior that occurs when invalid params are submitted
                 DeliveryPoint.any_instance.stub(:save).and_return(false)
-                post :create, {:delivery_point => { "address" => "invalid value" }}, valid_session
+                post :create, {:delivery_point => { :address_attributes => {:city => 'SF', :state => "CA", :zip => "11111"} }}, valid_session
                 assigns(:delivery_point).should be_a_new(DeliveryPoint)
             end
 
             it "re-renders the 'new' template" do
                 # Trigger the behavior that occurs when invalid params are submitted
                 DeliveryPoint.any_instance.stub(:save).and_return(false)
-                post :create, {:delivery_point => { "address" => "invalid value" }}, valid_session
+                post :create, {:delivery_point => { :address_attributes => {:city => 'SF', :state => "CA", :zip => "11111"} }}, valid_session
                 response.should render_template("new")
             end
         end
@@ -128,7 +128,7 @@ describe DeliveryPointsController do
                 delivery_point = DeliveryPoint.create! valid_attributes
                 # Trigger the behavior that occurs when invalid params are submitted
                 DeliveryPoint.any_instance.stub(:save).and_return(false)
-                put :update, {:id => delivery_point.to_param, :delivery_point => { "address" => "invalid value" }}, valid_session
+                put :update, {:id => delivery_point.to_param, :delivery_point => { :address_attributes => {:city => 'SF', :state => "CA", :zip => "11111"} }}, valid_session
                 assigns(:delivery_point).should eq(delivery_point)
             end
 
@@ -136,7 +136,7 @@ describe DeliveryPointsController do
                 delivery_point = DeliveryPoint.create! valid_attributes
                 # Trigger the behavior that occurs when invalid params are submitted
                 DeliveryPoint.any_instance.stub(:save).and_return(false)
-                put :update, {:id => delivery_point.to_param, :delivery_point => { "address" => "invalid value" }}, valid_session
+                put :update, {:id => delivery_point.to_param, :delivery_point => { :address_attributes => {:city => 'SF', :state => "CA", :zip => "11111"} }}, valid_session
                 response.should render_template("edit")
             end
         end

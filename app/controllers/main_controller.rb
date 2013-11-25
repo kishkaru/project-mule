@@ -4,10 +4,13 @@ class MainController < ApplicationController
         @delivery_area = DeliveryArea.all
 
     end
+
     def goToMenu
         #@customer_choice = DeliveryArea.find(1)
         #redirect_to @customer_choice
-        @customer_area = DeliveryArea.find(params[:customer_area][:id])
-        @customer_points = @customer_area.delivery_points
+        @delivery_area = params[:customer_area][:id]
+
+        redirect_to menu_delivery_area_path(@delivery_area)
     end
+
 end

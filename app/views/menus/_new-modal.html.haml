@@ -12,7 +12,7 @@
             .form-group
               %label{for: "menu-template"} Choose a Menu to start from?
               %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
-                %option{value: "blank"} Blank Menu
+                %option{value: "blank", selected: true} Blank Menu
                 - Menu.last(10).reverse.each do |menu|
                   %option{value: menu.id}
                     = "Menu for #{menu.delivery_areas.collect(&:name).join(", ")} on #{menu.date.to_date.to_formatted_s(:long)}"

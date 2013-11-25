@@ -25,6 +25,7 @@ class VendorsController < ApplicationController
     # GET /vendors/new.json
     def new
         @vendor = Vendor.new
+        @vendor.build_address
 
         respond_to do |format|
             format.html # new.html.erb
@@ -40,16 +41,13 @@ class VendorsController < ApplicationController
     # POST /vendors
     # POST /vendors.json
     def create
-        @address = Address.new(params[:address])
         @vendor = Vendor.new(params[:vendor])
 
         respond_to do |format|
-            if @vendor.valid?  && @address.valid? && @vendor.save
-                @vendor.address = @address
+            if @vendor.save
                 format.html { redirect_to @vendor, notice: 'Vendor was successfully created.' }
                 format.json { render json: @vendor, status: :created, location: @vendor }
             else
-                flash.now[:error] = (@vendor.errors.full_messages + @address.errors.full_messages).join(", ")
                 format.html { render action: "new" }
                 format.json { render json: @vendor.errors, status: :unprocessable_entity }
             end
@@ -60,10 +58,9 @@ class VendorsController < ApplicationController
     # PUT /vendors/1.json
     def update
         @vendor = Vendor.find(params[:id])
-        @address = @vendor.address
 
         respond_to do |format|
-            if @vendor.update_attributes(params[:vendor]) && @vendor.update_attributes(params[:address])
+            if @vendor.update_attributes(params[:vendor])
                 format.html { redirect_to @vendor, notice: 'Vendor was successfully updated.' }
                 format.json { head :no_content }
             else
@@ -82,6 +79,21 @@ class VendorsController < ApplicationController
         respond_to do |format|
             format.html { redirect_to vendors_url }
             format.json { head :no_content }
+        end
+    end
+
+    def items
+        @vendor = Vendor.find(params[:id])
+
+        respond_to do |format|
+            format.html { flash[:error] = "That page does not exist" and redirect_to :root }
+            format.json { render :json => {
+                    :vendor => {
+                        :name => @vendor.name
+                    },
+                    :items => @vendor.items.select([:name, :description, :price, :id, :quantity])
+                }
+            }
         end
     end
 end
