@@ -17,19 +17,15 @@ Scenario: successfully create a new item from existing ingredients and vendor
     | Avacado |
 
   Given the following vendors exist:
-    | name     | email             | address      |
-    | Chipotle | buro@chiptole.com | 111-111-1111 |
+    | name     | email             |
+    | Chipotle | buro@chiptole.com |
 
   Given I am on the create_new_item page
 	And I fill in "Name" with "Wet Burrito"
     And I select "Chipotle" from "item_vendor_id"
 	And I fill in "Price" with "$4.50"
 	And I fill in "Description" with "Super juicy and wet"
-    And I select the following from "item_ingredient_ids":
-      | name   |
-      | Tomato |
-      | Cheese |
-	And I fill in "Quantity" with "5"
+    And I fill in "Quantity" with "5"
 	
 	And I press "Create Item"
 	Then I should see "Wet Burrito"
@@ -38,21 +34,14 @@ Scenario: successfully create a new item from existing ingredients and vendor
 Scenario: successfully create a new Item with new Ingredients and Vendor
     Given I am on the create_new_item page
 
-    And I press "Create New Ingredient"
-    Then I should be on the create_new_ingredient_number page
-    And I fill in "Name" with "Tomato"
     And I press "Create Ingredient"
-    Then I should be on the create_new_item page
-
-    When I press "Create New Vendor"
-    Then I should be on the create_new_vendor page
 
     Given the following phone numbers exist:
-      | Area | Number   |
-      | 510  | 234-5678 |
+      | country | area |   number | extension |
+      |       1 |  510 | 234-5678 |           |
 
     Given the following addresses exist:
-      | address1          | address2  | city     | state | zip   |
+      | line1             | line2     | city     | state |   zip |
       | 1234 Maple Street | Suite 110 | Berkeley | CA    | 94704 |
 
     Given I am on the create_new_vendor page
