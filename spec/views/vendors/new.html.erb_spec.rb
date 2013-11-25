@@ -4,7 +4,7 @@ describe "vendors/new" do
     before(:each) do
         assign(:vendor, stub_model(Vendor,
                 :name => "MyString",
-                :address => "MyString",
+                :address => stub_model(Address, :line1 => "MyString", :line2 => "MyString", :city => "MyString", :state => "MyString", :zip => "MyString"),
                 :email => "MyString"
         ).as_new_record)
     end
@@ -15,7 +15,8 @@ describe "vendors/new" do
         # Run the generator again with the --webrat flag if you want to use webrat matchers
         assert_select "form[action=?][method=?]", vendors_path, "post" do
             assert_select "input#vendor_name[name=?]", "vendor[name]"
-            assert_select "input#vendor_address[name=?]", "vendor[address]"
+#assert_select "input#vendor_address[name=?]", "vendor[address]"
+
             assert_select "input#vendor_email[name=?]", "vendor[email]"
         end
     end

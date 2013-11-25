@@ -23,7 +23,7 @@ describe VendorsController do
     # This should return the minimal set of attributes required to create a valid
     # Vendor. As you add validations to Vendor, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) { { "name" => "MyString" } }
+    let(:valid_attributes) { { "name" => "MyString", "address_attributes" => {"line1" => "MyLine1", "line2" => "MyLine2", "city" => "MyCity", "state" => "MyState", "zip" => "MyZip"}, "email" => "MyEmail" } }
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in
@@ -65,18 +65,18 @@ describe VendorsController do
         describe "with valid params" do
             it "creates a new Vendor" do
                 expect {
-                    post :create, {:vendor => valid_attributes}, valid_session
+post :create, {:vendor => valid_attributes, :address => {"line1" => "MyLine1", "line2" => "MyLine2", "city" => "MyCity", "state" => "MyState", "zip" => "MyZip"}}, valid_session
                 }.to change(Vendor, :count).by(1)
             end
 
             it "assigns a newly created vendor as @vendor" do
-                post :create, {:vendor => valid_attributes}, valid_session
+                post :create, {:vendor => valid_attributes, :address => {"line1" => "MyLine1", "line2" => "MyLine2", "city" => "MyCity", "state" => "MyState", "zip" => "MyZip"}}, valid_session
                 assigns(:vendor).should be_a(Vendor)
                 assigns(:vendor).should be_persisted
             end
 
             it "redirects to the created vendor" do
-                post :create, {:vendor => valid_attributes}, valid_session
+                post :create, {:vendor => valid_attributes, :address => {"line1" => "MyLine1", "line2" => "MyLine2", "city" => "MyCity", "state" => "MyState", "zip" => "MyZip"}}, valid_session
                 response.should redirect_to(Vendor.last)
             end
         end
