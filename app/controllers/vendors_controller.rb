@@ -25,6 +25,7 @@ class VendorsController < ApplicationController
     # GET /vendors/new.json
     def new
         @vendor = Vendor.new
+        @vendor.build_address
 
         respond_to do |format|
             format.html # new.html.erb
