@@ -4,7 +4,7 @@ class Menu < ActiveRecord::Base
     has_many :delivery_areas
     validates :date, presence: true
 
-    def new_from_template(template_id, params=HashWithIndifferentAccess.new)
+    def self.new_from_template(template_id, params=HashWithIndifferentAccess.new)
         template = Menu.find(template_id)
         new_menu = Menu.new(params)
         new_menu.items = template.items
