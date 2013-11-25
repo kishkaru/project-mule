@@ -42,6 +42,9 @@ $( function() {
     });
 
     function populate_items(vendor) {
+        if(typeof vednor === 'undefined'){
+            return false;
+        };
         $.getJSON( "/vendors/" + vendor + "/items.json", function( data ) {
             $("table#item-choices tbody").empty();
             $.each( data.items, function( i, item ) {
