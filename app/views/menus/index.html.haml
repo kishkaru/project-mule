@@ -1,15 +1,20 @@
 %h1 Listing menus
-%table
+%table.table.table-centered
   %tr
+    %th Delivery Areas
     %th Date
     %th
     %th
     %th
   - @menus.each do |menu|
     %tr
-      %td= menu.date
-      %td= link_to 'Show', menu
-      %td= link_to 'Edit', edit_menu_path(menu)
-      %td= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' }
+      - if menu.delivery_areas.present?
+        %td= menu.delivery_areas.collect(&:name).join(", ")
+      - else
+        %td.danger-text No Delivery Areas Set
+      %td= menu.date.to_date.to_formatted_s(:long_ordinal)
+      %td= link_to 'Show', menu, :class =>  "btn btn-info btn-sm"
+      %td= link_to 'Edit', edit_menu_path(menu), :class =>  "btn btn-warning btn-sm"
+      %td= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' }, :class =>  "btn btn-danger btn-sm"
 %br/
-= link_to 'New Menu', new_menu_path
+= link_to 'New Menu', new_menu_path, :class =>  "btn btn-primary btn-sm"

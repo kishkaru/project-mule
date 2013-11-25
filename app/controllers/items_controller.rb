@@ -44,7 +44,10 @@ class ItemsController < ApplicationController
     # POST /items
     # POST /items.json
     def create
+        ingredients = params[:item].delete(:ingredients).collect{|name| Ingredient.find_or_create_by_name(name)}
+
         @item = Item.new(params[:item])
+        @item.ingredients = ingredients
 
         respond_to do |format|
             if @item.save
@@ -63,7 +66,10 @@ class ItemsController < ApplicationController
     # PUT /items/1
     # PUT /items/1.json
     def update
+        ingredients = params[:item].delete(:ingredients).collect{|name| Ingredient.find_or_create_by_name(name)}
+
         @item = Item.find(params[:id])
+        @item.ingredients = ingredients
 
         respond_to do |format|
             if @item.update_attributes(params[:item])

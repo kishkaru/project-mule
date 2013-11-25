@@ -10,9 +10,22 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function remove_fields(link) {
+    $(link).prev("input[type=hidden]").val("1");
+    $(link).closest(".fields").hide();
+}
+
+function add_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regex = new RegExp("new_" + association, "g");
+    $(link).parent().after(content.replace(regex, new_id));
+    $('#new-ingredient-fields').modal('show');
+}
+
+
 $(document).ready(function() {
 
 	var opts = {
@@ -91,3 +104,4 @@ $(document).ready(function() {
 	};
 
 });
+

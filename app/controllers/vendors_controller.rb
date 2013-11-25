@@ -40,13 +40,16 @@ class VendorsController < ApplicationController
     # POST /vendors
     # POST /vendors.json
     def create
+        @address = Address.new(params[:address])
         @vendor = Vendor.new(params[:vendor])
 
         respond_to do |format|
-            if @vendor.save
+            if @vendor.valid?  && @address.valid? && @vendor.save
+                @vendor.address = @address
                 format.html { redirect_to @vendor, notice: 'Vendor was successfully created.' }
                 format.json { render json: @vendor, status: :created, location: @vendor }
             else
+                flash.now[:error] = (@vendor.errors.full_messages + @address.errors.full_messages).join(", ")
                 format.html { render action: "new" }
                 format.json { render json: @vendor.errors, status: :unprocessable_entity }
             end
@@ -57,9 +60,10 @@ class VendorsController < ApplicationController
     # PUT /vendors/1.json
     def update
         @vendor = Vendor.find(params[:id])
+        @address = @vendor.address
 
         respond_to do |format|
-            if @vendor.update_attributes(params[:vendor])
+            if @vendor.update_attributes(params[:vendor]) && @vendor.update_attributes(params[:address])
                 format.html { redirect_to @vendor, notice: 'Vendor was successfully updated.' }
                 format.json { head :no_content }
             else
