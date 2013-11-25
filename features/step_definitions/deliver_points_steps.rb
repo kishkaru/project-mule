@@ -11,6 +11,14 @@ Given /the following Delivery Points exist/ do |points_table|
   points_table.hashes.each do |point|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+    address = point.delete("address")
+    pattern = /(.*), (.*), (.*), (.*)/
+    match = pattern.match(address)
+    address_attr = {:line1 => match[1],
+      :city => match[2],
+      :state => match[3],
+      :zip => match[4]}
+    point[:address_attributes] = address_attr
     DeliveryPoint.create!(point)  
     end
 end
