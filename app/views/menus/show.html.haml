@@ -4,6 +4,8 @@
   %h4.centered
     = @menu.date.strftime("%A %B %e, %Y") if @menu.date
 
+= render 'delivery_points_for_chosen_area'
+
 .row
   #menu-items
     - @menu.items.each do |item|
