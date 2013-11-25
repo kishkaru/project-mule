@@ -884,7 +884,7 @@
   },
   "RSpec": {
     "coverage": {
-      "/Users/jsm/Repositories/luckybolt/app/models/user.rb": [
+      "/home/saasbook/debug/app/models/user.rb": [
         1,
         null,
         1,
@@ -923,12 +923,12 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/application_controller.rb": [
+      "/home/saasbook/debug/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/application_helper.rb": [
+      "/home/saasbook/debug/app/helpers/application_helper.rb": [
         1,
         null,
         1,
@@ -957,35 +957,35 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/addresses_helper.rb": [
+      "/home/saasbook/debug/app/helpers/addresses_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/delivery_areas_helper.rb": [
+      "/home/saasbook/debug/app/helpers/delivery_areas_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/delivery_points_helper.rb": [
+      "/home/saasbook/debug/app/helpers/delivery_points_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/ingredients_helper.rb": [
+      "/home/saasbook/debug/app/helpers/ingredients_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/items_helper.rb": [
+      "/home/saasbook/debug/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/main_helper.rb": [
+      "/home/saasbook/debug/app/helpers/main_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/menus_helper.rb": [
+      "/home/saasbook/debug/app/helpers/menus_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/phone_numbers_helper.rb": [
+      "/home/saasbook/debug/app/helpers/phone_numbers_helper.rb": [
         1,
         null,
         null,
@@ -1004,7 +1004,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/users_helper.rb": [
+      "/home/saasbook/debug/app/helpers/users_helper.rb": [
         1,
         null,
         1,
@@ -1026,11 +1026,11 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/helpers/vendors_helper.rb": [
+      "/home/saasbook/debug/app/helpers/vendors_helper.rb": [
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/cart_controller.rb": [
+      "/home/saasbook/debug/app/controllers/cart_controller.rb": [
         1,
         1,
         2,
@@ -1056,7 +1056,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/delivery_areas_controller.rb": [
+      "/home/saasbook/debug/app/controllers/delivery_areas_controller.rb": [
         1,
         null,
         null,
@@ -1143,7 +1143,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/delivery_area.rb": [
+      "/home/saasbook/debug/app/models/delivery_area.rb": [
         1,
         1,
         1,
@@ -1154,27 +1154,16 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/delivery_points_controller.rb": [
+      "/home/saasbook/debug/app/controllers/delivery_points_controller.rb": [
         1,
         null,
         null,
         1,
-        1,
+        2,
         null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        0,
-        0,
-        0,
+        2,
+        2,
+        2,
         null,
         null,
         null,
@@ -1190,8 +1179,19 @@
         null,
         null,
         null,
+        null,
         1,
-        0,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
         null,
         null,
         null,
@@ -1199,15 +1199,28 @@
         1,
         5,
         null,
-        0,
-        0,
-        0,
-        0,
+        5,
+        5,
+        6,
+        3,
         null,
-        0,
-        0,
+        4,
+        2,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        5,
+        5,
+        5,
+        4,
+        2,
+        null,
+        6,
+        3,
         null,
         null,
         null,
@@ -1219,39 +1232,29 @@
         0,
         0,
         null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
         null,
         null,
         null,
         1,
-        0,
-        0,
+        2,
+        2,
         null,
-        0,
-        0,
-        0,
+        2,
+        4,
+        2,
         null,
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/delivery_point.rb": [
+      "/home/saasbook/debug/app/models/delivery_point.rb": [
         1,
         null,
         1,
         1,
+        null,
         1,
+        1,
+        null,
         1,
         null,
         1,
@@ -1260,7 +1263,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/ingredients_controller.rb": [
+      "/home/saasbook/debug/app/controllers/ingredients_controller.rb": [
         1,
         null,
         null,
@@ -1358,13 +1361,13 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/ingredient.rb": [
+      "/home/saasbook/debug/app/models/ingredient.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/items_controller.rb": [
+      "/home/saasbook/debug/app/controllers/items_controller.rb": [
         1,
         null,
         1,
@@ -1498,7 +1501,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/item.rb": [
+      "/home/saasbook/debug/app/models/item.rb": [
         1,
         1,
         null,
@@ -1514,7 +1517,7 @@
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/main_controller.rb": [
+      "/home/saasbook/debug/app/controllers/main_controller.rb": [
         1,
         null,
         1,
@@ -1529,7 +1532,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/menus_controller.rb": [
+      "/home/saasbook/debug/app/controllers/menus_controller.rb": [
         1,
         null,
         null,
@@ -1625,7 +1628,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/menu.rb": [
+      "/home/saasbook/debug/app/models/menu.rb": [
         1,
         1,
         1,
@@ -1640,7 +1643,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/phone_numbers_controller.rb": [
+      "/home/saasbook/debug/app/controllers/phone_numbers_controller.rb": [
         1,
         null,
         null,
@@ -1725,7 +1728,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/phone_number.rb": [
+      "/home/saasbook/debug/app/models/phone_number.rb": [
         1,
         null,
         1,
@@ -1762,7 +1765,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/users_controller.rb": [
+      "/home/saasbook/debug/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -1860,7 +1863,7 @@
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/controllers/vendors_controller.rb": [
+      "/home/saasbook/debug/app/controllers/vendors_controller.rb": [
         1,
         null,
         null,
@@ -1949,7 +1952,7 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/vendor.rb": [
+      "/home/saasbook/debug/app/models/vendor.rb": [
         1,
         1,
         1,
@@ -1958,7 +1961,7 @@
         1,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/address.rb": [
+      "/home/saasbook/debug/app/models/address.rb": [
         1,
         1,
         1,
@@ -1969,13 +1972,13 @@
         null,
         null
       ],
-      "/Users/jsm/Repositories/luckybolt/app/models/server.rb": [
+      "/home/saasbook/debug/app/models/server.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1385351254
+    "timestamp": 1385361172
   }
 }
