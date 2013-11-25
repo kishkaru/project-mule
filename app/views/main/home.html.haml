@@ -11,5 +11,5 @@
   %br/
   %h2 Let's get started! Where are you?
   = form_tag area_chosen_path, :method => :post do	
-    =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:prompt => "Please select an area"})
+    =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:prompt => "Please select an Area"})
     = submit_tag "Update"
