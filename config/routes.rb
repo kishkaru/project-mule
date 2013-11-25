@@ -9,8 +9,7 @@ Projectmule::Application.routes.draw do
     resources :delivery_areas
     
     resources :main
-    get '/act', :as => :Show, :to => 'main#redirect'
-    get '/random', :to => 'main#goToMenu'
+    post '/area_chosen', :to => 'main#goToMenu', :as => :area_chosen
 
     devise_for :users 
     
