@@ -14,6 +14,7 @@ class MenusController < ApplicationController
     # GET /menus/1.json
     def show
         @menu = Menu.find(params[:id])
+        @customer_points = DeliveryPoint.where(delivery_area_id: @menu.delivery_areas.pluck(:id))
 
         respond_to do |format|
             format.html # show.html.erb
@@ -54,7 +55,7 @@ class MenusController < ApplicationController
             if @menu.save
                 @menu.delivery_areas = @delivery_areas
                 @menu.items = @items if template == "blank"
-                format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
+                format.html { redirect_to @menu, flash: { success: 'Menu was successfully created.' } }
                 format.json { render json: @menu, status: :created, location: @menu }
             else
                 format.html { render action: "new" }
@@ -74,7 +75,7 @@ class MenusController < ApplicationController
             if @menu.update_attributes(params[:menu])
                 @menu.delivery_areas = @delivery_areas
                 @menu.items = @items
-                format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
+                format.html { redirect_to @menu, flash: { success: 'Menu was successfully updated.'} }
                 format.json { head :no_content }
             else
                 format.html { render action: "edit" }
@@ -94,4 +95,5 @@ class MenusController < ApplicationController
             format.json { head :no_content }
         end
     end
+
 end

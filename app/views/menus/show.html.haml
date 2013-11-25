@@ -1,6 +1,38 @@
-%p
-  %b Date:
-  = @menu.date
-= link_to 'Edit', edit_menu_path(@menu)
-|
-\#{link_to 'Back', menus_path}
+.row
+  %h1.centered
+    Menu
+  %h4.centered
+    = @menu.date.strftime("%A %B %e, %Y")
+
+.row
+  #menu-items
+    - @menu.items.each do |item|
+      .col-md-9.col-md-offset-1
+        .item
+          .status
+            .price
+              %h4= number_to_currency(item.price)
+            .quantity
+              .quantity-number= item.quantity
+              %h4 Left
+          .details
+            .image
+              %img{ src: "http://www.lifetasteslikefood.com/wp-content/uploads/2011/11/ribbon-pasta-11.jpg" }
+            .info
+              .title
+                %h4= item.name
+                %span from
+                %h4= item.vendor.name
+              .description
+                %p
+                  %em= item.description
+      .col-md-1
+        .item-actions
+          %input.amount-to-add.form-control{type: "number", value: 1, disabled: true}
+          %button.add-to-cart.btn.btn-success{data: {item: item.id}} Add
+
+.row
+  .col-md-9.col-md-offset-1
+    = link_to 'Edit', edit_menu_path(@menu), :class =>  "btn btn-warning btn-sm"
+    |
+    \#{link_to 'Back', menus_path, :class =>  "btn btn-default btn-sm"}

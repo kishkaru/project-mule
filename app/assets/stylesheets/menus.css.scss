@@ -29,3 +29,109 @@
         margin-top: 10px;
     }
 }
+
+#menu-items {
+
+    > * {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 96px;
+    }
+
+    .item-actions {
+        position: relative;
+        height: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        .add-to-cart {
+            position: absolute;
+            bottom: 8px;;
+            width: 100%;
+        }
+    }
+
+    .item {
+        border-radius: 8px;
+        box-shadow: 0 0 5px 0 #bbb;
+        background-color: #eee;
+        overflow: hidden;
+
+        > * {
+            vertical-align: top;
+            height: 96px;
+            overflow: hidden;
+            padding: 8px;
+            box-sizing: border-box;
+
+        }
+
+        .details {
+
+            * {
+                vertical-align: top;
+                display: inline-block;
+            }
+        }
+
+        .info {
+
+            .title {
+                display: inline-block;
+                vertical-align: middle;
+                margin-bottom: 10px;
+
+                * {
+                    display: inline-block;
+                }
+            }
+
+            .description {
+                display: block
+            }
+        }
+
+        .status {
+            display: block;
+            float: right;
+            width: 75px;
+            text-align: center;
+            border-left: solid #ddd 1px;
+
+            .quantity {
+                margin-top: 10px;
+
+                .quantity-number {
+                    padding: 5px;
+                    border-radius: 6px;
+                    box-shadow: 0 0 2px 0 #aaa;
+                    display: inline-block;
+                    font-size: 25px;
+                    background: white;
+                }
+
+                h4 {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .image {
+            width: 125px;
+            height: 80px;
+            overflow: hidden;
+            vertical-align: middle;
+            background: white;
+            margin-right: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        h2, h3, h4 {
+            margin: auto;
+        }
+    }
+}

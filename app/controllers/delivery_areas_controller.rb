@@ -82,4 +82,14 @@ class DeliveryAreasController < ApplicationController
             format.json { head :no_content }
         end
     end
+
+    def menu
+        customer_area = DeliveryArea.find(params[:id])
+        @customer_points = customer_area.delivery_points
+        @menu = customer_area.menu
+
+        respond_to do |format|
+            format.html { render "menus/show" }
+        end
+    end
 end

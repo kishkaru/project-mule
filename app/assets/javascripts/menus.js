@@ -89,4 +89,11 @@ $( function() {
         self.parents("#items tr").remove()
     });
 
+    $("button.add-to-cart").click( function() {
+        self = $(this);
+        $.post( "/add_item/" + self.data("item"), function( data ) {
+            alert("Item added to cart!")
+        });
+    });
+
 });

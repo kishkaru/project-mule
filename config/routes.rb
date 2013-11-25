@@ -6,7 +6,11 @@ Projectmule::Application.routes.draw do
     resources :delivery_points
 
 
-    resources :delivery_areas
+    resources :delivery_areas do
+        member do
+            get 'menu'
+        end
+    end
 
     get '/delivery_areas/:id',  :as => :Choose, :to => 'delivery_points#updateCustomer'
 
