@@ -42,7 +42,7 @@ $( function() {
     });
 
     function populate_items(vendor) {
-        if(typeof vednor === 'undefined'){
+        if(typeof vendor === 'undefined'){
             return false;
         };
         $.getJSON( "/vendors/" + vendor + "/items.json", function( data ) {
