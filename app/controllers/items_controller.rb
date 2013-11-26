@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
             format.html # show.html.erb
             format.json { render json: @item }
         end
-        reset_session
     end
 
     # GET /items/new
