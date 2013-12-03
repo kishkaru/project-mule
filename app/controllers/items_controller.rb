@@ -98,7 +98,11 @@ class ItemsController < ApplicationController
     # Adds item with id in params[:item_to_add] to the cart in session hash
     def addItemToCart
         id = params[:item_to_add].to_i
-        new_quantity = getOldQuantity(id) + 1
+        qty = 1
+        if params[:qty].present?
+            qty = params[:qty]
+        end
+        new_quantity = getOldQuantity(id) + qty
         session[:cart][:items][id] = new_quantity
         redirect_to cart_path
     end
