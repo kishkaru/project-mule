@@ -49,6 +49,8 @@ Projectmule::Application.routes.draw do
 
     post '/remove_item/:item_to_remove', :to => 'items#removeItemFromCart', :as => :remove_item_from_cart
 
+    post '/pay', :to => 'cart#pay', :as => :pay
+
     root :to => 'main#home'
 
     # The priority is based upon order of creation:

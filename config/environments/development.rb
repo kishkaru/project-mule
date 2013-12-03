@@ -36,4 +36,9 @@ Projectmule::Application.configure do
     config.assets.debug = true
 
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+    Braintree::Configuration.environment = :sandbox
+    Braintree::Configuration.merchant_id = ENV['BT_MERCHANT_ID']
+    Braintree::Configuration.public_key = ENV['BT_PUBLIC_KEY']
+    Braintree::Configuration.private_key = ENV['BT_PRIVATE_KEY']
 end
