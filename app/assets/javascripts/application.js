@@ -103,5 +103,19 @@ $(document).ready(function() {
 		});
 	};
 
+	$('#checkout-btn').click( function() {
+		$('#cart-modal-footer').attr('hidden', '');
+		$('#cart-payment-info').removeAttr('hidden');
+	});
+
+	$('form#payment-form').submit( function(e) {
+		$.ajax({type: "POST",
+			url: "/order_summary",
+			success: function(data) {
+				$('#cart-and-payment').html(data);
+			}});
+		e.preventDefault();
+	});
+
 });
 
