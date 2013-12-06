@@ -108,6 +108,12 @@ $(document).ready(function() {
 		$('#cart-payment-info').removeAttr('hidden');
 	});
 
+	$('#cart').on("hidden", function() {
+		alert('11');
+		$('#cart-modal-footer').removeAttr('hidden');
+		$('#cart-payment-info').attr('hidden', '');
+	});
+
 	$('form#payment-form').submit( function(e) {
 		$.ajax({type: "POST",
 			url: "/order_summary",

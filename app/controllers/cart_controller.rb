@@ -4,18 +4,12 @@ class CartController < ApplicationController
 		@subtotal = 0
 		@tax_total = 0
 		@total = 0
-		@cart_items = {}
   	@tax = 9.0
-		if session[:cart] && session[:cart][:items]
-  		session[:cart][:items].each do |id, qty|
-    			@cart_items[Item.find(id)] = qty
-    	end
-    end
-  	@cart_items.each do |item_obj,qty|
-    	@subtotal = @subtotal + item_obj.price * qty
-    end
-    @tax_total = @tax / 100.0 * @subtotal
-    @total = @tax_total + @subtotal
+		@cart_items = cartItems
+  	totals = calculateTotals(@tax, @cart_items)
+    @subtotal = totals[:subtotal]
+    @tax_total = totals[:tax_total]
+    @total = totals[:total]
     if @cart_items.present?
   	  render :partial => 'cart/cart-modal-body'
     else
@@ -42,4 +36,47 @@ class CartController < ApplicationController
       p result.errors
     end
   end
+
+  def orderSummary
+    @cart_items = cartItems
+    @cart_items.each do |item, qty|
+      if qty < 1
+        @cart_items.delete(item)
+      end
+    end
+    totals = calculateTotals(@tax, @cart_items)
+    @subtotal = totals[:subtotal]
+    @tax_total = totals[:tax_total]
+    @total = totals[:total]
+    render :partial => 'orderSummary'
+  end
+
+  private
+
+  # Puts all items from the session[:cart] into a hash
+  # where the key is the item object and value is the quantity
+  def cartItems
+    items = {}
+    if session[:cart] && session[:cart][:items]
+      session[:cart][:items].each do |id, qty|
+          items[Item.find(id)] = qty
+      end
+    end
+
+    return items
+  end
+
+  # Returns a hash of calculated subtotal, tax_total, and total
+  # using TAX and ITEMS hash returned by cartItems
+  def calculateTotals(tax, items)
+    result = {:subtotal => 0}
+    items.each do |item_obj,qty|
+      result[:subtotal] += item_obj.price * qty
+    end
+    result[:tax_total] = tax / 100.0 * result[:subtotal]
+    result[:total] = result[:tax_total] + result[:subtotal]
+
+    return result
+  end
+  
 end
