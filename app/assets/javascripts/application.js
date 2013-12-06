@@ -108,8 +108,7 @@ $(document).ready(function() {
 		$('#cart-payment-info').removeAttr('hidden');
 	});
 
-	$('#cart').on("hidden", function() {
-		alert('11');
+	$('#cart').on("hidden.bs.modal", function() {
 		$('#cart-modal-footer').removeAttr('hidden');
 		$('#cart-payment-info').attr('hidden', '');
 	});
