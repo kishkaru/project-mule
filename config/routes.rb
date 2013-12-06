@@ -51,7 +51,7 @@ Projectmule::Application.routes.draw do
 
     post '/pay', :to => 'cart#pay', :as => :pay
 
-    get '/account/:id', :to => 'users#account', :as => :account
+    get '/account', :to => 'users#account', :as => :account
 
     root :to => 'main#home'
 
