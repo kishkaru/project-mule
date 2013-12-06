@@ -29,7 +29,7 @@ class CartController < ApplicationController
 
     if new_user.valid?
       puts "user was valid"
-      return "success"
+      render text: "success"
     else
       puts 'user was not valid'
     end

@@ -115,18 +115,20 @@ $(document).ready(function() {
 
 	var setUpPayButton = function () {
 		$('#payment-form').submit( function(e) {
+			var pay_button = $('#pay-button');
+			pay_button.attr('disabled', 'disabled');
 			$.ajax({type: "POST",
 				url: "/pay",
 				data: $('#payment-form').serialize(),
 				success: function(data) {
-					alert(data);
+					pay_button.removeAttr('disabled');
 					if (data == "success") {
-						alert('asucces');
 						window.location.replace("http://google.com");
 					} else {
-						$('#cart-payment-info').html(data);
-						setUpPayButton();
 					}
+				},
+				error: function(data) {
+					pay_button.removeAttr('disabled');
 				}});
 			e.preventDefault();
 		});

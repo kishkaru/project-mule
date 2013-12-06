@@ -16,7 +16,7 @@
               %br
               = render 'users/guest-info-fields'
               %br
-              = submit_tag "Pay", {:class => "btn btn-primary"}
+              = submit_tag "Pay", {:class => "btn btn-primary", :id => "pay-button"}
               Your payment will be processed
       #cart-modal-footer.modal-footer
         %button#checkout-btn.btn.btn-default{type: "button"} Checkout
