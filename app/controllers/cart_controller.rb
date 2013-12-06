@@ -32,7 +32,6 @@ class CartController < ApplicationController
       return "success"
     else
       puts 'user was not valid'
-      render :partial => 'cart/cart-payment-info' and return
     end
 
     result = Braintree::Transaction.sale(
