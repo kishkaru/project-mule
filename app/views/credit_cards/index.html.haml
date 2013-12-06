@@ -2,7 +2,7 @@
 %a#new-cc-link{href: '#'} Add new card
 %br
 #new-card-form{:hidden => true}
-  = form_tag create_credit_card_path, :method => :post do |f|
+  = form_tag create_credit_card_path, :method => :post, :id => "add-card-form" do |f|
     = render 'credit_cards/credit-card-info-fields'
     %br
     %button#cancel-card-add-button.btn.btn-xs{:type => 'button'}Cancel

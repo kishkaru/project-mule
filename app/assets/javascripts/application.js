@@ -144,6 +144,16 @@ $(document).ready(function() {
 		$('#new-card-form').attr('hidden', '');
 	})
 
+	$('#add-card-form').submit( function(e) {
+		$.ajax({type: "POST",
+			url: '/add_credit_card',
+			data: $('#add-card-form').serialize(),
+			success: function(data) {
+				$('#new-card-form').attr('hidden', '');
+			}});
+		e.preventDefault();
+	})
+
 	setUpPayButton();
 
 });
