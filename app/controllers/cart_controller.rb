@@ -11,11 +11,7 @@ class CartController < ApplicationController
     @subtotal = totals[:subtotal]
     @tax_total = totals[:tax_total]
     @total = totals[:total]
-    if @cart_items.present?
-  	  render :partial => 'cart/cart-modal-body'
-    else
-      render :partial => 'cart/empty-cart'
-    end
+  	render :partial => 'cart/cart-modal-body'
   end
 
   def pay
