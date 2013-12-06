@@ -15,8 +15,8 @@
               .inline-block
                 = f.label :first_name
                 %br
-                = f.text_field :first_name, {:class => "form-control checkout-field name-field"}
-              .inline-block.float-right
+                = f.text_field :first_name, {:class => "form-control checkout-field name-field first-name-field"}
+              .inline-block
                 = f.label :last_name
                 %br
                 = f.text_field :last_name, {:class => "form-control checkout-field name-field"}
@@ -24,7 +24,7 @@
                 .inline-block
                   = f.label :card_number
                   %br
-                  = f.text_field :card_number, {:class => "form-control checkout-field cc-number-field bfh-phone", "data-format" => "dddddddddddddddd"}
+                  = f.text_field :card_number, {:class => "form-control checkout-field cc-number-field bfh-phone", "data-format" => "dddd-dddd-dddd-dddd"}
                 .inline-block
                   = f.label :exp_date
                   %br
@@ -38,21 +38,23 @@
               %span An account will be made for you
               %br
               = fields_for :user do |u|
-                = u.label :email
-                %br
-                = u.text_field :email, {:class => "form-control checkout-field"}
-                %br
-                = u.label :phone_number
-                %br
-                = u.text_field :phone_number, {:class => "form-control checkout-field"}
-                %br
-                = u.label :password
-                %br
-                = u.text_field :password, {:class => "form-control checkout-field"}
-                %br
-                = u.label :password_confirmation
-                %br
-                =u.text_field :password_confirmation, {:class => "form-control checkout-field"}
+                .inline-block
+                  = u.label :email
+                  %br
+                  = u.text_field :email, {:class => "form-control checkout-field email-field"}
+                .inline-block
+                  = u.label :phone_number
+                  %br
+                  = u.text_field :phone_number, {:class => "form-control checkout-field phone-number-field bfh-phone", "data-format" => "+1 (ddd) ddd-dddd"}
+                #password-info
+                  .inline-block
+                    = u.label :password
+                    %br
+                    = u.text_field :password, {:class => "form-control checkout-field password-field"}
+                  .inline-block
+                    = u.label :password_confirmation
+                    %br
+                    =u.text_field :password_confirmation, {:class => "form-control checkout-field password-field"}
               %br
               = submit_tag "Continue", {:class => "btn btn-primary"}
       #cart-modal-footer.modal-footer

@@ -28,7 +28,7 @@ div.inline-block {
 }
 
 .cc-number-field {
-	width: 160px;
+	width: 180px;
 	margin-right: 10px;
 }
 
@@ -41,6 +41,15 @@ div.inline-block {
 	width: 50px;
 }
 
-#credit-card-info {
+#credit-card-info, #password-info {
 	margin-top: 10px;
+}
+
+.email-field, .password-field, .first-name-field {
+	width: 250px;
+	margin-right: 10px;
+}
+
+.phone-number-field {
+	width: 155px;
 }
