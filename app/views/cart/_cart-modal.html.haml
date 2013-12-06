@@ -3,7 +3,8 @@
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4#cartLabel.modal-title Cart
+        %h4#cartLabel.modal-title
+          %span.glyphicon.glyphicon-shopping-cart
       #cart-modal-body.modal-body
         #spinner-cart-center{"style" => "position: absolute;display: block;top: 50%; left: 50%"}
         #cart-and-payment

@@ -106,6 +106,8 @@ $(document).ready(function() {
 	$('#checkout-btn').click( function() {
 		$('#cart-modal-footer').attr('hidden', '');
 		$('#cart-payment-info').removeAttr('hidden');
+		$('#order-summary').removeAttr('hidden');
+		$('#cart-summary').remove();
 	});
 
 	$('#cart').on("hidden.bs.modal", function() {
