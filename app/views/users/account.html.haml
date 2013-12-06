@@ -1,6 +1,6 @@
 %br
 %br
-%a{href: edit_user_registration_path}Edit
+%a.float-right{href: edit_user_registration_path}Edit account info
 %br
 %strong Name
 %br
@@ -16,3 +16,16 @@
 %strong Phone number
 %br
 = current_user.phone_number.asString
+%br
+%br
+%a.float-right{href: edit_credit_cards_path}Edit credit cards
+%strong Credit Cards
+%br
+%br
+- if current_user.credit_cards.present?
+  - current_user.credit_cards do |cc|
+    .credit-card
+      = "Card ending in " + cc.last_four
+    %br
+- else
+  No cards added

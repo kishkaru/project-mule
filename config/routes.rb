@@ -53,6 +53,10 @@ Projectmule::Application.routes.draw do
 
     get '/account', :to => 'users#account', :as => :account
 
+    get '/account/credit_cards', :to => 'credit_cards#index', :as => :edit_credit_cards
+
+    post '/add_credit_card', :to => 'credit_cards#create', :as => :create_credit_card
+
     root :to => 'main#home'
 
     # The priority is based upon order of creation:

@@ -136,6 +136,14 @@ $(document).ready(function() {
 		});
 	}
 
+	$('#new-cc-link').click( function() {
+		$('#new-card-form').removeAttr('hidden');
+	});
+
+	$('#cancel-card-add-button').click( function() {
+		$('#new-card-form').attr('hidden', '');
+	})
+
 	setUpPayButton();
 
 });

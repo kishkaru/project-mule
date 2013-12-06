@@ -21,8 +21,6 @@ class CartController < ApplicationController
     # construct user_attrs with all user information for the model
     phone_number_attrs = parsePhoneNumber(user_attrs.delete(:phone_number))
     user_attrs[:phone_number_attributes] = phone_number_attrs
-    user_attrs[:first_name] = credit_card_attrs[:first_name]
-    user_attrs[:last_name] = credit_card_attrs[:last_name]
 
     new_user = User.new(user_attrs)
 

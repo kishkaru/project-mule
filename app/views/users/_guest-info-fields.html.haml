@@ -3,13 +3,22 @@
 %br
 = fields_for :user do |u|
   .inline-block
-    = u.label :email
+    = u.label :first_name
     %br
-    = u.text_field :email, {:class => "form-control input-field email-field"}
+    = u.text_field :first_name, {:class => "form-control input-field name-field first-name-field"}
   .inline-block
-    = u.label :phone_number
+    = u.label :last_name
     %br
-    = u.text_field :phone_number, {:class => "form-control input-field phone-number-field bfh-phone", "data-format" => "+1 (ddd) ddd-dddd"}
+    = u.text_field :last_name, {:class => "form-control input-field name-field"}
+  #contact-info
+    .inline-block
+      = u.label :email
+      %br
+      = u.text_field :email, {:class => "form-control input-field email-field"}
+    .inline-block
+      = u.label :phone_number
+      %br
+      = u.text_field :phone_number, {:class => "form-control input-field phone-number-field bfh-phone", "data-format" => "+1 (ddd) ddd-dddd"}
   #password-info
     .inline-block
       = u.label :password

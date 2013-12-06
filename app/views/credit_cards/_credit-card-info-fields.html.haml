@@ -1,13 +1,5 @@
 %h4 Credit Card info
 = fields_for :credit_card do |f|
-  .inline-block
-    = f.label :first_name
-    %br
-    = f.text_field :first_name, {:class => "form-control input-field name-field first-name-field"}
-  .inline-block
-    = f.label :last_name
-    %br
-    = f.text_field :last_name, {:class => "form-control input-field name-field"}
   #credit-card-info
     .inline-block
       = f.label :card_number
