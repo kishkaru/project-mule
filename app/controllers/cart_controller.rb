@@ -19,21 +19,20 @@ class CartController < ApplicationController
   end
 
   def pay
-    puts "!!!!!!!!!!!!!!!!!!!!!1"
-    puts params
     credit_card_attrs = params[:credit_card]
     user_attrs = params[:user]
+
+    # construct user_attrs with all user information for the model
     phone_number_attrs = parsePhoneNumber(user_attrs.delete(:phone_number))
     user_attrs[:phone_number_attributes] = phone_number_attrs
     user_attrs[:first_name] = credit_card_attrs[:first_name]
     user_attrs[:last_name] = credit_card_attrs[:last_name]
+
     new_user = User.new(user_attrs)
 
     if new_user.valid?
-      puts "user was valid"
       render text: "success"
     else
-      puts 'user was not valid'
     end
 
     result = Braintree::Transaction.sale(
