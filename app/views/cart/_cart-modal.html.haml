@@ -11,25 +11,48 @@
             = render 'cart/cart-modal-body'
           #cart-payment-info{:hidden => true}
             = form_for :checkout, :html => {:id => "payment-form"} do |f|
-              = f.label :first_name
+              %h4 Credit Card info
+              .inline-block
+                = f.label :first_name
+                %br
+                = f.text_field :first_name, {:class => "form-control checkout-field name-field"}
+              .inline-block.float-right
+                = f.label :last_name
+                %br
+                = f.text_field :last_name, {:class => "form-control checkout-field name-field"}
+              #credit-card-info
+                .inline-block
+                  = f.label :card_number
+                  %br
+                  = f.text_field :card_number, {:class => "form-control checkout-field cc-number-field bfh-phone", "data-format" => "dddddddddddddddd"}
+                .inline-block
+                  = f.label :exp_date
+                  %br
+                  = f.text_field :exp_date, {:class => "form-control checkout-field cc-exp-date-field bfh-phone", "data-format" => "dd/dddd"}
+                .inline-block
+                  = f.label :cvv
+                  %br
+                  = f.text_field :cvv, {:class => "form-control checkout-field cc-cvv-field bfh-phone", "data-format" => "ddd"}
               %br
-              = f.text_field :first_name, {:class => "form-control"}
+              %h4 Guest info
+              %span An account will be made for you
               %br
-              = f.label :last_name
-              %br
-              = f.text_field :last_name, {:class => "form-control"}
-              %br
-              = f.label :card_number
-              %br
-              = f.text_field :card_number, {:class => "form-control"}
-              %br
-              = f.label :exp_date
-              %br
-              = f.text_field :exp_date, {:class => "form-control"}
-              %br
-              = f.label :cvv
-              %br
-              = f.text_field :cvv, {:class => "form-control"}
+              = fields_for :user do |u|
+                = u.label :email
+                %br
+                = u.text_field :email, {:class => "form-control checkout-field"}
+                %br
+                = u.label :phone_number
+                %br
+                = u.text_field :phone_number, {:class => "form-control checkout-field"}
+                %br
+                = u.label :password
+                %br
+                = u.text_field :password, {:class => "form-control checkout-field"}
+                %br
+                = u.label :password_confirmation
+                %br
+                =u.text_field :password_confirmation, {:class => "form-control checkout-field"}
               %br
               = submit_tag "Continue", {:class => "btn btn-primary"}
       #cart-modal-footer.modal-footer

@@ -14,3 +14,33 @@
 .float-right {
 	float: right;
 }
+
+.checkout-field {
+	height: 30px;
+}
+
+.name-field {
+	width: 250px;
+}
+
+div.inline-block {
+	display: inline-block;
+}
+
+.cc-number-field {
+	width: 160px;
+	margin-right: 10px;
+}
+
+.cc-exp-date-field {
+	width: 80px;
+	margin-right: 10px;
+}
+
+.cc-cvv-field {
+	width: 50px;
+}
+
+#credit-card-info {
+	margin-top: 10px;
+}

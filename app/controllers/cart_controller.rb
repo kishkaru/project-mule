@@ -38,6 +38,7 @@ class CartController < ApplicationController
   end
 
   def orderSummary
+    @tax = 9.0
     @cart_items = cartItems
     @cart_items.each do |item, qty|
       if qty < 1
@@ -48,7 +49,7 @@ class CartController < ApplicationController
     @subtotal = totals[:subtotal]
     @tax_total = totals[:tax_total]
     @total = totals[:total]
-    render :partial => 'orderSummary'
+    render :partial => 'cart/orderSummary'
   end
 
   private
