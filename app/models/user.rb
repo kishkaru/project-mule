@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
+    has_many :credit_cards
 
     accepts_nested_attributes_for :phone_number, :update_only => true
 
