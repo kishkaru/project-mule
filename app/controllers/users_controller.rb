@@ -92,5 +92,10 @@ class UsersController < ApplicationController
         end
     end
 
+    # Shows user account info to the user
+    def account
+        @user = User.find(params[:id])
+    end
+
     private :verify_if_admin
 end

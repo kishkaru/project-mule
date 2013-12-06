@@ -53,10 +53,13 @@
                       = link_to 'Delivery Areas', delivery_areas_path
                     %li
                       = link_to 'Delivery Points', delivery_points_path
-            %li
-              = link_to 'Edit Account', edit_user_registration_path
-            %li
-              = link_to 'Logout', destroy_user_session_path, method: :delete
+            %li.dropdown
+              %a{href: "#", 'data-toggle' => 'dropdown'}Me
+              %ul.dropdown-menu
+                %li
+                  = link_to 'Account', account_path(current_user.id)
+                %li
+                  = link_to 'Logout', destroy_user_session_path, method: :delete
           - else
             %li
               =link_to 'Sign Up', new_user_registration_path
