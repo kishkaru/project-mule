@@ -123,7 +123,7 @@ $(document).ready(function() {
 				success: function(data) {
 					pay_button.removeAttr('disabled');
 					if (data == "success") {
-						window.location.replace("http://google.com");
+						window.location = '/pay';
 					} else {
 					}
 				},
