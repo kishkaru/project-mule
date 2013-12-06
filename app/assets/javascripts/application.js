@@ -113,19 +113,26 @@ $(document).ready(function() {
 		$('#cart-payment-info').attr('hidden', '');
 	});
 
-	$('#payment-form').submit( function(e) {
-		alert('submitted');
-		$.ajax({type: "POST",
-			url: "/pay",
-			success: function(data) {
-				if (data == "success") {
-					window.location.replace("http://google.com");
-				} else {
-					$('#cart-payment-info').html(data);
-				}
-			}});
-		e.preventDefault();
-	});
+	var setUpPayButton = function () {
+		$('#payment-form').submit( function(e) {
+			$.ajax({type: "POST",
+				url: "/pay",
+				data: $('#payment-form').serialize(),
+				success: function(data) {
+					alert(data);
+					if (data == "success") {
+						alert('asucces');
+						window.location.replace("http://google.com");
+					} else {
+						$('#cart-payment-info').html(data);
+						setUpPayButton();
+					}
+				}});
+			e.preventDefault();
+		});
+	}
+
+	setUpPayButton();
 
 });
 

@@ -27,6 +27,14 @@ class CartController < ApplicationController
     user_attrs[:phone_number_attributes] = phone_number_attrs
     new_user = User.new(user_attrs)
 
+    if new_user.valid?
+      puts "user was valid"
+      return "success"
+    else
+      puts 'user was not valid'
+      render :partial => 'cart/cart-payment-info' and return
+    end
+
     result = Braintree::Transaction.sale(
       :amount => "1.00",
       :credit_card => {
