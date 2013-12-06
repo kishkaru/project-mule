@@ -10,52 +10,12 @@
           #cart-modal-table
             = render 'cart/cart-modal-body'
           #cart-payment-info{:hidden => true}
-            = form_for :checkout, :html => {:id => "payment-form"} do |f|
-              %h4 Credit Card info
-              .inline-block
-                = f.label :first_name
-                %br
-                = f.text_field :first_name, {:class => "form-control checkout-field name-field first-name-field"}
-              .inline-block
-                = f.label :last_name
-                %br
-                = f.text_field :last_name, {:class => "form-control checkout-field name-field"}
-              #credit-card-info
-                .inline-block
-                  = f.label :card_number
-                  %br
-                  = f.text_field :card_number, {:class => "form-control checkout-field cc-number-field bfh-phone", "data-format" => "dddd-dddd-dddd-dddd"}
-                .inline-block
-                  = f.label :exp_date
-                  %br
-                  = f.text_field :exp_date, {:class => "form-control checkout-field cc-exp-date-field bfh-phone", "data-format" => "dd/dddd"}
-                .inline-block
-                  = f.label :cvv
-                  %br
-                  = f.text_field :cvv, {:class => "form-control checkout-field cc-cvv-field bfh-phone", "data-format" => "ddd"}
+            = form_tag pay_path, :method => :post, :id => "payment-form" do |f|
+              = render 'credit_cards/credit-card-info-fields'
               %br
-              %h4 Guest info
-              %span An account will be made for you
+              = render 'users/guest-info-fields'
               %br
-              = fields_for :user do |u|
-                .inline-block
-                  = u.label :email
-                  %br
-                  = u.text_field :email, {:class => "form-control checkout-field email-field"}
-                .inline-block
-                  = u.label :phone_number
-                  %br
-                  = u.text_field :phone_number, {:class => "form-control checkout-field phone-number-field bfh-phone", "data-format" => "+1 (ddd) ddd-dddd"}
-                #password-info
-                  .inline-block
-                    = u.label :password
-                    %br
-                    = u.text_field :password, {:class => "form-control checkout-field password-field"}
-                  .inline-block
-                    = u.label :password_confirmation
-                    %br
-                    =u.text_field :password_confirmation, {:class => "form-control checkout-field password-field"}
-              %br
-              = submit_tag "Continue", {:class => "btn btn-primary"}
+              = submit_tag "Pay", {:class => "btn btn-primary"}
+              Your payment will be processed
       #cart-modal-footer.modal-footer
         %button#checkout-btn.btn.btn-default{type: "button"} Checkout

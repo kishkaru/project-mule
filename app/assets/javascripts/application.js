@@ -113,14 +113,5 @@ $(document).ready(function() {
 		$('#cart-payment-info').attr('hidden', '');
 	});
 
-	$('form#payment-form').submit( function(e) {
-		$.ajax({type: "POST",
-			url: "/order_summary",
-			success: function(data) {
-				$('#cart-and-payment').html(data);
-			}});
-		e.preventDefault();
-	});
-
 });
 

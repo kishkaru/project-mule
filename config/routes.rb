@@ -51,8 +51,6 @@ Projectmule::Application.routes.draw do
 
     post '/pay', :to => 'cart#pay', :as => :pay
 
-    post '/order_summary', :to => 'cart#orderSummary', :as => :order_summary
-
     root :to => 'main#home'
 
     # The priority is based upon order of creation:
