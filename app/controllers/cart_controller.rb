@@ -19,9 +19,11 @@ class CartController < ApplicationController
   end
 
   def pay
+    puts "!!!!!!!!!!!!!!!!!!!!!1"
+    puts params
     credit_card_attrs = params[:credit_card]
     user_attrs = params[:user]
-    phone_number_attrs = parsePhoneNumber(user.delete(:phone_number))
+    phone_number_attrs = parsePhoneNumber(user_attrs.delete(:phone_number))
     user_attrs[:phone_number_attributes] = phone_number_attrs
     new_user = User.new(user_attrs)
 
@@ -42,21 +44,6 @@ class CartController < ApplicationController
       puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
       p result.errors
     end
-  end
-
-  def orderSummary
-    @tax = 9.0
-    @cart_items = cartItems
-    @cart_items.each do |item, qty|
-      if qty < 1
-        @cart_items.delete(item)
-      end
-    end
-    totals = calculateTotals(@tax, @cart_items)
-    @subtotal = totals[:subtotal]
-    @tax_total = totals[:tax_total]
-    @total = totals[:total]
-    render :partial => 'cart/orderSummary'
   end
 
   private

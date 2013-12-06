@@ -113,5 +113,19 @@ $(document).ready(function() {
 		$('#cart-payment-info').attr('hidden', '');
 	});
 
+	$('#payment-form').submit( function(e) {
+		alert('submitted');
+		$.ajax({type: "POST",
+			url: "/pay",
+			success: function(data) {
+				if (data == "success") {
+					window.location.replace("http://google.com");
+				} else {
+					$('#cart-payment-info').html(data);
+				}
+			}});
+		e.preventDefault();
+	});
+
 });
 
