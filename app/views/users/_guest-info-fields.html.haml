@@ -5,17 +5,17 @@
   .inline-block
     = u.label :email
     %br
-    = u.text_field :email, {:class => "form-control checkout-field email-field"}
+    = u.text_field :email, {:class => "form-control input-field email-field"}
   .inline-block
     = u.label :phone_number
     %br
-    = u.text_field :phone_number, {:class => "form-control checkout-field phone-number-field bfh-phone", "data-format" => "+1 (ddd) ddd-dddd"}
+    = u.text_field :phone_number, {:class => "form-control input-field phone-number-field bfh-phone", "data-format" => "+1 (ddd) ddd-dddd"}
   #password-info
     .inline-block
       = u.label :password
       %br
-      = u.text_field :password, {:class => "form-control checkout-field password-field"}
+      = u.text_field :password, {:class => "form-control input-field password-field"}
     .inline-block
       = u.label :password_confirmation
       %br
-      =u.text_field :password_confirmation, {:class => "form-control checkout-field password-field"}
+      =u.text_field :password_confirmation, {:class => "form-control input-field password-field"}

@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  include PhoneNumbersHelper
 
 	def cart
 		@subtotal = 0
@@ -18,6 +19,12 @@ class CartController < ApplicationController
   end
 
   def pay
+    credit_card_attrs = params[:credit_card]
+    user_attrs = params[:user]
+    phone_number_attrs = parsePhoneNumber(user.delete(:phone_number))
+    user_attrs[:phone_number_attributes] = phone_number_attrs
+    new_user = User.new(user_attrs)
+
     result = Braintree::Transaction.sale(
       :amount => "1.00",
       :credit_card => {
