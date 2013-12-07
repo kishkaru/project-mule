@@ -7,7 +7,7 @@ class CartController < ApplicationController
   	@tax = 9.0
 		if session[:cart] && session[:cart][:items]
   		session[:cart][:items].each do |id, qty|
-    			@cart_items[Item.find(id)] = qty
+    			@cart_items[MenuItem.find(id)] = qty
     	end
     end
   	@cart_items.each do |item_obj,qty|
