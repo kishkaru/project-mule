@@ -23,7 +23,7 @@ describe ItemsController do
     # This should return the minimal set of attributes required to create a valid
     # Item. As you add validations to Item, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) { { "name" => "MyString", "description" => "test", "expires_at" => Time.now, "price" => 12.00, "quantity" => 50 } }
+    let(:valid_attributes) { { "name" => "MyString", "description" => "test", "price" => 12.00} }
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in

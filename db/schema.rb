@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125061120) do
+ActiveRecord::Schema.define(:version => 20131207095838) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -66,13 +66,21 @@ ActiveRecord::Schema.define(:version => 20131125061120) do
     t.string   "name"
     t.float    "price"
     t.text     "description"
-    t.integer  "quantity"
-    t.datetime "expires_at"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "menu_id"
     t.integer  "vendor_id"
   end
+
+  create_table "menu_items", :force => true do |t|
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.integer  "menu_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "menu_items", ["item_id"], :name => "index_menu_items_on_item_id"
+  add_index "menu_items", ["menu_id"], :name => "index_menu_items_on_menu_id"
 
   create_table "menus", :force => true do |t|
     t.datetime "date"
