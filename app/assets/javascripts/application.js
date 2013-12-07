@@ -25,4 +25,8 @@ function add_fields(link, association, content) {
     $('#new-ingredient-fields').modal('show');
 }
 
+$(window).resize( function() {
+	$('body').css('padding-top', $('.container').height());
+});
+
 
