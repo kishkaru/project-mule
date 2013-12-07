@@ -112,6 +112,10 @@
         1,
         null
       ],
+      "/Users/jsm/Repositories/luckybolt/app/helpers/orders_helper.rb": [
+        1,
+        null
+      ],
       "/Users/jsm/Repositories/luckybolt/app/helpers/phone_numbers_helper.rb": [
         1,
         null,
@@ -811,6 +815,38 @@
         null,
         null
       ],
+      "/Users/jsm/Repositories/luckybolt/app/controllers/orders_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/jsm/Repositories/luckybolt/app/models/order.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/jsm/Repositories/luckybolt/app/controllers/users_controller.rb": [
         1,
         null,
@@ -1033,7 +1069,15 @@
         null,
         null
       ],
+      "/Users/jsm/Repositories/luckybolt/app/models/item_order.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/jsm/Repositories/luckybolt/app/models/menu_item.rb": [
+        1,
         1,
         1,
         1,
@@ -1101,7 +1145,7 @@
         null
       ]
     },
-    "timestamp": 1386414124
+    "timestamp": 1386416115
   },
   "RSpec": {
     "coverage": {
@@ -1154,8 +1198,8 @@
         1,
         null,
         1,
-        129,
-        129,
+        132,
+        132,
         null,
         null
       ],
@@ -1213,6 +1257,10 @@
         null
       ],
       "/Users/jsm/Repositories/luckybolt/app/helpers/menus_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jsm/Repositories/luckybolt/app/helpers/orders_helper.rb": [
         1,
         null
       ],
@@ -1915,6 +1963,38 @@
         null,
         null
       ],
+      "/Users/jsm/Repositories/luckybolt/app/controllers/orders_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/jsm/Repositories/luckybolt/app/models/order.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/jsm/Repositories/luckybolt/app/controllers/users_controller.rb": [
         1,
         null,
@@ -2137,7 +2217,15 @@
         null,
         null
       ],
+      "/Users/jsm/Repositories/luckybolt/app/models/item_order.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/jsm/Repositories/luckybolt/app/models/menu_item.rb": [
+        1,
         1,
         1,
         1,
@@ -2205,6 +2293,6 @@
         null
       ]
     },
-    "timestamp": 1386414097
+    "timestamp": 1386416088
   }
 }
