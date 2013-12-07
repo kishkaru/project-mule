@@ -7,14 +7,12 @@ describe "items/index" do
                     :name => "Name",
                     :price => 1.5,
                     :description => "MyText",
-                    :quantity => 1,
                     :vendor => stub_model(Vendor, :name => 'Chipotle')
                 ),
                 stub_model(Item,
                     :name => "Name",
                     :price => 1.5,
                     :description => "MyText",
-                    :quantity => 1,
                     :vendor => stub_model(Vendor, :name => 'Chipotle')
                 )
             ])
@@ -26,6 +24,5 @@ describe "items/index" do
         assert_select "tr>td", :text => "Name".to_s, :count => 2
         assert_select "tr>td", :text => "$ 1.5".to_s, :count => 2
         assert_select "tr>td", :text => "MyText".to_s, :count => 2
-        assert_select "tr>td", :text => 1.to_s, :count => 2
     end
 end

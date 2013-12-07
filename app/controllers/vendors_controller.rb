@@ -91,7 +91,7 @@ class VendorsController < ApplicationController
                     :vendor => {
                         :name => @vendor.name
                     },
-                    :items => @vendor.items.select([:name, :description, :price, :id, :quantity])
+                    :items => @vendor.items.select([:name, :description, :price, :id])
                 }
             }
         end

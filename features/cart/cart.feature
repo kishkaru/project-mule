@@ -6,10 +6,10 @@ Feature: View cart and edit items
     
     Background:
         Given the following items exist:
-        | name                | vendor   | price | description  | quantity | expires_at |
-        | Regular Burrito     | Chipotle | 2.50  | the usual    | 55       | 30/6/2020  |
-        | Spicy Burrito       | Chipotle | 3.50  | on fire      | 91       | 3/3/2014   |
-        | Carne Asada Burrito | Chipotle | 5.50  | roasted beef | 2        | 12/3/1976  |
+        | name                | vendor   | price | description  |
+        | Regular Burrito     | Chipotle | 2.50  | the usual    |
+        | Spicy Burrito       | Chipotle | 3.50  | on fire      |
+        | Carne Asada Burrito | Chipotle | 5.50  | roasted beef |
         
         And I have added the following items to my cart:
         | name                | qty |

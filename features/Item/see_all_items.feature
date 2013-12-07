@@ -7,10 +7,10 @@ Feature: see all items
 Background: items have been added to the database
 
 	Given the following items exist:
-    | name                | vendor   | price | description  | quantity | expires_at |
-    | Regular_Burrito     | Chipotle | $2.50 | the usual    |       55 | 30/6/2020  |
-    | Spicy_Burrito       | Chipotle | $3.50 | on fire      |       91 | 3/3/2014   |
-    | Carne_Asada_Burrito | Chipotle | $5.50 | roasted beef |        2 | 12/3/1976  |
+    | name                | vendor   | price | description  |
+    | Regular_Burrito     | Chipotle | $2.50 | the usual    |
+    | Spicy_Burrito       | Chipotle | $3.50 | on fire      |
+    | Carne_Asada_Burrito | Chipotle | $5.50 | roasted beef |
 
 	And I am on the all_items page
 

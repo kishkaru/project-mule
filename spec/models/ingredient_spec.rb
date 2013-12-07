@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Ingredient do
     before(:each) do
-        @item = Item.create(:name => 'Bongo Burger', :price => 7.99, :quantity => 30, :expires_at => '08/27/2013 10:45 AM')
+        @item = Item.create(:name => 'Bongo Burger', :price => 7.99)
         @ingredient = Ingredient.create(:name => 'tomato')
         @ingredient.items << @item
     end

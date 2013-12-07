@@ -6,7 +6,6 @@ describe "items/edit" do
                 :name => "MyString",
                 :price => 1.5,
                 :description => "MyText",
-                :quantity => 1
         ))
     end
 
@@ -18,7 +17,6 @@ describe "items/edit" do
             assert_select "input#item_name[name=?]", "item[name]"
             assert_select "input#item_price[name=?]", "item[price]"
             assert_select "textarea#item_description[name=?]", "item[description]"
-            assert_select "input#item_quantity[name=?]", "item[quantity]"
         end
     end
 end

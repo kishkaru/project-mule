@@ -25,8 +25,7 @@ Scenario: successfully create a new item from existing ingredients and vendor
     And I select "Chipotle" from "item_vendor_id"
 	And I fill in "Price" with "$4.50"
 	And I fill in "Description" with "Super juicy and wet"
-    And I fill in "Quantity" with "5"
-	
+
 	And I press "Create Item"
 	Then I should see "Wet Burrito"
 
