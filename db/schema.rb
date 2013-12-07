@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207095838) do
+ActiveRecord::Schema.define(:version => 20131207112458) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(:version => 20131207095838) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
+
+  create_table "credit_cards", :force => true do |t|
+    t.string   "token"
+    t.string   "last_four"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.boolean  "default"
+  end
+
+  add_index "credit_cards", ["user_id"], :name => "index_credit_cards_on_user_id"
 
   create_table "delivery_areas", :force => true do |t|
     t.string   "name"
@@ -62,6 +73,17 @@ ActiveRecord::Schema.define(:version => 20131207095838) do
   add_index "ingredients_items", ["ingredient_id"], :name => "index_ingredients_items_on_ingredient_id"
   add_index "ingredients_items", ["item_id", "ingredient_id"], :name => "index_ingredients_items_on_item_id_and_ingredient_id"
 
+  create_table "item_orders", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "menu_item_id"
+    t.integer  "quantity"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "item_orders", ["menu_item_id"], :name => "index_item_orders_on_menu_item_id"
+  add_index "item_orders", ["order_id"], :name => "index_item_orders_on_order_id"
+
   create_table "items", :force => true do |t|
     t.string   "name"
     t.float    "price"
@@ -87,6 +109,15 @@ ActiveRecord::Schema.define(:version => 20131207095838) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "transaction_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
   create_table "phone_numbers", :force => true do |t|
     t.string   "country"
@@ -126,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20131207095838) do
     t.string   "last_sign_in_ip"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "braintree_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

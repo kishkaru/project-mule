@@ -7,12 +7,13 @@ describe CartController do
     describe "GET cart" do
         before(:each) do
             @item = Item.create! valid_attributes
-            @session = {:cart => {:items => {@item.id => 2}}}
+            @menu_item = @item.create_menu_item
+            @session = {:cart => {:items => {@menu_item.id => 2}}}
         end
 
         it "assigns items in cart to @cart_items" do
             get :cart, {}, @session
-            assigns(:cart_items).should eq({@item => 2})
+            assigns(:cart_items).should eq({@menu_item => 2})
         end
 
         it "assigns the subtotal to @subtotal" do

@@ -4,7 +4,6 @@ describe "delivery_areas/show" do
     before(:each) do
         @delivery_area = assign(:delivery_area, stub_model(DeliveryArea,
                 :name => "Name",
-                :user => nil
         ))
     end
 
