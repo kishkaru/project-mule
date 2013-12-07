@@ -2,6 +2,7 @@
   %h1 Project Mule
   %p Making it easy and affordable to eat better food.
   = image_tag("/luckybolt_logo.png", :alt => "LuckyBolt Logo", :id => "luckybolt-logo")
+  %iframe#map{frameborder: "0", height: "60%", src: "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12598.862388824831!2d-122.254262!3d37.8669445!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1386426490123", style: "border:0", width: "70%"}
   %h3 Coming Soon...
   #signup.col-md-6.col-md-offset-3
     .input-group
@@ -9,7 +10,4 @@
       %span.input-group-btn
         %button.btn.btn-primary Sign Up!
   %br/
-  %h2 Let's get started! Where are you?
-  = form_tag area_chosen_path, :method => :post do	
-    =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:prompt => "Please select an Area"})
-    = submit_tag "Update"
+
