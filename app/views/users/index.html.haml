@@ -2,8 +2,7 @@
 %table.table.table-centered
   %tr
     %th Role
-    %th First Name
-    %th Last Name
+    %th Name
     %th Email
     %th
     %th
@@ -11,12 +10,8 @@
   - @users.each do |user|
     %tr
       %td= User::ROLES_MAPPING[user.role]
-      %td= user.first_name
-      %td= user.last_name 
+      %td= link_to user.first_name + ' ' + user.last_name, user
       %td= user.email
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New User', new_user_path
 
