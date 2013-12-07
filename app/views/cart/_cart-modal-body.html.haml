@@ -14,7 +14,7 @@
               %td.qty
                 = qty
                 %button.btn.btn-xs.btn-default.plus.item-qty-buttons{:id => "#{item.id}-item-plus"}+
-                %button.btn.btn-xs.btn-default.minus.item-qty-buttons{:id => "#{item.id}-item-minus"}-
+                %button.btn.btn-xs.btn-default.minus.item-qty-buttons{:id => "#{item.id}-item-minus", :disabled => qty < 2}-
               %td
                 %button.btn.btn-xs.btn-link.item-remove-button{:id => "#{item.id}-item-remove"} Remove
       %tr
