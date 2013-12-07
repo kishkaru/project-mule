@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
                 break
             end
         end
+        return nil
     end
 
 end

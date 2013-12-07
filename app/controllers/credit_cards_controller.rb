@@ -64,10 +64,17 @@ class CreditCardsController < ApplicationController
 	def destroy
 		cc = CreditCard.find(params[:id])
 		user = User.find(current_user.id)
+
 		if user.credit_cards.delete(cc)
 			cc.destroy
 			Braintree::CreditCard.delete(cc.token)
 			flash[:success] = "Credit card ending in #{cc.last_four} deleted successfully"
+
+			user_credit_cards = user.credit_cards
+			if user_credit_cards.present?
+				user_credit_cards.first.update_attribute(:default, true)
+			end
+
 			redirect_to edit_credit_cards_path
 		end
 	end
