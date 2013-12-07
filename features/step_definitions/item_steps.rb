@@ -1,7 +1,8 @@
 Given /the following items exist/ do |items_table|
     items_table.hashes.each do |item|
         vendor = item.delete("vendor")
-        Item.create!(item)
+        i = Item.create!(item)
+        i.create_menu_item
     end
 end
 
