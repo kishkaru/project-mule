@@ -5,11 +5,9 @@ describe "delivery_areas/index" do
         assign(:delivery_areas, [
                 stub_model(DeliveryArea,
                     :name => "Name",
-                    :user => nil
                 ),
                 stub_model(DeliveryArea,
                     :name => "Name",
-                    :user => nil
                 )
             ])
     end

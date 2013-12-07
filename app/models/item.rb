@@ -15,6 +15,7 @@ class Item < ActiveRecord::Base
     def create_menu_item(options={})
         menu_item =  MenuItem.create(:quantity => options[:quantity] || 0)
         menu_item.item = self
+        menu_item.save!
         return menu_item
     end
 
