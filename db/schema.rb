@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207110311) do
+ActiveRecord::Schema.define(:version => 20131207112458) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -64,10 +64,13 @@ ActiveRecord::Schema.define(:version => 20131207110311) do
 
   create_table "item_orders", :force => true do |t|
     t.integer  "order_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "menu_item_id"
+    t.integer  "quantity"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
+  add_index "item_orders", ["menu_item_id"], :name => "index_item_orders_on_menu_item_id"
   add_index "item_orders", ["order_id"], :name => "index_item_orders_on_order_id"
 
   create_table "items", :force => true do |t|
