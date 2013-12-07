@@ -14,7 +14,7 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-12-07T02:43:19-08:00">2013-12-07T02:43:19-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-12-07T03:02:04-08:00">2013-12-07T03:02:04-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.44
+         5.75
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>73.7</td>
+        <td>77.1</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>17</td>
         <td>16</td>
         <td>1</td>
-        <td>1.9</td>
+        <td>7.4</td>
       </tr>
       
       <tr>
@@ -107,7 +107,7 @@
         <td>69</td>
         <td>69</td>
         <td>0</td>
-        <td>3.5</td>
+        <td>3.8</td>
       </tr>
       
       <tr>
@@ -117,7 +117,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>6.8</td>
+        <td>7.3</td>
       </tr>
       
       <tr>
@@ -383,7 +383,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         10.66
+         11.63
        </span>
     </span> hits/line)
   </h2>
@@ -415,7 +415,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>73.7</td>
+        <td>77.1</td>
       </tr>
       
       <tr>
@@ -425,7 +425,7 @@
         <td>17</td>
         <td>16</td>
         <td>1</td>
-        <td>1.9</td>
+        <td>7.4</td>
       </tr>
       
       <tr>
@@ -465,7 +465,7 @@
         <td>69</td>
         <td>69</td>
         <td>0</td>
-        <td>3.5</td>
+        <td>3.8</td>
       </tr>
       
       <tr>
@@ -475,7 +475,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>6.8</td>
+        <td>7.3</td>
       </tr>
       
       <tr>
@@ -996,14 +996,14 @@
           <code class="ruby">    def initialize_cart</code>
         </li>
       
-        <li class="covered" data-hits="253" data-linenumber="10">
-          <span class="hits">253</span>
+        <li class="covered" data-hits="265" data-linenumber="10">
+          <span class="hits">265</span>
           
           <code class="ruby">        session[:cart] ||= HashWithIndifferentAccess.new()</code>
         </li>
       
-        <li class="covered" data-hits="253" data-linenumber="11">
-          <span class="hits">253</span>
+        <li class="covered" data-hits="265" data-linenumber="11">
+          <span class="hits">265</span>
           
           <code class="ruby">        session[:cart][:items] ||= HashWithIndifferentAccess.new()</code>
         </li>
@@ -1050,50 +1050,50 @@
           <code class="ruby">	def cart</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="3">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="3">
+          <span class="hits">8</span>
           
           <code class="ruby">		@subtotal = 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="4">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="4">
+          <span class="hits">8</span>
           
           <code class="ruby">		@tax_total = 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="5">
+          <span class="hits">8</span>
           
           <code class="ruby">		@total = 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="6">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="6">
+          <span class="hits">8</span>
           
           <code class="ruby">		@cart_items = {}</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="7">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="7">
+          <span class="hits">8</span>
           
           <code class="ruby">  	@tax = 9.0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="8">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="8">
+          <span class="hits">8</span>
           
           <code class="ruby">		if session[:cart] &amp;&amp; session[:cart][:items]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="9">
+          <span class="hits">8</span>
           
           <code class="ruby">  		session[:cart][:items].each do |id, qty|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="13" data-linenumber="10">
+          <span class="hits">13</span>
           
           <code class="ruby">    			@cart_items[Item.find(id)] = qty</code>
         </li>
@@ -1110,14 +1110,14 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="13">
+          <span class="hits">8</span>
           
           <code class="ruby">  	@cart_items.each do |item_obj,qty|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="13" data-linenumber="14">
+          <span class="hits">13</span>
           
           <code class="ruby">    	@subtotal = @subtotal + item_obj.price * qty</code>
         </li>
@@ -1128,26 +1128,26 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="16">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="16">
+          <span class="hits">8</span>
           
           <code class="ruby">    @tax_total = @tax / 100.0 * @subtotal</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="17">
+          <span class="hits">8</span>
           
           <code class="ruby">    @total = @tax_total + @subtotal</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="18">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="18">
+          <span class="hits">8</span>
           
           <code class="ruby">    if @cart_items.present?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="19">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="19">
+          <span class="hits">8</span>
           
           <code class="ruby">  	  render :partial =&gt; 'cart/cart-modal-body'</code>
         </li>
@@ -3522,26 +3522,26 @@
           <code class="ruby">    def addItemToCart</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="100">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="100">
+          <span class="hits">2</span>
           
           <code class="ruby">        id = params[:item_to_add].to_i</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="101">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="101">
+          <span class="hits">2</span>
           
           <code class="ruby">        new_quantity = getOldQuantity(id) + 1</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="102">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="102">
+          <span class="hits">2</span>
           
           <code class="ruby">        session[:cart][:items][id] = new_quantity</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="103">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="103">
+          <span class="hits">2</span>
           
           <code class="ruby">        redirect_to cart_path</code>
         </li>
@@ -3570,26 +3570,26 @@
           <code class="ruby">    def minusItemFromCart</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="108">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="108">
+          <span class="hits">5</span>
           
           <code class="ruby">        id = params[:item_to_minus].to_i</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="109">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="109">
+          <span class="hits">5</span>
           
           <code class="ruby">        new_quantity = getOldQuantity(id) - 1</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="110">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="110">
+          <span class="hits">5</span>
           
           <code class="ruby">        if new_quantity &gt; 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="111">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="111">
+          <span class="hits">3</span>
           
           <code class="ruby">            session[:cart][:items][id] = new_quantity</code>
         </li>
@@ -3612,8 +3612,8 @@
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="115">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="115">
+          <span class="hits">5</span>
           
           <code class="ruby">        redirect_to cart_path</code>
         </li>
@@ -3648,20 +3648,20 @@
           <code class="ruby">    def getOldQuantity(id)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="121">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="7" data-linenumber="121">
+          <span class="hits">7</span>
           
           <code class="ruby">        old_quantity = 0</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="122">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="7" data-linenumber="122">
+          <span class="hits">7</span>
           
           <code class="ruby">        if session[:cart][:items][id.to_i]</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="123">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="7" data-linenumber="123">
+          <span class="hits">7</span>
           
           <code class="ruby">            old_quantity = session[:cart][:items][id.to_i]</code>
         </li>
@@ -3672,8 +3672,8 @@
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="125">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="7" data-linenumber="125">
+          <span class="hits">7</span>
           
           <code class="ruby">        old_quantity</code>
         </li>
@@ -3702,14 +3702,14 @@
           <code class="ruby">    def removeItemFromCart</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="130">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="130">
+          <span class="hits">2</span>
           
           <code class="ruby">        session[:cart][:items].delete(params[:item_to_remove].to_i);</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="131">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="131">
+          <span class="hits">2</span>
           
           <code class="ruby">        redirect_to cart_path</code>
         </li>
@@ -3762,8 +3762,8 @@
           <code class="ruby">    def home</code>
         </li>
       
-        <li class="covered" data-hits="33" data-linenumber="4">
-          <span class="hits">33</span>
+        <li class="covered" data-hits="36" data-linenumber="4">
+          <span class="hits">36</span>
           
           <code class="ruby">        @delivery_area = DeliveryArea.all</code>
         </li>
