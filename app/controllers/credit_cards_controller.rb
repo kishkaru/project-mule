@@ -1,4 +1,5 @@
 class CreditCardsController < ApplicationController
+	include CreditCardsHelper
 
 	before_filter :user_logged_in
 
@@ -12,23 +13,7 @@ class CreditCardsController < ApplicationController
 	def create
 		user = User.find(current_user.id)
 
-		# Create customer in braintree if the current user does not exist in vault
-		if !user.braintree_token.present?
-			user_result = Braintree::Customer.create(
-				:first_name => user.first_name,
-				:last_name => user.last_name,
-				:email => user.email,
-				:phone => user.phone_number.braintreeString
-				)
-			if user_result.success?
-				user.update_attribute(:braintree_token, user_result.customer.id)
-				puts user.braintree_token
-			else
-				puts user_result.errors
-			end
-		end
-
-		credit_card_to_add = params[:credit_card]
+		createUserInVault(user)
 
 		# Check if this is the first credit card to decide if it should be set as default
 		default = false
@@ -36,17 +21,9 @@ class CreditCardsController < ApplicationController
 			default = true
 		end
 
-		# Create the credit card in the vault
-		credit_card_result = Braintree::CreditCard.create(
-			:customer_id => user.braintree_token,
-			:number => credit_card_to_add[:card_number],
-			:expiration_date => credit_card_to_add[:exp_date],
-			:cvv => credit_card_to_add[:cvv],
-			:options => {
-				:fail_on_duplicate_payment_method => true,
-				:make_default => default
-				}
-			)
+		credit_card_to_add = params[:credit_card]
+
+		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user)
 
 		if credit_card_result.success?
 			# Create credit card local object and associate with user
