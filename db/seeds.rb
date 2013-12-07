@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Create an admin account
-admin = User.create!(:email => "admin@admin.com", :password => "iambatman", :password_confirmation => "iambatman", :phone_number_attributes => {:area => "123", :number => "123-4567", :country => "1"})
+admin = User.create!(:email => "admin@admin.com", :password => "iambatman", :password_confirmation => "iambatman", :phone_number_attributes => {:area => "123", :number => "123-4567", :country => "1"}, :first_name => "Mule", :last_name => "Admin")
 admin.update_attribute(:role, User::ADMIN)

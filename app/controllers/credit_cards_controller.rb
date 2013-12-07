@@ -41,8 +41,6 @@ class CreditCardsController < ApplicationController
 
 		if credit_card_result.success?
 			user.credit_cards << CreditCard.create(:token => credit_card_result.credit_card.token, :last_four => credit_card_result.credit_card.last_4)
-			puts "!!!!!!!!!!!"
-			puts "#{[user.credit_cards]}"
 			flash[:success] = 'Credit card was added successfully'
 			redirect_to edit_credit_cards_path
 		else
