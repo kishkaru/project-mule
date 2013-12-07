@@ -2,8 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(window).resize( function() {
+var adjustContainer = function() {
 	$('body').css('padding-top', $('.container').height());
+};
+
+$(window).resize( function() {
+	adjustContainer();
 });
 
 $(document).ready( function() {
@@ -17,4 +21,8 @@ $(document).ready( function() {
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/dTw6HYGFZt/IMG_0172.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A',
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/VEbeenwBcI/IMG_0218.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A'
 		],{duration: 10000, fade: 750});
+});
+
+$(window).load(function() {
+	adjustContainer();
 });
