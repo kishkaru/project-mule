@@ -55,9 +55,11 @@ Projectmule::Application.routes.draw do
 
     get '/account/credit_cards', :to => 'credit_cards#index', :as => :edit_credit_cards
 
-    get '/add_credit_card', :to => 'credit_cards#new', :as => :new_credit_card
+    get '/account/add_credit_card', :to => 'credit_cards#new', :as => :new_credit_card
 
-    post '/add_credit_card', :to => 'credit_cards#create', :as => :create_credit_card
+    post '/account/add_credit_card', :to => 'credit_cards#create', :as => :create_credit_card
+
+    delete '/destroy_credit_card/:id', :to => 'credit_cards#destroy', :as => :destroy_credit_card
 
     root :to => 'main#home'
 

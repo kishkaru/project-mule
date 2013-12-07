@@ -3,6 +3,7 @@ class CreditCardsController < ApplicationController
 	before_filter :user_logged_in
 
 	def index
+		@allow_delete = true
 	end
 
 	def new
@@ -42,11 +43,25 @@ class CreditCardsController < ApplicationController
 			user.credit_cards << CreditCard.create(:token => credit_card_result.credit_card.token, :last_four => credit_card_result.credit_card.last_4)
 			puts "!!!!!!!!!!!"
 			puts "#{[user.credit_cards]}"
+			flash[:success] = 'Credit card was added successfully'
+			redirect_to edit_credit_cards_path
 		else
+			@cc_errors = credit_card_result.errors
 			puts "#{[credit_card_result.errors]}"
+			render 'new'
 		end
 
-		render :nothing => true
+	end
+
+	def destroy
+		cc = CreditCard.find(params[:id])
+		user = User.find(current_user.id)
+		if user.credit_cards.delete(cc)
+			cc.destroy
+			Braintree::CreditCard.delete(cc.token)
+			flash[:success] = "Credit card ending in #{cc.last_four} deleted successfully"
+			redirect_to edit_credit_cards_path
+		end
 	end
 
 end

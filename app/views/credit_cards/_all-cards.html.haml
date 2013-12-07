@@ -5,6 +5,8 @@
   - current_user.credit_cards.each do |cc|
     .credit-card
       = "Card ending in " + cc.last_four
+      - if @allow_delete
+        = link_to 'Delete', destroy_credit_card_path(cc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class =>  "btn btn-danger btn-sm" 
     %br
 - else
   No cards added
