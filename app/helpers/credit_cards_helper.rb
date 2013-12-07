@@ -25,9 +25,7 @@ module CreditCardsHelper
 			:customer_id => user.braintree_token,
 			:number => cc_attrs[:card_number],
 			:expiration_date => cc_attrs[:exp_date],
-			:cvv => cc_attrs[:cvv],
 			:options => {
-				:fail_on_duplicate_payment_method => true,
 				:make_default => default
 				}
 			)
