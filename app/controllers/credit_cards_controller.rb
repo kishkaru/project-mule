@@ -3,7 +3,7 @@ class CreditCardsController < ApplicationController
 	before_filter :user_logged_in
 
 	def index
-		@allow_delete = true
+		@editing = true
 	end
 
 	def new
@@ -29,23 +29,33 @@ class CreditCardsController < ApplicationController
 
 		credit_card_to_add = params[:credit_card]
 
+		default = false
+		if user.credit_cards.length == 0
+			default = true
+		end
+
 		credit_card_result = Braintree::CreditCard.create(
 			:customer_id => user.braintree_token,
 			:number => credit_card_to_add[:card_number],
 			:expiration_date => credit_card_to_add[:exp_date],
 			:cvv => credit_card_to_add[:cvv],
 			:options => {
-				:fail_on_duplicate_payment_method => true
+				:fail_on_duplicate_payment_method => true,
+				:make_default => default
 				}
 			)
 
 		if credit_card_result.success?
-			user.credit_cards << CreditCard.create(:token => credit_card_result.credit_card.token, :last_four => credit_card_result.credit_card.last_4)
+			cc_to_add = CreditCard.create(:token => credit_card_result.credit_card.token,
+				:last_four => credit_card_result.credit_card.last_4,
+				:default => default)
+			user.credit_cards << cc_to_add
+			puts "!!!!!!!!!! #{user.credit_cards}"
 			flash[:success] = 'Credit card was added successfully'
+
 			redirect_to edit_credit_cards_path
 		else
 			@cc_errors = credit_card_result.errors
-			puts "#{[credit_card_result.errors]}"
 			render 'new'
 		end
 
@@ -60,6 +70,29 @@ class CreditCardsController < ApplicationController
 			flash[:success] = "Credit card ending in #{cc.last_four} deleted successfully"
 			redirect_to edit_credit_cards_path
 		end
+	end
+
+	# Sets the credit card with id params[:id] to the current users default credit card
+	def setDefault
+		user = User.find(current_user.id)
+		new_default_card = CreditCard.find(params[:cc_id])
+
+		result = Braintree::CreditCard.update(
+		  new_default_card.token,
+		  :options => {
+		    :make_default => true
+		  }
+		)
+
+		if result.success?
+			old_default_card = user.defaultCreditCard
+			old_default_card.update_attribute(:default, false)
+			new_default_card.update_attribute(:default, true)
+		else
+			puts result.errors
+		end
+
+		redirect_to edit_credit_cards_path
 	end
 
 end

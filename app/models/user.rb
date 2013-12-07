@@ -37,4 +37,14 @@ class User < ActiveRecord::Base
     def admin?
         role == User::ADMIN
     end
+
+    def defaultCreditCard
+        credit_cards.each do |cc|
+            if cc.default
+                return cc
+                break
+            end
+        end
+    end
+
 end
