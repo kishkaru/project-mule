@@ -96,7 +96,7 @@ $( function() {
 				success: function(data) {
 					pay_button.removeAttr('disabled');
 					if (data == "success") {
-						window.location = '/pay';
+						window.location = '/order_receipt';
 					} else {
 					}
 				},

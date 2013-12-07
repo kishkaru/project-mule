@@ -54,6 +54,8 @@ Projectmule::Application.routes.draw do
 
     post '/pay', :to => 'cart#pay', :as => :pay
 
+    get '/order_receipt', :to => 'orders#receipt', :as => :order_receipt
+
     get '/account', :to => 'users#account', :as => :account
 
     get '/account/credit_cards', :to => 'credit_cards#index', :as => :edit_credit_cards

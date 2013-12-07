@@ -20,4 +20,7 @@ class OrdersController < ApplicationController
       format.json { render json: @order }
     end
   end
+
+  def receipt
+  end
 end

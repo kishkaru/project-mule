@@ -15,6 +15,29 @@ class CartController < ApplicationController
     end
 
     def pay
+
+        items = cartItems
+        totals = calculateTotals(9, items)
+
+        result = Braintree::Transaction.sale(
+          :payment_method_token => current_user.defaultCreditCard.token,
+          :amount => totals[:total].round(2).to_s,
+          :credit_card => {:cvv => "100"}
+        )
+
+        if result.success?
+            puts "!!!!!!! win"
+            new_order = Order.create_with_items(items)
+            new_order.user = current_user
+            new_order.transaction_id = result.transaction.id
+            new_order.save!
+        else
+            puts "#{[result.errors]}"
+        end
+
+        render :text => 'success'
+
+=begin
         credit_card_attrs = params[:credit_card]
         user_attrs = params[:user]
 
@@ -46,6 +69,7 @@ class CartController < ApplicationController
             puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
             p result.errors
         end
+=end
     end
 
     private
