@@ -43,7 +43,7 @@ class MenusController < ApplicationController
     # POST /menus.json
     def create
         @delivery_areas = DeliveryArea.where(name: params[:menu].delete(:delivery_areas))
-        @items = Item.where(id: params[:menu].delete(:items))
+        @items = Item.where(id: params[:menu].delete(:items)).uniq
         template = params[:menu].delete(:template)
         if template.blank? || template == "blank" || template.to_i < 1
             @menu = Menu.new(params[:menu])
@@ -54,7 +54,7 @@ class MenusController < ApplicationController
         respond_to do |format|
             if @menu.save
                 @menu.delivery_areas = @delivery_areas
-                @menu.items = @items if template == "blank"
+                @menu.add_items(@items) if template == "blank"
                 format.html { redirect_to @menu, flash: { success: 'Menu was successfully created.' } }
                 format.json { render json: @menu, status: :created, location: @menu }
             else
@@ -68,13 +68,13 @@ class MenusController < ApplicationController
     # PUT /menus/1.json
     def update
         @delivery_areas = DeliveryArea.where(name: params[:menu].delete(:delivery_areas))
-        @items = Item.where(id: params[:menu].delete(:items))
+        @items = Item.where(id: params[:menu].delete(:items)).uniq
         @menu = Menu.find(params[:id])
 
         respond_to do |format|
             if @menu.update_attributes(params[:menu])
                 @menu.delivery_areas = @delivery_areas
-                @menu.items = @items
+                @menu.add_items (@items)
                 format.html { redirect_to @menu, flash: { success: 'Menu was successfully updated.'} }
                 format.json { head :no_content }
             else

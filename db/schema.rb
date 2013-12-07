@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207090406) do
+ActiveRecord::Schema.define(:version => 20131207112458) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -73,23 +73,51 @@ ActiveRecord::Schema.define(:version => 20131207090406) do
   add_index "ingredients_items", ["ingredient_id"], :name => "index_ingredients_items_on_ingredient_id"
   add_index "ingredients_items", ["item_id", "ingredient_id"], :name => "index_ingredients_items_on_item_id_and_ingredient_id"
 
+  create_table "item_orders", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "menu_item_id"
+    t.integer  "quantity"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "item_orders", ["menu_item_id"], :name => "index_item_orders_on_menu_item_id"
+  add_index "item_orders", ["order_id"], :name => "index_item_orders_on_order_id"
+
   create_table "items", :force => true do |t|
     t.string   "name"
     t.float    "price"
     t.text     "description"
-    t.integer  "quantity"
-    t.datetime "expires_at"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "menu_id"
     t.integer  "vendor_id"
   end
+
+  create_table "menu_items", :force => true do |t|
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.integer  "menu_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "menu_items", ["item_id"], :name => "index_menu_items_on_item_id"
+  add_index "menu_items", ["menu_id"], :name => "index_menu_items_on_menu_id"
 
   create_table "menus", :force => true do |t|
     t.datetime "date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "transaction_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
   create_table "phone_numbers", :force => true do |t|
     t.string   "country"

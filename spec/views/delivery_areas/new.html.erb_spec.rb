@@ -4,7 +4,6 @@ describe "delivery_areas/new" do
     before(:each) do
         assign(:delivery_area, stub_model(DeliveryArea,
                 :name => "MyString",
-                :user => nil
         ).as_new_record)
     end
 
