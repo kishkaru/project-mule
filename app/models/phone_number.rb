@@ -21,4 +21,9 @@ class PhoneNumber < ActiveRecord::Base
         ctry + area_code + num
     end
 
+    # returns the phone number in the format for braintree
+    # ddd.ddd.dddd
+    def braintreeString
+        "#{area}.#{number.gsub("-",".")}"
+    end
 end

@@ -1,5 +1,5 @@
 %br
-%a#new-cc-link{href: '#'} Add new card
+%a#new-cc-link{href: new_credit_card_path} Add new card
 %br
 #new-card-form{:hidden => true}
   = form_tag create_credit_card_path, :method => :post, :id => "add-card-form" do |f|
@@ -9,14 +9,4 @@
     = submit_tag "Add card", {:class => "btn btn-primary btn-xs", :id => "add-card-button"}
 %br
 #credit-cards
-  %strong Credit Cards
-  %br
-  %br
-  - if current_user.credit_cards.present?
-    - current_user.credit_cards do |cc|
-      .credit-card
-        = "Card ending in " + cc.last_four
-      %br
-  - else
-    No cards added
-
+  = render 'credit_cards/all-cards'

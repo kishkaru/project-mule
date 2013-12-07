@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
     attr_accessible :first_name, :last_name, :phone_number
     attr_protected :role
 
+    validates_presence_of :first_name, :last_name
+
     has_one :pickup_point, :class_name => 'DeliveryPoint'
     has_one :phone_number
     has_many :credit_cards

@@ -1,14 +1,7 @@
 class UsersController < ApplicationController
 
     before_filter :verify_if_admin
-
-    def verify_if_admin
-        if current_user.nil?
-            redirect_to(root_path) and return
-        else
-            redirect_to(root_path) and return unless current_user.admin?
-        end
-    end
+    before_filter :user_logged_in, :only => :account
 
     include UsersHelper
     # GET /users
@@ -96,5 +89,4 @@ class UsersController < ApplicationController
     def account
     end
 
-    private :verify_if_admin
 end

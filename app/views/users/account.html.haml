@@ -1,31 +1,23 @@
 %br
 %br
-%a.float-right{href: edit_user_registration_path}Edit account info
-%br
-%strong Name
-%br
-= current_user.first_name
-= current_user.last_name
-%br
-%br
-%strong Email
-%br
-= current_user.email
-%br
-%br
-%strong Phone number
-%br
-= current_user.phone_number.asString
-%br
-%br
-%a.float-right{href: edit_credit_cards_path}Edit credit cards
-%strong Credit Cards
-%br
-%br
-- if current_user.credit_cards.present?
-  - current_user.credit_cards do |cc|
-    .credit-card
-      = "Card ending in " + cc.last_four
-    %br
-- else
-  No cards added
+- if user_signed_in?
+  %a.float-right{href: edit_user_registration_path}Edit account info
+  %br
+  %strong Name
+  %br
+  = current_user.first_name
+  = current_user.last_name
+  %br
+  %br
+  %strong Email
+  %br
+  = current_user.email
+  %br
+  %br
+  %strong Phone number
+  %br
+  = current_user.phone_number.asString
+  %br
+  %br
+  %a.float-right{href: edit_credit_cards_path}Edit credit cards
+  = render 'credit_cards/all-cards'
