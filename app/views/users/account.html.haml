@@ -1,7 +1,8 @@
 %br
-%br
 - if user_signed_in?
-  %a.float-right{href: edit_user_registration_path}Edit account info
+  %div
+    %a.float-right{href: edit_user_registration_path}Edit account info
+    %h4 Account Info
   %br
   %strong Name
   %br
@@ -19,5 +20,22 @@
   = current_user.phone_number.asString
   %br
   %br
+  %br
   %a.float-right{href: edit_credit_cards_path}Edit credit cards
   = render 'credit_cards/all-cards'
+  %br
+  %br
+  %br
+  %div
+    %a.float-right{href: user_orders_path}View all
+    %h4 Recent Orders
+  %br
+  %table.table.table-centered
+    %tr
+      %th Date
+      %th Amount
+    - current_user.orders.take(5).each do |order|
+      %tr
+        %td= order.created_at
+        %td $33.00
+
