@@ -41,9 +41,11 @@ $(document).ready( function() {
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/VEbeenwBcI/IMG_0218.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A'
 		],{duration: 10000, fade: 750});
 
-	$('td').click(function() {
+	$('.main-table-items').click(function() {
 		$('td').removeClass('success');
 		$(this).addClass('success');
+		$('#area-container').removeClass('slide-left');
+		$('#area-container').addClass('slide-left');
 	});
 });
 

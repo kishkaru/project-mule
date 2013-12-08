@@ -10,9 +10,9 @@
         %button.btn.btn-primary Sign Up!
   %br/
   %br
-  %div#area-container
+  %div#area-container.stay-centered
     %table.table.table-hover.table-responsive.area-table.table-bordered
       %th.text-center.active Area
       - @delivery_area.each do |area|
         %tr
-          %td= area.name
+          %td.main-table-items= area.name
