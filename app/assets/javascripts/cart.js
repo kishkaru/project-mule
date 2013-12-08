@@ -117,11 +117,9 @@ $( function() {
 		$('#new-credit-card').hide();
 		$(this).attr('disabled', 'disabled');
 		$('#use-new-cc').removeAttr('disabled');
-		user_credit_cards.spin(opts);
 		$.ajax({type: "GET",
 			url: "/cart/change_credit_card",
 			success: function(data) {
-				user_credit_cards.spin(false);
 				user_credit_cards.html(data);
 				user_credit_cards.hide();
 				user_credit_cards.fadeIn();
