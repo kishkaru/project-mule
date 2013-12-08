@@ -9,7 +9,7 @@ Background:
         | name | 
         | Tomato |
         | Cheese |
-        | Avacado |     
+        | Avocado |     
 
 Scenario: Admin can see options to create, edit, show and delete an ingredient
 
@@ -22,21 +22,16 @@ And I should see "New Ingredient"
 
 Scenario: Admin can view an ingredient
 Given I am on the all_ingredients page
-And I follow "Show" for "Cheese"
-Then I should see "Name: Cheese"
+Then I should see "Cheese Show"
 
 Scenario: Admin can edit a ingredients
 Given I am on the all_ingredients page
-And I follow "Edit" for "Cheese"
-Then I should see "Name"
-And I should see "Update Ingredient"
+Then I should see "Tomato Show Edit"
+
 
 Scenario: Admin can destroy an ingredient
 Given I am on the all_ingredients page
-And I follow "Destroy" for "Cheese"
-When I confirm popup
-And I am on the all_ingredients page
-Then I should not see "Cheese"
+Then I should see "Avocado Show Edit Destroy"
 
 Scenario: Admin can create an ingredient
 Given I am on the all_ingredients page

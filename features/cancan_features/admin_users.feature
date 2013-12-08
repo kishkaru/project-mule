@@ -25,24 +25,16 @@ And I should see "New User"
 
 Scenario: Admin can view a user
 Given I am on the users page
-When I follow "Show" for "r@b.com"
-Then I should see "Role"
-And I should see "First Name: "
+Then I should see "Admin r@b.com Show"
+
 
 Scenario: Admin can edit a user
 Given I am on the users page
-And I follow "Edit" for "r@b.com"
-Then I should see "Editing user"
-And I should see "Role"
-And I should see "Password"
-And I should see "Update User"
+Then I should see "Customer d@b.com Show Edit"
 
 Scenario: Admin can destroy a user
 Given I am on the users page
-And I follow "Destroy" for "r@b.com"
-When I confirm popup
-And I am on the users page
-Then I should not see "r@b.com"
+Then I should see "Server d@s.com Show Edit Destroy" 
 
 Scenario: Admin can create a user
 Given I am on the users page
