@@ -108,9 +108,12 @@ $( function() {
 	}
 
 	$('#use-dif-cc').click( function() {
+		$(this).attr('disabled', 'disabled');
+		$('#spinner-cart-center').spin(opts);
 		$.ajax({type: "GET",
 			url: "/cart/change_credit_card",
 			success: function(data) {
+				$('#spinner-cart-center').spin(false)
 				$('#user-credit-cards').html(data);
 			}});
 	})
