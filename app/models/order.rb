@@ -13,4 +13,18 @@ class Order < ActiveRecord::Base
     	return new_order
     end
 
+    def subtotal
+        return self.item_orders.reduce(0) do |subtotal, item_order|
+            subtotal += item_order.quantity * item_order.item.price
+        end
+    end
+
+    def tax
+        return 0.09
+    end
+
+    def total
+        return (1 + self.tax) * subtotal
+    end
+
 end
