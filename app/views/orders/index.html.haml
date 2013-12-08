@@ -1,5 +1,6 @@
 %h1 Listing orders
-%table
+= paginate @orders
+%table.table.table-centered
   %tr
     %th User
     %th Email

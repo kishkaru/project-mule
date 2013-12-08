@@ -2,7 +2,7 @@ class DeliveryAreasController < ApplicationController
     # GET /delivery_areas
     # GET /delivery_areas.json
     def index
-        @delivery_areas = DeliveryArea.all
+        @delivery_areas = DeliveryArea.page(params[:page])
 
         respond_to do |format|
             format.html # index.html.erb

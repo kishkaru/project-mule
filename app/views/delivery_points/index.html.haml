@@ -1,4 +1,6 @@
 %h1 Delivery Points
+= paginate @delivery_points
 = render 'table'
+= paginate @delivery_points
 %br/
 = link_to 'New Delivery point', new_delivery_point_path, :class =>  "btn btn-primary btn-sm"
