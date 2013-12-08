@@ -39,7 +39,11 @@ class Ability
 
     if user.role == User::CUSTOMER
       can :order, :all
+      can :show, :delivery_areas
     end
 
+    if user.role == User::SERVER
+      can :index, :order
+    end
   end
 end
