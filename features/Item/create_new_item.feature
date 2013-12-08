@@ -18,7 +18,7 @@ Scenario: successfully create a new item from existing ingredients and vendor
 
   Given the following vendors exist:
     | name     | email             | address |
-    | Chipotle | buro@chiptole.com | 1, 1, 1, 1 |
+    | Chipotle | buro@chiptole.com | 1, 1, CA, 1  |
 
   Given I am on the create_new_item page
 	And I fill in "Name" with "Wet Burrito"

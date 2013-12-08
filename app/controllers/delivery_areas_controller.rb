@@ -14,8 +14,8 @@ class DeliveryAreasController < ApplicationController
     # GET /delivery_areas/1.json
     def show
         @delivery_area = DeliveryArea.find(params[:id])
-
-	@delivery_points = DeliveryPoint.all
+        @delivery_points = @delivery_area.delivery_points
+        @hide_point_area = true
 
         respond_to do |format|
             format.html # show.html.erb
@@ -27,6 +27,7 @@ class DeliveryAreasController < ApplicationController
     # GET /delivery_areas/new.json
     def new
         @delivery_area = DeliveryArea.new
+        @delivery_points = DeliveryPoint.where(id: params[:delivery_area].delete(:delivery_points)).uniq if params[:delivery_area] and params[:delivery_area][:delivery_points]
 
         respond_to do |format|
             format.html # new.html.erb
@@ -46,6 +47,7 @@ class DeliveryAreasController < ApplicationController
 
         respond_to do |format|
             if @delivery_area.save
+                @delivery_area.add_delivery_points(@delivery_points)
                 format.html { redirect_to @delivery_area, notice: 'Delivery area was successfully created.' }
                 format.json { render json: @delivery_area, status: :created, location: @delivery_area }
             else
@@ -59,9 +61,11 @@ class DeliveryAreasController < ApplicationController
     # PUT /delivery_areas/1.json
     def update
         @delivery_area = DeliveryArea.find(params[:id])
+        @delivery_points = DeliveryPoint.where(id: params[:delivery_area].delete(:delivery_points)).uniq
 
         respond_to do |format|
             if @delivery_area.update_attributes(params[:delivery_area])
+                @delivery_area.add_delivery_points(@delivery_points)
                 format.html { redirect_to @delivery_area, notice: 'Delivery area was successfully updated.' }
                 format.json { head :no_content }
             else

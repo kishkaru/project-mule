@@ -90,6 +90,7 @@ $( function() {
     $("body").on("click", "button.remove-from-menu", function() {
         self = $(this);
         self.parents("#items tr").remove()
+        return false;
     });
 
     $("button.add-to-cart").click( function() {

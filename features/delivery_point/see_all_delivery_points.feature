@@ -27,14 +27,8 @@ Scenario: successfully see all delivery points
 
 	And I am on the Listing delivery_points page	
 	Then I should see "2650 Durant Ave Berkeley, CA 12345"
-	And I should see "15.7"
-	And I should see "45.6"
-	And I should see "2521 Hearst Ave Berkeley, CA 12345"
-	And I should see "26.3"
-	And I should see "76.7"
+    And I should see "2521 Hearst Ave Berkeley, CA 12345"
     And I should see "2727 Dwight Way Berkeley, CA 12345"
-    And I should see "32.2"
-    And I should see "23.3"
 
 
 

@@ -16,7 +16,7 @@ class Menu < ActiveRecord::Base
         to_destroy = []
         self.items.each do |menu_item|
             if items_to_add.include?(menu_item.item)
-                items_to_add = items_to_add = [menu_item.item]
+                items_to_add = items_to_add - [menu_item.item]
             else
                 to_destroy << menu_item
             end

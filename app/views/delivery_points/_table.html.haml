@@ -1,0 +1,16 @@
+%table.table.table-centered
+  %tr
+    %th Address
+    - unless @hide_point_area
+      %th Delivery Area
+    %th
+    %th
+    %th
+  - @delivery_points.each do |delivery_point|
+    %tr
+      %td= delivery_point.address
+      - unless @hide_point_area
+        %td= delivery_point.delivery_area ? delivery_point.delivery_area.name : ""
+      %td= link_to 'Show', delivery_point, :class =>  "btn btn-info btn-sm"
+      %td= link_to 'Edit', edit_delivery_point_path(delivery_point), :class =>  "btn btn-warning btn-sm"
+      %td= link_to 'Destroy', delivery_point, method: :delete, data: { confirm: 'Are you sure?' }, :class =>  "btn btn-danger btn-sm"

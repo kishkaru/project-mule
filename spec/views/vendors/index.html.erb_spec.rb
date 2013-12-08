@@ -5,12 +5,12 @@ describe "vendors/index" do
         assign(:vendors, [
                 stub_model(Vendor,
                     :name => "Name",
-                    :address => stub_model(Address, :line1 => "MyString", :line2 => "MyString", :city => "MyString", :state => "MyString", :zip => "MyString"),
+                    :address => stub_model(Address, :line1 => "MyString", :line2 => "MyString", :city => "MyString", :state => "CA", :zip => "MyString"),
                     :email => "Email"
                 ),
                 stub_model(Vendor,
                     :name => "Name",
-                    :address => stub_model(Address, :line1 => "MyString", :line2 => "MyString", :city => "MyString", :state => "MyString", :zip => "MyString"),
+                    :address => stub_model(Address, :line1 => "MyString", :line2 => "MyString", :city => "MyString", :state => "CA", :zip => "MyString"),
                     :email => "Email"
                 )
             ])

@@ -1,14 +1,14 @@
+- if @delivery_point.delivery_area
+  %h1
+    = "A Delivery Point of"
+    %a{href: delivery_area_path(@delivery_point.delivery_area)} #{@delivery_point.delivery_area.name}"
+- else
+  %h1= "Delivery Point"
+
 %p
   %b Address:
   = @delivery_point.address.to_s
-%p
-  %b Latitude:
-  = @delivery_point.latitude
-%p
-  %b Longitude:
-  = @delivery_point.longitude
 
-
-= link_to 'Edit', edit_delivery_point_path(@delivery_point)
+= link_to 'Edit', edit_delivery_point_path(@delivery_point), :class =>  "btn btn-warning btn-sm"
 |
-\#{link_to 'Back', delivery_points_path}
+\#{link_to 'Back', delivery_points_path, :class =>  "btn btn-default btn-sm"}
