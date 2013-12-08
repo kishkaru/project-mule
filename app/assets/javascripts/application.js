@@ -25,14 +25,6 @@ function add_fields(link, association, content) {
     $('#new-ingredient-fields').modal('show');
 }
 
-var getDeliveryPoints = function(area_id) {
-	$.ajax({type: "GET",
-		url: '/delivery_areas/' + area_id + '/pts/',
-		success: function(data) {
-			$('#geographic-content').append(data);
-		}});
-};
-
 $(window).resize( function() {
 	$('body').css('padding-top', $('.container').height());
 });
@@ -48,14 +40,5 @@ $(document).ready( function() {
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/dTw6HYGFZt/IMG_0172.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A',
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/VEbeenwBcI/IMG_0218.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A'
 		],{duration: 10000, fade: 750});
-
-	$('.main-table-items').click(function() {
-		$('td').removeClass('success');
-		$(this).addClass('success');
-		$('#area-container').removeClass('stay-centered');
-		$('#area-container').addClass('slide-left');
-		$('#point-container').remove();
-		getDeliveryPoints(this.parentNode.id);
-	});
 });
 

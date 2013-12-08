@@ -30,10 +30,14 @@
     -webkit-transition: margin-left 1s, margin-right 1s;
     -o-transition: margin-left 1s, margin-right 1s;
     transition: margin-left 1s, margin-right 1s;
-    margin-left: 0%;
-    margin-right: 75%;
+    margin-left: 5%;
+    width: 25%;
+    float: left;
+}
+
+#area-container {
 }
 
 #point-container {
-    margin-right: 50%;
+    width: 35%;
 }
