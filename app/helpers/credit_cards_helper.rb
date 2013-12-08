@@ -31,4 +31,26 @@ module CreditCardsHelper
 			)
 	end
 
+	# Sets default card to the credit card with id CC_ID for the user
+	# with id ID
+	def setDefaultCC(id, cc_id)
+		user = User.find(id)
+		new_default_card = CreditCard.find(cc_id)
+
+		result = Braintree::CreditCard.update(
+		  new_default_card.token,
+		  :options => {
+		    :make_default => true
+		  }
+		)
+
+		if result.success?
+			old_default_card = user.defaultCreditCard
+			old_default_card.update_attribute(:default, false) unless !old_default_card
+			new_default_card.update_attribute(:default, true)
+		else
+			puts result.errors
+		end
+	end
+
 end

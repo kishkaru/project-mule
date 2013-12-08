@@ -54,7 +54,8 @@ class CreditCardsController < ApplicationController
 			# Set new default card if default was deleted
 			user_credit_cards = user.credit_cards
 			if user_credit_cards.present? && !user.defaultCreditCard
-				user_credit_cards.first.update_attribute(:default, true)
+				new_default = user_credit_cards.first
+				setDefaultCC(user.id, new_default.id)
 			end
 
 			redirect_to edit_credit_cards_path
@@ -66,23 +67,7 @@ class CreditCardsController < ApplicationController
 
 	# Sets the credit card with id params[:id] to the current users default credit card
 	def setDefault
-		user = User.find(current_user.id)
-		new_default_card = CreditCard.find(params[:cc_id])
-
-		result = Braintree::CreditCard.update(
-		  new_default_card.token,
-		  :options => {
-		    :make_default => true
-		  }
-		)
-
-		if result.success?
-			old_default_card = user.defaultCreditCard
-			old_default_card.update_attribute(:default, false)
-			new_default_card.update_attribute(:default, true)
-		else
-			puts result.errors
-		end
+		setDefaultCC(current_user.id, params[:cc_id])
 
 		redirect_to edit_credit_cards_path
 	end
