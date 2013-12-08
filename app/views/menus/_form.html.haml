@@ -56,12 +56,13 @@
                   %td= item.name
                   %td= item.description
                   %td= item.price
-                  %td= item.quantity
+                  %td
+                    %input.form-control{name: "menu[item_quantities][#{item.item.id}]" , type:'number', value: item.quantity }
                   %td= item.vendor.name
                   %td
                     %button.remove-from-menu.btn.btn-xs.btn-primary{data: {"item-id" => item.id}}
                       Remove
-                  %input{type: "hidden", name: "menu[items][]", value:item.id }
+                  %input{ type: "hidden", name: "menu[items][]", value: item.item.id }
 
 
       .actions
