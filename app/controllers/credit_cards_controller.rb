@@ -23,14 +23,11 @@ class CreditCardsController < ApplicationController
 
 		credit_card_to_add = params[:credit_card]
 
-		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user)
+		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user, default)
 
 		if credit_card_result.success?
-			# Create credit card local object and associate with user
-			cc_to_add = CreditCard.create!(:token => credit_card_result.credit_card.token,
-				:last_four => credit_card_result.credit_card.last_4,
-				:default => default)
-			user.credit_cards << cc_to_add
+			associateStoredCreditCard(credit_card_result.credit_card, user)
+
 			flash[:success] = 'Credit card was added successfully'
 
 			redirect_to edit_credit_cards_path

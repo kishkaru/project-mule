@@ -49,4 +49,14 @@ module CreditCardsHelper
 		end
 	end
 
+	# Takes the braintree stored CREDIT_CARD and creates the credit card
+	# in the local database and associates it with USER. Can specify if
+	# card should be the DEFAULT card
+	def associateStoredCreditCard(credit_card, user, default)
+
+        user.credit_cards << CreditCard.create!(:token => credit_card.token,
+            :last_four => credit_card.last_4,
+            :default => default)
+	end
+
 end

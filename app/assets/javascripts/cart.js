@@ -97,7 +97,7 @@ $( function() {
 					if (data == "success") {
 						window.location = '/order_receipt';
 					} else {
-						$('#checkout-errors').html(data);
+						$('#checkout-notices').html(data);
 					}
 					pay_button.removeAttr('disabled');
 				},
