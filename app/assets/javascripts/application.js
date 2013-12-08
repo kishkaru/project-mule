@@ -40,5 +40,10 @@ $(document).ready( function() {
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/dTw6HYGFZt/IMG_0172.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A',
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/VEbeenwBcI/IMG_0218.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A'
 		],{duration: 10000, fade: 750});
+
+	$('td').click(function() {
+		$('td').removeClass('success');
+		$(this).addClass('success');
+	});
 });
 

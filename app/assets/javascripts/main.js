@@ -11,6 +11,7 @@ $(window).resize( function() {
 });
 
 $(document).ready( function() {
+
 	$.backstretch([
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/AtgWWlEXUT/southpaw.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A',
 		'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/R5TpmLfBVq/gck-chicken-bowl.jpeg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A',
