@@ -24,6 +24,10 @@ class CartController < ApplicationController
         credit_card_attrs = params[:credit_card]
         user_attrs = params[:user]
 
+        if totals[:total] == 0
+            render :text => "empty cart" and return
+        end
+
         if user_signed_in?
             # Payment for signed in user
             user = User.find(current_user.id)
@@ -34,10 +38,10 @@ class CartController < ApplicationController
                 if result.success?
                     createOrder(user, items, result)
                     clearCart
-                    render :text => 'success'
+                    render :text => 'success' and return
                 else
                     @credit_card_errors = result.errors
-                    render :partial => 'cart/checkout-errors'
+                    render :partial => 'cart/checkout-errors' and return
                 end
             else
                 # Payment if user has no default credit card. Provided credit card will become default
@@ -47,7 +51,7 @@ class CartController < ApplicationController
                 if !credit_card_store_result.success?
                     # return back errors if storage of credit card in vault failed
                     @credit_card_errors = credit_card_store_result.errors
-                    render :partial => 'cart/checkout-errors'
+                    render :partial => 'cart/checkout-errors' and return
                 else
                     associateStoredCreditCard(credit_card_store_result.credit_card, user, true)
 
@@ -57,10 +61,10 @@ class CartController < ApplicationController
                     if result.success?
                         createOrder(user, items, result)
                         clearCart
-                        render :text => 'success'
+                        render :text => 'success' and return
                     else
                         @credit_card_errors = result.errors
-                        render :partial => 'cart/checkout-errors'
+                        render :partial => 'cart/checkout-errors' and return
                     end
 
                 end
@@ -99,20 +103,22 @@ class CartController < ApplicationController
                     if transaction_result.success?
                         createOrder(new_user, items, transaction_result)
                         clearCart
-                        render text: "success"
+                        render text: "success" and return
                     else
+
+
                         @credit_card_errors = transaction_result.errors
-                        render :partial => 'cart/checkout-errors'
+                        render :partial => 'cart/checkout-errors' and return
                     end
                 else
                     @credit_card_errors = customer_and_card_store_result.errors
-                    render :partial => 'cart/checkout-errors'
+                    render :partial => 'cart/checkout-errors' and return
                 end
 
             else
                 # return errors of user account info
                 @user_errors = new_user.errors
-                render :partial => 'cart/checkout-errors'
+                render :partial => 'cart/checkout-errors' and return
             end
 
         end

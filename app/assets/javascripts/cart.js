@@ -100,6 +100,9 @@ $( function() {
 				success: function(data) {
 					if (data == "success") {
 						window.location = '/order_receipt';
+					} else if (data == "empty cart") {
+						var empty_cart_error = $("<div id='checkout-errors' class='alert alert-danger'><ul></ul><li> Amount must be greater than zero. </li></div>");
+						$('#checkout-notices').html(empty_cart_error);
 					} else {
 						$('#checkout-notices').html(data);
 					}
