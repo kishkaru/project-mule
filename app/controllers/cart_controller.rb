@@ -33,7 +33,7 @@ class CartController < ApplicationController
 
                 if result.success?
                     createOrder(user, items, result)
-
+                    clearCart
                     render :text => 'success'
                 else
                     @credit_card_errors = result.errors
@@ -56,6 +56,7 @@ class CartController < ApplicationController
 
                     if result.success?
                         createOrder(user, items, result)
+                        clearCart
                         render :text => 'success'
                     else
                         @credit_card_errors = result.errors
@@ -97,6 +98,7 @@ class CartController < ApplicationController
 
                     if transaction_result.success?
                         createOrder(new_user, items, transaction_result)
+                        clearCart
                         render text: "success"
                     else
                         @credit_card_errors = transaction_result.errors
@@ -115,6 +117,13 @@ class CartController < ApplicationController
 
         end
 
+    end
+
+    private
+
+    # empties card
+    def clearCart
+        session[:cart][:items].clear
     end
 
 end
