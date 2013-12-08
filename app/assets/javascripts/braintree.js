@@ -1,0 +1,4 @@
+$( function() {
+	var braintree = Braintree.create("MIIBCgKCAQEA0H0/PcvKgdfH2incl7lcfPpARjNArcdy0Z2WqLyKEtG9MzJU9jhx3vuEFerGRK4vt85NhDNYt7WEgZPOVsCwZI+XZGAJ+ePlMhx4K9jaPVBsr3HJpyejsk1Zu33a7pxhI10FYRbPhPG8KNPztTHFX/UCZnvfNNoR7BDEu+RY0UqqzhON2CQPAXRaUuGqoehgX8f5rxURzaR6BdL+FPJRJlP1ovR1LVb2gz8LdXsjHd8yEKOPzq1QwJHuFdn0s+NFdSNMuGjQqGP9iAWRbgmpAE6Mg5rK7rtuPM25QLteu+XaTf1L0j/OAbINVHTzLl0qt+HFx0uRU+Hbl/48ikGJPQIDAQAB");
+	braintree.onSubmitEncryptForm("new-credit-card-form");
+})

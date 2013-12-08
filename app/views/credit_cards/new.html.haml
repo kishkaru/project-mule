@@ -1,7 +1,7 @@
 %br
 %h3 Add new card
 %br
-= form_tag create_credit_card_path, :method => :post do |f|
+= form_tag create_credit_card_path, :method => :post, :id => "new-credit-card-form" do |f|
   = render 'credit_cards/credit-card-info-fields'
   %br
   = submit_tag "Add card", {:class => "btn btn-primary"}

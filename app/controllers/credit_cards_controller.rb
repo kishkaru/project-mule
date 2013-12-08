@@ -27,11 +27,10 @@ class CreditCardsController < ApplicationController
 
 		if credit_card_result.success?
 			# Create credit card local object and associate with user
-			cc_to_add = CreditCard.create(:token => credit_card_result.credit_card.token,
+			cc_to_add = CreditCard.create!(:token => credit_card_result.credit_card.token,
 				:last_four => credit_card_result.credit_card.last_4,
 				:default => default)
 			user.credit_cards << cc_to_add
-			puts "!!!!!!!!!! #{user.credit_cards}"
 			flash[:success] = 'Credit card was added successfully'
 
 			redirect_to edit_credit_cards_path

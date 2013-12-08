@@ -10,8 +10,8 @@
     .inline-block
       = f.label :card_number
       %br
-      = f.text_field :card_number, {:class => "form-control input-field cc-number-field bfh-phone", "data-format" => "dddd-dddd-dddd-dddd"}
+      = f.text_field :card_number, {:class => "form-control input-field cc-number-field bfh-phone", "data-format" => "dddd-dddd-dddd-dddd", "data-encrypted-name" => "credit_card[card_number]"}
     .inline-block
       = f.label :exp_date
       %br
-      = f.text_field :exp_date, {:class => "form-control input-field cc-exp-date-field bfh-phone", "data-format" => "dd/dddd", :placeholder => "mm/yyyy"}
+      = f.text_field :exp_date, {:class => "form-control input-field cc-exp-date-field bfh-phone", "data-format" => "dd/dddd", :placeholder => "mm/yyyy", "data-encrypted-name" => "credit_card[exp_date]"}
