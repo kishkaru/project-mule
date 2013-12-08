@@ -29,9 +29,7 @@ var getDeliveryPoints = function(area_id) {
 	$.ajax({type: "GET",
 		url: '/delivery_areas/' + area_id + '/pts/',
 		success: function(data) {
-			var new_ele = document.createElement('div');
-			new_ele.innerHTML = data;
-			$('#geographic-content').append(new_ele);
+			$('#geographic-content').append(data);
 		}});
 };
 
