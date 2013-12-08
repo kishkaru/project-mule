@@ -1,5 +1,8 @@
 class CartController < ApplicationController
     include PhoneNumbersHelper
+    include CreditCardsHelper
+    include CheckoutHelper
+    include CartHelper
 
     def cart
         @subtotal = 0
@@ -18,86 +21,109 @@ class CartController < ApplicationController
 
         items = cartItems
         totals = calculateTotals(9, items)
-
-        result = Braintree::Transaction.sale(
-          :payment_method_token => current_user.defaultCreditCard.token,
-          :amount => totals[:total].round(2).to_s,
-          :credit_card => {:cvv => "100"}
-        )
-
-        if result.success?
-            puts "!!!!!!! win"
-            new_order = Order.create_with_items(items)
-            new_order.user = current_user
-            new_order.transaction_id = result.transaction.id
-            new_order.save!
-        else
-            puts "#{[result.errors]}"
-        end
-
-        render :text => 'success'
-
-=begin
         credit_card_attrs = params[:credit_card]
         user_attrs = params[:user]
 
-        # construct user_attrs with all user information for the model
-        phone_number_attrs = parsePhoneNumber(user_attrs.delete(:phone_number))
-        user_attrs[:phone_number_attributes] = phone_number_attrs
+        if user_signed_in?
+            # Payment for signed in user
+            user = User.find(current_user.id)
+            if user.defaultCreditCard
+                # Payment if current user has default credit card
+                result = braintreeTransactionWithDefault(user, totals[:total])
 
-        new_user = User.new(user_attrs)
+                if result.success?
+                    createOrder(user, items, result)
+                    clearCart
+                    render :text => 'success'
+                else
+                    @credit_card_errors = result.errors
+                    render :partial => 'cart/checkout-errors'
+                end
+            else
+                # Payment if user has no default credit card. Provided credit card will become default
+                createUserInVault(user)
+                credit_card_store_result = createCreditCardInVault(credit_card_attrs, true, user)
 
-        if new_user.valid?
-            render text: "success"
+                if !credit_card_store_result.success?
+                    # return back errors if storage of credit card in vault failed
+                    @credit_card_errors = credit_card_store_result.errors
+                    render :partial => 'cart/checkout-errors'
+                else
+                    associateStoredCreditCard(credit_card_store_result.credit_card, user, true)
+
+                    # Charge card if storage was successful
+                    result = braintreeTransactionWithDefault(user, totals[:total])
+
+                    if result.success?
+                        createOrder(user, items, result)
+                        clearCart
+                        render :text => 'success'
+                    else
+                        @credit_card_errors = result.errors
+                        render :partial => 'cart/checkout-errors'
+                    end
+
+                end
+            end
         else
+            # Payment for new user
+
+            # construct user_attrs with all user information for the model
+            phone_number_attrs = parsePhoneNumber(user_attrs.delete(:phone_number))
+            user_attrs[:phone_number_attributes] = phone_number_attrs
+
+            new_user = User.new(user_attrs)
+
+            if new_user.valid?
+
+                customer_and_card_store_result = Braintree::Customer.create(
+                    :first_name => new_user.first_name,
+                    :last_name => new_user.last_name,
+                    :credit_card => {
+                        :number => credit_card_attrs[:card_number],
+                        :expiration_date => credit_card_attrs[:exp_date],
+                        :options => {
+                            :make_default => true
+                        }
+                    }
+                )
+
+                if customer_and_card_store_result.success?
+                    new_user.braintree_token = customer_and_card_store_result.customer.id
+                    new_user.save!
+
+                    associateStoredCreditCard(customer_and_card_store_result.customer.credit_cards[0], new_user, true)
+
+                    transaction_result = braintreeTransactionWithDefault(new_user, totals[:total])
+
+                    if transaction_result.success?
+                        createOrder(new_user, items, transaction_result)
+                        clearCart
+                        render text: "success"
+                    else
+                        @credit_card_errors = transaction_result.errors
+                        render :partial => 'cart/checkout-errors'
+                    end
+                else
+                    @credit_card_errors = customer_and_card_store_result.errors
+                    render :partial => 'cart/checkout-errors'
+                end
+
+            else
+                # return errors of user account info
+                @user_errors = new_user.errors
+                render :partial => 'cart/checkout-errors'
+            end
+
         end
 
-        result = Braintree::Transaction.sale(
-            :amount => "1.00",
-            :credit_card => {
-                :number => "5105105105105100",
-                :expiration_date => "05/14"
-            }
-        )
-        if result.success?
-            puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! success!: #{result.transaction.id}"
-        elsif result.transaction
-            puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Error processing transaction:"
-            puts "  code: #{result.transaction.processor_response_code}"
-            puts "  text: #{result.transaction.processor_response_text}"
-        else
-            puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-            p result.errors
-        end
-=end
     end
 
     private
 
-    # Puts all items from the session[:cart] into a hash
-    # where the key is the item object and value is the quantity
-    def cartItems
-        items = {}
-        if session[:cart] && session[:cart][:items]
-            session[:cart][:items].each do |id, qty|
-                items[MenuItem.find(id)] = qty
-            end
-        end
-
-        return items
-    end
-
-    # Returns a hash of calculated subtotal, tax_total, and total
-    # using TAX and ITEMS hash returned by cartItems
-    def calculateTotals(tax, items)
-        result = {:subtotal => 0}
-        items.each do |item_obj,qty|
-            result[:subtotal] += item_obj.price * qty
-        end
-        result[:tax_total] = tax / 100.0 * result[:subtotal]
-        result[:total] = result[:tax_total] + result[:subtotal]
-
-        return result
+    # empties card
+    def clearCart
+        session[:cart][:items].clear
     end
 
 end

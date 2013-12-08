@@ -19,7 +19,7 @@ module CreditCardsHelper
 	end
 
 	# Create the credit card in the vault using CC_ATTRS and sets it to default
-	# using the boolean DEFAULT for USER
+	# using the boolean DEFAULT for USER and returns the result
 	def createCreditCardInVault(cc_attrs, default, user)
 		credit_card_result = Braintree::CreditCard.create(
 			:customer_id => user.braintree_token,
@@ -31,12 +31,8 @@ module CreditCardsHelper
 			)
 	end
 
-	# Sets default card to the credit card with id CC_ID for the user
-	# with id ID
-	def setDefaultCC(id, cc_id)
-		user = User.find(id)
-		new_default_card = CreditCard.find(cc_id)
-
+	# Sets default card to NEW_DEFAULT_CARD for the USER
+	def setDefaultCC(user, new_default_card)
 		result = Braintree::CreditCard.update(
 		  new_default_card.token,
 		  :options => {
@@ -51,6 +47,16 @@ module CreditCardsHelper
 		else
 			puts result.errors
 		end
+	end
+
+	# Takes the braintree stored CREDIT_CARD and creates the credit card
+	# in the local database and associates it with USER. Can specify if
+	# card should be the DEFAULT card
+	def associateStoredCreditCard(credit_card, user, default)
+
+        user.credit_cards << CreditCard.create!(:token => credit_card.token,
+            :last_four => credit_card.last_4,
+            :default => default)
 	end
 
 end

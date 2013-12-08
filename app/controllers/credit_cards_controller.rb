@@ -26,11 +26,8 @@ class CreditCardsController < ApplicationController
 		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user)
 
 		if credit_card_result.success?
-			# Create credit card local object and associate with user
-			cc_to_add = CreditCard.create!(:token => credit_card_result.credit_card.token,
-				:last_four => credit_card_result.credit_card.last_4,
-				:default => default)
-			user.credit_cards << cc_to_add
+			associateStoredCreditCard(credit_card_result.credit_card, user, default)
+
 			flash[:success] = 'Credit card was added successfully'
 
 			redirect_to edit_credit_cards_path
@@ -67,7 +64,7 @@ class CreditCardsController < ApplicationController
 
 	# Sets the credit card with id params[:id] to the current users default credit card
 	def setDefault
-		setDefaultCC(current_user.id, params[:cc_id])
+		setDefaultCC(User.find(current_user.id), CreditCard.find(params[:cc_id]))
 
 		redirect_to edit_credit_cards_path
 	end

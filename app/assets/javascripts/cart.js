@@ -94,11 +94,12 @@ $( function() {
 				url: "/pay",
 				data: $('#payment-form').serialize(),
 				success: function(data) {
-					pay_button.removeAttr('disabled');
 					if (data == "success") {
 						window.location = '/order_receipt';
 					} else {
+						$('#checkout-notices').html(data);
 					}
+					pay_button.removeAttr('disabled');
 				},
 				error: function(data) {
 					pay_button.removeAttr('disabled');
