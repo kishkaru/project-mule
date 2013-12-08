@@ -1,0 +1,11 @@
+%table#ingredients-table.table.table-hover.table-striped
+  %thead
+    %th Ingredient Name
+    %th
+  %tbody
+    = f.fields_for(:ingredients) do |ingredients_form|
+      %tr.fields
+        %td= ingredients_form.text_field(:name)
+        - if current_page?(new_item_path) || current_page?(edit_item_path)
+          %td
+            = link_to_remove_fields('<i class="btn btn-danger btn-xs">Remove</i>'.html_safe, ingredients_form, :title => "Delete this Ingredient.")
