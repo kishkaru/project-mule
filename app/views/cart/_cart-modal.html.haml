@@ -20,7 +20,6 @@
               #new-credit-card{hidden: true}
                 = render 'credit_cards/new-credit-card-form'
               #user-credit-cards
-              %br
             = form_tag pay_path, :method => :post, :id => "payment-form" do |f|
               - if user_signed_in?
                 - if !current_user.defaultCreditCard
