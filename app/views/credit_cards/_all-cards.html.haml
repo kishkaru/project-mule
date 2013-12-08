@@ -2,16 +2,17 @@
 %br
 %br
 - if current_user.credit_cards.present?
-  - current_user.credit_cards.each do |cc|
-    .credit-card
-      - if cc.default
-        %span.glyphicon.glyphicon-ok
-      = "Card ending in " + cc.last_four
-      - if @editing
-        %br
-        = link_to 'Delete', destroy_credit_card_path(cc.id), method: :delete, data: { confirm: 'Are you sure?' }
-        - if !cc.default
-          = link_to 'Make default', set_default_credit_card_path(:cc_id => cc.id), method: :post, data: { confirm: 'Are you sure?'}
-    %br
+  %ul
+    - current_user.credit_cards.each do |cc|
+      %li.credit-card
+        = "Card ending in " + cc.last_four
+        - if cc.default
+          %span.glyphicon.glyphicon-ok
+        - if @editing
+          %br
+          = link_to 'Delete', destroy_credit_card_path(cc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs"
+          - if !cc.default
+            = link_to 'Make default', set_default_credit_card_path(:cc_id => cc.id), method: :post, data: { confirm: 'Are you sure?'}, :class => "btn btn-primary btn-xs"
+      %br
 - else
   No cards added
