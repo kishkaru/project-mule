@@ -2,11 +2,15 @@ class DeliveryPointsController < ApplicationController
     # GET /delivery_points
     # GET /delivery_points.json
     def index
-        @delivery_points = DeliveryPoint.all
+        if state = params.delete(:state)
+            @delivery_points = DeliveryPoint.joins(:address).where("addresses.state = '#{state}'").page(params[:page])
+        else
+            @delivery_points = DeliveryPoint.page(params[:page])
+        end
 
         respond_to do |format|
             format.html # index.html.erb
-            format.json { render json: @delivery_points }
+            format.json { render json: @delivery_points.collect{|point| point.attributes.merge(:address => point.address.to_s)} }
         end
     end
 

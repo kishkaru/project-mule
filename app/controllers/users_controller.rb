@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
-    before_filter :verify_if_admin
+    before_filter :verify_if_admin, :except => :account
     before_filter :user_logged_in, :only => :account
 
     include UsersHelper
     # GET /users
     # GET /users.json
     def index
-        @users = User.all
+        @users = User.page(params[:page])
 
         respond_to do |format|
             format.html # index.html.erb

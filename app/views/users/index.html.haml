@@ -1,4 +1,5 @@
 %h1 Listing users
+= paginate @users
 %table.table.table-centered
   %tr
     %th Role
@@ -12,6 +13,7 @@
       %td= User::ROLES_MAPPING[user.role]
       %td= link_to user.first_name + ' ' + user.last_name, user
       %td= user.email
+= paginate @users
 %br/
 = link_to 'New User', new_user_path
 

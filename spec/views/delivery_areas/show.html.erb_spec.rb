@@ -5,6 +5,8 @@ describe "delivery_areas/show" do
         @delivery_area = assign(:delivery_area, stub_model(DeliveryArea,
                 :name => "Name",
         ))
+        @delivery_points = [assign(:delivery_point, stub_model(DeliveryPoint,
+        ))]
     end
 
     it "renders attributes in <p>" do

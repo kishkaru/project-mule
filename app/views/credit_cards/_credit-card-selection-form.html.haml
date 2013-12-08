@@ -1,0 +1,10 @@
+%h4 Select a credit card
+= form_tag change_credit_card_path, :method => :post, :id => "change-cc-form" do |f|
+  - current_user.credit_cards.each do |cc|
+    = radio_button_tag :credit_card_chosen, cc.id, cc.default
+    = label_tag "Credit card ending in #{cc.last_four}"
+    - if cc.default
+      %span.glyphicon.glyphicon-ok
+    %br
+  %br
+  = submit_tag "Use selected card", {:class => "btn btn-link", :id => "change-cc-button"}

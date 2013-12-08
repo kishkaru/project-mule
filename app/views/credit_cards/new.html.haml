@@ -4,6 +4,6 @@
 = form_tag create_credit_card_path, :method => :post, :id => "new-credit-card-form" do |f|
   = render 'credit_cards/credit-card-info-fields'
   %br
-  = submit_tag "Add card", {:class => "btn btn-primary btn-sm"}
+  = submit_tag "Add card", {:class => "btn btn-primary"}
 %br
 %a{href: edit_credit_cards_path}Back

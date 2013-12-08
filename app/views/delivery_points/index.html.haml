@@ -1,19 +1,6 @@
-%h1 Listing delivery_points
-%table
-  %tr
-    %th Address
-    %th Latitude
-    %th Longitude
-    %th
-    %th
-    %th
-  - @delivery_points.each do |delivery_point|
-    %tr
-      %td= delivery_point.address
-      %td= delivery_point.latitude
-      %td= delivery_point.longitude
-      %td= link_to 'Show', delivery_point
-      %td= link_to 'Edit', edit_delivery_point_path(delivery_point)
-      %td= link_to 'Destroy', delivery_point, method: :delete, data: { confirm: 'Are you sure?' }
+%h1 Delivery Points
+= paginate @delivery_points
+= render 'table'
+= paginate @delivery_points
 %br/
-= link_to 'New Delivery point', new_delivery_point_path
+= link_to 'New Delivery point', new_delivery_point_path, :class =>  "btn btn-primary btn-sm"

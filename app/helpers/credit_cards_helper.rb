@@ -33,20 +33,35 @@ module CreditCardsHelper
 
 	# Sets default card to NEW_DEFAULT_CARD for the USER
 	def setDefaultCC(user, new_default_card)
-		result = Braintree::CreditCard.update(
-		  new_default_card.token,
-		  :options => {
-		    :make_default => true
-		  }
-		)
+		if !new_default_card.default
+			result = Braintree::CreditCard.update(
+			  new_default_card.token,
+			  :options => {
+			    :make_default => true
+			  }
+			)
 
-		if result.success?
-			old_default_card = user.defaultCreditCard
-			old_default_card.update_attribute(:default, false) unless !old_default_card
-			new_default_card.update_attribute(:default, true)
-		else
-			puts result.errors
+			if result.success?
+				old_default_card = user.defaultCreditCard
+				old_default_card.update_attribute(:default, false) unless !old_default_card
+				new_default_card.update_attribute(:default, true)
+				user.credit_cards(true)
+			else
+				puts result.errors
+			end
 		end
+
+	end
+
+	# Takes the braintree stored CREDIT_CARD and creates the credit card
+	# in the local database and associates it with USER. Can specify if
+	# card should be the DEFAULT card. Returns the CreditCard
+	def associateStoredCreditCard(credit_card, user, default)
+		new_cc = CreditCard.create!(:token => credit_card.token,
+            :last_four => credit_card.last_4,
+            :default => default)
+        user.credit_cards << new_cc
+        return new_cc
 	end
 
 end

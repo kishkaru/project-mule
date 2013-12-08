@@ -26,11 +26,8 @@ class CreditCardsController < ApplicationController
 		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user)
 
 		if credit_card_result.success?
-			# Create credit card local object and associate with user
-			cc_to_add = CreditCard.create!(:token => credit_card_result.credit_card.token,
-				:last_four => credit_card_result.credit_card.last_4,
-				:default => default)
-			user.credit_cards << cc_to_add
+			associateStoredCreditCard(credit_card_result.credit_card, user, default)
+
 			flash[:success] = 'Credit card was added successfully'
 
 			redirect_to edit_credit_cards_path
@@ -55,7 +52,7 @@ class CreditCardsController < ApplicationController
 			user_credit_cards = user.credit_cards
 			if user_credit_cards.present? && !user.defaultCreditCard
 				new_default = user_credit_cards.first
-				setDefaultCC(user.id, new_default.id)
+				setDefaultCC(user, new_default)
 			end
 
 			redirect_to edit_credit_cards_path
@@ -71,5 +68,31 @@ class CreditCardsController < ApplicationController
 
 		redirect_to edit_credit_cards_path
 	end
+
+	def creditCardSelection
+        render :partial => 'credit_cards/credit-card-selection-form'
+    end
+
+    def changeCreditCard
+        cc_chosen = CreditCard.find(params[:credit_card_chosen])
+        setDefaultCC(current_user, cc_chosen)
+
+        render :text => current_user.defaultCreditCard.last_four
+    end
+
+    def useNewCreditCard
+    	user = User.find(current_user.id)
+    	credit_card_store_result = createCreditCardInVault(params[:credit_card], false, user)
+
+        if !credit_card_store_result.success?
+            # return back errors if storage of credit card in vault failed
+            @credit_card_errors = credit_card_store_result.errors
+            render :partial => 'cart/checkout-errors'
+        else
+            new_cc = associateStoredCreditCard(credit_card_store_result.credit_card, user, false)
+            setDefaultCC(user, new_cc)
+            render :text => user.defaultCreditCard.last_four
+        end
+    end
 
 end
