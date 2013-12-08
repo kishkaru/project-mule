@@ -5,25 +5,25 @@
   %div
     = f.label :first_name
     %br/
-    = f.text_field :first_name
+    = f.text_field :first_name, {:class => "form-control name-field"}
   %div
     = f.label :last_name
     %br/
-    = f.text_field :last_name
+    = f.text_field :last_name, {:class => "form-control name-field"}
   %br/
   %b Phone number
   %br/
   = f.fields_for :phone_number_attributes do |p|
     %div
-    = p.text_field :country, {:class => "bfh-phone", "data-format" => "dd", :value => resource.phone_number ? resource.phone_number.country : "", :size => 2}
-    = p.text_field :area, {:class => "bfh-phone area-text", "data-format" => "ddd", :value => resource.phone_number ? resource.phone_number.area : "", :size => 3, :placeholder => "Area"}
-    = p.text_field :number, {:class => "bfh-phone number-text", "data-format" => "ddd-dddd", :value => resource.phone_number ? resource.phone_number.number : "", :size => 8, :placeholder => "Number"}
-    = p.text_field :extension, {:class => "bfh-phone extension-text", "data-format" => "ddddddd", :value => resource.phone_number ? resource.phone_number.extension : "", :size => 7, :placeholder => "Extension"}
+    = p.text_field :country, {:class => "bfh-phone form-control country-field", "data-format" => "dd", :value => resource.phone_number ? resource.phone_number.country : "", :size => 2}
+    = p.text_field :area, {:class => "bfh-phone area-text form-control area-field", "data-format" => "ddd", :value => resource.phone_number ? resource.phone_number.area : "", :size => 3, :placeholder => "Area"}
+    = p.text_field :number, {:class => "bfh-phone number-text form-control number-field", "data-format" => "ddd-dddd", :value => resource.phone_number ? resource.phone_number.number : "", :size => 8, :placeholder => "Number"}
+    = p.text_field :extension, {:class => "bfh-phone extension-text form-control extension-field", "data-format" => "ddddddd", :value => resource.phone_number ? resource.phone_number.extension : "", :size => 7, :placeholder => "Extension"}
   %br/
   %div
     = f.label :email
     %br/
-    = f.email_field :email, :autofocus => true
+    = f.email_field :email, :autofocus => true, :class => "form-control email-field"
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
@@ -32,17 +32,18 @@
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
-    = f.password_field :password, :autocomplete => "off"
+    = f.password_field :password, :autocomplete => "off", :class => "form-control password-field"
   %div
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, {:class => "form-control password-field"}
   %div
     = f.label :current_password
     %i (we need your current password to confirm your changes)
     %br/
-    = f.password_field :current_password
-  %div= f.submit "Update"
+    = f.password_field :current_password, {:class => "form-control password-field"}
+  %br
+  %div= f.submit "Update", {:class => "btn btn-default"}
 %h3 Cancel my account
 %p
   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}

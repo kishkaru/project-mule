@@ -4,33 +4,34 @@
   %div
     = f.label :first_name
     %br/
-    = f.text_field :first_name
+    = f.text_field :first_name, {:class => "form-control name-field"}
   %div
     = f.label :last_name
     %br/
-    = f.text_field :last_name
+    = f.text_field :last_name, {:class => "form-control name-field"}
   %br/
   %b Phone number
   %br/
   = f.fields_for :phone_number_attributes do |p|
     %div
-      = p.text_field :country, {:class => "bfh-phone", "data-format" => "dd", :value => "1", :size => 2}
-      = p.text_field :area, {:class => "bfh-phone area-text", "data-format" => "ddd", :size => 3, :placeholder => "Area"}
-      = p.text_field :number, {:class => "bfh-phone number-text", "data-format" => "ddd-dddd", :size => 8, :placeholder => "Number"}
-      = p.text_field :extension, {:class => "bfh-phone extension-text", "data-format" => "ddddddd", :size => 7, :placeholder => "Ext (Optional)"}
+      = p.text_field :country, {:class => "bfh-phone form-control country-field", "data-format" => "dd", :value => "1", :size => 2}
+      = p.text_field :area, {:class => "bfh-phone area-text form-control area-field", "data-format" => "ddd", :size => 3, :placeholder => "Area"}
+      = p.text_field :number, {:class => "bfh-phone number-text form-control number-field", "data-format" => "ddd-dddd", :size => 8, :placeholder => "Number"}
+      = p.text_field :extension, {:class => "bfh-phone extension-text form-control extension-field", "data-format" => "ddddddd", :size => 7, :placeholder => "Extension"}
   %br/
   %div
     = f.label :email
     %br/
-    = f.email_field :email, :autofocus => true
+    = f.email_field :email, :autofocus => true, :class => "form-control email-field"
   %br/
   %div
     = f.label :password
     %br/
-    = f.password_field :password
+    = f.password_field :password, {:class => "form-control password-field"}
   %div
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation
-  %div= f.submit "Sign up"
+    = f.password_field :password_confirmation, {:class => "form-control password-field"}
+  %br
+  %div= f.submit "Sign up", {:class => "btn btn-default"}
 = render "devise/shared/links"
