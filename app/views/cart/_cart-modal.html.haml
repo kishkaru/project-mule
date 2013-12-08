@@ -21,6 +21,8 @@
                   Your payment will be processed
                 - else
                   %br
+                  %button#use-new-cc.btn.btn-link.btn-xs Use a different credit card
+                  %br
                   = submit_tag "Pay with card ending in #{current_user.defaultCreditCard.last_four}", {:class => 'btn btn-primary', :id => "pay-button"}
                   Your payment will be processed
               - else

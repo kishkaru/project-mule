@@ -23,10 +23,10 @@ class CreditCardsController < ApplicationController
 
 		credit_card_to_add = params[:credit_card]
 
-		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user, default)
+		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user)
 
 		if credit_card_result.success?
-			associateStoredCreditCard(credit_card_result.credit_card, user)
+			associateStoredCreditCard(credit_card_result.credit_card, user, default)
 
 			flash[:success] = 'Credit card was added successfully'
 
