@@ -68,6 +68,10 @@ Projectmule::Application.routes.draw do
 
     delete '/destroy_credit_card/:id', :to => 'credit_cards#destroy', :as => :destroy_credit_card
 
+    post '/cart/change_credit_card', :to => 'cart#changeCreditCard', :as => :change_credit_card
+
+    get '/cart/change_credit_card', :to => 'cart#creditCardSelection', :as => :credit_card_selection
+
     root :to => 'main#home'
 
     # The priority is based upon order of creation:

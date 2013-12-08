@@ -17,6 +17,10 @@ class CartController < ApplicationController
         render :partial => 'cart/cart-modal-body'
     end
 
+    def creditCardSelection
+        render :partial => 'credit_cards/credit-card-selection-form'
+    end
+
     def pay
 
         items = cartItems

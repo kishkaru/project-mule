@@ -12,6 +12,9 @@
             = render 'cart/cart-modal-body'
           #cart-payment-info{:hidden => true}
             %hr
+            - if user_signed_in? && current_user.defaultCreditCard
+              %button#use-dif-cc.btn.btn-link.btn-xs Use a different credit card
+              #user-credit-cards
             = form_tag pay_path, :method => :post, :id => "payment-form" do |f|
               - if user_signed_in?
                 - if !current_user.defaultCreditCard
@@ -20,10 +23,8 @@
                   = submit_tag "Pay", {:class => "btn btn-primary", :id => "pay-button"}
                   Your payment will be processed
                 - else
-                  %button#use-new-cc.btn.btn-link.btn-xs{:type => 'button'} Use a different credit card
                   #new-cc-form-for-logged-in{hidden: true}
                     = render 'credit_cards/credit-card-info-fields'
-                  %br
                   %br
                   = submit_tag "Pay with card ending in #{current_user.defaultCreditCard.last_four}", {:class => 'btn btn-primary', :id => "pay-button"}
                   Your payment will be processed

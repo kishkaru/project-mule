@@ -17,15 +17,14 @@ $( function() {
 	  top: 'auto', // Top position relative to parent in px
 	  left: 'auto' // Left position relative to parent in px
 	};
-	var target = document.getElementById('spinner-cart-center');
 
 	$("#cart_link").click( function () {
 		$("#cart-modal-table").html("");
-		var spinner = new Spinner(opts).spin(target);
+		$('#spinner-cart-center').spin(opts);
 		$.ajax({type: "GET",
 			url: "/cart/",
 			success: function(data) {
-				spinner.spin();
+				$('#spinner-cart-center').spin(false);
 				$("#cart-modal-table").html(data);
 				bind_qty_buttons();
 				bind_remove_buttons();
@@ -34,24 +33,24 @@ $( function() {
 
 	var bind_qty_buttons = function() {
 		$("button.item-qty-buttons.plus").click(function() {
-			var spinner = new Spinner(opts).spin(target);
+			$('#spinner-cart-center').spin(opts);
 			var row_id = this.parentNode.parentNode.id;
 			$.ajax({type: "POST",
 				url: "/add_item/" + row_id + "/",
 				success: function(data) {
-					spinner.spin();
+					$('#spinner-cart-center').spin(false);
 					$("#cart-modal-table").html(data);
 					bind_qty_buttons();
 					bind_remove_buttons();
 				}});
 		});
 		$("button.item-qty-buttons.minus").click(function() {
-			var spinner = new Spinner(opts).spin(target);
+			$('#spinner-cart-center').spin(opts);
 			var row_id = this.parentNode.parentNode.id;
 			$.ajax({type: "POST",
 				url: "/minus_item/"  + row_id + "/",
 				success: function(data) {
-					spinner.spin();
+					$('#spinner-cart-center').spin(false);
 					$("#cart-modal-table").html(data);
 					bind_qty_buttons();
 					bind_remove_buttons();
@@ -61,12 +60,12 @@ $( function() {
 
 	var bind_remove_buttons = function() {
 		$("button.item-remove-button").click(function() {
-			var spinner = new Spinner(opts).spin(target);
+			$('#spinner-cart-center').spin(opts);
 			var row_id = this.parentNode.parentNode.id;
 			$.ajax({type: "POST",
 				url: "/remove_item/" + row_id + "/",
 				success: function(data) {
-					spinner.spin();
+					$('#spinner-cart-center').spin(false);
 					$("#cart-modal-table").html(data);
 					bind_remove_buttons();
 					bind_qty_buttons();
@@ -107,6 +106,14 @@ $( function() {
 			e.preventDefault();
 		});
 	}
+
+	$('#use-dif-cc').click( function() {
+		$.ajax({type: "GET",
+			url: "/cart/change_credit_card",
+			success: function(data) {
+				$('#user-credit-cards').html(data);
+			}});
+	})
 
 	setUpPayButton();	
 })
