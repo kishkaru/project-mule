@@ -84,7 +84,9 @@ $( function() {
 		$('#cart-modal-footer').removeAttr('hidden');
 		$('#cart-payment-info').fadeOut();
 		$('#use-dif-cc').removeAttr('disabled');
+		$('#use-new-cc').removeAttr('disabled');
 		$('#user-credit-cards').empty();
+		$('#new-credit-card').hide();
 	});
 
 	var setUpPayButton = function () {
@@ -108,31 +110,75 @@ $( function() {
 				}});
 			e.preventDefault();
 		});
-	}
+	};
 
 	$('#use-dif-cc').click( function() {
+		var user_credit_cards = $('#user-credit-cards');
+		$('#new-credit-card').hide();
 		$(this).attr('disabled', 'disabled');
-		$('#spinner-cart-center').spin(opts);
+		$('#use-new-cc').removeAttr('disabled');
+		user_credit_cards.spin(opts);
 		$.ajax({type: "GET",
 			url: "/cart/change_credit_card",
 			success: function(data) {
-				$('#spinner-cart-center').spin(false)
-				$('#user-credit-cards').html(data);
+				user_credit_cards.spin(false);
+				user_credit_cards.html(data);
+				user_credit_cards.hide();
+				user_credit_cards.fadeIn();
+				setUpChangeCCForm();
 			}});
-	})
+	});
 
-	$('#change-cc-form').submit( function(e) {
-		alert('got me');
+	$('#use-new-cc').click( function() {
+		$(this).attr('disabled', 'disabled');
+		$('#use-dif-cc').removeAttr('disabled');
+		$('#new-credit-card').fadeIn();
+		$('#user-credit-cards').empty();
+	});
+
+	var setUpChangeCCForm = function() {
 		var change_cc_form = $('#change-cc-form');
-		$.ajax({type: "POST",
-			url: change_cc_form.attr('action'),
-			data: change_cc_form.serialize(),
-			success: function(data) {
-				alert('nope');
-				$('#pay-button').html('Pay with card ending in ' + data);
-			}});
-		e.preventDefault();
-	})
+		change_cc_form.submit( function(e) {
+			$('#pay-button').attr('disabled', 'disabled');
+			change_cc_form.spin();
+			$.ajax({type: "POST",
+				url: change_cc_form.attr('action'),
+				data: change_cc_form.serialize(),
+				success: function(data) {
+					$('#user-credit-cards').empty();
+					$('#use-dif-cc').removeAttr('disabled', 'disabled');
+					$('#pay-button').attr('value', "Pay with card ending in " + data);
+					change_cc_form.spin(false);
+					$('#pay-button').removeAttr('disabled');
+				}});
+			e.preventDefault();
+		});
+	};
 
-	setUpPayButton();	
+	var setUpNewCCForm = function() {
+		var new_cc_form = $('#new-cc-form');
+		new_cc_form.submit( function(e) {
+			$('#pay-button').attr('disabled', 'disabled');
+			new_cc_form.spin();
+			$.ajax({type: "POST",
+				url: new_cc_form.attr('action'),
+				data: new_cc_form.serialize(),
+				success: function(data) {
+					var cc_last_four = /[0-9]{4}/
+					if (data.match(cc_last_four)) {
+						$('#new-credit-card').hide();
+						$('#use-new-cc').removeAttr('disabled');
+						$('#pay-button').attr('value', "Pay with card ending in " + data);
+					} else {
+						$('#new-credit-card-errors').html(data);
+					}
+					new_cc_form.spin(false);
+					$('#pay-button').removeAttr('disabled');
+				}});
+			e.preventDefault();
+		});
+	};
+
+	setUpPayButton();
+	setUpNewCCForm();
 })

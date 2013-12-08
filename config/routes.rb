@@ -72,6 +72,8 @@ Projectmule::Application.routes.draw do
 
     get '/cart/change_credit_card', :to => 'credit_cards#creditCardSelection', :as => :credit_card_selection
 
+    post '/cart/new_credit_card', :to => 'credit_cards#useNewCreditCard', :as => :use_new_credit_card
+
     root :to => 'main#home'
 
     # The priority is based upon order of creation:

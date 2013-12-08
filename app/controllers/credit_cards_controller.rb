@@ -52,7 +52,7 @@ class CreditCardsController < ApplicationController
 			user_credit_cards = user.credit_cards
 			if user_credit_cards.present? && !user.defaultCreditCard
 				new_default = user_credit_cards.first
-				setDefaultCC(user.id, new_default.id)
+				setDefaultCC(user, new_default)
 			end
 
 			redirect_to edit_credit_cards_path
@@ -78,6 +78,21 @@ class CreditCardsController < ApplicationController
         setDefaultCC(current_user, cc_chosen)
 
         render :text => current_user.defaultCreditCard.last_four
+    end
+
+    def useNewCreditCard
+    	user = User.find(current_user.id)
+    	credit_card_store_result = createCreditCardInVault(params[:credit_card], false, user)
+
+        if !credit_card_store_result.success?
+            # return back errors if storage of credit card in vault failed
+            @credit_card_errors = credit_card_store_result.errors
+            render :partial => 'cart/checkout-errors'
+        else
+            new_cc = associateStoredCreditCard(credit_card_store_result.credit_card, user, false)
+            setDefaultCC(user, new_cc)
+            render :text => user.defaultCreditCard.last_four
+        end
     end
 
 end
