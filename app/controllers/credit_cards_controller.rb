@@ -45,17 +45,22 @@ class CreditCardsController < ApplicationController
 		cc = CreditCard.find(params[:id])
 		user = User.find(current_user.id)
 
-		if user.credit_cards.delete(cc)
+		if Braintree::CreditCard.delete(cc.token)
+			user.credit_cards.delete(cc)
 			cc.destroy
-			Braintree::CreditCard.delete(cc.token)
+
 			flash[:success] = "Credit card ending in #{cc.last_four} deleted successfully"
 
+			# Set new default card if default was deleted
 			user_credit_cards = user.credit_cards
-			if user_credit_cards.present?
+			if user_credit_cards.present? && !user.defaultCreditCard
 				user_credit_cards.first.update_attribute(:default, true)
 			end
 
 			redirect_to edit_credit_cards_path
+		else
+			flash[:error] = "Error: Credit card ending in #{cc.last_four} was not deleted"
+			render 'index'
 		end
 	end
 
