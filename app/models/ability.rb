@@ -29,7 +29,7 @@ class Ability
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
  
-    user ||= User.new #guest login I guess?
+    user ||= User.new #guest login to Customer
     
     if not user.admin?
       can :show, :all
