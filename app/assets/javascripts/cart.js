@@ -76,14 +76,14 @@ $( function() {
 
 	$('#checkout-btn').click( function() {
 		$('#cart-modal-footer').attr('hidden', '');
-		$('#cart-payment-info').removeAttr('hidden');
-		$('#order-summary').removeAttr('hidden');
+		$('#cart-payment-info').fadeIn();
+		$('#order-summary').fadeIn();
 		$('#cart-summary').remove();
 	});
 
 	$('#cart').on("hidden.bs.modal", function() {
 		$('#cart-modal-footer').removeAttr('hidden');
-		$('#cart-payment-info').attr('hidden', '');
+		$('#cart-payment-info').fadeOut();
 	});
 
 	var setUpPayButton = function () {

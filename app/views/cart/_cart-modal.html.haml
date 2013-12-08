@@ -20,8 +20,10 @@
                   = submit_tag "Pay", {:class => "btn btn-primary", :id => "pay-button"}
                   Your payment will be processed
                 - else
+                  %button#use-new-cc.btn.btn-link.btn-xs{:type => 'button'} Use a different credit card
+                  #new-cc-form-for-logged-in{hidden: true}
+                    = render 'credit_cards/credit-card-info-fields'
                   %br
-                  %button#use-new-cc.btn.btn-link.btn-xs Use a different credit card
                   %br
                   = submit_tag "Pay with card ending in #{current_user.defaultCreditCard.last_four}", {:class => 'btn btn-primary', :id => "pay-button"}
                   Your payment will be processed
