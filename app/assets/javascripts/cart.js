@@ -88,12 +88,13 @@ $( function() {
 	});
 
 	var setUpPayButton = function () {
-		$('#payment-form').submit( function(e) {
+		var payment_form = $('#payment-form');
+		payment_form.submit( function(e) {
 			var pay_button = $('#pay-button');
 			pay_button.attr('disabled', 'disabled');
 			$.ajax({type: "POST",
-				url: "/pay",
-				data: $('#payment-form').serialize(),
+				url: payment_form.attr('action'),
+				data: payment_form.serialize(),
 				success: function(data) {
 					if (data == "success") {
 						window.location = '/order_receipt';
@@ -118,6 +119,19 @@ $( function() {
 				$('#spinner-cart-center').spin(false)
 				$('#user-credit-cards').html(data);
 			}});
+	})
+
+	$('#change-cc-form').submit( function(e) {
+		alert('got me');
+		var change_cc_form = $('#change-cc-form');
+		$.ajax({type: "POST",
+			url: change_cc_form.attr('action'),
+			data: change_cc_form.serialize(),
+			success: function(data) {
+				alert('nope');
+				$('#pay-button').html('Pay with card ending in ' + data);
+			}});
+		e.preventDefault();
 	})
 
 	setUpPayButton();	

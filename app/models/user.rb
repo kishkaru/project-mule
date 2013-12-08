@@ -42,7 +42,6 @@ class User < ActiveRecord::Base
         credit_cards.each do |cc|
             if cc.default
                 return cc
-                break
             end
         end
         return nil

@@ -69,4 +69,15 @@ class CreditCardsController < ApplicationController
 		redirect_to edit_credit_cards_path
 	end
 
+	def creditCardSelection
+        render :partial => 'credit_cards/credit-card-selection-form'
+    end
+
+    def changeCreditCard
+        cc_chosen = CreditCard.find(params[:credit_card_chosen])
+        setDefaultCC(current_user, cc_chosen)
+
+        render :text => current_user.defaultCreditCard.last_four
+    end
+
 end

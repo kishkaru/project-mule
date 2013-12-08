@@ -44,9 +44,11 @@ module CreditCardsHelper
 			old_default_card = user.defaultCreditCard
 			old_default_card.update_attribute(:default, false) unless !old_default_card
 			new_default_card.update_attribute(:default, true)
+			user.credit_cards(true)
 		else
 			puts result.errors
 		end
+
 	end
 
 	# Takes the braintree stored CREDIT_CARD and creates the credit card
