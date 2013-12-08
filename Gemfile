@@ -49,3 +49,4 @@ gem 'braintree'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+gem 'kaminari'
