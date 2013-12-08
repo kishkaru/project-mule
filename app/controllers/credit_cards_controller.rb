@@ -67,7 +67,7 @@ class CreditCardsController < ApplicationController
 
 	# Sets the credit card with id params[:id] to the current users default credit card
 	def setDefault
-		setDefaultCC(current_user.id, params[:cc_id])
+		setDefaultCC(User.find(current_user.id), CreditCard.find(params[:cc_id]))
 
 		redirect_to edit_credit_cards_path
 	end

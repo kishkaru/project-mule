@@ -1,5 +1,8 @@
 class CartController < ApplicationController
     include PhoneNumbersHelper
+    include CreditCardsHelper
+    include CheckoutHelper
+    include CartHelper
 
     def cart
         @subtotal = 0
@@ -18,24 +21,56 @@ class CartController < ApplicationController
 
         items = cartItems
         totals = calculateTotals(9, items)
+        credit_card_attrs = params[:credit_card]
 
-        result = Braintree::Transaction.sale(
-          :payment_method_token => current_user.defaultCreditCard.token,
-          :amount => totals[:total].round(2).to_s,
-          :credit_card => {:cvv => "100"}
-        )
+        # Payment for signed in user
+        if user_signed_in?
+            user = User.find(current_user.id)
+            if user.defaultCreditCard
+                # Payment if current user has default credit card
+                result = braintreeTransactionWithDefault(user, totals[:total])
 
-        if result.success?
-            puts "!!!!!!! win"
-            new_order = Order.create_with_items(items)
-            new_order.user = current_user
-            new_order.transaction_id = result.transaction.id
-            new_order.save!
-        else
-            puts "#{[result.errors]}"
+                if result.success?
+                    createOrder(user, items, result)
+
+                    render :text => 'success'
+                else
+                    @cc_errors = result.errors
+                    render :partial => 'credit_cards/credit-card-errors'
+                end
+            else
+                # Payment if user has no default credit card. Provided credit card will become default
+                createUserInVault(user)
+                credit_card_store_result = createCreditCardInVault(credit_card_attrs, true, user)
+
+                if !credit_card_store_result.success?
+                    # return back errors if storage of credit card in vault failed
+                    @cc_errors = credit_card_store_result.errors
+                    render :partial => 'credit_cards/credit-card-errors'
+                else
+                    # Associate card with user
+                    cc_to_add = CreditCard.create!(:token => credit_card_store_result.credit_card.token,
+                        :last_four => credit_card_store_result.credit_card.last_4,
+                        :default => true)
+                    user.credit_cards << cc_to_add
+
+                    # Charge card if storage was successful
+                    result = braintreeTransactionWithDefault(user, totals[:total])
+
+                    if result.success?
+                        createOrder(user, items, result)
+
+                        render :text => 'success'
+                    else
+                        @cc_errors = result.errors
+                        render :partial => 'credit_cards/credit-card-errors'
+                    end
+
+                end
+            end
         end
 
-        render :text => 'success'
+        
 
 =begin
         credit_card_attrs = params[:credit_card]
@@ -70,34 +105,6 @@ class CartController < ApplicationController
             p result.errors
         end
 =end
-    end
-
-    private
-
-    # Puts all items from the session[:cart] into a hash
-    # where the key is the item object and value is the quantity
-    def cartItems
-        items = {}
-        if session[:cart] && session[:cart][:items]
-            session[:cart][:items].each do |id, qty|
-                items[MenuItem.find(id)] = qty
-            end
-        end
-
-        return items
-    end
-
-    # Returns a hash of calculated subtotal, tax_total, and total
-    # using TAX and ITEMS hash returned by cartItems
-    def calculateTotals(tax, items)
-        result = {:subtotal => 0}
-        items.each do |item_obj,qty|
-            result[:subtotal] += item_obj.price * qty
-        end
-        result[:tax_total] = tax / 100.0 * result[:subtotal]
-        result[:total] = result[:tax_total] + result[:subtotal]
-
-        return result
     end
 
 end
