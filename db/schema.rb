@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207112458) do
+ActiveRecord::Schema.define(:version => 20131208164507) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20131207112458) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "braintree_token"
+    t.integer  "pickup_point_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
