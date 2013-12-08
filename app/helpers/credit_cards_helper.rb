@@ -59,7 +59,8 @@ module CreditCardsHelper
 	def associateStoredCreditCard(credit_card, user, default)
 		new_cc = CreditCard.create!(:token => credit_card.token,
             :last_four => credit_card.last_4,
-            :default => default)
+            :default => default,
+            :type_image_url => credit_card.image_url)
         user.credit_cards << new_cc
         return new_cc
 	end

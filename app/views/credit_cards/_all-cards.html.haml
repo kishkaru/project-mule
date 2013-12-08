@@ -4,7 +4,8 @@
   %ul
     - current_user.credit_cards.each do |cc|
       %li.credit-card
-        = "Card ending in " + cc.last_four
+        = image_tag cc.type_image_url, :alt => "Card"
+        = "ending in " + cc.last_four
         - if cc.default
           %span.glyphicon.glyphicon-ok
         - if @editing

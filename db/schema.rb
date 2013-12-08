@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207112458) do
+ActiveRecord::Schema.define(:version => 20131208203714) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(:version => 20131207112458) do
   create_table "credit_cards", :force => true do |t|
     t.string   "token"
     t.string   "last_four"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "user_id"
     t.boolean  "default"
+    t.string   "type_image_url"
   end
 
   add_index "credit_cards", ["user_id"], :name => "index_credit_cards_on_user_id"
