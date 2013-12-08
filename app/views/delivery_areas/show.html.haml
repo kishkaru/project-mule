@@ -1,8 +1,8 @@
-%p
-  %b Name:
-  = @delivery_area.name
+%h1= "Delivery Area - #{@delivery_area.name}"
 
+%h3 Delivery Points:
+= render 'delivery_points/table'
 
-= link_to 'Edit', edit_delivery_area_path(@delivery_area)
+= link_to 'Edit', edit_delivery_area_path(@delivery_area), :class =>  "btn btn-warning btn-sm"
 |
-\#{link_to 'Back', delivery_areas_path}
+\#{link_to 'Back', delivery_areas_path, :class =>  "btn btn-primary btn-sm"}

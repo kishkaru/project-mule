@@ -25,8 +25,9 @@ And I should see "Soda"
 Scenario: Specifying an area near the customer
 Given I am on the homepage
 When I select "Cory" from "customer_area_id"
-When I press "Update"
+And the delivery areas have a blank menu
+And I press "Update"
 Then I should see "Select Delivery Point"
-Then I should see "Please select a Delivery Point"
+And I should see "Please select a Delivery Point"
 
 

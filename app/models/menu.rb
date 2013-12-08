@@ -1,6 +1,7 @@
 class Menu < ActiveRecord::Base
     attr_accessible :date
-    has_many :items
+    has_many :items, :class_name => "MenuItem"
+    has_many :item_templates, :through => :items, :source => :item
     has_many :delivery_areas
     validates :date, presence: true
 
@@ -9,5 +10,25 @@ class Menu < ActiveRecord::Base
         new_menu = Menu.new(params)
         new_menu.items = template.items
         return new_menu
+    end
+
+    def add_items(items_to_add, quantities)
+        puts items_to_add.inspect
+        puts quantities.inspect
+        to_destroy = []
+        self.items.each do |menu_item|
+            if items_to_add.include?(menu_item.item)
+                items_to_add = items_to_add - [menu_item.item]
+                puts quantities[menu_item.item.id]
+                menu_item.update_attribute(:quantity, quantities[menu_item.item.id.to_s])
+            else
+                to_destroy << menu_item
+            end
+        end
+        to_destroy.each{|menu_item| menu_item.destroy}
+
+        items_to_add.each do |item|
+            self.items << item.create_menu_item(quantity: quantities[item.id.to_s])
+        end
     end
 end

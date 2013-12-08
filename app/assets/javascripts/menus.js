@@ -42,6 +42,9 @@ $( function() {
     });
 
     function populate_items(vendor) {
+        if(typeof vendor === 'undefined'){
+            return false;
+        };
         $.getJSON( "/vendors/" + vendor + "/items.json", function( data ) {
             $("table#item-choices tbody").empty();
             $.each( data.items, function( i, item ) {
@@ -54,7 +57,6 @@ $( function() {
                                                       "data-item-name='" + item.name + "' " +
                                                       "data-item-description='" + item.description + "' " +
                                                       "data-item-price='" + item.price + "' " +
-                                                      "data-item-quantity='" + item.quantity + "' " +
                                                       "data-vendor='" + data.vendor.name + "'>" + "Add To Menu" + "</button>" + "</td>" +
                                                       "</tr>"
                                                     );
@@ -74,7 +76,7 @@ $( function() {
                                         "<td>" + self.data("item-name") + "</td>" +
                                         "<td>" + self.data("item-description") + "</td>" +
                                         "<td>" + self.data("item-price") + "</td>" +
-                                        "<td>" + self.data("item-quantity") + "</td>" +
+                                        "<td><input name='menu[item_quantities][" + self.data("item-id") + "]' type='number' class='form-control' value='0'></td>" +
                                         "<td>" + self.data("vendor") + "</td>" +
                                         "<td>" + "<button class='remove-from-menu btn btn-xs btn-primary' " +
                                         "data-item-id='" + self.data("item-id") + "'>" + "Remove" + "</button>" + "</td>" +
@@ -87,6 +89,7 @@ $( function() {
     $("body").on("click", "button.remove-from-menu", function() {
         self = $(this);
         self.parents("#items tr").remove()
+        return false;
     });
 
     $("button.add-to-cart").click( function() {

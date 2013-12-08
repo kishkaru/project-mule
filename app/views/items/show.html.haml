@@ -16,12 +16,6 @@
   - @item.ingredients.each do |ingredient|
     %br/
     = ingredient.name
-%p
-  %b Quantity:
-  = @item.quantity
-%p
-  %b Expires at:
-  = @item.expires_at
 
 = link_to 'Edit', edit_item_path(@item), :class =>  "btn btn-warning btn-sm"
 |

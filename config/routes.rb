@@ -1,10 +1,12 @@
 Projectmule::Application.routes.draw do
 
+  resources :orders
+
+
     resources :phone_numbers
 
 
     resources :delivery_points
-
 
     resources :delivery_areas do
         member do
