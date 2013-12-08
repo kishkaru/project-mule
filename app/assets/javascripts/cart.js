@@ -83,6 +83,8 @@ $( function() {
 	$('#cart').on("hidden.bs.modal", function() {
 		$('#cart-modal-footer').removeAttr('hidden');
 		$('#cart-payment-info').fadeOut();
+		$('#use-dif-cc').removeAttr('disabled');
+		$('#user-credit-cards').empty();
 	});
 
 	var setUpPayButton = function () {
