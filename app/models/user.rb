@@ -48,4 +48,8 @@ class User < ActiveRecord::Base
         return nil
     end
 
+    def full_name
+        return "#{self.first_name} #{self.last_name}"
+    end
+
 end
