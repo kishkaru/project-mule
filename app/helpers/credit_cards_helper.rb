@@ -65,4 +65,22 @@ module CreditCardsHelper
         return new_cc
 	end
 
+	# Checks if CREDIT_CARD_UINIQ_ID is already stored in the vault for USER_TOKEN
+	# in braintree. Returns true if in vault already
+	def alreadyInVault(credit_card_uniq_id, user_token)
+		customer = Braintree::Customer.find(user_token)
+		count = 0
+		customer.credit_cards.each do |cc|
+			if cc.unique_number_identifier == credit_card_uniq_id
+				count += 1
+			end
+
+			if count > 1
+				return true
+			end
+		end
+
+		return false
+	end
+
 end

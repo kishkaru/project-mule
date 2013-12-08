@@ -26,9 +26,17 @@ class CreditCardsController < ApplicationController
 		credit_card_result = createCreditCardInVault(credit_card_to_add, default, user)
 
 		if credit_card_result.success?
-			associateStoredCreditCard(credit_card_result.credit_card, user, default)
+			if alreadyInVault(credit_card_result.credit_card.unique_number_identifier, user.braintree_token)
+				if Braintree::CreditCard.delete(credit_card_result.credit_card.token)
+					flash[:error] = 'Card already exists'
+				else
+					flash[:error] = "Error: Credit card ending in #{cc.last_four} was not deleted"
+				end
+			else
+				associateStoredCreditCard(credit_card_result.credit_card, user, default)
 
-			flash[:success] = 'Credit card was added successfully'
+				flash[:success] = 'Credit card was added successfully'
+			end
 
 			redirect_to edit_credit_cards_path
 		else
