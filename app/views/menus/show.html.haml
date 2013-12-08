@@ -34,7 +34,7 @@
 
 .row
   .col-md-9.col-md-offset-1
-    -if can? :edit, menu
+    -if can? :edit, @menu
       = link_to 'Edit', edit_menu_path(@menu), :class =>  "btn btn-warning btn-sm"
     |
     \#{link_to 'Back', menus_path, :class =>  "btn btn-default btn-sm"}
