@@ -25,6 +25,16 @@ function add_fields(link, association, content) {
     $('#new-ingredient-fields').modal('show');
 }
 
+var getDeliveryPoints = function(area_id) {
+	$.ajax({type: "GET",
+		url: '/delivery_areas/' + area_id + '/pts/',
+		success: function(data) {
+			var new_ele = document.createElement('div');
+			new_ele.innerHTML = data;
+			$('#geographic-content').append(new_ele);
+		}});
+};
+
 $(window).resize( function() {
 	$('body').css('padding-top', $('.container').height());
 });
@@ -44,8 +54,10 @@ $(document).ready( function() {
 	$('.main-table-items').click(function() {
 		$('td').removeClass('success');
 		$(this).addClass('success');
-		$('#area-container').removeClass('slide-left');
+		$('#area-container').removeClass('stay-centered');
 		$('#area-container').addClass('slide-left');
+		$('#point-container').remove();
+		getDeliveryPoints(this.parentNode.id);
 	});
 });
 

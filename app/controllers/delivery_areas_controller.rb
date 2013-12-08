@@ -97,4 +97,9 @@ class DeliveryAreasController < ApplicationController
             format.html { render "menus/show" }
         end
     end
+
+    def pts
+        @customer_area = DeliveryArea.find(params[:id])
+        render :partial => 'delivery_areas/area-points'
+    end
 end
