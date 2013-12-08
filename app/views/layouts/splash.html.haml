@@ -4,6 +4,8 @@
   %body
     = render 'layouts/navbar'
     #main
+      #splash.container
+        = image_tag("/luckybolt_logo.png", :alt => "LuckyBolt Logo", :id => "splash-logo")
       .main.container
         - flash.each do |type, message|
           %div#main-alert{:class => "alert alert-#{flash_to_bootstrap(type)}"}
