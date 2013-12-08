@@ -80,9 +80,9 @@ $( function() {
 		$('#cart-summary').remove();
 	});
 
-	$('#cart').on("hidden.bs.modal", function() {
+	$('#cart').on("show.bs.modal", function() {
 		$('#cart-modal-footer').removeAttr('hidden');
-		$('#cart-payment-info').fadeOut();
+		$('#cart-payment-info').hide();
 		$('#use-dif-cc').removeAttr('disabled');
 		$('#use-new-cc').removeAttr('disabled');
 		$('#user-credit-cards').empty();
