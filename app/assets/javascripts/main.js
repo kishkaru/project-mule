@@ -4,6 +4,13 @@ adjustContainer = _.debounce(function() {
     $('#main').css('height', $(window).height() - height);
 }, 300);
 
+hideSplash = _.delay(function() {
+    splash = $("#splash")
+    splash.animate({ marginTop: splash.outerHeight() * -1}, 1500, "swing", function () {
+        splash.remove();
+    });
+}, 1000);
+
 $( function() {
 
     $(window).resize( function() {

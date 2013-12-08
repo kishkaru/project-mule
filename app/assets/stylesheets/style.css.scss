@@ -24,16 +24,31 @@ header {
 
     a {
         color: white;
+
+        &:hover, &:active {
+            color: rgb(21, 26, 40);
+        }
     }
 }
 
+#splash {
+    height: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+
+    #splash-logo {
+        margin-top: 5%;
+        height: 80%;
+        position: relative;
+    }
+}
 #main {
     background: none;
     min-height: 0;
     max-height: none;
     height: 100%;
     position: relative;
-    top: 70px;
+    top: 50px;
     margin-bottom: -70px;
     overflow: auto;
 
@@ -55,8 +70,13 @@ header {
     text-align: right;
 }
 
-.table th.no-top-border, .table td.no-top-border {
-    border-top: none;
+table {
+    background-color: white;
+    border-radius: 8px;
+
+    &.table th.no-top-border, .table td.no-top-border {
+        border-top: none;
+    }
 }
 
 .float-right {
