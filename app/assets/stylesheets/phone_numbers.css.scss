@@ -1,3 +1,26 @@
 // Place all the styles related to the PhoneNumbers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.country-field {
+    width: 40px;
+    display: inline;
+}
+
+.area-field {
+    width: 60px;
+    display: inline;
+}
+
+.number-field {
+    width: 90px;
+    display: inline;
+}
+
+.extension-field {
+    width: 90px;
+    display: inline;
+}
+
+.phone-number-field {
+    width: 170px;
+}

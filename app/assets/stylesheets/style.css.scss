@@ -97,42 +97,8 @@ table {
     width: 250px;
 }
 
-.country-field {
-    width: 40px;
-    display: inline;
-}
-
-.area-field {
-    width: 60px;
-    display: inline;
-}
-
-.number-field {
-    width: 90px;
-    display: inline;
-}
-
-.extension-field {
-    width: 90px;
-    display: inline;
-}
-
 div.inline-block {
     display: inline-block;
-}
-
-.cc-number-field {
-    width: 200px;
-    margin-right: 10px;
-}
-
-.cc-exp-date-field {
-    width: 100px;
-    margin-right: 10px;
-}
-
-.cc-cvv-field {
-    width: 50px;
 }
 
 #credit-card-info, #password-info, #contact-info {
@@ -142,8 +108,4 @@ div.inline-block {
 .email-field, .password-field, .first-name-field {
     width: 250px;
     margin-right: 10px;
-}
-
-.phone-number-field {
-    width: 170px;
 }
