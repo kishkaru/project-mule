@@ -114,12 +114,12 @@ $( function() {
 
 	$('#use-dif-cc').click( function() {
 		var user_credit_cards = $('#user-credit-cards');
-		$('#new-credit-card').hide();
 		$(this).attr('disabled', 'disabled');
 		$('#use-new-cc').removeAttr('disabled');
 		$.ajax({type: "GET",
 			url: "/cart/change_credit_card",
 			success: function(data) {
+				$('#new-credit-card').hide();
 				user_credit_cards.html(data);
 				user_credit_cards.hide();
 				user_credit_cards.fadeIn();
