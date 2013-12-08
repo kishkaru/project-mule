@@ -15,7 +15,8 @@ class Order < ActiveRecord::Base
 
     def subtotal
         return self.item_orders.reduce(0) do |subtotal, item_order|
-            subtotal += item_order.quantity * item_order.item.price
+            puts item_order.quantity
+            subtotal + item_order.quantity * item_order.item.price
         end
     end
 

@@ -23,9 +23,9 @@
       %tr
         %td= item.name
         %td= item.vendor.name
-        %td= menu_item.quantity
+        %td= item_order.quantity
         %td= number_to_currency(menu_item.item.price)
-        %td= number_to_currency(menu_item.item.price * menu_item.quantity)
+        %td= number_to_currency(menu_item.item.price * item_order.quantity)
 .row
   .col-lg-6.col-lg-offset-6.col-md-6.col-md-offset-6
     %table.table.table-centered.table-bordered
@@ -34,7 +34,7 @@
         %td= number_to_currency(@order.subtotal)
       %tr
         %th Tax
-        %td= @order.tax
+        %td= number_to_percentage(@order.tax * 100)
       %tr
         %th Total
         %td= number_to_currency(@order.total)
