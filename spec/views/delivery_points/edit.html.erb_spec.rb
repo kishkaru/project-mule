@@ -19,10 +19,8 @@ describe "delivery_points/edit" do
             assert_select "input#delivery_point_address_attributes_city[name=?]", "delivery_point[address_attributes][city]"
             assert_select "input#delivery_point_address_attributes_line1[name=?]", "delivery_point[address_attributes][line1]"
             assert_select "input#delivery_point_address_attributes_line2[name=?]", "delivery_point[address_attributes][line2]"
-            assert_select "input#delivery_point_address_attributes_state[name=?]", "delivery_point[address_attributes][state]"
+            assert_select "select#delivery_point_address_attributes_state[name=?]", "delivery_point[address_attributes][state]"
             assert_select "input#delivery_point_address_attributes_zip[name=?]", "delivery_point[address_attributes][zip]"
-            assert_select "input#delivery_point_latitude[name=?]", "delivery_point[latitude]"
-            assert_select "input#delivery_point_longitude[name=?]", "delivery_point[longitude]"
         end
     end
 end

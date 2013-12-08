@@ -15,8 +15,6 @@ describe "delivery_points/show" do
         render
         # Run the generator again with the --webrat flag if you want to use webrat matchers
         rendered.should match(/place\nSF, CA 11111/)
-        rendered.should match(/9.99/)
-        rendered.should match(/9.99/)
         rendered.should match(//)
         rendered.should match(//)
     end

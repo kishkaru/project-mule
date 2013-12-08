@@ -8,7 +8,6 @@ Projectmule::Application.routes.draw do
 
     resources :delivery_points
 
-
     resources :delivery_areas do
         member do
             get 'menu'
