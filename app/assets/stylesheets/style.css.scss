@@ -73,6 +73,7 @@ header {
 table {
     background-color: white;
     border-radius: 8px;
+    overflow: hidden;
 
     &.table th.no-top-border, .table td.no-top-border {
         border-top: none;
