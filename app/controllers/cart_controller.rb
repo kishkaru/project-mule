@@ -36,8 +36,9 @@ class CartController < ApplicationController
                 result = braintreeTransactionWithDefault(user, totals[:total])
 
                 if result.success?
-                    createOrder(user, items, result)
+                    order = createOrder(user, items, result)
                     clearCart
+                    sendConfirmationEmail(order)
                     render :text => 'success' and return
                 else
                     @credit_card_errors = result.errors
@@ -59,8 +60,9 @@ class CartController < ApplicationController
                     result = braintreeTransactionWithDefault(user, totals[:total])
 
                     if result.success?
-                        createOrder(user, items, result)
+                        order = createOrder(user, items, result)
                         clearCart
+                        sendConfirmationEmail(order)
                         render :text => 'success' and return
                     else
                         @credit_card_errors = result.errors
@@ -101,8 +103,9 @@ class CartController < ApplicationController
                     transaction_result = braintreeTransactionWithDefault(new_user, totals[:total])
 
                     if transaction_result.success?
-                        createOrder(new_user, items, transaction_result)
+                        order = createOrder(user, items, result)
                         clearCart
+                        sendConfirmationEmail(order)
                         render text: "success" and return
                     else
 
