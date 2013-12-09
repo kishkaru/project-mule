@@ -39,7 +39,7 @@ class CartController < ApplicationController
                     order = createOrder(user, items, result)
                     clearCart
                     sendConfirmationEmail(order)
-                    render :text => 'success' and return
+                    render :text => order.id.to_s and return
                 else
                     @credit_card_errors = result.errors
                     render :partial => 'cart/checkout-errors' and return
@@ -63,7 +63,7 @@ class CartController < ApplicationController
                         order = createOrder(user, items, result)
                         clearCart
                         sendConfirmationEmail(order)
-                        render :text => 'success' and return
+                        render :text => order.id.to_s and return
                     else
                         @credit_card_errors = result.errors
                         render :partial => 'cart/checkout-errors' and return
@@ -106,7 +106,7 @@ class CartController < ApplicationController
                         order = createOrder(user, items, result)
                         clearCart
                         sendConfirmationEmail(order)
-                        render text: "success" and return
+                        render text: order.id.to_s  and return
                     else
 
 
