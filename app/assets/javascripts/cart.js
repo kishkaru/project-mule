@@ -101,17 +101,18 @@ $( function() {
 				url: payment_form.attr('action'),
 				data: payment_form.serialize(),
 				success: function(data) {
-					$('payment-progress-bar').addClass('hidden');
+					$('#payment-progress-bar').addClass('hidden');
 					var num = /\d+/;
 					if (data.match(num)) {
 						window.location = '/orders/' + data;
 					} else if (data == "empty cart") {
 						var empty_cart_error = $("<div id='checkout-errors' class='alert alert-danger'><ul></ul><li> Amount must be greater than zero. </li></div>");
 						$('#checkout-notices').html(empty_cart_error);
+						pay_button.removeAttr('disabled');
 					} else {
 						$('#checkout-notices').html(data);
+						pay_button.removeAttr('disabled');
 					}
-					pay_button.removeAttr('disabled');
 				},
 				error: function(data) {
 					pay_button.removeAttr('disabled');

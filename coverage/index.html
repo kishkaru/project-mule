@@ -14,14 +14,14 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-12-08T19:16:23-08:00">2013-12-08T19:16:23-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-12-08T20:13:47-08:00">2013-12-08T20:13:47-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">69.8%</span></span>
+    (<span class="covered_percent"><span class="red">69.2%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>43</b> files in total.
-    <b>808</b> relevant lines. 
+    <b>815</b> relevant lines. 
     <span class="green"><b>564</b> lines covered</span> and
-    <span class="red"><b>244</b> lines missed </span>
+    <span class="red"><b>251</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -72,11 +72,11 @@
       
       <tr>
         <td class="strong"><a href="#cae6187e31668cbdac0624e6fc76aaa1ac0cb504" class="src_link" title="app/controllers/credit_cards_controller.rb">app/controllers/credit_cards_controller.rb</a></td>
-        <td class="red strong">19.3 %</td>
-        <td>107</td>
-        <td>57</td>
+        <td class="red strong">17.19 %</td>
+        <td>118</td>
+        <td>64</td>
         <td>11</td>
-        <td>46</td>
+        <td>53</td>
         <td>0.2</td>
       </tr>
       
@@ -489,7 +489,7 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">71.35%</span></span>
+    (<span class="covered_percent"><span class="red">70.44%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -500,9 +500,9 @@
   <a name="Controllers"></a>
   <div>
     <b>14</b> files in total.
-    <b>541</b> relevant lines. 
+    <b>548</b> relevant lines. 
     <span class="green"><b>386</b> lines covered</span> and
-    <span class="red"><b>155</b> lines missed </span>
+    <span class="red"><b>162</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -540,11 +540,11 @@
       
       <tr>
         <td class="strong"><a href="#cae6187e31668cbdac0624e6fc76aaa1ac0cb504" class="src_link" title="app/controllers/credit_cards_controller.rb">app/controllers/credit_cards_controller.rb</a></td>
-        <td class="red strong">19.3 %</td>
-        <td>107</td>
-        <td>57</td>
+        <td class="red strong">17.19 %</td>
+        <td>118</td>
+        <td>64</td>
         <td>11</td>
-        <td>46</td>
+        <td>53</td>
         <td>0.2</td>
       </tr>
       
@@ -2171,11 +2171,11 @@
         <div class="source_table" id="cae6187e31668cbdac0624e6fc76aaa1ac0cb504">
   <div class="header">
     <h3>app/controllers/credit_cards_controller.rb</h3>
-    <h4><span class="red">19.3 %</span> covered</h4>
+    <h4><span class="red">17.19 %</span> covered</h4>
     <div>
-      <b>57</b> relevant lines. 
+      <b>64</b> relevant lines. 
       <span class="green"><b>11</b> lines covered</span> and
-      <span class="red"><b>46</b> lines missed.</span>
+      <span class="red"><b>53</b> lines missed.</span>
     </div>
   </div>
   
@@ -2785,40 +2785,106 @@
         <li class="missed" data-hits="0" data-linenumber="101">
           
           
-          <code class="ruby">            new_cc = associateStoredCreditCard(credit_card_store_result.credit_card, user, false)</code>
+          <code class="ruby">        	if alreadyInVault(credit_card_store_result.credit_card.unique_number_identifier, user.braintree_token)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="102">
           
           
-          <code class="ruby">            setDefaultCC(user, new_cc)</code>
+          <code class="ruby">        		delete_result = Braintree::CreditCard.delete(credit_card_store_result.credit_card.token)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="103">
           
           
-          <code class="ruby">            render :text =&gt; user.defaultCreditCard.last_four</code>
+          <code class="ruby">				if delete_result</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="missed" data-hits="0" data-linenumber="104">
           
           
-          <code class="ruby">        end</code>
+          <code class="ruby">					@duplicate_error = 'Card already exists'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="missed" data-hits="0" data-linenumber="105">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">					render :partial =&gt; 'cart/checkout-errors'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="106">
           
           
+          <code class="ruby">				else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="107">
+          
+          
+          <code class="ruby">					@credit_card_errors = credit_card_store_result.errors</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="108">
+          
+          
+          <code class="ruby">					render :partial =&gt; 'cart/checkout-errors'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="109">
+          
+          
+          <code class="ruby">				end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="110">
+          
+          
+          <code class="ruby">			else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="111">
+          
+          
+          <code class="ruby">	            new_cc = associateStoredCreditCard(credit_card_store_result.credit_card, user, false)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="112">
+          
+          
+          <code class="ruby">	            setDefaultCC(user, new_cc)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="113">
+          
+          
+          <code class="ruby">	            render :text =&gt; user.defaultCreditCard.last_four</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="114">
+          
+          
+          <code class="ruby">	        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="115">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="116">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="107">
+        <li class="never" data-hits="" data-linenumber="118">
           
           
           <code class="ruby">end</code>
