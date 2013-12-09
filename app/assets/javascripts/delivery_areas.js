@@ -31,7 +31,7 @@ $( function() {
                                         "<td>" + self.data("delivery-point-address") + "</td>" +
                                         "<td>" + "<button class='remove-from-delivery-area btn btn-xs btn-primary' " +
                                         "data-delivery-point-id='" + self.data("delivery-point-id") + "'>" + "Remove" + "</button>" + "</td>" +
-                                        "<input type='hidden' value='" + self.data("delivery-point-id") + "' name='delivery_area[delivery_points][]'>" +
+                                        "<input type='hidden' value='" + self.data("delivery-point-id") + "' name='delivery_area_options[delivery_points][]'>" +
                                         "</tr>"
                                       );
         return false;

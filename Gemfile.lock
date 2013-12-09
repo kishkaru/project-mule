@@ -126,6 +126,7 @@ GEM
     rack_session_access (0.1.1)
       builder (>= 2.0.0)
       rack (>= 1.0.0)
+    railroady (1.1.1)
     rails (3.2.14)
       actionmailer (= 3.2.14)
       actionpack (= 3.2.14)
@@ -234,6 +235,7 @@ DEPENDENCIES
   launchy
   pg
   rack_session_access
+  railroady
   rails (= 3.2.14)
   rails_12factor
   rspec-rails

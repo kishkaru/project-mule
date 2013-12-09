@@ -31,7 +31,7 @@
           #selected-ingredients.panel-body{}>
             - @item.ingredients.each do |ingredient|
               .ingredient{}>
-                %input{type:"hidden", name: "item[ingredients][]", value: ingredient.name}
+                %input{type:"hidden", name: "item_options[ingredients][]", value: ingredient.name}
                 %span= ingredient.name
                 %button.btn.btn-danger.btn-xs.remove-ingredient
                   X

@@ -17,6 +17,7 @@ group :development, :test do
   gem 'html2haml'
   gem 'rack_session_access'
   gem 'selenium-webdriver'
+  gem 'railroady'
 end
 
 group :test do
