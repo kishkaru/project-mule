@@ -1,74 +1,13 @@
 !!!
 %html
-  %head
-    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css", rel: "stylesheet"}/
-    %link{href: "http://bootswatch.com/united/bootstrap.min.css", rel: "stylesheet"}/
-    %link{href: "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", rel: "stylesheet"}/
-    %link{href: "/assets/select2/select2.css", rel: "stylesheet"}/
-    %script{src: "//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"}
-    %script{src: "http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"}
-    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"}
-    %script{src: "/assets/select2/select2.js"}
-    %script{src: "http://malsup.github.com/jquery.form.js"}
-    %title ProjectMule
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
+  = render 'layouts/head'
   %body
-    %nav.navbar.navbar-default.navbar-fixed-top{role: "navigation"}
-      .container
-        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %ul.nav.navbar-nav.navbar-left
-          %a.navbar-brand{href: root_path} ProjectMule
-        %ul.nav.navbar-nav.navbar-right
-          %li
-            %a{ href: "#create-menu", data: {toggle: "modal", target: "#create-menu"} } Create Menu
-          %li.divider-vertical
-          %li
-            %a{href: "#"} About
-          %li
-            %a{href: "#cart", :id => "cart_link", data: {toggle: "modal", target: "#cart"} }Cart
-          - if (user_signed_in?)
-            - if (current_user.admin?)
-              %li
-                %li.dropdown
-                  %a{href: "#", 'data-toggle' => 'dropdown'}
-                    = image_tag('/admin_icon.png', :alt => 'Admin Icon', :id => 'admin-icon')
-                  %ul.dropdown-menu
-                    %li
-                      = link_to 'Users', users_path
-                    %li
-                      = link_to 'Menus', menus_path
-                    %li
-                      = link_to 'Vendors', vendors_path
-                    %li
-                      = link_to 'Items', items_path
-                    %li
-                      = link_to 'Ingredients', ingredients_path
-                    %li
-                      = link_to 'Delivery Areas', delivery_areas_path
-                    %li
-                      = link_to 'Delivery Points', delivery_points_path
-            %li
-              = link_to 'Edit Account', edit_user_registration_path
-            %li
-              = link_to 'Logout', destroy_user_session_path, method: :delete
-          - else
-            %li
-              =link_to 'Sign Up', new_user_registration_path
-            %li
-              = link_to 'Login', new_user_session_path
-    .main.container
-      - flash.each do |type, message|
-        %div#main-alert{:class => "alert alert-#{flash_to_bootstrap(type)}"}
-          %p= message
-      = yield
-
-    #modals
-      = render "menus/new-modal"
-      = render "cart/cart-modal"
+    = render 'layouts/navbar'
+    #main
+      .main.container
+        - flash.each do |type, message|
+          %div#main-alert{:class => "alert alert-#{flash_to_bootstrap(type)}"}
+            %p= message
+        = yield
+    = render 'layouts/modals'
 

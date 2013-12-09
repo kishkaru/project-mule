@@ -1,35 +1,78 @@
-%table.table.table-centered
-  %tr
-    %th.col-md.6.no-top-border Item
-    %th.col-md-2.no-top-border Price
-    %th.col-md-2.no-top-border Quantity
-    %th.col-md-2.no-top-border
-    - if @cart_items
-      - @cart_items.each do |item, qty|
-        %tr{:id => item.id}
-          %td= item.name
-          %td.price= "$#{number_with_precision(item.price, :precision => 2)}"
-          %td.qty
-            = qty
-            %button.btn.btn-xs.btn-default.plus.item-qty-buttons{:id => "#{item.id}-item-plus"}+
-            %button.btn.btn-xs.btn-default.minus.item-qty-buttons{:id => "#{item.id}-item-minus"}-
+#cart-summary
+  - if @cart_items.present?
+    %table.table.table-centered
+      %tr
+        %th.col-md.6.no-top-border Item
+        %th.col-md-2.no-top-border Price
+        %th.col-md-2.no-top-border Quantity
+        %th.col-md-2.no-top-border
+        - if @cart_items
+          - @cart_items.each do |item, qty|
+            %tr{:id => item.id}
+              %td= item.name
+              %td.price= "$#{number_with_precision(item.price, :precision => 2)}"
+              %td.qty
+                = qty
+                %button.btn.btn-xs.btn-default.plus.item-qty-buttons{:id => "#{item.id}-item-plus"}+
+                %button.btn.btn-xs.btn-default.minus.item-qty-buttons{:id => "#{item.id}-item-minus", :disabled => qty < 2}-
+              %td
+                %button.btn.btn-xs.btn-link.item-remove-button{:id => "#{item.id}-item-remove"} Remove
+      %tr
+        %td.rightside
+          %b Subtotal
+        %td
+        %td#subtotal.centered= "$#{number_with_precision(@subtotal, :precision =>2)}"
+        %td
+      %tr
+        %td.rightside.no-top-border
+          %b Tax
+        %td#tax-pct.no-top-border #{@tax}%
+        %td#tax-total.centered.no-top-border= "$#{number_with_precision(@tax_total, :precision => 2)}"
+        %td.no-top-border
+      %tr
+        %td.rightside.no-top-border
+          %b Total
+        %td.no-top-border
+        %td#total.centered.no-top-border= "$#{number_with_precision(@total, :precision => 2)}"
+        %td.no-top-border
+  - else
+    = render 'cart/empty-cart'
+#order-summary{:hidden => true}
+  #checkout-notices
+    %h3 Order Summary
+    %br
+    - if @cart_items.present?
+      %table.table.table-centered
+        %tr
+          %th.col-md.6.no-top-border Item
+          %th.col-md-2.no-top-border Price
+          %th.col-md-2.no-top-border Quantity
+          %th.col-md-2.no-top-border
+          - if @cart_items
+            - @cart_items.each do |item, qty|
+              %tr{:id => item.id}
+                %td= item.name
+                %td.price= "$#{number_with_precision(item.price, :precision => 2)}"
+                %td.qty.centered
+                  = qty
+                %td
+        %tr
+          %td.rightside
+            %b Subtotal
           %td
-            %button.btn.btn-xs.btn-link.item-remove-button{:id => "#{item.id}-item-remove"} Remove
-  %tr
-    %td.rightside
-      %b Subtotal
-    %td
-    %td#subtotal.centered= "$#{number_with_precision(@subtotal, :precision =>2)}"
-    %td
-  %tr
-    %td.rightside.no-top-border
-      %b Tax
-    %td#tax-pct.no-top-border #{@tax}%
-    %td#tax-total.centered.no-top-border= "$#{number_with_precision(@tax_total, :precision => 2)}"
-    %td.no-top-border
-  %tr
-    %td.rightside.no-top-border
-      %b Total
-    %td.no-top-border
-    %td#total.centered.no-top-border= "$#{number_with_precision(@total, :precision => 2)}"
-    %td.no-top-border
+          %td#subtotal.centered= "$#{number_with_precision(@subtotal, :precision =>2)}"
+          %td
+        %tr
+          %td.rightside.no-top-border
+            %b Tax
+          %td#tax-pct.no-top-border #{@tax}%
+          %td#tax-total.centered.no-top-border= "$#{number_with_precision(@tax_total, :precision => 2)}"
+          %td.no-top-border
+        %tr
+          %td.rightside.no-top-border
+            %b Total
+          %td.no-top-border
+          %td#total.centered.no-top-border= "$#{number_with_precision(@total, :precision => 2)}"
+          %td.no-top-border
+    - else
+      = render 'cart/empty-cart'

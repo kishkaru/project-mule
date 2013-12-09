@@ -13,9 +13,6 @@ Projectmule::Application.configure do
     config.consider_all_requests_local       = true
     config.action_controller.perform_caching = false
 
-    # Don't care if the mailer can't send
-    #config.action_mailer.raise_delivery_errors = true
-
     # Print deprecation notices to the Rails logger
     config.active_support.deprecation = :log
 
@@ -49,7 +46,11 @@ Projectmule::Application.configure do
 	  password:             'qazwsxedc!!',
 	  enable_starttls_auto: true  }
 
-
 	#config.action_mailer.default_options = {from: 'projmule@gmail.com'}
 	config.action_mailer.default_url_options = { :host => 'localhost:3000' }	
+
+    Braintree::Configuration.environment = :sandbox
+    Braintree::Configuration.merchant_id = ENV['BT_MERCHANT_ID']
+    Braintree::Configuration.public_key = ENV['BT_PUBLIC_KEY']
+    Braintree::Configuration.private_key = ENV['BT_PRIVATE_KEY']
 end

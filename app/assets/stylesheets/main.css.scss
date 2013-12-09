@@ -1,13 +1,10 @@
 #home {
-    display: inline-block;
+    padding: 0;
+//    display: inline-block;
     margin: auto;
-    position: absolute;
-    height: 75%;
-    top: 0; left: 0; bottom: 0; right: 0;
-}
-
-#luckybolt-logo {
-    width: 300px;
+//    position: absolute;
+//    height: 80%;
+//    top: 0; left: 0; bottom: 0; right: 0;
 }
 
 #main-alert {
@@ -17,4 +14,18 @@
 .danger-text {
     color: red;
     font-weight: bold;
+}
+
+.stay-centered {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.slide-left {
+    -moz-transition: margin-left 1s, margin-right 1s;
+    -webkit-transition: margin-left 1s, margin-right 1s;
+    -o-transition: margin-left 1s, margin-right 1s;
+    transition: margin-left 1s, margin-right 1s;
+    margin-left: 0%;
+    margin-right: 75%;
 }

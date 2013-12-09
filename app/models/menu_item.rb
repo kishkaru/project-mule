@@ -20,4 +20,11 @@ class MenuItem < ActiveRecord::Base
         return item.vendor
     end
 
+    def create_order(qty)
+        item_order = ItemOrder.create(:quantity => qty)
+        item_order.menu_item = self
+        item_order.save!
+        return item_order
+    end
+
 end

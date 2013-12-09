@@ -1,0 +1,16 @@
+%h1 Listing orders
+= paginate @orders
+%table.table.table-centered
+  %tr
+    %th User
+    %th Email
+    %th Transaction ID
+    %th
+  - @orders.each do |order|
+    %tr
+      %td= order.user.full_name
+      %td= order.user.email
+      %td= order.transaction_id
+      %td= link_to 'Show', order, :class =>  "btn btn-info btn-sm"
+= paginate @orders
+%br/

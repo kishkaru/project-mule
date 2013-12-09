@@ -51,6 +51,30 @@ Projectmule::Application.routes.draw do
 
     post '/remove_item/:item_to_remove', :to => 'items#removeItemFromCart', :as => :remove_item_from_cart
 
+    post '/pay', :to => 'cart#pay', :as => :pay
+
+    get '/order_receipt', :to => 'orders#receipt', :as => :order_receipt
+
+    get '/account', :to => 'users#account', :as => :account
+
+    get '/account/credit_cards', :to => 'credit_cards#index', :as => :edit_credit_cards
+
+    get '/account/add_credit_card', :to => 'credit_cards#new', :as => :new_credit_card
+
+    post '/account/add_credit_card', :to => 'credit_cards#create', :as => :create_credit_card
+
+    post '/account/set_default_credit_card', :to => 'credit_cards#setDefault', :as => :set_default_credit_card
+
+    get '/account/orders', :to => 'orders#user_orders', :as => :user_orders
+
+    delete '/destroy_credit_card/:id', :to => 'credit_cards#destroy', :as => :destroy_credit_card
+
+    post '/cart/change_credit_card', :to => 'credit_cards#changeCreditCard', :as => :change_credit_card
+
+    get '/cart/change_credit_card', :to => 'credit_cards#creditCardSelection', :as => :credit_card_selection
+
+    post '/cart/new_credit_card', :to => 'credit_cards#useNewCreditCard', :as => :use_new_credit_card
+
     root :to => 'main#home'
 
     # The priority is based upon order of creation:

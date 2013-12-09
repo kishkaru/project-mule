@@ -8,8 +8,14 @@ class Menu < ActiveRecord::Base
     def self.new_from_template(template_id, params=HashWithIndifferentAccess.new)
         template = Menu.find(template_id)
         new_menu = Menu.new(params)
-        new_menu.items = template.items
+        new_menu.items = template.cloned_items
         return new_menu
+    end
+
+    def cloned_items
+        return items.collect do |menu_item|
+            menu_item.item.create_menu_item(quantity: menu_item.quantity)
+        end
     end
 
     def add_items(items_to_add, quantities)

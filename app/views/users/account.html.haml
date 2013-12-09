@@ -1,0 +1,40 @@
+%br
+- if user_signed_in?
+  %div
+    %a.float-right{href: edit_user_registration_path}Edit account info
+    %h4 Account Info
+  %br
+  %strong Name
+  %br
+  = current_user.first_name
+  = current_user.last_name
+  %br
+  %br
+  %strong Email
+  %br
+  = current_user.email
+  %br
+  %br
+  %strong Phone number
+  %br
+  = current_user.phone_number.asString
+  %br
+  %br
+  %br
+  = render 'credit_cards/all-cards'
+  %br
+  %br
+  %br
+  %div
+    %a.float-right{href: user_orders_path}View all
+    %h4 Recent Orders
+  %br
+  %table.table.table-centered
+    %tr
+      %th Date
+      %th Amount
+    - current_user.orders.take(5).each do |order|
+      %tr
+        %td= order.created_at
+        %td $33.00
+

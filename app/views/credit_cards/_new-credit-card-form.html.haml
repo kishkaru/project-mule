@@ -1,0 +1,5 @@
+#new-credit-card-errors
+= form_tag use_new_credit_card_path, :method => :post, :id => "new-cc-form" do |f|
+  = render 'credit_cards/credit-card-info-fields'
+  %br
+  = submit_tag "Save new credit card", {:class => "btn btn-link"}

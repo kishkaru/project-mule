@@ -2,29 +2,34 @@
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
   %div
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
+    %div.inline-block
+      = f.label :first_name
+      %br/
+      = f.text_field :first_name, {:class => "form-control name-field first-name-field"}
+    %div.inline-block
+      = f.label :last_name
+      %br/
+      = f.text_field :last_name, {:class => 'form-control name-field'}
+  %br
   %div
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  %div
-    = f.label :phone_number
-    %br/
-    = f.text_field :phone_number, {:class => 'bfh-phone', 'data-format' => '+1 (ddd) ddd-dddd'}
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
+    %div.inline-block
+      = f.label :email
+      %br/
+      = f.email_field :email, :autofocus => true, :class => "form-control email-field"
+    %div.inline-block
+      = f.label :phone_number
+      %br/
+      = f.text_field :phone_number, {:class => 'bfh-phone phone-number-field form-control', 'data-format' => '+1 (ddd) ddd-dddd'}
   %br/
   %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %div= f.submit "Sign up"
+    %div.inline-block
+      = f.label :password
+      %br/
+      = f.password_field :password, {:class => "form-control password-field"}
+    %div.inline-block
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, {:class => "form-control password-field"}
+  %br
+  %div= f.submit "Sign up", {:class => "btn btn-default"}
 = render "devise/shared/links"

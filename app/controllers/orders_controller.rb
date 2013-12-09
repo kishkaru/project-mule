@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,4 +20,13 @@ class OrdersController < ApplicationController
       format.json { render json: @order }
     end
   end
+
+  def receipt
+  end
+
+  # Shows the logged in user all their orders
+  def user_orders
+    @orders = current_user.orders
+  end
+
 end

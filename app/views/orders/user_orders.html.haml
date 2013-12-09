@@ -1,0 +1,13 @@
+%br
+%h4 Recent Orders
+%br
+%table.table.table-centered
+  %tr
+    %th Date
+    %th Amount
+  - current_user.orders.each do |order|
+    %tr
+      %td= order.created_at
+      %td $33.00
+%br
+= link_to "Back", account_path

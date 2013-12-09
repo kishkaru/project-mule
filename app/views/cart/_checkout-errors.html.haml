@@ -1,0 +1,11 @@
+- if @credit_card_errors.present? || @user_errors.present?
+  #checkout-errors.alert.alert-danger
+    - if @credit_card_errors.present?
+      %ul
+      - @credit_card_errors.each do |error|
+        %li
+          = error.message
+    - if @user_errors.present?
+      -  @user_errors.full_messages.each do |msg|
+        %li
+          = msg
