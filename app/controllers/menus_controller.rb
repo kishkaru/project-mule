@@ -43,10 +43,10 @@ class MenusController < ApplicationController
     # POST /menus
     # POST /menus.json
     def create
-        @delivery_areas = DeliveryArea.where(name: params[:menu].delete(:delivery_areas))
-        @items = Item.where(id: params[:menu].delete(:items)).uniq
-        @item_quantities = params[:menu].delete(:item_quantities) || {}
-        template = params[:menu].delete(:template)
+        @delivery_areas = DeliveryArea.where(name: params[:menu_options].delete(:delivery_areas))
+        @items = Item.where(id: params[:menu_options].delete(:items)).uniq
+        @item_quantities = params[:menu_options].delete(:item_quantities) || {}
+        template = params[:menu_options].delete(:template)
         if template.blank? || template == "blank" || template.to_i < 1
             @menu = Menu.new(params[:menu])
         else
@@ -69,9 +69,9 @@ class MenusController < ApplicationController
     # PUT /menus/1
     # PUT /menus/1.json
     def update
-        @delivery_areas = DeliveryArea.where(name: params[:menu].delete(:delivery_areas))
-        @items = Item.where(id: params[:menu].delete(:items)).uniq
-        @item_quantities = params[:menu].delete(:item_quantities) || {}
+        @delivery_areas = DeliveryArea.where(name: params[:menu_options].delete(:delivery_areas))
+        @items = Item.where(id: params[:menu_options].delete(:items)).uniq
+        @item_quantities = params[:menu_options].delete(:item_quantities) || {}
         @menu = Menu.find(params[:id])
 
         respond_to do |format|

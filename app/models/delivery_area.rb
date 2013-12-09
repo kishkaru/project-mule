@@ -7,16 +7,14 @@ class DeliveryArea < ActiveRecord::Base
     has_many :delivery_points
 
     def add_delivery_points(points_to_add)
-        return if points_to_add.blank?
+        self.delivery_points = [] and return if points_to_add.blank?
         self.delivery_points.each do |point|
             if points_to_add.include?(point)
-                items_to_add = items_to_add - [point]
+                points_to_add = points_to_add - [point]
             end
         end
 
-        points_to_add.each do |point|
-            self.delivery_points << point
-        end
+        self.delivery_points = points_to_add
     end
 
 end

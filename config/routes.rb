@@ -19,7 +19,7 @@ Projectmule::Application.routes.draw do
     resources :main
     post '/area_chosen', :to => 'main#goToMenu', :as => :area_chosen
 
-    devise_for :users
+    devise_for :users, :controllers => { :registrations => "users_registration"}
 
     get '/admin/users', :to => 'users#index', :as => :users
     post '/admin/users', :to => 'users#create'

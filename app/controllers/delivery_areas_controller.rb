@@ -28,7 +28,6 @@ class DeliveryAreasController < ApplicationController
     # GET /delivery_areas/new.json
     def new
         @delivery_area = DeliveryArea.new
-        @delivery_points = DeliveryPoint.where(id: params[:delivery_area].delete(:delivery_points)).uniq if params[:delivery_area] and params[:delivery_area][:delivery_points]
 
         respond_to do |format|
             format.html # new.html.erb
@@ -45,6 +44,11 @@ class DeliveryAreasController < ApplicationController
     # POST /delivery_areas.json
     def create
         @delivery_area = DeliveryArea.new(params[:delivery_area])
+        if params[:delivery_area_options] && params[:delivery_area_options][:delivery_points]
+            @delivery_points = DeliveryPoint.where(id: params[:delivery_area_options].delete(:delivery_points)).uniq
+        else
+            @delivery_points = []
+        end
 
         respond_to do |format|
             if @delivery_area.save
@@ -62,7 +66,11 @@ class DeliveryAreasController < ApplicationController
     # PUT /delivery_areas/1.json
     def update
         @delivery_area = DeliveryArea.find(params[:id])
-        @delivery_points = DeliveryPoint.where(id: params[:delivery_area].delete(:delivery_points)).uniq
+        if params[:delivery_area_options] && params[:delivery_area_options][:delivery_points]
+            @delivery_points = DeliveryPoint.where(id: params[:delivery_area_options].delete(:delivery_points)).uniq
+        else
+            @delivery_points = []
+        end
 
         respond_to do |format|
             if @delivery_area.update_attributes(params[:delivery_area])
