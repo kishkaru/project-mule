@@ -1,6 +1,10 @@
 Projectmule::Application.routes.draw do
 
-  resources :orders
+    resources :orders do
+        member do
+            get 'items'
+        end
+    end
 
 
     resources :phone_numbers
@@ -11,11 +15,12 @@ Projectmule::Application.routes.draw do
     resources :delivery_areas do
         member do
             get 'menu'
+            get 'orders'
+            get 'pts', :as => :area_points
         end
     end
 
     #get '/delivery_areas/:id',  :as => :Choose, :to => 'delivery_points#updateCustomer'
-    get '/delivery_areas/:id/pts', :to => 'delivery_areas#pts', :as => :area_points
 
     resources :main
     post '/area_chosen', :to => 'main#goToMenu', :as => :area_chosen
