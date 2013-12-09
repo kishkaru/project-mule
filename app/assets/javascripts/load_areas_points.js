@@ -40,7 +40,7 @@ $(document).ready( function() {
         var size_parameter = width + 'x' + width;
         var center_parameter = $.trim(self.html().replace(/\n/g, ' ').replace(/ +(?= )/g,''));
         center_parameter = center_parameter.replace(/ /g, '+');
-        var zoom_parameter = '15';
+        var zoom_parameter = '16';
         var sensor_parameter = 'false';
         var url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + center_parameter + '&zoom=' + zoom_parameter + '&size=' + size_parameter + '&sensor=' + sensor_parameter;
         var img = $('<img src="'+ url +'">');
