@@ -5,17 +5,11 @@ Feature: As an admin
 Background:
         Given the admin account is set up
         And I am logged in with an admin account
-	And the following DeliveryAreas exist:
-	   |name|
-	   |F&MDistrict|
-	   |Berkeley|
-	   |Mission|
-	And I am on the menus page
-	Then I should see "Listing menus"
-	When I follow "New Menu"
-	And I press "Add Delivery Area"
-	And I follow "Create Menu"
-	Then I should see "Menu was successfully created."
+	And the following menus exist:
+	   | date |
+	   | December 7, 2013 |
+	   | December 9, 2013 |
+	   | December 10, 2013 |
 
 
 @javascript
@@ -32,21 +26,4 @@ And I should see "Edit"
 And I should see "Destroy"
 And I should see "New Menu"
 
-Scenario: Admin can view a menu
-Given I am on the menus page
-Then I should see "No Delivery Areas Set December 9th, 2013 Show"
-
-
-Scenario: Admin can edit a menu
-Given I am on the menus page
-Then I should see "No Delivery Areas Set December 9th, 2013 Show Edit"
-
-
-Scenario: Admin can destroy a menu
-Given I am on the menus page
-Then I should see "No Delivery Areas Set December 9th, 2013 Show Edit Destroy"
-
-Scenario: Admin can create a menu
-Given I am on the menus page
-Then I should see "New Menu"
 

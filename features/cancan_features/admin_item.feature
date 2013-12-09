@@ -6,10 +6,10 @@ Background:
         Given the admin account is set up
         And I am logged in with an admin account
         And the following items exist:
-    | name | vendor | price | description | quantity | expires_at |
-    | Regular_Burrito     | Chipotle | $2.50 | the usual    | 55 | 30/6/2020  |
-    | Spicy_Burrito       | Chipotle | $3.50 | on fire      | 91 | 3/3/2014   |
-    | Carne_Asada_Burrito | Chipotle | $5.50 | roasted beef | 2 | 12/3/1976  |   
+    | name | vendor | price | description | 
+    | Regular_Burrito     | Chipotle | $2.50 | the usual    | 
+    | Spicy_Burrito       | Chipotle | $3.50 | on fire      | 
+    | Carne_Asada_Burrito | Chipotle | $5.50 | roasted beef | 
 
 Scenario: Admin can see options to create, edit, show and delete an item
 
@@ -22,16 +22,16 @@ And I should see "New Item"
 
 Scenario: Admin can view an item
 Given I am on the all_items page
-Then I should see "Regular_Burrito $ 0.0 the usual 55 2020-06-30 00:00:00 UTC Show"
+Then I should see "Regular_Burrito $ 0.0 the usual Show"
 
 
 Scenario: Admin can edit a items
 Given I am on the all_items page
-Then I should see "Spicy_Burrito $ 0.0 on fire 91 2014-03-03 00:00:00 UTC Show Edit"
+Then I should see "Spicy_Burrito $ 0.0 on fire Show Edit"
 
 Scenario: Admin can destroy an ingredient
 Given I am on the all_items page
-Then I should see "Carne_Asada_Burrito $ 0.0 roasted beef 2 1976-03-12 00:00:00 UTC Show Edit Destroy"
+Then I should see "Carne_Asada_Burrito $ 0.0 roasted beef Show Edit Destroy"
 
 Scenario: Admin can create an item
 Given I am on the all_items page

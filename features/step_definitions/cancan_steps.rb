@@ -15,7 +15,7 @@ Then(/^I should see a popup window$/) do
  page.evaluate_script('window.confirm = function() {return true;}')
 end
 
-Given(/^a menu with the following delivery areas:$/) do |menu_table|
+Given(/^the following menus exist:$/) do |menu_table|
   menu_table.hashes.each do |menu|
     Menu.create!(menu)  
     end
