@@ -19,6 +19,8 @@ class UserMailer < ActionMailer::Base
   end
 
   def order_ready(order)
+    @order = order
+
     email_list = Array.new
     order.customers.each do |customer|
       email_list << customer.email

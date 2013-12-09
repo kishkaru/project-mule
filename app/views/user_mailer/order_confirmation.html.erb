@@ -4,7 +4,7 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h2>ProjectMule Order Confirmation, <%= @order.created_at %></h2>
+<h2>LuckyBolt Order Confirmation, <%= @order.created_at %></h2>
 
 <h3>Thank you for your order! Below is your order summary. </h3>
 <h4>Order Summary </h4>
@@ -16,6 +16,7 @@
           <th> Vendor </th>
           <th> Quantity </th>
           <th> Item Price </th>
+          <th> Total Price </th>
         </tr>
     </thead>
     <tbody>
@@ -26,11 +27,15 @@
             <td> <%= item.vendor.name %> </td>
             <td> <%= order_item.quantity %> </td>
             <td> <%= number_to_currency item.price %> </td>
+            <td> <%= number_to_currency item.price*order_item.quantity %> </td>
         </tr>
         <% end %>
     </tbody>
 </table>
-<p>Total: <%= @order.total %></p>
+<p>Subtotal: <%= number_to_currency @order.subtotal %> <br>
+Tax: <%= number_to_currency @order.tax_total %> <br>
+Total: <%= number_to_currency @order.total %>
+</p>
 
 <p>
   <h4>Payment Information </h4>
@@ -44,10 +49,9 @@
   <h4>Pickup Information </h4>
   You will recieve an email or text message when your order is ready for pickup
   at the following delivery point: <br>
-  __UC BERKELEY__
-
+  __PLACEHOLDER__
 </p>
-<p>Thanks for joining and have a great day!</p>
+<p>Thanks and have a wonderful lunch!</p>
 
 </body>
 </html>

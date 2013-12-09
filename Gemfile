@@ -43,6 +43,7 @@ gem 'haml'
 gem 'devise'
 gem 'figaro'
 gem 'braintree'
+gem 'twilio-ruby'
 
 # Use unicorn as the web server
 # gem 'unicorn'
