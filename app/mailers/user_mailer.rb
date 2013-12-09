@@ -9,11 +9,13 @@ class UserMailer < ActionMailer::Base
   end
 
   def order_confirmation(order, transaction)
-    @user = order.user
-    @items = order.item_orders
+    @order = order
+    @transaction = transaction
+    @user = @order.user
+    @items = @order.item_orders
     email_with_name = "#{@user.first_name} #{@user.last_name} <#{@user.email}>"
 
-    mail(to: email_with_name, subject: "Order Confirmation")
+    mail(to: email_with_name, subject: "Order Confirmation #{@order.created_at}")
   end
 
   def order_ready(order)

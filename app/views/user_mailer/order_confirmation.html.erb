@@ -4,14 +4,50 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>ProjectMule Order Confirmation, <%= @user.first_name %></h1>
+<h2>ProjectMule Order Confirmation, <%= @order.created_at %></h2>
+
+<h3>Thank you for your order! Below is your order summary. </h3>
+<h4>Order Summary </h4>
+
+<table>
+    <thead>
+        <tr>
+          <th> Name </th>
+          <th> Vendor </th>
+          <th> Quantity </th>
+          <th> Item Price </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @items.each do |order_item| %>
+            <% item = order_item.item %>
+        <tr>
+            <td> <%= item.name %> </td>
+            <td> <%= item.vendor.name %> </td>
+            <td> <%= order_item.quantity %> </td>
+            <td> <%= number_to_currency item.price %> </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<p>Total: <%= @order.total %></p>
+
 <p>
-  You have successfully signed up to projectmule.herokuapp.com,
-  your username is: <%= @user.email %>.<br/>
+  <h4>Payment Information </h4>
+  Transaction Date: <%= @transaction.created_at %> <br>
+  Transaction Amount: <%= @transaction.amount %> <br>
+  Card Type: <%= @transaction.credit_card_details.card_type %> <br>
+  Card Number: <%= @transaction.credit_card_details.masked_number %> <br>
 </p>
+
 <p>
-  To login to the site, just follow this link: <%= @url %>.
+  <h4>Pickup Information </h4>
+  You will recieve an email or text message when your order is ready for pickup
+  at the following delivery point: <br>
+  __UC BERKELEY__
+
 </p>
 <p>Thanks for joining and have a great day!</p>
+
 </body>
 </html>
