@@ -6,7 +6,6 @@ Feature: Checkout and pay for logged in user with default credit card
     I want to checkout
     
     Background:
-        Given slow for selenium
         Given the following vendors exist:
         | name | address | email|
         | Chipotle | 123 Dwight way, Berkeley, CA, 1234 | chipotle@c.com |

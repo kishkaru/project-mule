@@ -6,7 +6,6 @@ Feature: Delete credit cards
 	I want to delete my stored credit cards
 
 	Background:
-        Given slow for selenium
 		Given a user is logged in and has the following credit cards set up:
         | number           | exp_date |
         | 4111111111111111 | 12/2020  |

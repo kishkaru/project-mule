@@ -6,7 +6,6 @@ Feature: View cart and edit items
     I want to see my cart
     
     Background:
-        Given slow for selenium
         Given the following items exist:
         | name                | vendor   | price | description  |
         | Regular Burrito     | Chipotle | 2.50  | the usual    |

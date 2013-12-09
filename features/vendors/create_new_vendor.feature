@@ -11,7 +11,6 @@ Scenario: get form to create new Vendor
 
 @javascript
 Scenario: successfully create a new Vendor
-    Given slow for selenium
     Given I am on the create_new_vendor page
     And I fill in "Name" with "Chipotle"
     And I fill in "Email" with "bandito@chipotle.com"

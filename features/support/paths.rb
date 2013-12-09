@@ -98,6 +98,12 @@ module NavigationHelpers
         when /^the add new credit card page$/
             new_credit_card_path
 
+        when /^the edit user page$/
+            edit_user_registration_path
+
+        when /^the account page$/
+            account_path
+
 
             #number Add more mappings here.
             # Here is an example that pulls values out of the Regexp:

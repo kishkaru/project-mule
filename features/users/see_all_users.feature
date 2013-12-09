@@ -6,7 +6,6 @@ Feature: see all the users
     I want to see all the users of my site
     
     Background:
-        Given slow for selenium
         Given the admin account is set up
         And a non admin account is set up
         And the following user accounts exist

@@ -9,7 +9,6 @@ Feature: create a user
 
     @javascript
     Scenario: create a user
-        Given slow for selenium
         Given I am logged in with an admin account
         And I am on the users page
         And I follow "New User"

@@ -6,7 +6,6 @@ Feature: Add credit cards
 	I want to add credit cards
 
 	Background:
-        Given slow for selenium
 		Given a non admin account is set up
         And I am logged in with a user account
 

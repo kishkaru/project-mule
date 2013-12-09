@@ -106,6 +106,7 @@ class CartController < ApplicationController
                         order = createOrder(new_user, items, transaction_result)
                         clearCart
                         sendConfirmationEmail(order)
+                        sign_in new_user
                         render text: order.id.to_s  and return
                     else
 
