@@ -29,6 +29,7 @@ class CreditCardsController < ApplicationController
 			if alreadyInVault(credit_card_result.credit_card.unique_number_identifier, user.braintree_token)
 				if Braintree::CreditCard.delete(credit_card_result.credit_card.token)
 					flash[:error] = 'Card already exists'
+					render 'new' and return
 				else
 					flash[:error] = "Error: Credit card ending in #{cc.last_four} was not deleted"
 				end
