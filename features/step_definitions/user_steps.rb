@@ -61,5 +61,6 @@ Given /I am logged in with a user account/ do
 end
 
 Given /I logout/ do
-    visit path_to('logout')
+    click_link('user-menu')
+    click_link('logout-link')
 end
