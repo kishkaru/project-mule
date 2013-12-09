@@ -29,7 +29,7 @@
                   %td
                     %button.remove-from-delivery-area.btn.btn-xs.btn-primary{data: {"delivery-point-id" => delivery_point.id}}
                       Remove
-                  %input{type: "hidden", name: "menu[delivery_points][]", value: delivery_point.id }
+                  %input{type: "hidden", name: "delivery_area_options[delivery_points][]", value: delivery_point.id }
 
       .actions
         = f.submit(:class =>  "btn btn-primary btn-sm")
