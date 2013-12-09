@@ -102,7 +102,7 @@ $( function() {
 				data: payment_form.serialize(),
 				success: function(data) {
 					$('#payment-progress-bar').addClass('hidden');
-					var num = /\d+/;
+					var num = /^\d+$/;
 					if (data.match(num)) {
 						window.location = '/orders/' + data;
 					} else if (data == "empty cart") {
@@ -185,7 +185,7 @@ $( function() {
 				url: new_cc_form.attr('action'),
 				data: new_cc_form.serialize(),
 				success: function(data) {
-					var cc_last_four = /[0-9]{4}/;
+					var cc_last_four = /^[0-9]{4}$/;
 					if (data.match(cc_last_four)) {
 						$('#new-credit-card-errors').empty();
 						$('#new-credit-card').hide();

@@ -1,8 +1,11 @@
 Given /the following items exist/ do |items_table|
     items_table.hashes.each do |item|
         vendor = item.delete("vendor")
+        qty = item.delete("quantity")
         i = Item.create!(item)
-        i.create_menu_item
+        i.vendor = Vendor.find_by_name(vendor)
+        i.save!
+        i.create_menu_item({:quantity => qty})
     end
 end
 
