@@ -103,7 +103,7 @@ class CartController < ApplicationController
                     transaction_result = braintreeTransactionWithDefault(new_user, totals[:total])
 
                     if transaction_result.success?
-                        order = createOrder(user, items, result)
+                        order = createOrder(new_user, items, transaction_result)
                         clearCart
                         sendConfirmationEmail(order)
                         render text: order.id.to_s  and return

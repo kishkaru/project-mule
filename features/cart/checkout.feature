@@ -5,14 +5,19 @@ Feature: Checkout and pay
     I want to checkout
     
     Background:
+
+        Given the following vendors exist:
+        | name | address | email|
+        | Chipotle | 123 Dwight way, Berkeley, CA, 1234 | chipotle@c.com |
+
     
-        Given the following items exist:
-        | name | vendor | price | description | quantity | expires_at |
-        | Regular Burrito | Chipotle | 2.50 | the usual | 55 | 30/6/2020 |
-        | Spicy Burrito | Chipotle | 3.50 | on fire | 91 | 3/3/2014 |
-        | Carne Asada Burrito | Chipotle | 5.50 | roasted beef | 2 | 12/3/1976 |
+        And the following items exist:
+        | name | vendor | price | description | quantity |
+        | Regular Burrito | Chipotle | 2.50 | the usual | 55 |
+        | Spicy Burrito | Chipotle | 3.50 | on fire | 91 |
+        | Carne Asada Burrito | Chipotle | 5.50 | roasted beef | 2 |
         
-        Given the following delivery points exist:
+        And the following Delivery Points exist:
         | address | latitude | longitude |
         | 123 Dwight way, Berkeley, CA, 1234 | 12 | 23 |
 
@@ -22,39 +27,33 @@ Feature: Checkout and pay
         | Spicy Burrito | 2 |
 
         And I am on the home page
-        And I follow "Cart"
-        And I press "Pay"
+        And I follow "cart_link"
         
     @javascript
     Scenario: See checkout for guest
-        Then I should see "Enter Payment Info"
-        And I should see "Name on card"
+        Given I press "Checkout"
+        Then I should see "Credit Card Info"
         And I should see "Card number"
         And I should see "Exp date"
-        And I should see "CVV"
+        And I should see "First name"
+        And I should see "Last name"
         And I should see "Email"
-        And I should see "Phone"
+        And I should see "Phone number"
+        And I should see "Password"
+        And I should see "Password confirmation"
         
     @javascript
-    Scenario: Submit payment info and order
-        Given I fill in "checkout_first_name" with "Billy"
-        And I fill in "checkout_last_name" with "Bob"
-        And I fill in "checkout_card_number" with "1234567812345678"
-        And I fill in "checkout_exp_date" with "12/2200"
-        And I fill in "checkout_cvv" with "123"
-        And I press "Continue"
-        Then I should see "Order Summary"
-        And I should see "Items"
-        And I should see "Price"
+    Scenario: Place order as new guest, success
+        Given I press "Checkout"
+        And I fill in "user_first_name" with "Billy"
+        And I fill in "user_last_name" with "Bob"
+        And I fill in "user_email" with "billy@bob.com"
+        And I fill in "user_phone_number" with "+1 (123) 123-1232"
+        And I fill in "user_password" with "aaaaaaaa"
+        And I fill in "user_password_confirmation" with "aaaaaaaa"
+        And I fill in "credit_card_card_number" with "4111-1111-1111-1111"
+        And I fill in "credit_card_exp_date" with "12/2020"
+        And I press "Pay"
+        Then I should see "Order #"
         And I should see "Regular Burrito"
         And I should see "Spicy Burrito"
-        And I should see "2"
-        And I should see "Total"
-        And I should see "$12.00"
-        And I should see "$2.50"
-        And I should see "$3.50"
-        And I should see "Pickup point"
-        And I should see "Credit card information"
-        And I should see "Billy Bob"
-        And I should see "************5678"
-        And I should see "123 Dwight way Berkeley, CA 1234"
