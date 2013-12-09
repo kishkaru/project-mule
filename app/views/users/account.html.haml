@@ -26,8 +26,7 @@
   %br
   %br
   %div
-    %h4 Recent Orders
-  %br
+    %h4 Order History
   = paginate @orders
   %table.table.table-centered
     %tr
@@ -36,7 +35,7 @@
       %th Amount
     - @orders.each do |order|
       %tr
-        %td= link_to order.id, order
+        %td= link_to '#' + order.id.to_s.rjust(8, "0"), order
         %td= order.created_at.to_formatted_s(:long_ordinal)
         %td= number_to_currency order.total
   = paginate @orders
