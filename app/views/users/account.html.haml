@@ -26,15 +26,17 @@
   %br
   %br
   %div
-    %a.float-right{href: user_orders_path}View all
     %h4 Recent Orders
   %br
+  = paginate @orders
   %table.table.table-centered
     %tr
+      %th Order#
       %th Date
       %th Amount
-    - current_user.orders.take(5).each do |order|
+    - @orders.each do |order|
       %tr
-        %td= order.created_at
-        %td $33.00
-
+        %td= link_to order.id, order
+        %td= order.created_at.to_formatted_s(:long_ordinal)
+        %td= number_to_currency order.total
+  = paginate @orders
