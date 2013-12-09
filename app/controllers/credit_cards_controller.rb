@@ -98,9 +98,20 @@ class CreditCardsController < ApplicationController
             @credit_card_errors = credit_card_store_result.errors
             render :partial => 'cart/checkout-errors'
         else
-            new_cc = associateStoredCreditCard(credit_card_store_result.credit_card, user, false)
-            setDefaultCC(user, new_cc)
-            render :text => user.defaultCreditCard.last_four
+        	if alreadyInVault(credit_card_store_result.credit_card.unique_number_identifier, user.braintree_token)
+        		delete_result = Braintree::CreditCard.delete(credit_card_store_result.credit_card.token)
+				if delete_result
+					@duplicate_error = 'Card already exists'
+					render :partial => 'cart/checkout-errors'
+				else
+					@credit_card_errors = credit_card_store_result.errors
+					render :partial => 'cart/checkout-errors'
+				end
+			else
+	            new_cc = associateStoredCreditCard(credit_card_store_result.credit_card, user, false)
+	            setDefaultCC(user, new_cc)
+	            render :text => user.defaultCreditCard.last_four
+	        end
         end
     end
 
