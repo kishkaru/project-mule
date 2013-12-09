@@ -10,12 +10,14 @@ module CheckoutHelper
 	end
 
 	# Creates and saves the order for USER using ITEMS
-	# and the braintree transaction result RESULT
+	# and the braintree transaction result RESULT. Returns
+	# the order made
 	def createOrder(user, items, result)
 		new_order = Order.create_with_items(items)
         new_order.user = user
         new_order.transaction_id = result.transaction.id
         new_order.save!
+        return new_order
 	end
 
 end
