@@ -35,10 +35,36 @@
 
 #geographic-content {
     margin-top: 50px;
-        table {
+
+    table {
+        overflow: hidden;
+        margin: 0;
+
+        tr {
             background: rgba(255, 255, 255, .95);
         }
+    }
+
+    #map img {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .rounded-border {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
 }
 
 #go {
+    margin: 0 10%;
+    width: 80%;
+    height: 4em;
+
+    span {
+        line-height: 1.5;
+        font-size: 1.9em;
+    }
 }
