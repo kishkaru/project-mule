@@ -9,16 +9,10 @@
     = f.label :last_name
     %br/
     = f.text_field :last_name
-  %br/
-  %b Phone number
-  %br/
-  = f.fields_for :phone_number_attributes do |p|
-    %div
-      = p.text_field :country, {:class => "bfh-phone", "data-format" => "dd", :value => "1", :size => 2}
-      = p.text_field :area, {:class => "bfh-phone area-text", "data-format" => "ddd", :size => 3, :placeholder => "Area"}
-      = p.text_field :number, {:class => "bfh-phone number-text", "data-format" => "ddd-dddd", :size => 8, :placeholder => "Number"}
-      = p.text_field :extension, {:class => "bfh-phone extension-text", "data-format" => "ddddddd", :size => 7, :placeholder => "Ext (Optional)"}
-  %br/
+  %div
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number, {:class => 'bfh-phone', 'data-format' => '+1 (ddd) ddd-dddd'}
   %div
     = f.label :email
     %br/
