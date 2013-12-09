@@ -38,7 +38,10 @@
       %tr
         %th Total
         %td= number_to_currency(@order.total)
-
-= link_to 'Edit', edit_order_path(@order), class: "btn btn-sm btn-warning"
-|
-\#{link_to 'Back', orders_path, class: "btn btn-sm btn-info"}
+- if user_signed_in?
+  -if current_user.admin?
+    = link_to 'Edit', edit_order_path(@order), class: "btn btn-sm btn-warning"
+    |
+    \#{link_to 'Back', orders_path, class: "btn btn-sm btn-info"}
+  - else
+    = link_to "View all orders", user_orders_path, class: 'btn btn-link'
