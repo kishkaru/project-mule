@@ -14,16 +14,30 @@ Given /the following user accounts exist/ do |users_table|
 end
 
 Given /the admin account is set up/ do
-    user = User.create(:email => 'admin@admin.com',
+    user = User.create!(:email => 'admin@admin.com',
         :password => 'aaaaaaaa',
-        :password_confirmation => 'aaaaaaaa')
+        :password_confirmation => 'aaaaaaaa',
+        :first_name => 'bob',
+        :last_name => 'bobby',
+        :phone_number_attributes => {
+            :area => '123',
+            :number => '123-1231',
+            :country => '1'
+            })
     user.update_attribute(:role, User::ADMIN)
 end
 
 Given /a non admin account is set up/ do
-    user = User.create(:email => 'a@b.com',
+    user = User.create!(:email => 'a@b.com',
         :password => 'bbbbbbbb',
-        :password_confirmation => 'bbbbbbbb')
+        :password_confirmation => 'bbbbbbbb',
+        :first_name => 'bob',
+        :last_name => 'bobby',
+        :phone_number_attributes => {
+            :area => '123',
+            :number => '123-1231',
+            :country => '1'
+            })
     user.update_attribute(:role, User::CUSTOMER)
 end
 

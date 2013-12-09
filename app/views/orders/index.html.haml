@@ -2,15 +2,17 @@
 = paginate @orders
 %table.table.table-centered
   %tr
+    %th Order#
+    %th Date
     %th User
     %th Email
     %th Transaction ID
-    %th
   - @orders.each do |order|
     %tr
-      %td= order.user.full_name
+      %td= link_to '#' + order.id.to_s.rjust(8, "0"), order
+      %td= order.created_at.to_formatted_s(:long_ordinal)
+      %td= link_to order.user.full_name, order.user
       %td= order.user.email
       %td= order.transaction_id
-      %td= link_to 'Show', order, :class =>  "btn btn-info btn-sm"
 = paginate @orders
 %br/
