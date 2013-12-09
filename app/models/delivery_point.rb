@@ -7,6 +7,7 @@ class DeliveryPoint < ActiveRecord::Base
     belongs_to :delivery_area
 
     has_one :address, as: :addressable, :dependent => :destroy
+    has_many :orders
 
     accepts_nested_attributes_for :address, :update_only => true
 
