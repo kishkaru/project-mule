@@ -27,14 +27,16 @@ Feature: Checkout and pay
         | Spicy Burrito | 2 |
 
         And I am on the home page
-        And I follow "cart_link"
+        
         
     @javascript
     Scenario: See checkout for guest
-        Given I press "Checkout"
+        Given I follow "cart_link"
+        And I press "Checkout"
         Then I should see "Credit Card Info"
         And I should see "Card number"
         And I should see "Exp date"
+        And I should see "Guest Info"
         And I should see "First name"
         And I should see "Last name"
         And I should see "Email"
@@ -44,7 +46,8 @@ Feature: Checkout and pay
         
     @javascript
     Scenario: Place order as new guest, success
-        Given I press "Checkout"
+        Given I follow "cart_link"
+        And I press "Checkout"
         And I fill in "user_first_name" with "Billy"
         And I fill in "user_last_name" with "Bob"
         And I fill in "user_email" with "billy@bob.com"
@@ -60,7 +63,8 @@ Feature: Checkout and pay
 
     @javascript
     Scenario: Plase order as guest with invalid user info
-        Given I press "Checkout"
+        Given I follow "cart_link"
+        And I press "Checkout"
         And I press "Pay"
         Then I should see "Email can't be blank"
         And I should see "Password can't be blank"
@@ -71,7 +75,8 @@ Feature: Checkout and pay
 
     @javascript
     Scenario: Place order as guest with invalid credit card info
-        Given I press "Checkout"
+        Given I follow "cart_link"
+        And I press "Checkout"
         And I fill in "user_first_name" with "Billy"
         And I fill in "user_last_name" with "Bob"
         And I fill in "user_email" with "billy@bob.com"
@@ -81,4 +86,37 @@ Feature: Checkout and pay
         And I press "Pay"
         Then I should see "Credit card number is required"
         And I should see "Expiration date is required"
+
+    @javascript
+    Scenario: See checkout for logged in user without default credit card
+        Given a non admin account is set up
+        And I am logged in with a user account
+        And I follow "cart_link"
+        And I press "Checkout"
+        Then I should see "Credit Card Info"
+        And I should not see "Guest Info"
+
+    @javascript
+    Scenario: Place order as logged in user without default credit card
+        Given a non admin account is set up
+        And I am logged in with a user account
+        And I follow "cart_link"
+        And I press "Checkout"
+        And I fill in "credit_card_card_number" with "4111-1111-1111-1111"
+        And I fill in "credit_card_exp_date" with "12/2020"
+        And I press "Pay"
+        Then I should see "Order #"
+        And I should see "Regular Burrito"
+        And I should see "Spicy Burrito"
+
+    @javascript
+    Scenario: Place order as logged in user without default credit card and invalid credit card info
+        Given a non admin account is set up
+        And I am logged in with a user account
+        And I follow "cart_link"
+        And I press "Checkout"
+        And I press "Pay"
+        Then I should see "Credit card number is required"
+        And I should see "Expiration date is required"
+
 
