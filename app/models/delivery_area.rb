@@ -5,6 +5,7 @@ class DeliveryArea < ActiveRecord::Base
     belongs_to :user, :class_name => "User"
     belongs_to :menu
     has_many :delivery_points
+    has_many :orders, :through => :delivery_points
 
     def add_delivery_points(points_to_add)
         self.delivery_points = [] and return if points_to_add.blank?
