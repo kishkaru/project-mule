@@ -34,6 +34,10 @@ module NavigationHelpers
         when /^the create_new_ingredient page$/
             new_ingredient_path
 
+	### ORDER ###
+	when /^the orders page$/
+	    orders_path
+
         ### PHONE NUMBER ###
         when /^the all_phone_numbers page$/
             phone_numbers_path

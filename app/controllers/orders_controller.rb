@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
-  # GET /orders
+    load_and_authorize_resource :only => :show
+
+
+# GET /orders
   # GET /orders.json
   def index
     @orders = Order.all

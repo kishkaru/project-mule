@@ -43,7 +43,8 @@ class Ability
     end
 
     if user.role == User::SERVER
-      can :index, :order
+      can :index, :orders 
+      can :show, :orders
     end
   end
 end

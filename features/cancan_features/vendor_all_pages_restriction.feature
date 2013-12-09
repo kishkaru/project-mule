@@ -12,9 +12,8 @@ Background:
   | bbbbbbbb | bbbbbbbb              | user     | q@b.com |
   | cccccccc | cccccccc              | customer | d@b.com |
   | dddddddd | dddddddd              | server   | d@s.com |
-  | eeeeeeee | eeeeeeee              | vendor   | e@s.com |
+  | vvvvvvvv | vvvvvvvv              | vendor   | v@s.com |
   
-  Then I should be on the home page
 
         
 
@@ -24,7 +23,7 @@ Then I should be on the home page
 
 
 Scenario: Vendor cannot view all menus page
-Given I am on the all_menus page
+Given I am on the menus page
 Then I should be on the home page
 
 Scenario: Vendor cannot see all vendors page

@@ -3,10 +3,11 @@ Feature: As a vendor
         I want to have limited access around the website
 
 Background:
-  Given a menu with the following items
-  | name    | price | description             | quantity | expires_at |
-  | Fries & Shake | 0.39 | Nostaliga | 10 | 11|
-
+  And the following menus exist:
+	   | date |
+	   | December 7, 2013 |
+	   | December 9, 2013 |
+	   | December 10, 2013 |
 
   And a non admin account is set up
   And I am logged in with a user account
@@ -19,5 +20,5 @@ Background:
   | eeeeeeee | eeeeeeee              | vendor   | e@s.com |
   
   Scenario: Cannot place an order
-  Given I am viewing the menu
+  Given I am on the menus page
   Then I should not see "Add to cart"
