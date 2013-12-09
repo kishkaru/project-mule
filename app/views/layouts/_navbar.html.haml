@@ -8,6 +8,15 @@
     %ul.nav.navbar-nav.navbar-left
       %a{href: root_path}
         %img#logo{:src => "/logo.png"}
+      #for
+        %span for
+        %div
+          %select.form-control
+            - unless current_user && current_user.pickup_point
+              %option{value: 0} Find Your Location Below!
+            - DeliveryArea.select([:id, :name]).each do |delivery_area|
+              %option{selected: current_user && current_user.pickup_point && delivery_area.id == current_user.pickup_point.delivery_area.id, value: delivery_area.id}
+                = delivery_area.name
     %ul.nav.navbar-nav.navbar-right
       %li
         %a{ href: "#create-menu", data: {toggle: "modal", target: "#create-menu"} } Create Menu

@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20131208203714) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "braintree_token"
+    t.integer  "pickup_point_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
