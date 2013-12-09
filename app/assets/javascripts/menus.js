@@ -6,7 +6,7 @@ $( function() {
 
     function add_delivery_area(delivery_area) {
         $("#selected-delivery_areas").append("<div class='delivery_area'>" +
-                                          "<input type='hidden' name='menu[delivery_areas][]' value='" +
+                                          "<input type='hidden' name='menu_options[delivery_areas][]' value='" +
                                           delivery_area +
                                           "'>" +
                                           "<span>" +
@@ -76,11 +76,11 @@ $( function() {
                                         "<td>" + self.data("item-name") + "</td>" +
                                         "<td>" + self.data("item-description") + "</td>" +
                                         "<td>" + self.data("item-price") + "</td>" +
-                                        "<td><input name='menu[item_quantities][" + self.data("item-id") + "]' type='number' class='form-control' value='0'></td>" +
+                                        "<td><input name='menu_options[item_quantities][" + self.data("item-id") + "]' type='number' class='form-control' value='0'></td>" +
                                         "<td>" + self.data("vendor") + "</td>" +
                                         "<td>" + "<button class='remove-from-menu btn btn-xs btn-primary' " +
                                         "data-item-id='" + self.data("item-id") + "'>" + "Remove" + "</button>" + "</td>" +
-                                        "<input type='hidden' value='" + self.data("item-id") + "' name='menu[items][]'>" +
+                                        "<input type='hidden' value='" + self.data("item-id") + "' name='menu_options[items][]'>" +
                                         "</tr>"
                                       );
         return false;

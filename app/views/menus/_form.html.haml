@@ -9,7 +9,7 @@
           #selected-delivery_areas.panel-body{}>
             - @menu.delivery_areas.each do |delivery_area|
               .delivery_area{}>
-                %input{type:"hidden", name: "menu[delivery_areas][]", value: delivery_area.name}
+                %input{type:"hidden", name: "menu_options[delivery_areas][]", value: delivery_area.name}
                 %span= delivery_area.name
                 %button.btn.btn-danger.btn-xs.remove-delivery_area
                   X
@@ -26,13 +26,13 @@
       .field
         .form-group
           %label{for: "menu-date"} What Day is this Menu For?
-          %input#menu-date.form-control{name: "menu[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.present? ? @menu.date.to_date : Date.tomorrow) }
+          %input#menu-date.form-control{name: "menu_options[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.present? ? @menu.date.to_date : Date.tomorrow) }
 
       - unless @menu.id.present?
         .field
           .form-group
             %label{for: "menu-template"} Choose a Menu to start from?
-            %select#menu-template.form-control{name: "menu[template]", multiple: "multiple"}
+            %select#menu-template.form-control{name: "menu_options[template]", multiple: "multiple"}
               %option{value: "blank", selected: true} Blank Menu
               - Menu.last(10).reverse.each do |menu|
                 %option{value: menu.id}
@@ -57,12 +57,12 @@
                   %td= item.description
                   %td= item.price
                   %td
-                    %input.form-control{name: "menu[item_quantities][#{item.item.id}]" , type:'number', value: item.quantity }
+                    %input.form-control{name: "menu_options[item_quantities][#{item.item.id}]" , type:'number', value: item.quantity }
                   %td= item.vendor.name
                   %td
                     %button.remove-from-menu.btn.btn-xs.btn-primary{data: {"item-id" => item.id}}
                       Remove
-                  %input{ type: "hidden", name: "menu[items][]", value: item.item.id }
+                  %input{ type: "hidden", name: "menu_options[items][]", value: item.item.id }
 
 
       .actions

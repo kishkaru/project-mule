@@ -44,13 +44,13 @@ class ItemsController < ApplicationController
     # POST /items.json
     def create
         ingredients = []
-        ingredients = params[:item].delete(:ingredients).collect{|name| Ingredient.find_or_create_by_name(name)} if params[:item][:ingredients]
+        ingredients = params[:item_options].delete(:ingredients).collect{|name| Ingredient.find_or_create_by_name(name)} if params[:item_options][:ingredients]
 
         @item = Item.new(params[:item])
-        @item.ingredients = ingredients
 
         respond_to do |format|
             if @item.save
+                @item.ingredients = ingredients
                 format.html { redirect_to @item, notice: 'Item was successfully created.' }
                 format.json { render json: @item, status: :created, location: @item }
             else
@@ -67,13 +67,13 @@ class ItemsController < ApplicationController
     # PUT /items/1.json
     def update
         ingredients = []
-        ingredients = params[:item].delete(:ingredients).collect{|name| Ingredient.find_or_create_by_name(name)} if params[:item][:ingredients]
+        ingredients = params[:item_options].delete(:ingredients).collect{|name| Ingredient.find_or_create_by_name(name)} if params[:item_options][:ingredients]
 
         @item = Item.find(params[:id])
-        @item.ingredients = ingredients
 
         respond_to do |format|
             if @item.update_attributes(params[:item])
+                @item.ingredients = ingredients
                 format.html { redirect_to @item, notice: 'Item was successfully updated.' }
                 format.json { head :no_content }
             else

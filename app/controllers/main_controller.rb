@@ -2,7 +2,6 @@ class MainController < ApplicationController
 
     def home
         @delivery_area = DeliveryArea.all
-        render :layout => 'splash'
     end
 
     def goToMenu
