@@ -4,7 +4,7 @@ $( function() {
 
     function add_ingredient(ingredient) {
         $("#selected-ingredients").append("<div class='ingredient'>" +
-                                          "<input type='hidden' name='item[ingredients][]' value='" +
+                                          "<input type='hidden' name='item_options[ingredients][]' value='" +
                                           ingredient +
                                           "'>" +
                                           "<span>" +
