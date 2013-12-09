@@ -29,4 +29,15 @@ Feature: Add credit cards
     	Then I should see "Credit card number is required"
         And I should see "Expiration date is required"
 
+    Scenario: Add a card that has already been added
+        Given I am on the add new credit card page
+        And I fill in "credit_card_card_number" with "4111-1111-1111-1111"
+        And I fill in "credit_card_exp_date" with "12/2020"
+        And I press "Add card"
+        And I am on the add new credit card page
+        And I fill in "credit_card_card_number" with "4111-1111-1111-1111"
+        And I fill in "credit_card_exp_date" with "12/2020"
+        And I press "Add card"
+        Then I should be on the add new credit card page
+        And I should see "Card already exists"
    

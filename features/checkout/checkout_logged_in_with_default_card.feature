@@ -78,3 +78,10 @@ Feature: Checkout and pay for logged in user with default credit card
     	And I should see "Regular Burrito"
         And I should see "Spicy Burrito"
 
+    Scenario: Try to pay with a new card that has already been added
+        Given I press "Use new credit card"
+        And I fill in "credit_card_card_number" with "4111-1111-1111-1111"
+        And I fill in "credit_card_exp_date" with "12/2020"
+        And I press "Save new credit card"
+        Then I should see "Card already exists"
+
