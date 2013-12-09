@@ -57,3 +57,28 @@ Feature: Checkout and pay
         Then I should see "Order #"
         And I should see "Regular Burrito"
         And I should see "Spicy Burrito"
+
+    @javascript
+    Scenario: Plase order as guest with invalid user info
+        Given I press "Checkout"
+        And I press "Pay"
+        Then I should see "Email can't be blank"
+        And I should see "Password can't be blank"
+        And I should see "First name can't be blank"
+        And I should see "Last name can't be blank"
+        And I should see "Phone number area code must be 3 digits"
+        And I should see "Phone number number number must be 7 digits and of the form 'ddd-dddd'"
+
+    @javascript
+    Scenario: Place order as guest with invalid credit card info
+        Given I press "Checkout"
+        And I fill in "user_first_name" with "Billy"
+        And I fill in "user_last_name" with "Bob"
+        And I fill in "user_email" with "billy@bob.com"
+        And I fill in "user_phone_number" with "+1 (123) 123-1232"
+        And I fill in "user_password" with "aaaaaaaa"
+        And I fill in "user_password_confirmation" with "aaaaaaaa"
+        And I press "Pay"
+        Then I should see "Credit card number is required"
+        And I should see "Expiration date is required"
+
