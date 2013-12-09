@@ -52,9 +52,11 @@ class UsersController < ApplicationController
     # POST /users.json
     def create
         @user = User.new
-        
+
         respond_to do |format|
             if update_user_attributes(@user)
+                AdminMailer.new_registration(@user).deliver
+                UserMailer.welcome_email(@user).deliver
                 format.html { redirect_to @user, notice: 'User was successfully created.' }
                 format.json { render json: @user, status: :created, location: @user }
             else
