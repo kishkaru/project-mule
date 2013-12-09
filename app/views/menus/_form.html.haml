@@ -26,7 +26,7 @@
       .field
         .form-group
           %label{for: "menu-date"} What Day is this Menu For?
-          %input#menu-date.form-control{name: "menu_options[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.present? ? @menu.date.to_date : Date.tomorrow) }
+          %input#menu-date.form-control{name: "menu[date]", placeholder: "Enter Date", type: "date", value: (@menu.date.present? ? @menu.date.to_date : Date.tomorrow) }
 
       - unless @menu.id.present?
         .field
