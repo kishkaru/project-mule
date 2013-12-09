@@ -94,10 +94,12 @@ $( function() {
 		payment_form.submit( function(e) {
 			var pay_button = $('#pay-button');
 			pay_button.attr('disabled', 'disabled');
+			$('#payment-progress-bar').removeClass('hidden');
 			$.ajax({type: "POST",
 				url: payment_form.attr('action'),
 				data: payment_form.serialize(),
 				success: function(data) {
+					$('payment-progress-bar').addClass('hidden');
 					if (data == "success") {
 						window.location = '/order_receipt';
 					} else if (data == "empty cart") {
