@@ -16,24 +16,12 @@
     font-weight: bold;
 }
 
-.stay-centered {
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-.slide-left {
-    -moz-transition: margin-left 1s, margin-right 1s;
-    -webkit-transition: margin-left 1s, margin-right 1s;
-    -o-transition: margin-left 1s, margin-right 1s;
-    transition: margin-left 1s, margin-right 1s;
-    margin-left: 5%;
-    width: 25%;
-    float: left;
-}
-
-#area-container {
+#areas {
+    -moz-transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
 }
 
 #point-container {
-    width: 35%;
 }
