@@ -8,11 +8,12 @@ class UserMailer < ActionMailer::Base
     mail(to: email_with_name, subject: 'Welcome to ProjectMule!')
   end
 
-  def order_confirmation(order, user)
-    @user = user
-    @email = @user.email
+  def order_confirmation(order, transaction)
+    @user = order.user
+    @items = order.item_orders
+    email_with_name = "#{@user.first_name} #{@user.last_name} <#{@user.email}>"
 
-    mail(to: @email, subject: "Order confirmation")
+    mail(to: email_with_name, subject: "Order Confirmation")
   end
 
   def order_ready(order)

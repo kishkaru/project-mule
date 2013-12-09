@@ -23,6 +23,7 @@ module CheckoutHelper
 	# Sends an email to the user who made the order ORDER
 	def sendConfirmationEmail(order)
 		transaction = Braintree::Transaction.find(order.transaction_id)
+    UserMailer.order_confirmation(order, transaction).deliver
 	end
 
 end
