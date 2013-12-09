@@ -1,4 +1,4 @@
-require 'sms-rb/lib/sms'
+require 'sms_rb/lib/sms'
 #require Rails.root.join("lib", "assets", "sms-rb", "bin", "sms.rb")
 #require File.join('..', '..', 'lib', 'assets', 'sms-rb', 'bin', 'sms.rb')
 module SmsHelper
