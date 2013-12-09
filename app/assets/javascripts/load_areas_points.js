@@ -37,7 +37,7 @@ $(document).ready( function() {
         $('#areas').addClass('col-lg-3 col-md-3');
         //$('#maps').addClass('col-lg-6 col-md-6');
         var width = $('#map').width();
-        var size_parameter = width + 'x' + width;
+        var size_parameter = width + 'x' + Math.round(width*.66);
         var center_parameter = $.trim(self.html().replace(/\n/g, ' ').replace(/ +(?= )/g,''));
         center_parameter = center_parameter.replace(/ /g, '+');
         var zoom_parameter = '16';
