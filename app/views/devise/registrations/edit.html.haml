@@ -9,11 +9,11 @@
   %div
     = f.label :last_name
     %br/
-    = f.text_field :last_name
+    = f.text_field :last_name, {:class => 'form-control name-field'}
   %div
     = f.label :phone_number
     %br/
-    = f.text_field :phone_number, {:class => 'bfh-phone', 'data-format' => '+1 (ddd) ddd-dddd',:value => @user.phone_number ? @user.phone_number.asString : ""}
+    = f.text_field :phone_number, {:class => 'bfh-phone phone-number-field form-control', 'data-format' => '+1 (ddd) ddd-dddd',:value => @user.phone_number ? @user.phone_number.asString : ""}
   %div
     = f.label :email
     %br/
