@@ -107,6 +107,7 @@ class CartController < ApplicationController
                         clearCart
                         sendConfirmationEmail(order)
                         sign_in new_user
+                        flash[:info] = 'You have been signed in with your new account!'
                         render text: order.id.to_s  and return
                     else
 
