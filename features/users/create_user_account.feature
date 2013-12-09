@@ -6,6 +6,7 @@ Feature: create customer account
     I want to make an account
     
     Background:
+        Given slow for selenium
         Given I am on the home page
         And I follow "Login"
         And I follow "Sign up"

@@ -57,11 +57,6 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
     click_link(link)
 end
 
-When /^(?:|I )follow "([^"]*)" and confirm$/ do |link|
-    page.evaluate_script('window.confirm = function() { return true; }')
-    click_link(link)
-end
-
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
     fill_in(field, :with => value)
 end

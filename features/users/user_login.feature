@@ -6,6 +6,7 @@ Feature: Login to LuckyBolt
     I want to login
     
     Background:
+        Given slow for selenium
         Given the following user accounts exist
         | password | password_confirmation | role     | email   | first_name | last_name | phone_number |
         | aaaaaaaa | aaaaaaaa              | admin    | c@b.com | a          | b         | 1 123 123-1231 |

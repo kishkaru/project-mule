@@ -16,7 +16,7 @@
           .editing-links.float-right
             - if !cc.default
               = link_to 'Make default', set_default_credit_card_path(:cc_id => cc.id), method: :post, data: { confirm: 'Are you sure?'}, :class => "btn btn-link"
-            = link_to 'Delete', destroy_credit_card_path(cc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-link"
+            = link_to 'Delete', destroy_credit_card_path(cc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-link", :id => "delete-#{cc.last_four}"
       %br
 - else
   No cards added
