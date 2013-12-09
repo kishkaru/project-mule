@@ -1,10 +1,9 @@
 %h4 Credit Card info
-- if @cc_errors.present?
-  #credit-card-errors.alert.alert-danger
-    %ul
-    - @cc_errors.each do |error|
-      %li
-        = error.message
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/american_express.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/discover.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/jcb.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
 = fields_for :credit_card do |f|
   #credit-card-info
     .inline-block

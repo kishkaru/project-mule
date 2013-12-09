@@ -1,6 +1,12 @@
 %br
 %h3 Add new card
 %br
+- if @cc_errors.present?
+  #credit-card-errors.alert.alert-danger
+    %ul
+    - @cc_errors.each do |error|
+      %li
+        = error.message
 = form_tag create_credit_card_path, :method => :post, :id => "new-credit-card-form" do |f|
   = render 'credit_cards/credit-card-info-fields'
   %br
