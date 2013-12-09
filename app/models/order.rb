@@ -1,7 +1,9 @@
 class Order < ActiveRecord::Base
     belongs_to :user
+    belongs_to :delivery_point
     has_many :item_orders
     attr_accessible :transaction_id
+    accepts_nested_attributes_for :user
 
     def self.create_with_items(cart_items)
     	new_order = Order.create!

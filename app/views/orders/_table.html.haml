@@ -1,0 +1,18 @@
+= paginate @orders
+%table.table.table-centered
+  %tr
+    %th Order#
+    - unless @no_date
+      %th Date
+    %th User
+    %th Email
+    %th Transaction ID
+  - @orders.each do |order|
+    %tr
+      %td= link_to '#' + order.id.to_s.rjust(8, "0"), order
+      - unless @no_date
+        %td= order.created_at.to_formatted_s(:long_ordinal)
+      %td= link_to order.user.full_name, order.user
+      %td= order.user.email
+      %td= order.transaction_id
+= paginate @orders

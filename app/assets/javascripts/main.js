@@ -2,7 +2,7 @@ adjustContainer = _.debounce(function() {
     var height = $('header').outerHeight();
     $('#main').css('top', height);
     $('#main').css('height', $(window).height() - height);
-}, 300);
+}, 10);
 
 hideSplash = _.delay(function() {
     splash = $("#splash")
@@ -19,6 +19,10 @@ $( function() {
 
 
     $(window).load(function() {
+        adjustContainer();
+    });
+
+    $('ul.nav .dropdown a').click(function() {
         adjustContainer();
     });
 

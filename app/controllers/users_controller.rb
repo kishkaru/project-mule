@@ -87,6 +87,7 @@ class UsersController < ApplicationController
 
     # Shows user account info to the user
     def account
+        @orders = current_user.orders.page(params[:page])
     end
 
 end

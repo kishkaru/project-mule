@@ -3,4 +3,4 @@
   - if @customer_area.delivery_points.present?
     - @customer_area.delivery_points.each do |point|
       %tr
-        %td.main-table-items= point.address
+        %td.point-items{data: {delivery_point: point.id} }= point.address

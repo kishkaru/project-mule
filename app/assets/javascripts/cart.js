@@ -87,6 +87,8 @@ $( function() {
 		$('#use-new-cc').removeAttr('disabled');
 		$('#user-credit-cards').empty();
 		$('#new-credit-card').hide();
+		$('#pay-button').removeAttr('disabled');
+		$('#use-default-cc').attr('disabled', 'disabled');
 	});
 
 	var setUpPayButton = function () {
@@ -94,16 +96,23 @@ $( function() {
 		payment_form.submit( function(e) {
 			var pay_button = $('#pay-button');
 			pay_button.attr('disabled', 'disabled');
+			$('#payment-progress-bar').removeClass('hidden');
 			$.ajax({type: "POST",
 				url: payment_form.attr('action'),
 				data: payment_form.serialize(),
 				success: function(data) {
-					if (data == "success") {
-						window.location = '/order_receipt';
+					$('#payment-progress-bar').addClass('hidden');
+					var num = /^\d+$/;
+					if (data.match(num)) {
+						window.location = '/orders/' + data;
+					} else if (data == "empty cart") {
+						var empty_cart_error = $("<div id='checkout-errors' class='alert alert-danger'><ul></ul><li> Amount must be greater than zero. </li></div>");
+						$('#checkout-notices').html(empty_cart_error);
+						pay_button.removeAttr('disabled');
 					} else {
 						$('#checkout-notices').html(data);
+						pay_button.removeAttr('disabled');
 					}
-					pay_button.removeAttr('disabled');
 				},
 				error: function(data) {
 					pay_button.removeAttr('disabled');
@@ -116,6 +125,8 @@ $( function() {
 		var user_credit_cards = $('#user-credit-cards');
 		$(this).attr('disabled', 'disabled');
 		$('#use-new-cc').removeAttr('disabled');
+		$('#use-default-cc').removeAttr('disabled');
+		$('#pay-button').attr('disabled', 'disabled');
 		$.ajax({type: "GET",
 			url: "/cart/change_credit_card",
 			success: function(data) {
@@ -130,8 +141,19 @@ $( function() {
 	$('#use-new-cc').click( function() {
 		$(this).attr('disabled', 'disabled');
 		$('#use-dif-cc').removeAttr('disabled');
+		$('#use-default-cc').removeAttr('disabled');
 		$('#new-credit-card').fadeIn();
 		$('#user-credit-cards').empty();
+		$('#pay-button').attr('disabled', 'disabled');
+	});
+
+	$('#use-default-cc').click( function() {
+		$(this).attr('disabled', 'disabled');
+		$('#use-dif-cc').removeAttr('disabled');
+		$('#use-new-cc').removeAttr('disabled');
+		$('#user-credit-cards').empty();
+		$('#pay-button').removeAttr('disabled');
+		$('#new-credit-card').hide();
 	});
 
 	var setUpChangeCCForm = function() {
@@ -143,6 +165,7 @@ $( function() {
 				url: change_cc_form.attr('action'),
 				data: change_cc_form.serialize(),
 				success: function(data) {
+					$('#use-default-cc').attr('disabled', 'disabled');
 					$('#user-credit-cards').empty();
 					$('#use-dif-cc').removeAttr('disabled', 'disabled');
 					$('#pay-button').attr('value', "Pay with card ending in " + data);
@@ -162,16 +185,18 @@ $( function() {
 				url: new_cc_form.attr('action'),
 				data: new_cc_form.serialize(),
 				success: function(data) {
-					var cc_last_four = /[0-9]{4}/
+					var cc_last_four = /^[0-9]{4}$/;
 					if (data.match(cc_last_four)) {
+						$('#new-credit-card-errors').empty();
 						$('#new-credit-card').hide();
 						$('#use-new-cc').removeAttr('disabled');
 						$('#pay-button').attr('value', "Pay with card ending in " + data);
+						$('#pay-button').removeAttr('disabled');
+						$('use-default-cc').attr('disabled', 'disabled');
 					} else {
 						$('#new-credit-card-errors').html(data);
 					}
 					new_cc_form.spin(false);
-					$('#pay-button').removeAttr('disabled');
 				}});
 			e.preventDefault();
 		});
