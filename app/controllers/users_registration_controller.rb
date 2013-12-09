@@ -5,7 +5,11 @@ class UsersRegistrationController < Devise::RegistrationsController
 
 	def phone_number_format
 		params[:user][:phone_number_attributes] = parsePhoneNumber(params[:user].delete(:phone_number))
-		puts "@@@@@@"
-		puts params
-	end
+  end
+
+  def create
+    super
+    AdminMailer.new_registration(@user).deliver unless @user.invalid?
+    UserMailer.welcome_email(@user).deliver unless @user.invalid?
+  end
 end
