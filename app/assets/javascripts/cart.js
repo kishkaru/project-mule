@@ -87,6 +87,8 @@ $( function() {
 		$('#use-new-cc').removeAttr('disabled');
 		$('#user-credit-cards').empty();
 		$('#new-credit-card').hide();
+		$('#pay-button').removeAttr('disabled');
+		$('#use-default-cc').attr('disabled', 'disabled');
 	});
 
 	var setUpPayButton = function () {
