@@ -29,6 +29,7 @@ $(document).ready( function() {
     $('body').on('click', '.point-items', function() {
         var self = $(this);
         $('.point-items').removeClass('success');
+        $('#go').removeClass('hidden');
         //$('#geographic-content img').remove();
         self.addClass('success');
         $('#points').removeClass('col-lg-8 col-lg-offset-0 col-md-8 col-md-offset-0');
