@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def welcome_email(user)
     @user = user
     email_with_name = "#{@user.first_name} #{@user.last_name} <#{@user.email}>"
-    @url  = "http://localhost:3000/users/sign_in"
+    @url  = "http://projectmule.herokuapp.com/users/sign_in"
     mail(to: email_with_name, subject: 'Welcome to ProjectMule!')
   end
 
