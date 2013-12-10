@@ -9,8 +9,8 @@
     %th
   - @menus.each do |menu|
     %tr
-      - if menu.delivery_areas.present?
-        %td= menu.delivery_areas.collect(&:name).join(", ")
+      - if menu.delivery_area.present?
+        %td= menu.delivery_area.menus.collect(&:name).join(", ")
       - else
         %td.danger-text No Delivery Areas Set
       %td= menu.date.to_date.to_formatted_s(:long_ordinal) if menu.date
