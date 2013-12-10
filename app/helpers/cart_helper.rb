@@ -28,8 +28,8 @@ module CartHelper
 
     # Returns if there are expired items in the cart
     def expiredItemsInCart
-        session[:cart][:items].keys.each do |menu_item|
-            if menu_item.expiration_time <= Time.now
+        session[:cart][:items].keys.each do |menu_item_id|
+            if MenuItem.find(menu_item_id).expiration_time <= Time.now
                 return true
             end
         end

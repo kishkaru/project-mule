@@ -12,13 +12,19 @@ module CheckoutHelper
 	# Creates and saves the order for USER using ITEMS
 	# and the braintree transaction result RESULT. Returns
 	# the order made. Also saves the chosen pickup point as the users
-	# default pickup point
+	# default pickup point. ITEMS is a hash of menu_items mapping to quantities
 	def createOrder(user, items, result)
 		new_order = Order.create_with_items(items)
         new_order.user = user
         new_order.transaction_id = result.transaction.id
         new_order.delivery_point = session[:customer_pickup_point]
         user.update_attribute(:pickup_point, session[:customer_pickup_point])
+
+        # Get the date for the order pick up
+        delivery_date = items.keys.first.menu.date
+
+        new_order.pickup_date = delivery_date
+
         new_order.save!
         return new_order
 	end
