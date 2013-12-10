@@ -21,10 +21,11 @@ $( function() {
         getOrderInfo(self.data("order"));
     });
 
-    $("#sms_button").click( function (e) {
-        
+    $(".list-group button").click( function (e) {
+        var user = $(this).siblings();
+        var user_id = user.attr('data-user');
         $.ajax({type: "GET",
-            url: "/send_sms/:order(/:user)",
+            url: "/send_sms/" + user_id,
             success: function(data) {
 
             }});

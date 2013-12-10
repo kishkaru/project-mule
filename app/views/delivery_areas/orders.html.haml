@@ -5,7 +5,7 @@
     %h3{for: "order-date"} To Be Picked Up On:
     %input#order-date.form-control{name: "order_options[date]", placeholder: "Enter Date", type: "date", value: Date.today }
     %br/
-    = link_to 'Text Customers', mass_sms_path(@orders), :class =>  "btn btn-success btn-sm"
+    = link_to 'Text Customers', mass_sms_path(@orders.all), :class =>  "btn btn-success btn-sm"
   .col-lg-8.col-md-8
     %h3 Total Order Items & Quantities
     %ul.list-group
@@ -21,9 +21,10 @@
     %h3 Customers
     %ul.list-group
       - @orders.each do |order|
-        %a.list-group-item{data: {order: order.id} }
-          = order.user.full_name
-          = link_to 'Text', single_sms_path(order.user), :class =>  "btn btn-warning btn-sm"
+        %div
+          %a.list-group-item{data: {order: order.id, user: order.user.id} }
+            = order.user.full_name
+          %button{:class =>  "btn btn-warning btn-sm"} Text
   #customer-order-items.col-lg-8.col-md-8
 
 = paginate @orders
