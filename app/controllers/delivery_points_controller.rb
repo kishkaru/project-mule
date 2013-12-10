@@ -95,7 +95,7 @@ class DeliveryPointsController < ApplicationController
     
     def mass_spam_user
         @orders = DeliveryArea.find(params[:area]).orders.joins(:user).order("users.first_name")
-
+    
         @orders.each do |order|
             send_sms(order.user.phone_number.asString, "Your LuckyBolt order is ready for pickup!")
         end

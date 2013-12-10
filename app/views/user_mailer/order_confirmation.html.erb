@@ -49,7 +49,7 @@ Total: <%= number_to_currency @order.total %>
   <h4>Pickup Information </h4>
   You will recieve an email or text message when your order is ready for pickup
   at the following delivery point: <br>
-  __PLACEHOLDER__
+  <%= @order.delivery_point.address.to_s %>
 </p>
 <p>Thanks and have a wonderful lunch!</p>
 
