@@ -1,6 +1,8 @@
 - if @chosen_point
-  %h5 Your chosen pickup point:
-  %br
-  %h5= @chosen_point.address.to_s
-  %br
-  = link_to 'Change your pickup point', root_path
+  %div.inline-block
+    %h4
+      %b
+        Your chosen pickup point:
+      = @chosen_point.address.to_s
+  .float-right.inline-block
+    = link_to 'Change your pickup point', root_path

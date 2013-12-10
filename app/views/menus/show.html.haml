@@ -3,7 +3,7 @@
     Menu
   %h4.centered
     = @menu.date.strftime("%A %B %e, %Y") if @menu.date
-= render 'menus/chosen-point'
+= render 'delivery_points/chosen-point'
 .row
   #menu-items
     - @menu.items.each do |item|
