@@ -21,4 +21,9 @@ $( function() {
         getOrderInfo(self.data("order"));
     });
 
+    $("#order-date").change( function() {
+        self = $(this);
+        updatePageWithParam("date", self.val());
+    });
+
 });

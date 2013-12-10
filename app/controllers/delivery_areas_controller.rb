@@ -117,12 +117,13 @@ class DeliveryAreasController < ApplicationController
     end
 
     def orders
+        @date = params.delete(:date).to_date
         @delivery_area = DeliveryArea.find(params[:id])
-        @orders = @delivery_area.orders.joins(:user).order("users.first_name").page(params[:page])
+        @orders = @delivery_area.orders.where(pickup_date: (@date..@date+1)).joins(:user).order("users.first_name").page(params[:page])
         @no_date = true
 
         @item_order_summary = {}
-        @delivery_area.orders.select("orders.id").inject([]){|arr, order| arr + order.item_orders}.each do |item_order|
+        @delivery_area.orders.where(pickup_date: (@date..@date+1)).select("orders.id").inject([]){|arr, order| arr + order.item_orders}.each do |item_order|
             item = item_order.item
             @item_order_summary[item.id] ||= {
                 name: item.name,
