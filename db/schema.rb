@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210033516) do
+ActiveRecord::Schema.define(:version => 20131210034143) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20131210033516) do
   end
 
   add_index "delivery_areas", ["server_id"], :name => "index_delivery_areas_on_server_id"
+
+  create_table "delivery_areas_menus", :id => false, :force => true do |t|
+    t.integer "delivery_area_id"
+    t.integer "menu_id"
+  end
+
+  add_index "delivery_areas_menus", ["delivery_area_id"], :name => "index_delivery_areas_menus_on_delivery_area_id"
+  add_index "delivery_areas_menus", ["menu_id", "delivery_area_id"], :name => "index_delivery_areas_menus_on_menu_id_and_delivery_area_id"
 
   create_table "delivery_points", :force => true do |t|
     t.decimal  "latitude"
