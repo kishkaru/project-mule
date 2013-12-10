@@ -59,7 +59,7 @@ $(document).ready( function() {
         center_parameter = center_parameter.replace(/ /g, '+');
         var zoom_parameter = '16';
         var sensor_parameter = 'false';
-        var url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + center_parameter + '&zoom=' + zoom_parameter + '&size=' + size_parameter + '&sensor=' + sensor_parameter;
+        var url = 'http://maps.googleapis.com/maps/api/staticmap?size=' + size_parameter + '&markers=icon:http://i.imgur.com/WSRkqP8.png|' + center_parameter + '&sensor=' + sensor_parameter;
         var img = $('<img src="'+ url +'">');
         if ($('#map img').length > 0) {
             $('#geographic-content img').remove();

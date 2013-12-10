@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(:version => 20131210102620) do
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.integer  "delivery_point_id"
-    t.datetime "pickup_date"
     t.boolean  "picked_up",         :default => false
+    t.datetime "pickup_date"
   end
 
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
