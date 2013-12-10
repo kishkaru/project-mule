@@ -51,6 +51,7 @@ class CartController < ApplicationController
                 end
 
                 if result.success?
+                    updateMenuItemQuantities(items)
                     unlockItems(items.keys)
                     order = createOrder(user, items, result)
                     clearCart
@@ -87,6 +88,7 @@ class CartController < ApplicationController
                    
 
                     if result.success?
+                        updateMenuItemQuantities(items)
                         unlockItems(items.keys)
                         order = createOrder(user, items, result)
                         clearCart
@@ -142,6 +144,7 @@ class CartController < ApplicationController
                     end
 
                     if transaction_result.success?
+                        updateMenuItemQuantities(items)
                         unlockItems(items.keys)
                         order = createOrder(new_user, items, transaction_result)
                         clearCart

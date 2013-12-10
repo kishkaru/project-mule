@@ -31,12 +31,23 @@ module ItemsHelper
     def itemsInStock(items)
     	items.each do |menu_item, qty|
     		up_to_date_menu_item = MenuItem.find(menu_item.id)
-    		if up_to_date_menu_item.quantity < qty
+    		if up_to_date_menu_item.quantity < qty.to_i
     			return false
     		end
     	end
 
     	return true
+    end
+
+    # ITEMS is a hash of menu items mapping to quantities. Subtracts
+    # the quantities from the menu items in the database
+    def updateMenuItemQuantities(items)
+        items.each do |item, qty|
+            menu_item = MenuItem.find(item.id)
+            old_quantity = menu_item.quantity
+            new_quantity = old_quantity - qty.to_i
+            menu_item.update_attribute(:quantity, new_quantity)
+        end
     end
 
 end
