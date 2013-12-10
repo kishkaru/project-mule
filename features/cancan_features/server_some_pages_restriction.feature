@@ -10,7 +10,7 @@ Background:
         | aaaaaaaa | aaaaaaaa              | admin    | r@b.com | a          | b         | 1 123 123-1231 |
         | bbbbbbbb | bbbbbbbb              | user     | q@b.com | a          | b         | 1 123 123-1231 |
         | cccccccc | cccccccc              | customer | d@b.com | a          | b         | 1 123 123-1231 |
-        | dddddddd | dddddddd              | server   | d@s.com | a          | b         | 1 123 123-1231 |
+        | ssssssss | ssssssss              | server   | s@s.com | a          | b         | 1 123 123-1231 |
 
 
         And I am logged in with a server account

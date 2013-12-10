@@ -52,6 +52,7 @@ class Ability
      can :un_update_picked_up, Order
      can :spam_user, DeliveryPoint
      can :mass_spam_user, DeliveryPoint
+     can :orders, DeliveryArea
     end
   end
 end
