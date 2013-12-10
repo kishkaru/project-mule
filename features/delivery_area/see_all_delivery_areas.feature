@@ -3,6 +3,10 @@
 As an admin
 So that I know every area that a customers can order food from
 I want to see a list of all DeliveryAreas
+
+Background:
+    Given the admin account is set up
+    And I am logged in with an admin account
  
 Scenario: successfully see all areas
    Given the following DeliveryAreas exist:

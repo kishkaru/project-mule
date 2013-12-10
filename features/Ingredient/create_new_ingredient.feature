@@ -4,6 +4,10 @@ Feature: create a new ingredient to be stored in the database
 	So that I can add Ingredients to different Items
 	I want to store an Ingredient in the database
 
+Background:
+    Given the admin account is set up
+    And I am logged in with an admin account
+
 Scenario: get form to create new ingredient
   Given I am on the all_ingredients page
 	And I follow "New Ingredient"

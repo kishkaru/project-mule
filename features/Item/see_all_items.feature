@@ -12,6 +12,8 @@ Background: items have been added to the database
     | Spicy_Burrito       | Chipotle | $3.50 | on fire      |
     | Carne_Asada_Burrito | Chipotle | $5.50 | roasted beef |
 
+    And the admin account is set up
+    And I am logged in with an admin account
 	And I am on the all_items page
 
 Scenario: successfully see all items

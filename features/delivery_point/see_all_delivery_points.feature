@@ -4,6 +4,10 @@ Feature: see all Delivery Points
 	So that I can know every location where Customers can pick up food
 	I want to see a list of all DeliveryPoints
 
+Background:
+    Given the admin account is set up
+    And I am logged in with an admin account
+
 
 Scenario: delete a delivery point
 	Given the following Delivery Points exist:

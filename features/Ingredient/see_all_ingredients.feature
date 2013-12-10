@@ -12,6 +12,8 @@ Background: ingredients have been added to the database
 	| Cheese |
 	| Avacado |
 
+    And the admin account is set up
+    And I am logged in with an admin account
 	And I am on the all_ingredients page
 
 Scenario: successfully see all ingredients

@@ -4,6 +4,10 @@ Feature: create a new DeliveryPoint to  be stored in the database
 	So that I can tell Customers exactly where to pick up their food
 	I want to store a DeliveryPoint in the database
 
+Background:
+    Given the admin account is set up
+    And I am logged in with an admin account
+
 Scenario: get form to create new DeliveryPoint
 	Given I am on the Listing delivery_points page
 	When I follow "New Delivery point"

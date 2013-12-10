@@ -4,6 +4,10 @@ As an admin
 So that I can tell Servers exactly where the DeliverPoints are
 I want to store a DeliveryArea in the database
 
+Background:
+    Given the admin account is set up
+    And I am logged in with an admin account
+
  
  Scenario: get form to create new DeliveryArea
    Given I am on the Listing delivery_areas page

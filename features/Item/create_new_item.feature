@@ -4,6 +4,10 @@ Feature: create a new item to be stored in the database
 	So that I can add Items to different Menus
 	I want to store an Item in the database
 
+Background:
+    Given the admin account is set up
+    And I am logged in with an admin account
+
 Scenario: get form to create new item
 	Given I am on the all_items page
 	And I follow "New Item"
