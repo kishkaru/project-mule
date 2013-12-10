@@ -1,4 +1,3 @@
-@javascript
 Feature: Checkout and pay for logged in user with default credit card
 
     As a Customer
@@ -33,27 +32,36 @@ Feature: Checkout and pay for logged in user with default credit card
         | 4111111111111111 | 12/2020  |
         | 4005519200000004 | 12/2020  |
 
-        And I follow "cart_link"
-        And I press "Checkout"
-
+    @javascript
     Scenario: See checkout for logged in user with default credit card
+        Given I follow "cart_link"
+        And I press "Checkout"
         Then I should see "Use default card"
         And I should see "Use a different credit card"
         And I should see "Use new credit card"
         And I should see the button "Pay with card ending in 1111"
 
+    @javascript
     Scenario: Pay with current default card
-    	Given I press "Pay with card ending in 1111"
+        Given I follow "cart_link"
+        And I press "Checkout"
+    	And I press "Pay with card ending in 1111"
     	Then I should see "Order #"
     	And I should see "Regular Burrito"
         And I should see "Spicy Burrito"
 
+    @javascript
     Scenario: Defauly card is selected for the "Use a different credit card" option
-    	Given I press "Use a different credit card"
+        Given I follow "cart_link"
+        And I press "Checkout"
+    	And I press "Use a different credit card"
     	Then the "cc-ending-1111" checkbox should be checked
 
+    @javascript
     Scenario: Pay with a different card already added
-    	Given I press "Use a different credit card"
+        Given I follow "cart_link"
+        And I press "Checkout"
+    	And I press "Use a different credit card"
     	And I choose "cc-ending-0004"
     	And I press "Use selected card"
     	And I press "Pay with card ending in 0004"
@@ -61,14 +69,20 @@ Feature: Checkout and pay for logged in user with default credit card
     	And I should see "Regular Burrito"
         And I should see "Spicy Burrito"
 
+    @javascript
     Scenario: Pay with a new invalid card
+        Given I follow "cart_link"
+        And I press "Checkout"
     	Given I press "Use new credit card"
     	And I press "Save new credit card"
     	Then I should see "Credit card number is required"
         And I should see "Expiration date is required"
 
+    @javascript
     Scenario: Pay with a new valid card
-    	Given I press "Use new credit card"
+        Given I follow "cart_link"
+        And I press "Checkout"
+    	And I press "Use new credit card"
     	And I fill in "credit_card_card_number" with "5555-5555-5555-4444"
     	And I fill in "credit_card_exp_date" with "12/2020"
     	And I press "Save new credit card"
@@ -77,8 +91,11 @@ Feature: Checkout and pay for logged in user with default credit card
     	And I should see "Regular Burrito"
         And I should see "Spicy Burrito"
 
+    @javascript
     Scenario: Try to pay with a new card that has already been added
-        Given I press "Use new credit card"
+        Given I follow "cart_link"
+        And I press "Checkout"
+        And I press "Use new credit card"
         And I fill in "credit_card_card_number" with "4111-1111-1111-1111"
         And I fill in "credit_card_exp_date" with "12/2020"
         And I press "Save new credit card"

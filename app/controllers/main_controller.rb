@@ -3,9 +3,6 @@ class MainController < ApplicationController
     def home
         @areas_and_menus = {}
         today = Time.now.to_s.split.first
-        DeliveryArea.all.each do |area|
-        	@areas_and_menus[area] = Menu.where("date like?", "#{today}%").where(:delivary_areas => area).first
-        end
     end
 
     def goToMenu

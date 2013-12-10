@@ -1,4 +1,3 @@
-@javascript
 Feature: Checkout and pay for logged in user without a default credit card
 
     As a Customer
@@ -29,14 +28,18 @@ Feature: Checkout and pay for logged in user without a default credit card
         And I am on the home page
         And a non admin account is set up
         And I am logged in with a user account
-        And I follow "cart_link"
-        And I press "Checkout"
 
+    @javascript
     Scenario: See checkout for logged in user without default credit card
+        Given I follow "cart_link"
+        And I press "Checkout"
         Then I should see "Credit Card Info"
         And I should not see "Guest Info"
 
+    @javascript
     Scenario: Place order as logged in user without default credit card
+        Given I follow "cart_link"
+        And I press "Checkout"
         And I fill in "credit_card_card_number" with "4111-1111-1111-1111"
         And I fill in "credit_card_exp_date" with "12/2020"
         And I press "Pay"
@@ -44,7 +47,10 @@ Feature: Checkout and pay for logged in user without a default credit card
         And I should see "Regular Burrito"
         And I should see "Spicy Burrito"
 
+    @javascript
     Scenario: Place order as logged in user without default credit card and invalid credit card info
+        Given I follow "cart_link"
+        And I press "Checkout"
         And I press "Pay"
         Then I should see "Credit card number is required"
         And I should see "Expiration date is required"

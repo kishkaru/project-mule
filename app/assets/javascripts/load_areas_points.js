@@ -7,7 +7,6 @@ var getDeliveryPoints = function(area_id) {
            });
 };
 
-
 $(document).ready( function() {
     $('.main-table-items').click(function() {
         $('#go').addClass('hidden');
