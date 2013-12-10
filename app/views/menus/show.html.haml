@@ -3,7 +3,7 @@
     Menu
   %h4.centered
     = @menu.date.strftime("%A %B %e, %Y") if @menu.date
-
+= render 'menus/chosen-point'
 .row
   #menu-items
     - @menu.items.each do |item|
@@ -30,9 +30,9 @@
         .item-actions
           %input.amount-to-add.form-control{type: "number", value: 1, disabled: true}
           %button.add-to-cart.btn.btn-success{data: {item: item.id}} Add
-
-.row
-  .col-md-9.col-md-offset-1
-    = link_to 'Edit', edit_menu_path(@menu), :class =>  "btn btn-warning btn-sm"
-    |
-    \#{link_to 'Back', menus_path, :class =>  "btn btn-default btn-sm"}
+- if user_signed_in? && current_user.admin?
+  .row
+    .col-md-9.col-md-offset-1
+      = link_to 'Edit', edit_menu_path(@menu), :class =>  "btn btn-warning btn-sm"
+      |
+      \#{link_to 'Back', menus_path, :class =>  "btn btn-default btn-sm"}

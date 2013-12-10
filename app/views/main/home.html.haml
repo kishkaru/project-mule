@@ -15,7 +15,7 @@
         #points.hidden.transition500.col-lg-8.col-lg-offset-0.col-md-8.col-md-offset-0
           .rounded-border
       .row
-        = form_tag menus_path, :id => 'go-form' do |f|
+        = form_tag menus_path, :id => 'go-form', :method => :get do |f|
           = hidden_field :delivery_point, :id, :id => 'delivery-point-id-field'
           %button{:id => 'go', :class => 'col-lg-4 col-md-4 btn btn-lg btn-success hidden'}
             %span Let's go!

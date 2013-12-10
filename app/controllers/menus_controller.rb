@@ -16,6 +16,8 @@ class MenusController < ApplicationController
         @menu = Menu.find(params[:id])
         @customer_points = DeliveryPoint.where(delivery_area_id: @menu.delivery_areas.pluck(:id))
 
+        @chosen_point = params[:delivery_point] ? DeliveryPoint.find(params[:delivery_points][:id]) : nil
+
         respond_to do |format|
             format.html # show.html.erb
             format.json { render json: @menu }
