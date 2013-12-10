@@ -30,6 +30,10 @@ describe VendorsController do
     # VendorsController. Be sure to keep this updated too.
     let(:valid_session) { {} }
 
+    before(:each) do
+        signed_in_as_admin
+    end
+
     describe "GET index" do
         it "assigns all vendors as @vendors" do
             vendor = Vendor.create! valid_attributes

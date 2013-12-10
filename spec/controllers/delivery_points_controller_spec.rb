@@ -30,6 +30,10 @@ describe DeliveryPointsController do
     # DeliveryPointsController. Be sure to keep this updated too.
     let(:valid_session) { {} }
 
+    before(:each) do
+        signed_in_as_admin
+    end
+
     describe "GET index" do
         it "assigns all delivery_points as @delivery_points" do
             delivery_point = DeliveryPoint.create! valid_attributes

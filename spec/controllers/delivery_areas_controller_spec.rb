@@ -30,6 +30,10 @@ describe DeliveryAreasController do
     # DeliveryAreasController. Be sure to keep this updated too.
     let(:valid_session) { {} }
 
+    before(:each) do
+        signed_in_as_admin
+    end
+
     describe "GET index" do
         it "assigns all delivery_areas as @delivery_areas" do
             delivery_area = DeliveryArea.create! valid_attributes
