@@ -1,18 +1,17 @@
 Feature: As a vendor
           So that I can make the orders
-          I want to vie wonly pages related to making my orders
+          I want to view only pages related to making my orders
 
 Background:
   Given a non admin account is set up
   And I am logged in with a vendor account
 
   And the following user accounts exist
-  | password | password_confirmation | role     | email   |
-  | aaaaaaaa | aaaaaaaa              | admin    | r@b.com |
-  | bbbbbbbb | bbbbbbbb              | user     | q@b.com |
-  | cccccccc | cccccccc              | customer | d@b.com |
-  | dddddddd | dddddddd              | server   | d@s.com |
-  | vvvvvvvv | vvvvvvvv              | vendor   | v@s.com |
+  | password | password_confirmation | role     | email   | first_name | last_name | phone_number |
+  | aaaaaaaa | aaaaaaaa              | admin    | r@b.com | a          | b         | 1 123 123-1231 |
+  | bbbbbbbb | bbbbbbbb              | user     | q@b.com | a          | b         | 1 123 123-1231 |
+  | cccccccc | cccccccc              | customer | d@b.com | a          | b         | 1 123 123-1231 |
+  | dddddddd | dddddddd              | server   | d@s.com | a          | b         | 1 123 123-1231 |
   
 
         

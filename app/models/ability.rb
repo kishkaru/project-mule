@@ -32,14 +32,15 @@ class Ability
     user ||= User.new #guest login to Customer
     
     if not user.admin?
-      can :show, :all
+      #can :show, :orders
+      can :show, :cart
     else
       can :manage, :all
     end
 
     if user.role == User::CUSTOMER
-      can :order, :all
-      can :show, :delivery_areas
+      #can :show, :orders
+      can :show, :cart 
     end
 
     if user.role == User::SERVER

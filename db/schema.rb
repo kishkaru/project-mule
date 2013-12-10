@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20131209024422) do
     t.datetime "updated_at",       :null => false
   end
 
-
   create_table "credit_cards", :force => true do |t|
     t.string   "token"
     t.string   "last_four"

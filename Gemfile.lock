@@ -230,8 +230,8 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  cancan
   braintree
+  cancan
   capybara
   coffee-rails (~> 3.2.2)
   cucumber-rails

@@ -5,12 +5,12 @@ Feature: As a server
 Background:
         Given a non admin account is set up
 
-        And the following user accounts exist
-        | password | password_confirmation | role     | email   |
-        | aaaaaaaa | aaaaaaaa              | admin    | r@b.com |
-        | bbbbbbbb | bbbbbbbb              | user     | q@b.com |
-        | cccccccc | cccccccc              | customer | d@b.com |
-        | ssssssss | ssssssss              | server   | s@s.com |
+        And the following user accounts exist 
+        | password | password_confirmation | role     | email   | first_name | last_name | phone_number |
+        | aaaaaaaa | aaaaaaaa              | admin    | r@b.com | a          | b         | 1 123 123-1231 |
+        | bbbbbbbb | bbbbbbbb              | user     | q@b.com | a          | b         | 1 123 123-1231 |
+        | cccccccc | cccccccc              | customer | d@b.com | a          | b         | 1 123 123-1231 |
+        | dddddddd | dddddddd              | server   | d@s.com | a          | b         | 1 123 123-1231 |
 
 
         And I am logged in with a server account

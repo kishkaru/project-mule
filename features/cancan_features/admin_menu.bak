@@ -1,3 +1,4 @@
+@javascript
 Feature: As an admin
           So that I can organize menu
           I want to be assigned full control over its creation
@@ -12,7 +13,7 @@ Background:
 	   | December 10, 2013 |
 
 
-@javascript
+
 Scenario: Admin can see the "Create Menu" shortcut on homepage
 Given I am on the homepage
 Then I should see "Create Menu"
