@@ -68,5 +68,10 @@ $(document).ready( function() {
                     $('#map').append(img);
                 }});*/
     });
-
+    
+    $('#go-form').submit(function() {
+        var menu_id = $('#areas .success').parent().attr('data-menu');
+        var url = '/menus/' + menu_id;
+        $(this).attr('action', url);
+    });
 });
