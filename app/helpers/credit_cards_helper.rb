@@ -29,6 +29,7 @@ module CreditCardsHelper
 				:make_default => default
 				}
 			)
+		return credit_card_result
 	end
 
 	# Sets default card to NEW_DEFAULT_CARD for the USER

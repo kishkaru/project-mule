@@ -106,7 +106,7 @@ $( function() {
 					if (data.match(num)) {
 						window.location = '/orders/' + data;
 					} else if (data == "empty cart") {
-						var empty_cart_error = $("<div id='checkout-errors' class='alert alert-danger'><ul></ul><li> Amount must be greater than zero. </li></div>");
+						var empty_cart_error = $("<div id='checkout-errors' class='alert alert-danger centered'> Your cart is empty! </div>");
 						$('#checkout-notices').html(empty_cart_error);
 						pay_button.removeAttr('disabled');
 					} else {

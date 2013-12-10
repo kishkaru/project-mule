@@ -1,4 +1,3 @@
-@javascript
 Feature: see all the users
 
     As an admin

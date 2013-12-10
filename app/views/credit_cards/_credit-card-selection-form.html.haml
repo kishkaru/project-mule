@@ -1,7 +1,7 @@
 %h4 Select a credit card
 = form_tag change_credit_card_path, :method => :post, :id => "change-cc-form" do |f|
   - current_user.credit_cards.each do |cc|
-    = radio_button_tag :credit_card_chosen, cc.id, cc.default
+    = radio_button_tag :credit_card_chosen, cc.id, cc.default, {:id => "cc-ending-#{cc.last_four}"}
     = image_tag cc.type_image_url, :alt => "Card"
     = label_tag "ending in #{cc.last_four}"
     - if cc.default

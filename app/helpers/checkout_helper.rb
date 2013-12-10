@@ -12,12 +12,14 @@ module CheckoutHelper
 
 	# Creates and saves the order for USER using ITEMS
 	# and the braintree transaction result RESULT. Returns
-	# the order made
+	# the order made. Also saves the chosen pickup point as the users
+	# default pickup point
 	def createOrder(user, items, result)
 		new_order = Order.create_with_items(items)
         new_order.user = user
         new_order.transaction_id = result.transaction.id
-        new_order.delivery_point = DeliveryPoint.find_by_id(1)
+        new_order.delivery_point = session[:customer_pickup_point]
+        user.update_attribute(:pickup_point, session[:customer_pickup_point])
         new_order.save!
         return new_order
 	end

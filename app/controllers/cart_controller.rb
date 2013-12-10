@@ -19,10 +19,15 @@ class CartController < ApplicationController
 
     def pay
 
+        if !session[:customer_pickup_point].present?
+            @pickup_point_error = "No pickup point chosen"
+            render :partial => 'cart/checkout-errors' and return
+        end
+
         items = cartItems
         totals = calculateTotals(9, items)
         credit_card_attrs = params[:credit_card]
-        user_attrs = params[:user]
+        user_attrs = params[:modal_user]
 
         if totals[:total] == 0
             render :text => "empty cart" and return
@@ -106,6 +111,8 @@ class CartController < ApplicationController
                         order = createOrder(new_user, items, transaction_result)
                         clearCart
                         sendConfirmationEmail(order)
+                        sign_in new_user
+                        flash[:info] = 'You have been signed in with your new account!'
                         render text: order.id.to_s  and return
                     else
 

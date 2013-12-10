@@ -7,7 +7,6 @@ var getDeliveryPoints = function(area_id) {
            });
 };
 
-
 $(document).ready( function() {
     $('.main-table-items').click(function() {
         $('#go').addClass('hidden');
@@ -69,5 +68,12 @@ $(document).ready( function() {
                     $('#map').append(img);
                 }});*/
     });
-
+    
+    $('#go-form').submit(function() {
+        var menu_id = $('#areas .success').parent().attr('data-menu');
+        var url = '/menus/' + menu_id;
+        $(this).attr('action', url);
+        var point_id = $('#points .success').attr('data-delivery-point');
+        $('#delivery-point-id-field').attr('value', point_id);
+    });
 });

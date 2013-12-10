@@ -1,4 +1,3 @@
-@javascript
 Feature: Login to LuckyBolt
 
     As an user of Luckybolt
