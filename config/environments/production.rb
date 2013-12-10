@@ -66,6 +66,22 @@ Projectmule::Application.configure do
     # with SQLite, MySQL, and PostgreSQL)
     # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
+    # Mailer stuff
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.smtp_settings = {
+        #tls: true,
+        address:              'smtp.gmail.com',
+        port:                 587,
+        #domain:              'example.com',
+        authentication:       'plain',
+        user_name:            'projmule@gmail.com',
+        password:             'qazwsxedc!!',
+        enable_starttls_auto: true  }
+
+    #config.action_mailer.default_options = {from: 'projmule@gmail.com'}
+
     Braintree::Configuration.environment = :sandbox
     Braintree::Configuration.merchant_id = ENV['BT_MERCHANT_ID']
     Braintree::Configuration.public_key = ENV['BT_PUBLIC_KEY']
