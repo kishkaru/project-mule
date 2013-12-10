@@ -25,6 +25,11 @@ class CartController < ApplicationController
             render :partial => 'cart/checkout-errors' and return
         end
 
+        if expiredItemsInCart
+            @items_errors = "Some items in your cart have expired. Please refresh to update items"
+            render :partial => 'cart/checkout-errors' and return
+        end
+
         items = cartItems
         totals = calculateTotals(9, items)
         credit_card_attrs = params[:credit_card]
@@ -47,7 +52,7 @@ class CartController < ApplicationController
                     result = braintreeTransactionWithDefault(user, totals[:total])
                 else
                     unlockItems(items.keys)
-                    @quantity_error = "Not enough items in stock. Please refresh for updated quantities"
+                    @quantity_error = "Not enough items in stock. Please refresh menu for updated quantities"
                     render :partial => 'cart/checkout-errors' and return
                 end
 

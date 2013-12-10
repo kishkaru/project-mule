@@ -2,8 +2,7 @@ class MenuItem < ActiveRecord::Base
     belongs_to :item
     belongs_to :menu
     has_many :order_items
-    attr_accessible :quantity
-    attr_accessible :locked
+    attr_accessible :quantity, :locked, :expiration_time
 
     def description
         return item.description
@@ -26,6 +25,10 @@ class MenuItem < ActiveRecord::Base
         item_order.menu_item = self
         item_order.save!
         return item_order
+    end
+
+    def expiration_time
+        return Time.now + 10
     end
 
 end

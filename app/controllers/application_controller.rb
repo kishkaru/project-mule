@@ -10,10 +10,17 @@ class ApplicationController < ActionController::Base
         session[:cart] ||= HashWithIndifferentAccess.new()
         session[:cart][:items] ||= HashWithIndifferentAccess.new()
 
+        session[:cart][:items].each do |menu_item, qty|
+            if MenuItem.find(menu_item).expiration_time <= Time.now
+               session[:cart][:items].delete(menu_item)
+            end
+        end
+
         @cart_item_count = 0
         session[:cart][:items].each do |item, qty|
             @cart_item_count += qty
         end
+
     end
 
     def set_chosen_pickup_point
