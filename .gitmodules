@@ -1,3 +1,0 @@
-[submodule "config/secrets"]
-	path = config/secrets
-	url = https://github.com/jsm/luckybolt-secrets.git
