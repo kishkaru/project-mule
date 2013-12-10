@@ -3,9 +3,11 @@
 .row
   .form-group.col-lg-4.col-md-4
     %h3{for: "order-date"} To Be Picked Up On:
-    %input#order-date.form-control{name: "order_options[date]", placeholder: "Enter Date", type: "date", value: @date || Date.today }
+    #order-date.input-append.date.clearfix
+      %input.form-control{name: "order_options[date]", placeholder: "Enter Date", type: "text", value: @date.strftime("%m/%d/%y") }
+      %span.add-on
+        %i.icon-th
     %br/
-    %button{:class => "btn btn-info btn-sm"} Text Customers
   .col-lg-8.col-md-8
     %h3 Total Order Items & Quantities
     %ul.list-group
@@ -15,21 +17,29 @@
           %span.badge= attributes[:quantity]
     
 
-= paginate @orders
 .row
   #order-customers.col-lg-4.col-md-4
-    %h3 Customers
-    %ul.list-group
-      - @orders.each do |order|
-        %div
-          %a.list-group-item{data: {order: order.id, user: order.user.id} }
-            = order.user.full_name
-            %div{:class => "pull-right"}
-              %button{:class =>  "btn btn-warning btn-sm"} Text
-              - if order.picked_up 
-                %button{:class =>  "btn btn-success btn-sm"} √
-              - else
-                %button{:class =>  "btn btn-default btn-sm"} √
-  #customer-order-items.col-lg-8.col-md-8
+    %h3 Customers for Delivery Points
+    .da-customers.panel-group{id: "da-orders"}
+      - @delivery_points.each do |id, delivery_point|
+        .da.panel.panel-default{data: {id: id}}
+          .panel-heading{class: ("no-orders" if delivery_point[:orders].blank?)}
+            %a{href: "#da-#{id}-customers", data: {toggle: "collapse", parent: "#da-orders"} }
+              %h4.panel-title
+                = delivery_point[:address]
+              .btn.btn-info.btn-xs.pull-right.delivery-point-notify Text Customers
+          - if delivery_point[:orders].present?
+            .panel-collapse.collapse{id: "da-#{id}-customers"}
+              .panel-body
+                %ul.list-group
+                  - delivery_point[:orders].each do |order|
+                    %a.order.list-group-item{data: {order: order.id, user: order.user.id} }
+                      = order.user.full_name
+                      %div{:class => "pull-right"}
+                        %button{:class =>  "btn btn-warning btn-sm"} Text
+                        - if order.picked_up
+                          %button{:class =>  "btn btn-success btn-sm"} ✓
+                        - else
+                          %button{:class =>  "btn btn-default btn-sm"} ✓
 
-= paginate @orders
+  #customer-order-items.col-lg-8.col-md-8

@@ -117,9 +117,15 @@ class DeliveryAreasController < ApplicationController
     end
 
     def orders
-        @date = params.delete(:date).to_date
+        @date = params[:date] ? Date.strptime(params.delete(:date), '%m/%d/%y')  : Date.today
         @delivery_area = DeliveryArea.find(params[:id])
-        @orders = @delivery_area.orders.where(pickup_date: (@date..@date+1)).joins(:user).order("users.first_name").page(params[:page])
+        @delivery_points = {}
+        @delivery_area.delivery_points.each do |delivery_point|
+            @delivery_points[delivery_point.id] = {
+                address: delivery_point.address.lines_to_s,
+                orders: delivery_point.orders.where(pickup_date: (@date..@date+1)).joins(:user).order("users.first_name")
+            }
+        end
         @no_date = true
 
         @item_order_summary = {}

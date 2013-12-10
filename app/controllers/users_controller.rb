@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    include SmsHelper
 
     before_filter :verify_if_admin, :except => :account
     before_filter :user_logged_in, :only => :account
@@ -90,6 +91,13 @@ class UsersController < ApplicationController
     # Shows user account info to the user
     def account
         @orders = current_user.orders.page(params[:page])
+    end
+
+    def notify_pickup
+        @user = User.find_by_id(params[:id])
+        send_sms(@user.phone_number.asString, "Your LuckyBolt order is ready for pickup!")
+
+        render :partial => 'delivery_points/send_sms'
     end
 
 end

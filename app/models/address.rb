@@ -12,6 +12,10 @@ class Address < ActiveRecord::Base
     }
 
     def to_s
-        return [self.line1, self.line2, "#{self.city}, #{self.state} #{self.zip}"].compact.join("\n")
+        return [self.line1, self.line2, "#{self.city}, #{self.state} #{self.zip}"].compact.join(" ")
+    end
+
+    def lines_to_s
+        return [self.line1, self.line2].compact.join(" ")
     end
 end
