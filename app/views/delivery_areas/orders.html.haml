@@ -5,7 +5,7 @@
     %h3{for: "order-date"} To Be Picked Up On:
     %input#order-date.form-control{name: "order_options[date]", placeholder: "Enter Date", type: "date", value: Date.today }
     %br/
-    %button{:class => "btn btn-success btn-sm"} MASS Text
+    %button{:class => "btn btn-info btn-sm"} Text Customers
   .col-lg-8.col-md-8
     %h3 Total Order Items & Quantities
     %ul.list-group
@@ -24,7 +24,11 @@
         %div
           %a.list-group-item{data: {order: order.id, user: order.user.id} }
             = order.user.full_name
-          %button{:class =>  "btn btn-warning btn-sm"} Text
+            %button{:class =>  "btn btn-warning btn-sm"} Text
+            - if order.picked_up 
+              %button{:class =>  "btn btn-success btn-sm"} √
+            - else
+              %button{:class =>  "btn btn-default btn-sm"} ?
   #customer-order-items.col-lg-8.col-md-8
 
 = paginate @orders
