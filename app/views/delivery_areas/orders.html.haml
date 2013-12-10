@@ -1,11 +1,11 @@
-%h1= "Orders for #{@delivery_area.name}"
+%h1{data: {area_id: @delivery_area.id} }= "Orders for #{@delivery_area.name}"
 
 .row
   .form-group.col-lg-4.col-md-4
     %h3{for: "order-date"} To Be Picked Up On:
     %input#order-date.form-control{name: "order_options[date]", placeholder: "Enter Date", type: "date", value: Date.today }
     %br/
-    = link_to 'Text Customers', mass_sms_path(@orders.all), :class =>  "btn btn-success btn-sm"
+    %button{:class => "btn btn-success btn-sm"} MASS Text
   .col-lg-8.col-md-8
     %h3 Total Order Items & Quantities
     %ul.list-group

@@ -32,5 +32,16 @@ $( function() {
         e.preventDefault();
     });
 
+    $(".form-group button").click( function (e) {
+        var area = $('h1');
+        var area_id = area.attr('data-area-id');
+        $.ajax({type: "GET",
+            url: "/mass_send_sms/" + area_id,
+            success: function(data) {
+
+            }});
+        e.preventDefault();
+    });
+
 
 });

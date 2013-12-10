@@ -51,7 +51,7 @@ Projectmule::Application.routes.draw do
     resources :items
 
     get '/send_sms/:user', to: 'delivery_points#spam_user', as: :single_sms
-    get '/mass_send_sms/:orders', to: 'delivery_points#mass_spam_user', as: :mass_sms
+    get '/mass_send_sms/:area', to: 'delivery_points#mass_spam_user', as: :mass_sms
 
     #get '/send_sms/:order', :to => 'delivery_points#spam_user', :order => :order
 
