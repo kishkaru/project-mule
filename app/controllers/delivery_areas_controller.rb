@@ -113,6 +113,7 @@ class DeliveryAreasController < ApplicationController
     end
 
     def pts
+        puts "@@@@@@@@@@@@@@@@@@@@ got me"
         @customer_area = DeliveryArea.find(params[:id])
         render :partial => 'delivery_areas/area-points'
     end

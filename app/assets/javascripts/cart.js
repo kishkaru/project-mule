@@ -40,6 +40,8 @@ $( function() {
 				success: function(data) {
 					$('#spinner-cart-center').spin(false);
 					$("#cart-modal-table").html(data);
+					var old_qty = Number($('.cart-qty').html());
+            		$('.cart-qty').html(old_qty + 1);
 					bind_qty_buttons();
 					bind_remove_buttons();
 				}});
@@ -52,6 +54,8 @@ $( function() {
 				success: function(data) {
 					$('#spinner-cart-center').spin(false);
 					$("#cart-modal-table").html(data);
+					var old_qty = Number($('.cart-qty').html());
+            		$('.cart-qty').html(old_qty - 1);
 					bind_qty_buttons();
 					bind_remove_buttons();
 				}});
@@ -65,6 +69,9 @@ $( function() {
 			$.ajax({type: "POST",
 				url: "/remove_item/" + row_id + "/",
 				success: function(data) {
+					var old_qty = Number($('.cart-qty').html());
+					var removed_item_qty = Number($('tr#' + row_id + ' td.qty span.amount').html());
+            		$('.cart-qty').html(old_qty - removed_item_qty);
 					$('#spinner-cart-center').spin(false);
 					$("#cart-modal-table").html(data);
 					bind_remove_buttons();
@@ -201,6 +208,10 @@ $( function() {
 			e.preventDefault();
 		});
 	};
+
+	$('#log-in-button-link').on('click', function() {
+		window.location = '/users/sign_in';
+	});
 
 	setUpPayButton();
 	setUpNewCCForm();

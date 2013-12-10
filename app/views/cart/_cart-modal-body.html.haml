@@ -12,7 +12,7 @@
               %td= item.name
               %td.price= "$#{number_with_precision(item.price, :precision => 2)}"
               %td.qty
-                = qty
+                %span.amount= qty
                 %button.btn.btn-xs.btn-default.plus.item-qty-buttons{:id => "#{item.id}-item-plus"}+
                 %button.btn.btn-xs.btn-default.minus.item-qty-buttons{:id => "#{item.id}-item-minus", :disabled => qty < 2}-
               %td

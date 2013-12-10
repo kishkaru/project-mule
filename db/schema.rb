@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210073246) do
+ActiveRecord::Schema.define(:version => 20131210102620) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -104,8 +104,10 @@ ActiveRecord::Schema.define(:version => 20131210073246) do
     t.integer  "quantity"
     t.integer  "item_id"
     t.integer  "menu_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.boolean  "locked"
+    t.datetime "expiration_time"
   end
 
   add_index "menu_items", ["item_id"], :name => "index_menu_items_on_item_id"
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20131210073246) do
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.integer  "delivery_point_id"
+    t.datetime "pickup_date"
     t.boolean  "picked_up",         :default => false
   end
 

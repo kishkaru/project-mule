@@ -39,6 +39,9 @@
                     %br
                     Your payment will be processed
               - else
+                .centered
+                  Have an account?
+                  %button#log-in-button-link.btn.btn-link{type: :button} Log in
                 = render 'credit_cards/credit-card-info-fields'
                 %br
                 = render 'users/modal-guest-info-fields'
