@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210034143) do
+ActiveRecord::Schema.define(:version => 20131210073246) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -120,9 +120,10 @@ ActiveRecord::Schema.define(:version => 20131210034143) do
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "transaction_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "delivery_point_id"
+    t.boolean  "picked_up",         :default => false
   end
 
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
