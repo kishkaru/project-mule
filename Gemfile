@@ -27,13 +27,9 @@ group :development, :test do
 end
 
 group :test do
-<<<<<<< HEAD
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
-=======
     gem 'cucumber-rails'
     gem 'cucumber-rails-training-wheels'
->>>>>>> orders
+
 end
 group :production do
     gem 'pg'

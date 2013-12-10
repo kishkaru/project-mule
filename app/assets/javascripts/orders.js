@@ -21,4 +21,15 @@ $( function() {
         getOrderInfo(self.data("order"));
     });
 
+    $("#sms_button").click( function (e) {
+        
+        $.ajax({type: "GET",
+            url: "/send_sms/:order(/:user)",
+            success: function(data) {
+
+            }});
+        e.preventDefault();
+    });
+
+
 });

@@ -17,6 +17,7 @@ module CheckoutHelper
 		new_order = Order.create_with_items(items)
         new_order.user = user
         new_order.transaction_id = result.transaction.id
+        new_order.delivery_point = DeliveryPoint.find_by_id(1)
         new_order.save!
         return new_order
 	end
@@ -24,7 +25,7 @@ module CheckoutHelper
 	# Sends an email to the user who made the order ORDER
 	def sendConfirmationEmail(order)
     transaction = Braintree::Transaction.find(order.transaction_id)
-    UserMailer.order_confirmation(order, transaction).deliver
+    #UserMailer.order_confirmation(order, transaction).deliver
     #send_sms(order.user.phone_number.asString, "ProjectMule: Order confirmed! Total: #{view_context.number_to_currency(order.total)}")
 	end
 
