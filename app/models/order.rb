@@ -5,21 +5,16 @@ class Order < ActiveRecord::Base
     attr_accessible :transaction_id
     accepts_nested_attributes_for :user
 
-    # Returns the order made with CART_ITEMS or returns false
-    # if there are not enough items left in stock. CART_ITEMS
+    # Returns the order made with CART_ITEMS. CART_ITEMS
     # is a hash of menu items mapped to quantities
     def self.create_with_items(cart_items)
-        if itemsStillAvailable(cart_items)
-        	new_order = Order.create!
-        	cart_items.each do |item, qty|
-        		item_order = item.create_order(qty)
-        		item_order.order = new_order
-        		item_order.save!
-        	end
-        	return new_order
-        else
-            return false
-        end
+    	new_order = Order.create!
+    	cart_items.each do |item, qty|
+    		item_order = item.create_order(qty)
+    		item_order.order = new_order
+    		item_order.save!
+    	end
+    	return new_order
     end
 
     def subtotal

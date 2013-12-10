@@ -3,6 +3,7 @@ class CartController < ApplicationController
     include CreditCardsHelper
     include CheckoutHelper
     include CartHelper
+    include ItemsHelper
 
     def cart
         @subtotal = 0
@@ -47,7 +48,7 @@ class CartController < ApplicationController
                 else
                     unlockItems(items.keys)
                     @quantity_error = "Not enough items in stock. Please refresh for updated quantities"
-                    render :partial => 'cart/checkout-errors'
+                    render :partial => 'cart/checkout-errors' and return
                 end
 
                 if result.success?
@@ -83,7 +84,7 @@ class CartController < ApplicationController
                     else
                         unlockItems(items.keys)
                         @quantity_error = "Not enough items in stock. Please refresh for updated quantities"
-                        render :partial => 'cart/checkout-errors'
+                        render :partial => 'cart/checkout-errors' and return
                     end
                    
 
@@ -140,7 +141,7 @@ class CartController < ApplicationController
                     else
                         unlockItems(items.keys)
                         @quantity_error = "Not enough items in stock. Please refresh for updated quantities"
-                        render :partial => 'cart/checkout-errors'
+                        render :partial => 'cart/checkout-errors' and return
                     end
 
                     if transaction_result.success?
