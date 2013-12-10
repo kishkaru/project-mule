@@ -7,6 +7,7 @@ Projectmule::Application.routes.draw do
     end
 
 
+
     resources :phone_numbers
 
 
@@ -48,6 +49,14 @@ Projectmule::Application.routes.draw do
 
 
     resources :items
+
+    get '/update_picked_up/:order', to: 'orders#update_picked_up', as: :picked_up
+    get '/un_update_picked_up/:order', to: 'orders#un_update_picked_up', as: :un_picked_up
+    
+    get '/send_sms/:user', to: 'delivery_points#spam_user', as: :single_sms
+    get '/mass_send_sms/:area', to: 'delivery_points#mass_spam_user', as: :mass_sms
+
+    #get '/send_sms/:order', :to => 'delivery_points#spam_user', :order => :order
 
     get '/cart', :to => 'cart#cart', :as => :cart
 

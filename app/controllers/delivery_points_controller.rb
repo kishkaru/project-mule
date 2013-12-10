@@ -1,4 +1,5 @@
 class DeliveryPointsController < ApplicationController
+    include SmsHelper
     # GET /delivery_points
     # GET /delivery_points.json
     def index
@@ -84,4 +85,22 @@ class DeliveryPointsController < ApplicationController
             format.json { head :no_content }
         end
     end
+    
+    def spam_user
+        @user = User.find_by_id(params[:user])
+        send_sms(@user.phone_number.asString, "Your LuckyBolt order is ready for pickup!")
+
+        render :partial => 'delivery_points/send_sms'
+    end
+    
+    def mass_spam_user
+        @orders = DeliveryArea.find(params[:area]).orders.joins(:user).order("users.first_name")
+
+        @orders.each do |order|
+            send_sms(order.user.phone_number.asString, "Your LuckyBolt order is ready for pickup!")
+        end
+
+        render :partial => 'delivery_points/send_sms'
+    end
+
 end
