@@ -6,11 +6,11 @@ Feature: Login to LuckyBolt
     
     Background:
         Given the following user accounts exist
-        | password | password_confirmation | role     | email   | first_name | last_name | phone_number |
-        | aaaaaaaa | aaaaaaaa              | admin    | c@b.com | a          | b         | 1 123 123-1231 |
-        | bbbbbbbb | bbbbbbbb              | vendor   | b@c.com | a          | b         | 1 123 123-1231 |
-        | cccccccc | cccccccc              | customer | t@g.com | a          | b         | 1 123 123-1231 |
-        | dddddddd | dddddddd              | server   | g@h.com | a          | b         | 1 123 123-1231 |
+        | password | password_confirmation | role     | email   | first_name | last_name | phone_number | delivery_area |
+        | aaaaaaaa | aaaaaaaa              | admin    | c@b.com | a          | b         | 1 123 123-1231 | |
+        | bbbbbbbb | bbbbbbbb              | vendor   | b@c.com | a          | b         | 1 123 123-1231 | |
+        | cccccccc | cccccccc              | customer | t@g.com | a          | b         | 1 123 123-1231 | |
+        | dddddddd | dddddddd              | server   | g@h.com | a          | b         | 1 123 123-1231 | UC Berkeley |
            
     Scenario: Admin login to LuckyBolt
         Given I am on the home page

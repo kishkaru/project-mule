@@ -12,7 +12,6 @@ Feature: see all the users
         | aaaaaaaa | aaaaaaaa              | admin    | r@b.com | a          | b         | 1 123 123-1231 |
         | bbbbbbbb | bbbbbbbb              | vendor   | q@b.com | a          | b         | 1 123 123-1231 |
         | cccccccc | cccccccc              | customer | d@b.com | a          | b         | 1 123 123-1231 |
-        | dddddddd | dddddddd              | server   | d@s.com | a          | b         | 1 123 123-1231 |
     
     Scenario: admin should see all users
         Given I am logged in with an admin account
@@ -20,11 +19,9 @@ Feature: see all the users
         Then I should see "Admin"
         And I should see "Vendor"
         And I should see "Customer"
-        And I should see "Server"
         And I should see "r@b.com"
         And I should see "q@b.com"
         And I should see "d@b.com"
-        And I should see "d@s.com"
         
     Scenario: non admins should not see all users
         Given I am logged in with a user account

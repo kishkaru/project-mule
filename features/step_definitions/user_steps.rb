@@ -1,6 +1,7 @@
 Given /the following user accounts exist/ do |users_table|
     map = {'admin' => 1, 'vendor' => 2, 'server' => 3, 'customer' => 4}
     users_table.hashes.each do |user|
+        del_area = user.delete('delivery_area')
         phone = user.delete('phone_number')
         phone = phone.split(" ")
         user[:phone_number_attributes] = {:country => phone[0], :area => phone[1], :number => phone[2]}
@@ -13,6 +14,11 @@ Given /the following user accounts exist/ do |users_table|
             user_to_make.send("#{k}=", val)
         end
         user_to_make.save!
+        if user_to_make.server?
+            area = DeliveryArea.create!(:name => del_area)
+            area.server_id = user_to_make.id
+            area.save!
+        end
     end
 end
 
