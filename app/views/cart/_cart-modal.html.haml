@@ -3,11 +3,52 @@
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4#cartLabel.modal-title Cart
+        %h4#cartLabel.modal-title
+          %span.glyphicon.glyphicon-shopping-cart
       #cart-modal-body.modal-body
         #spinner-cart-center{"style" => "position: absolute;display: block;top: 50%; left: 50%"}
-        #cart-modal-table
-          = render 'cart/cart-modal-body'
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Pay
-      
+        #cart-and-payment
+          #cart-modal-table
+            = render 'cart/cart-modal-body'
+          #cart-payment-info{:hidden => true}
+            %hr
+            - if user_signed_in? && current_user.defaultCreditCard
+              .centered
+                %button#use-default-cc.btn.btn-link{:disabled => 'disabled'} Use default card
+                %button#use-dif-cc.btn.btn-link Use a different credit card
+                %button#use-new-cc.btn.btn-link Use new credit card
+              %br
+              #new-credit-card{hidden: true}
+                = render 'credit_cards/new-credit-card-form'
+              #user-credit-cards
+            = form_tag pay_path, :method => :post, :id => "payment-form" do |f|
+              - if user_signed_in?
+                - if !current_user.defaultCreditCard
+                  = render 'credit_cards/credit-card-info-fields'
+                  %br
+                  .centered
+                    = submit_tag "Pay", {:class => "btn btn-primary btn-lg", :id => "pay-button"}
+                    %br
+                    Your payment will be processed
+                - else
+                  #new-cc-form-for-logged-in{hidden: true}
+                    = render 'credit_cards/credit-card-info-fields'
+                  %br
+                  .centered
+                    = submit_tag "Pay with card ending in #{current_user.defaultCreditCard.last_four}", {:class => 'btn btn-primary btn-lg', :id => "pay-button"}
+                    %br
+                    Your payment will be processed
+              - else
+                = render 'credit_cards/credit-card-info-fields'
+                %br
+                = render 'users/guest-info-fields'
+                %br
+                .centered
+                  = submit_tag "Pay", {:class => "btn btn-primary btn-lg", :id => "pay-button"}
+                  %br
+                  Your payment will be processed
+            #payment-progress-bar.progress.progress-striped.active.hidden
+              .progress-bar{:role => "progressbar", 'aria-valuenow' => "100", 'aria-valuemin' => "0", 'aria-valuemax' => "100", :style => "width: 100%"}
+                %span.sr-only 100% Complete
+      #cart-modal-footer.modal-footer
+        %button#checkout-btn.btn.btn-default{type: "button"} Checkout

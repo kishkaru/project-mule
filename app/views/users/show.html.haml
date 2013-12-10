@@ -1,19 +1,30 @@
-%p
-  %b Role:
-  = User::ROLES_MAPPING[@user.role]
-%p
-  %b First Name:
-  = @user.first_name
-%p
-  %b Last Name:
-  = @user.last_name
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Phone number:
-  = @user.phone_number.asString
-= link_to 'Edit', edit_user_path(@user)
-|
-\#{link_to 'Back', users_path}
+%table.table.table-centered
+  %tr
+    %th
+    %th
+  %tr
+    %td
+      %b Role
+    %td= User::ROLES_MAPPING[@user.role]
+  %tr
+    %td
+      %b First Name
+    %td= @user.first_name
+  %tr
+    %td
+      %b Last Name
+    %td= @user.last_name
+  %tr
+    %td
+      %b Email
+    %td= @user.email
+  %tr
+    %td
+      %b Phone Number
+    %td= @user.phone_number.asString
 
+= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-warning btn-sm'
+|
+= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-sm'
+|
+\#{link_to 'All users', users_path, :class => 'btn btn-default btn-sm'}

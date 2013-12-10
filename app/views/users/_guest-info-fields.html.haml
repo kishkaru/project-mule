@@ -1,0 +1,30 @@
+%h4 Guest Info
+%span An account will be made for you
+%br
+= fields_for :user do |u|
+  .inline-block
+    = u.label :first_name
+    %br
+    = u.text_field :first_name, {:class => "form-control input-field name-field first-name-field"}
+  .inline-block
+    = u.label :last_name
+    %br
+    = u.text_field :last_name, {:class => "form-control input-field name-field"}
+  #contact-info
+    .inline-block
+      = u.label :email
+      %br
+      = u.text_field :email, {:class => "form-control input-field email-field"}
+    .inline-block
+      = u.label :phone_number
+      %br
+      = u.text_field :phone_number, {:class => "form-control input-field phone-number-field bfh-phone", "data-format" => "+1 (ddd) ddd-dddd"}
+  #password-info
+    .inline-block
+      = u.label :password
+      %br
+      = u.password_field :password, {:class => "form-control input-field password-field"}
+    .inline-block
+      = u.label :password_confirmation
+      %br
+      =u.password_field :password_confirmation, {:class => "form-control input-field password-field"}

@@ -1,21 +1,19 @@
 class UsersController < ApplicationController
 
+
     load_and_authorize_resource
     before_filter :verify_if_admin
 
-    def verify_if_admin
-        if current_user.nil?
-            redirect_to(root_path) and return
-        else
-            redirect_to(root_path) and return unless current_user.admin?
-        end
-    end
+
+    before_filter :verify_if_admin, :except => :account
+    before_filter :user_logged_in, :only => :account
+
 
     include UsersHelper
     # GET /users
     # GET /users.json
     def index
-        @users = User.all
+        @users = User.page(params[:page])
 
         respond_to do |format|
             format.html # index.html.erb
@@ -93,5 +91,9 @@ class UsersController < ApplicationController
         end
     end
 
-    private :verify_if_admin
+    # Shows user account info to the user
+    def account
+        @orders = current_user.orders.page(params[:page])
+    end
+
 end

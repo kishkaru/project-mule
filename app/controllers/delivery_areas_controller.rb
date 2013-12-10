@@ -3,7 +3,7 @@ class DeliveryAreasController < ApplicationController
     # GET /delivery_areas.json  
    #load_and_authorize_resource
     def index
-        @delivery_areas = DeliveryArea.all
+        @delivery_areas = DeliveryArea.page(params[:page])
 
         respond_to do |format|
             format.html # index.html.erb
@@ -110,4 +110,27 @@ class DeliveryAreasController < ApplicationController
             format.html { render "menus/show" }
         end
     end
+
+    def pts
+        @customer_area = DeliveryArea.find(params[:id])
+        render :partial => 'delivery_areas/area-points'
+    end
+
+    def orders
+        @delivery_area = DeliveryArea.find(params[:id])
+        @orders = @delivery_area.orders.joins(:user).order("users.first_name").page(params[:page])
+        @no_date = true
+
+        @item_order_summary = {}
+        @delivery_area.orders.select("orders.id").inject([]){|arr, order| arr + order.item_orders}.each do |item_order|
+            item = item_order.item
+            @item_order_summary[item.id] ||= {
+                name: item.name,
+                quantity: 0
+            }
+            @item_order_summary[item.id][:quantity] += item_order.quantity
+        end
+
+    end
+
 end

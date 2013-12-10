@@ -48,6 +48,8 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'devise'
 gem 'cancan'
+gem 'figaro'
+gem 'braintree'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -55,3 +57,4 @@ gem 'cancan'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+gem 'kaminari'

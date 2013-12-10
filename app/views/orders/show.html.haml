@@ -1,0 +1,47 @@
+%h1
+  = "Your" if current_user == @order.user
+  Order #
+  = @order.id
+  = "for #{@order.user.full_name}" if current_user != @order.user
+
+%p
+  %b Transaction ID:
+  = @order.transaction_id
+
+%table.table.table-centered.table-striped.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Vendor
+      %th Quantity
+      %th Unit Price
+      %th Item Total
+  %tbody
+    - @order.item_orders.each do |item_order|
+      - menu_item = item_order.menu_item
+      - item = menu_item.item
+      %tr
+        %td= item.name
+        %td= item.vendor.name
+        %td= item_order.quantity
+        %td= number_to_currency(menu_item.item.price)
+        %td= number_to_currency(menu_item.item.price * item_order.quantity)
+.row
+  .col-lg-6.col-lg-offset-6.col-md-6.col-md-offset-6
+    %table.table.table-centered.table-bordered
+      %tr
+        %th Subtotal
+        %td= number_to_currency(@order.subtotal)
+      %tr
+        %th Tax
+        %td= number_to_percentage(@order.tax * 100)
+      %tr
+        %th Total
+        %td= number_to_currency(@order.total)
+- if user_signed_in?
+  -if current_user.admin?
+    = link_to 'Edit', edit_order_path(@order), class: "btn btn-sm btn-warning"
+    |
+    \#{link_to 'Back', orders_path, class: "btn btn-sm btn-info"}
+  - else
+    = link_to "My account", account_path, class: 'btn btn-link'

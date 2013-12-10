@@ -1,6 +1,10 @@
 Projectmule::Application.routes.draw do
 
-  resources :orders
+    resources :orders do
+        member do
+            get 'items'
+        end
+    end
 
 
     resources :phone_numbers
@@ -11,10 +15,12 @@ Projectmule::Application.routes.draw do
     resources :delivery_areas do
         member do
             get 'menu'
+            get 'orders'
+            get 'pts', :as => :area_points
         end
     end
 
-    get '/delivery_areas/:id',  :as => :Choose, :to => 'delivery_points#updateCustomer'
+    #get '/delivery_areas/:id',  :as => :Choose, :to => 'delivery_points#updateCustomer'
 
     resources :main
     post '/area_chosen', :to => 'main#goToMenu', :as => :area_chosen
@@ -50,6 +56,28 @@ Projectmule::Application.routes.draw do
     post '/minus_item/:item_to_minus', :to => 'items#minusItemFromCart', :as => :minus_item_from_cart
 
     post '/remove_item/:item_to_remove', :to => 'items#removeItemFromCart', :as => :remove_item_from_cart
+
+    post '/pay', :to => 'cart#pay', :as => :pay
+
+    get '/order_receipt', :to => 'orders#receipt', :as => :order_receipt
+
+    get '/account', :to => 'users#account', :as => :account
+
+    get '/account/credit_cards', :to => 'credit_cards#index', :as => :edit_credit_cards
+
+    get '/account/add_credit_card', :to => 'credit_cards#new', :as => :new_credit_card
+
+    post '/account/add_credit_card', :to => 'credit_cards#create', :as => :create_credit_card
+
+    post '/account/set_default_credit_card', :to => 'credit_cards#setDefault', :as => :set_default_credit_card
+
+    delete '/destroy_credit_card/:id', :to => 'credit_cards#destroy', :as => :destroy_credit_card
+
+    post '/cart/change_credit_card', :to => 'credit_cards#changeCreditCard', :as => :change_credit_card
+
+    get '/cart/change_credit_card', :to => 'credit_cards#creditCardSelection', :as => :credit_card_selection
+
+    post '/cart/new_credit_card', :to => 'credit_cards#useNewCreditCard', :as => :use_new_credit_card
 
     root :to => 'main#home'
 

@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(:version => 20131209024422) do
     t.datetime "updated_at",       :null => false
   end
 
+
+  create_table "credit_cards", :force => true do |t|
+    t.string   "token"
+    t.string   "last_four"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "user_id"
+    t.boolean  "default"
+    t.string   "type_image_url"
+  end
+
+  add_index "credit_cards", ["user_id"], :name => "index_credit_cards_on_user_id"
+
   create_table "delivery_areas", :force => true do |t|
     t.string   "name"
     t.integer  "server_id"

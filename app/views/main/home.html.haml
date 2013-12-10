@@ -1,15 +1,23 @@
 #home.centered.clearfix
-  %h1 Project Mule
-  %p Making it easy and affordable to eat better food.
-  = image_tag("/luckybolt_logo.png", :alt => "LuckyBolt Logo", :id => "luckybolt-logo")
-  %h3 Coming Soon...
-  #signup.col-md-6.col-md-offset-3
-    .input-group
-      %input.form-control{:type => :text, :placeholder => "email" }
-      %span.input-group-btn
-        %button.btn.btn-primary Sign Up!
-  %br/
-  %h2 Let's get started! Where are you?
-  = form_tag area_chosen_path, :method => :post do	
-    =collection_select(:customer_area, :id, DeliveryArea.all, :id, :name, {:prompt => "Please select an Area"})
-    = submit_tag "Update"
+  =image_tag('/logo-dark.png/', id: 'home-logo')
+  - if false
+    %h2 Eat Great Food
+  #geographic-content
+    #delivery-select.col-lg-12.col-md-12.transition500
+      .row
+        #areas.transition500.col-lg-6.col-lg-offset-3.col-md-6.col-md-offset-3
+          .rounded-border
+            %table.table.table-hover.table-responsive.table-bordered
+              %th#area-header.text-center.active Area
+              - @delivery_area.each do |area|
+                %tr{:data => {:area => area.id}}
+                  %td.main-table-items= area.name
+        #points.hidden.transition500.col-lg-8.col-lg-offset-0.col-md-8.col-md-offset-0
+          .rounded-border
+      .row
+        = form_tag root_path, :id => 'go-form' do |f|
+          = hidden_field :menu, :id, :id => 'menu-id-field'
+          = hidden_field :delivery_point, :id, :id => 'delivery-point-id-field'
+          %button{:id => 'go', :class => 'col-lg-4 col-md-4 btn btn-lg btn-success hidden'}
+            %span Let's go!
+    #map.col-lg-6.col-md-6

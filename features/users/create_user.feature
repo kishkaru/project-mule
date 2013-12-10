@@ -7,6 +7,7 @@ Feature: create a user
     Background:
         Given the admin account is set up
 
+    @javascript
     Scenario: create a user
         Given I am logged in with an admin account
         And I am on the users page
@@ -24,4 +25,3 @@ Feature: create a user
         And I should see "flay"
         And I should see "bobbyflay@flay.com"
         And I should see "Server"
-        And I should see "1 (415) 123-4567"

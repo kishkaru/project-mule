@@ -1,0 +1,19 @@
+#new-ingredient-fields.modal.fade{"data-backdrop" => "static"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h3
+          Add an Ingredient#{" to #{ @item.name }" unless @item.name.nil?}
+      .modal-body
+        %fieldset
+          .control-group
+            = f.label(:name, :class => "control-label")
+            .controls
+              = f.text_field(:name, :class => "input-xlarge field")
+          = f.hidden_field(:_destroy, :class => "field")
+      .modal-footer
+        %button#addButton.btn.btn-primary{"aria-hidden" => "true", "data-dismiss" => "modal", :title => "Add this Ingredient to this Item.", :type => "button"} Add
+        %button#cancelButton.btn.btn-inverse{"aria-hidden" => "true", "data-dismiss" => "modal", :title => "Close this screen without adding the Ingredient.", :type => "button"} Cancel
+:javascript
+  ingredientFieldsUI.init();

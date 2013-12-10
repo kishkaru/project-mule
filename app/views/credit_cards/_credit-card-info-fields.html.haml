@@ -1,0 +1,16 @@
+%h4 Credit Card Info
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/american_express.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/discover.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= image_tag 'https://assets.braintreegateway.com/payment_method_logo/jcb.png?environment=sandbox&merchant_id=y4ygrg2w6f3gh3tt', :alt => '', :class => "cc-sm"
+= fields_for :credit_card do |f|
+  #credit-card-info
+    .inline-block
+      = f.label :card_number
+      %br
+      = f.text_field :card_number, {:class => "form-control input-field cc-number-field bfh-phone", "data-format" => "dddd-dddd-dddd-dddd", "data-encrypted-name" => "credit_card[card_number]"}
+    .inline-block
+      = f.label :exp_date
+      %br
+      = f.text_field :exp_date, {:class => "form-control input-field cc-exp-date-field bfh-phone", "data-format" => "dd/dddd", :placeholder => "mm/yyyy", "data-encrypted-name" => "credit_card[exp_date]"}

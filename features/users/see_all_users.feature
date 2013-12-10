@@ -1,3 +1,4 @@
+@javascript
 Feature: see all the users
 
     As an admin
@@ -8,11 +9,11 @@ Feature: see all the users
         Given the admin account is set up
         And a non admin account is set up
         And the following user accounts exist
-        | password | password_confirmation | role     | email   |
-        | aaaaaaaa | aaaaaaaa              | admin    | r@b.com |
-        | bbbbbbbb | bbbbbbbb              | vendor   | q@b.com |
-        | cccccccc | cccccccc              | customer | d@b.com |
-        | dddddddd | dddddddd              | server   | d@s.com |
+        | password | password_confirmation | role     | email   | first_name | last_name | phone_number |
+        | aaaaaaaa | aaaaaaaa              | admin    | r@b.com | a          | b         | 1 123 123-1231 |
+        | bbbbbbbb | bbbbbbbb              | vendor   | q@b.com | a          | b         | 1 123 123-1231 |
+        | cccccccc | cccccccc              | customer | d@b.com | a          | b         | 1 123 123-1231 |
+        | dddddddd | dddddddd              | server   | d@s.com | a          | b         | 1 123 123-1231 |
     
     Scenario: admin should see all users
         Given I am logged in with an admin account

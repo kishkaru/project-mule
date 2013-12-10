@@ -4,7 +4,7 @@ class VendorsController < ApplicationController
     # GET /vendors
     # GET /vendors.json
     def index
-        @vendors = Vendor.all
+        @vendors = Vendor.page(params[:page])
 
         respond_to do |format|
             format.html # index.html.erb

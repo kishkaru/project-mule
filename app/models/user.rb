@@ -17,8 +17,12 @@ class User < ActiveRecord::Base
     attr_accessible :first_name, :last_name, :phone_number
     attr_protected :role
 
-    has_one :pickup_point, :class_name => 'DeliveryPoint'
+    validates_presence_of :first_name, :last_name
+
+    belongs_to :pickup_point, :class_name => 'DeliveryPoint', :foreign_key => "pickup_point_id"
     has_one :phone_number
+    has_many :credit_cards
+    has_many :orders
 
     accepts_nested_attributes_for :phone_number, :update_only => true
 
@@ -34,4 +38,18 @@ class User < ActiveRecord::Base
     def admin?
         role == User::ADMIN
     end
+
+    def defaultCreditCard
+        credit_cards.each do |cc|
+            if cc.default
+                return cc
+            end
+        end
+        return nil
+    end
+
+    def full_name
+        return "#{self.first_name} #{self.last_name}"
+    end
+
 end

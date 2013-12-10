@@ -3,7 +3,7 @@ class MenusController < ApplicationController
     # GET /menus
     # GET /menus.json
     def index
-        @menus = Menu.all
+        @menus = Menu.page(params[:page])
 
         respond_to do |format|
             format.html # index.html.erb
@@ -43,6 +43,10 @@ class MenusController < ApplicationController
     # POST /menus
     # POST /menus.json
     def create
+        params[:menu_options] ||= HashWithIndifferentAccess.new
+        params[:menu_options][:delivery_areas] ||= []
+        params[:menu_options][:items] ||= []
+        params[:menu_options][:item_quantities] ||= []
         @delivery_areas = DeliveryArea.where(name: params[:menu_options].delete(:delivery_areas))
         @items = Item.where(id: params[:menu_options].delete(:items)).uniq
         @item_quantities = params[:menu_options].delete(:item_quantities) || {}

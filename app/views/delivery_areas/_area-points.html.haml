@@ -1,0 +1,6 @@
+%table.table.table-hover.table-responsive.table-bordered
+  %th#area-header.text-center.active= @customer_area.name + ' Drop Off Points'
+  - if @customer_area.delivery_points.present?
+    - @customer_area.delivery_points.each do |point|
+      %tr
+        %td.point-items{data: {delivery_point: point.id} }= point.address

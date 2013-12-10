@@ -1,3 +1,4 @@
+@javascript
 Feature: View cart and edit items
 
     As a customer
@@ -17,9 +18,8 @@ Feature: View cart and edit items
         | Spicy Burrito       | 2   |
 
         And I am on the home page
-        And I follow "Cart"
+        And I follow "cart_link"
     
-    @javascript
     Scenario: see the cart
         Then I should see "Regular Burrito"
         And I should see "Spicy Burrito"
@@ -28,7 +28,6 @@ Feature: View cart and edit items
         And I should see "$3.50"
         And I should see "$12.00"
         
-    @javascript
     Scenario: alter quantity
         Given I increase the quantity of "Regular Burrito"
         And I decrease the quantity of "Spicy Burrito"
@@ -38,7 +37,6 @@ Feature: View cart and edit items
         And I should see "$3.50"
         And I should see "$11.00"
     
-    @javascript
     Scenario: remove item
         Given I remove "Regular Burrito"
         Then I should not see "Regular Burrito"

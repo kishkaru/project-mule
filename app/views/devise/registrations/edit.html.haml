@@ -5,19 +5,19 @@
   %div
     = f.label :first_name
     %br/
-    = f.text_field :first_name
+    = f.text_field :first_name, {:class => "form-control name-field"}
   %div
     = f.label :last_name
     %br/
-    = f.text_field :last_name
+    = f.text_field :last_name, {:class => 'form-control name-field'}
   %div
     = f.label :phone_number
     %br/
-    = f.text_field :phone_number, {:class => 'bfh-phone', 'data-format' => '+1 (ddd) ddd-dddd',:value => @user.phone_number ? @user.phone_number.asString : ""}
+    = f.text_field :phone_number, {:class => 'bfh-phone phone-number-field form-control', 'data-format' => '+1 (ddd) ddd-dddd',:value => @user.phone_number ? @user.phone_number.asString : ""}
   %div
     = f.label :email
     %br/
-    = f.email_field :email, :autofocus => true
+    = f.email_field :email, :autofocus => true, :class => "form-control email-field"
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
@@ -26,18 +26,19 @@
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
-    = f.password_field :password, :autocomplete => "off"
+    = f.password_field :password, :autocomplete => "off", :class => "form-control password-field"
   %div
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, {:class => "form-control password-field"}
   %div
     = f.label :current_password
     %i (we need your current password to confirm your changes)
     %br/
-    = f.password_field :current_password
-  %div= f.submit "Update"
+    = f.password_field :current_password, {:class => "form-control password-field"}
+  %br
+  %div= f.submit "Update", {:class => "btn btn-default"}
 %h3 Cancel my account
 %p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
+  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-default"}
 = link_to "Back", :back

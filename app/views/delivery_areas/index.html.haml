@@ -1,4 +1,5 @@
 %h1 Delivery Areas
+= paginate @delivery_areas
 %table.table.table-centered
   %tr
     %th Name
@@ -10,10 +11,14 @@
     %tr
       %td= delivery_area.name
       %td= link_to 'Show', delivery_area, :class =>  "btn btn-info btn-sm"
+
       -if can? :edit, delivery_area
         %td= link_to 'Edit', edit_delivery_area_path(delivery_area), :class =>  "btn btn-warning btn-sm"
       -if can? :destroy, delivery_area
         %td= link_to 'Destroy', delivery_area, method: :delete, data: { confirm: 'Are you sure?' }, :class =>  "btn btn-danger btn-sm"
+
+= paginate @delivery_areas
+
 %br/
 -if can? :new, @delivery_area
   = link_to 'New Delivery area', new_delivery_area_path, :class =>  "btn btn-primary btn-sm"

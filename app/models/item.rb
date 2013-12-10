@@ -4,6 +4,7 @@ class Item < ActiveRecord::Base
     validates :description, :name, :price, presence: true
 
     has_and_belongs_to_many :ingredients
+    has_many :menu_items
 
     attr_accessible :ingredients_attributes
     accepts_nested_attributes_for :ingredients,
