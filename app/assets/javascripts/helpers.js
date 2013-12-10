@@ -12,3 +12,11 @@ function updateQueryStringParameter(uri, key, value) {
 function updatePageWithParam(key, value) {
     window.location = updateQueryStringParameter(window.location.toString(), key, value);
 }
+
+function isMobileBrowser() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
