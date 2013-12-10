@@ -24,11 +24,12 @@
         %div
           %a.list-group-item{data: {order: order.id, user: order.user.id} }
             = order.user.full_name
-            %button{:class =>  "btn btn-warning btn-sm"} Text
-            - if order.picked_up 
-              %button{:class =>  "btn btn-success btn-sm"} √
-            - else
-              %button{:class =>  "btn btn-default btn-sm"} ?
+            %div{:class => "pull-right"}
+              %button{:class =>  "btn btn-warning btn-sm"} Text
+              - if order.picked_up 
+                %button{:class =>  "btn btn-success btn-sm"} √
+              - else
+                %button{:class =>  "btn btn-default btn-sm"} √
   #customer-order-items.col-lg-8.col-md-8
 
 = paginate @orders

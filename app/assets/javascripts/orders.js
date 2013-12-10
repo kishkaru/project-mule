@@ -43,33 +43,45 @@ $( function() {
         e.preventDefault();
     });
 
-    $(".list-group .btn-default").click( function (e) {
-        var order = $(this).parent();
-        var order_id = order.attr('data-order');
-        $.ajax({type: "GET",
-            context: this,
-            url: "/update_picked_up/" + order_id,
-            success: function(data) {
-                $(this).removeClass('btn-default');
-                $(this).addClass('btn-success');
-                $(this).html('√');
-            }});
-        e.preventDefault();
-    });
+    var bind_unsuccess_texts = function() {
+        $(".list-group .btn-default").click( function (e) {
+            var order = $(this).parent().parent();
+            var order_id = order.attr('data-order');
+            this.disabled = true;
+            $.ajax({type: "GET",
+                context: this,
+                url: "/update_picked_up/" + order_id,
+                success: function(data) {
+                    this.disabled = false;
+                    $(this).removeClass('btn-default');
+                    $(this).addClass('btn-success');
+                    $(this).unbind('click');
+                    bind_success_texts();
+                }});
+            e.preventDefault();
+        });
+    };
 
-    $(".list-group .btn-success").click( function (e) {
-        var order = $(this).parent();
-        var order_id = order.attr('data-order');
-        $.ajax({type: "GET",
-            context: this,
-            url: "/un_update_picked_up/" + order_id,
-            success: function(data) {
-                $(this).removeClass('btn-success');
-                $(this).addClass('btn-default');
-                $(this).html('?');  
-            }});
-        e.preventDefault();
-    });
+    var bind_success_texts = function() {
+        $(".list-group .btn-success").click( function (e) {
+            var order = $(this).parent().parent();
+            var order_id = order.attr('data-order');
+            this.disabled = true;
+            $.ajax({type: "GET",
+                context: this,
+                url: "/un_update_picked_up/" + order_id,
+                success: function(data) {
+                    this.disabled = false;
+                    $(this).removeClass('btn-success');
+                    $(this).addClass('btn-default');
+                    $(this).unbind('click');
+                    bind_unsuccess_texts();
+                }});
+            e.preventDefault();
+        });
+    };
 
+    bind_unsuccess_texts();
+    bind_success_texts();
 
 });
