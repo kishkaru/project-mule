@@ -22,6 +22,11 @@
     %td
       %b Phone Number
     %td= @user.phone_number.asString
+  -if @user.server?
+    %tr
+      %td
+        %b Delivery Area
+      %td= DeliveryArea.where(:server_id => @user.id).first.name
 
 = link_to 'Edit', edit_user_path(@user), :class => 'btn btn-warning btn-sm'
 |
