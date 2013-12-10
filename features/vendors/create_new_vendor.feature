@@ -12,7 +12,7 @@ Scenario: get form to create new Vendor
 Scenario: successfully create a new Vendor
     Given I am on the create_new_vendor page
     And I fill in "Name" with "Chipotle"
-    And I fill in "Email" with "bandito@chipotle.com"
+    And I fill in "vendor_mail" with "bandito@chipotle.com"
     And I fill in "vendor_address_attributes_line1" with "123 Dwight"
     And I fill in "vendor_address_attributes_city" with "Berkeley"
     And I fill in "vendor_address_attributes_state" with "CA"

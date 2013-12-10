@@ -1,11 +1,13 @@
 Given /the following items exist/ do |items_table|
+    menu = Menu.create!(:date => Date.today + 1)
     items_table.hashes.each do |item|
         vendor = item.delete("vendor")
         qty = item.delete("quantity")
         i = Item.create!(item)
         i.vendor = Vendor.find_by_name(vendor)
         i.save!
-        i.create_menu_item({:quantity => qty})
+        mi = i.create_menu_item({:quantity => qty})
+        mi.update_attribute(:menu_id, menu.id)
     end
 end
 

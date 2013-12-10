@@ -19,15 +19,4 @@ Background: the following delivery areas have been added to the database
 	   |Mission|
  	And I am on the home page
 
-Scenario: Listing delivery points in an area
-When I select "Berkeley" from "customer_area_id"
-And the delivery areas have a blank menu
-When I press "Update"
-Then I should see "Select Delivery Point"
 
-Scenario: Drop-Down
-Given I select "Mission" from "customer_area_id"
-And the delivery areas have a blank menu
-And I press "Update"
-Then I should see "Select Delivery Point"
-And I should see "Please select a Delivery Point"
