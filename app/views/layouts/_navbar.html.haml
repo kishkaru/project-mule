@@ -18,6 +18,10 @@
               %option{selected: current_user && current_user.pickup_point && current_user.pickup_point.delivery_area && delivery_area.id == current_user.pickup_point.delivery_area.id, value: delivery_area.id}
                 = delivery_area.name
     %ul.nav.navbar-nav.navbar-right
+      - if (user_signed_in?)
+        - if (current_user.server?)
+          %li
+            = link_to 'My Area', order_for_area_delivery_area_path(DeliveryArea.where(:server_id => current_user.id).first)
       %li
         %a{href: "#"} About
       %li
