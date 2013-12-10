@@ -10,7 +10,7 @@
   .field
     = f.label :role
     %br/
-    = f.select(:role, options_for_select([ ['Admin', User::ADMIN], ['Vendor', User::VENDOR], ['Server', User::SERVER], ['Customer', User::CUSTOMER]], :selected => @user.role))
+    = select_tag 'user_options[role]', options_for_select([ ['Admin', User::ADMIN], ['Vendor', User::VENDOR], ['Server', User::SERVER], ['Customer', User::CUSTOMER]], :selected => @user.role), id: "user_role"
   %br
   %div
     .field.inline-block
@@ -40,7 +40,7 @@
     .field.inline-block
       = f.label :phone_number
       %br/
-      = f.text_field :phone_number, {:class => "form-control phone-number-field bfh-phone form-control", "data-format" => "+1 (ddd) ddd-dddd",:value => @user.phone_number ? @user.phone_number.asString : ""}
+      %input#user_phone_number.bfh-phone.phone-number-field.form-control{"data-format" => "+1 (ddd) ddd-dddd", :name => "user_options[phone_number]", :size => "30", :type => "text", :value => @user.phone_number ? @user.phone_number.asString : "" }/
   %br
   #delivery-area-collection-select.field{hidden: true}
     = f.label :delivery_area

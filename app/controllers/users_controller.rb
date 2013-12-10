@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     # POST /users
     # POST /users.json
     def create
-        if params[:user][:role] == "3"
+        if params[:user_options][:role] == "3"
             @user = Server.new
         else
             @user = User.new
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
     # PUT /users/1
     # PUT /users/1.json
     def update
-        if params[:user][:role] == "3"
+        if params[:user_options][:role] == "3"
             @user = Server.find(params[:id])
         else
             @user = User.find(params[:id])

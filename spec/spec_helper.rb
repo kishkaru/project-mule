@@ -39,4 +39,18 @@ RSpec.configure do |config|
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+    config.before(:each) do
+        admin = User.create!({
+                :email => "admin@admin.com",
+                :password => "iambatman",
+                :password_confirmation => "iambatman",
+                :phone_number_attributes => {
+                    :area => "123",
+                    :number => "123-4567",
+                    :country => "1"},
+                :first_name => "Mule",
+                :last_name => "Admin"})
+        admin.update_attribute(:role, User::ADMIN)
+        Object.any_instance.stub(:load_and_authorize_resource).and_return(true)
+    end
 end
