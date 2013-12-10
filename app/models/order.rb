@@ -8,6 +8,8 @@ class Order < ActiveRecord::Base
     attr_accessible :transaction_id
     accepts_nested_attributes_for :user
 
+    # Returns the order made with CART_ITEMS. CART_ITEMS
+    # is a hash of menu items mapped to quantities
     def self.create_with_items(cart_items)
     	new_order = Order.create!
     	cart_items.each do |item, qty|

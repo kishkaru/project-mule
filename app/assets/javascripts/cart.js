@@ -209,6 +209,10 @@ $( function() {
 		});
 	};
 
+	$('#log-in-button-link').on('click', function() {
+		window.location = '/users/sign_in';
+	});
+
 	setUpPayButton();
 	setUpNewCCForm();
 })

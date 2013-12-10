@@ -10,6 +10,9 @@
   %br
   %b Pickup point:
   = @order.delivery_point.address.to_s
+  %br
+  %b Pickup date:
+  = @order.pickup_date.to_formatted_s(:long_ordinal)
 
 %table.table.table-centered.table-striped.table-hover
   %thead

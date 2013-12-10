@@ -34,6 +34,10 @@ module NavigationHelpers
         when /^the create_new_ingredient page$/
             new_ingredient_path
 
+	      ### ORDER ###
+        when /^the orders page for "(.*)"$/
+            order_for_area_delivery_area_path(DeliveryArea.find_by_name($1).id)
+
         ### PHONE NUMBER ###
         when /^the all_phone_numbers page$/
             phone_numbers_path

@@ -1,4 +1,4 @@
-- if @credit_card_errors.present? || @user_errors.present? || @duplicate_error || @pickup_point_error
+- if @credit_card_errors.present? || @user_errors.present? || @duplicate_error || @pickup_point_error || @quantity_error || @item_errors
   #checkout-errors.alert.alert-danger
     - if @credit_card_errors.present?
       %ul
@@ -13,3 +13,7 @@
       = @duplicate_error
     - if @pickup_point_error
       = @pickup_point_error
+    - if @quantity_error
+      = @quantity_error
+    - if @item_errors
+      = @item_errors

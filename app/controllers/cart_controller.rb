@@ -3,6 +3,7 @@ class CartController < ApplicationController
     include CreditCardsHelper
     include CheckoutHelper
     include CartHelper
+    include ItemsHelper
 
     def cart
         @subtotal = 0
@@ -24,6 +25,11 @@ class CartController < ApplicationController
             render :partial => 'cart/checkout-errors' and return
         end
 
+        if expiredItemsInCart
+            @items_errors = "Some items in your cart have expired. Please refresh to update items"
+            render :partial => 'cart/checkout-errors' and return
+        end
+
         items = cartItems
         totals = calculateTotals(9, items)
         credit_card_attrs = params[:credit_card]
@@ -38,14 +44,27 @@ class CartController < ApplicationController
             user = User.find(current_user.id)
             if user.defaultCreditCard
                 # Payment if current user has default credit card
-                result = braintreeTransactionWithDefault(user, totals[:total])
+                while !verifyAndLockItems(items.keys)
+                    sleep(1.0/2.0)
+                end
+
+                if itemsInStock(items)
+                    result = braintreeTransactionWithDefault(user, totals[:total])
+                else
+                    unlockItems(items.keys)
+                    @quantity_error = "Not enough items in stock. Please refresh menu for updated quantities"
+                    render :partial => 'cart/checkout-errors' and return
+                end
 
                 if result.success?
+                    updateMenuItemQuantities(items)
+                    unlockItems(items.keys)
                     order = createOrder(user, items, result)
                     clearCart
                     sendConfirmationEmail(order)
                     render :text => order.id.to_s and return
                 else
+                    unlockItems(items.keys)
                     @credit_card_errors = result.errors
                     render :partial => 'cart/checkout-errors' and return
                 end
@@ -61,15 +80,28 @@ class CartController < ApplicationController
                 else
                     associateStoredCreditCard(credit_card_store_result.credit_card, user, true)
 
-                    # Charge card if storage was successful
-                    result = braintreeTransactionWithDefault(user, totals[:total])
+                    while !verifyAndLockItems(items.keys)
+                        sleep(1.0/2.0)
+                    end
+
+                    if itemsInStock(items)
+                        result = braintreeTransactionWithDefault(user, totals[:total])
+                    else
+                        unlockItems(items.keys)
+                        @quantity_error = "Not enough items in stock. Please refresh for updated quantities"
+                        render :partial => 'cart/checkout-errors' and return
+                    end
+                   
 
                     if result.success?
+                        updateMenuItemQuantities(items)
+                        unlockItems(items.keys)
                         order = createOrder(user, items, result)
                         clearCart
                         sendConfirmationEmail(order)
                         render :text => order.id.to_s and return
                     else
+                        unlockItems(items.keys)
                         @credit_card_errors = result.errors
                         render :partial => 'cart/checkout-errors' and return
                     end
@@ -105,9 +137,21 @@ class CartController < ApplicationController
 
                     associateStoredCreditCard(customer_and_card_store_result.customer.credit_cards[0], new_user, true)
 
-                    transaction_result = braintreeTransactionWithDefault(new_user, totals[:total])
+                    while !verifyAndLockItems(items.keys)
+                        sleep(1.0/2.0)
+                    end
+
+                    if itemsInStock(items)
+                        transaction_result = braintreeTransactionWithDefault(new_user, totals[:total])
+                    else
+                        unlockItems(items.keys)
+                        @quantity_error = "Not enough items in stock. Please refresh for updated quantities"
+                        render :partial => 'cart/checkout-errors' and return
+                    end
 
                     if transaction_result.success?
+                        updateMenuItemQuantities(items)
+                        unlockItems(items.keys)
                         order = createOrder(new_user, items, transaction_result)
                         clearCart
                         sendConfirmationEmail(order)
@@ -115,8 +159,7 @@ class CartController < ApplicationController
                         flash[:info] = 'You have been signed in with your new account!'
                         render text: order.id.to_s  and return
                     else
-
-
+                        unlockItems(items.keys)
                         @credit_card_errors = transaction_result.errors
                         render :partial => 'cart/checkout-errors' and return
                     end

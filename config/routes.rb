@@ -20,7 +20,7 @@ Projectmule::Application.routes.draw do
     resources :delivery_areas do
         member do
             get 'menu'
-            get 'orders'
+            get 'orders', :as => :order_for_area
             get 'pts', :as => :area_points
         end
     end

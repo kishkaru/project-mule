@@ -104,8 +104,10 @@ ActiveRecord::Schema.define(:version => 20131210102620) do
     t.integer  "quantity"
     t.integer  "item_id"
     t.integer  "menu_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.boolean  "locked"
+    t.datetime "expiration_time"
   end
 
   add_index "menu_items", ["item_id"], :name => "index_menu_items_on_item_id"

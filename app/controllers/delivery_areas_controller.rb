@@ -1,6 +1,8 @@
 class DeliveryAreasController < ApplicationController
     # GET /delivery_areas
-    # GET /delivery_areas.json
+    # GET /delivery_areas.json  
+    load_and_authorize_resource
+#skip_authorize_resource :only => [:orders] 
     def index
         @delivery_areas = DeliveryArea.page(params[:page])
 
