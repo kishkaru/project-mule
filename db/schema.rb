@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209024422) do
+ActiveRecord::Schema.define(:version => 20131210022734) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -40,12 +40,10 @@ ActiveRecord::Schema.define(:version => 20131209024422) do
   create_table "delivery_areas", :force => true do |t|
     t.string   "name"
     t.integer  "server_id"
-    t.integer  "menu_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "delivery_areas", ["menu_id"], :name => "index_delivery_areas_on_menu_id"
   add_index "delivery_areas", ["server_id"], :name => "index_delivery_areas_on_server_id"
 
   create_table "delivery_points", :force => true do |t|
@@ -107,9 +105,12 @@ ActiveRecord::Schema.define(:version => 20131209024422) do
 
   create_table "menus", :force => true do |t|
     t.datetime "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "delivery_area_id"
   end
+
+  add_index "menus", ["delivery_area_id"], :name => "index_menus_on_delivery_areas_id"
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"

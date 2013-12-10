@@ -3,7 +3,7 @@ class DeliveryArea < ActiveRecord::Base
     attr_accessible :name #:user
 
     belongs_to :user, :class_name => "User"
-    belongs_to :menu
+    has_many :menus
     has_many :delivery_points
     has_many :orders, :through => :delivery_points
 

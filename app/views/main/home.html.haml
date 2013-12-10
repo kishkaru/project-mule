@@ -9,8 +9,8 @@
           .rounded-border
             %table.table.table-hover.table-responsive.table-bordered
               %th#area-header.text-center.active Area
-              - @areas_and_menus.each do |area, menu|
-                %tr{:data => {:area => area.id, :menu => menu.id}}
+              - @delivery_areas.each do |area|
+                %tr{:data => {:area => area.id}}
                   %td.main-table-items= area.name
         #points.hidden.transition500.col-lg-8.col-lg-offset-0.col-md-8.col-md-offset-0
           .rounded-border
