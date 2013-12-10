@@ -39,6 +39,7 @@
     = render 'cart/empty-cart'
 #order-summary{:hidden => true}
   #checkout-notices
+  %div
     %h3 Order Summary
     %br
     - if @cart_items.present?
