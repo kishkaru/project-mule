@@ -1,4 +1,6 @@
 class VendorsController < ApplicationController
+    load_and_authorize_resource
+
     # GET /vendors
     # GET /vendors.json
     def index

@@ -41,6 +41,7 @@ GEM
     braintree (2.26.0)
       builder (>= 2.0.0)
     builder (3.0.4)
+    cancan (1.6.10)
     capybara (2.1.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -230,6 +231,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   braintree
+  cancan
   capybara
   coffee-rails (~> 3.2.2)
   cucumber-rails

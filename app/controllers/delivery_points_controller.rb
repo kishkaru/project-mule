@@ -1,6 +1,7 @@
 class DeliveryPointsController < ApplicationController
     # GET /delivery_points
     # GET /delivery_points.json
+    load_and_authorize_resource
     def index
         if state = params.delete(:state)
             @delivery_points = DeliveryPoint.joins(:address).where("addresses.state = '#{state}'").page(params[:page])

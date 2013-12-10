@@ -60,6 +60,24 @@ Given /I am logged in with a user account/ do
     step %{I press "Sign in"}
 end
 
+
+Given /I am logged in with a server account/ do
+    step %{I am on the home page}
+    step %{I follow "Login"}
+    step %{I fill in "user_email" with "s@s.com"}
+    step %{I fill in "user_password" with "ssssssss"}
+    step %{I press "Sign in"}
+end
+
+
+Given /I am logged in with a vendor account/ do
+    step %{I am on the home page}
+    step %{I follow "Login"}
+    step %{I fill in "user_email" with "v@s.com"}
+    step %{I fill in "user_password" with "vvvvvvvv"}
+    step %{I press "Sign in"}
+end
+
 Given /I logout/ do
     click_link('user-menu')
     click_link('logout-link')

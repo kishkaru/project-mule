@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
+
+    load_and_authorize_resource
+    before_filter :verify_if_admin
+
+
     before_filter :verify_if_admin, :except => :account
     before_filter :user_logged_in, :only => :account
+
 
     include UsersHelper
     # GET /users
