@@ -7,6 +7,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+include Warden::Test::Helpers
+Warden.test_mode!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
     # in spec/support/ and its subdirectories.
@@ -40,17 +42,6 @@ RSpec.configure do |config|
     #     --seed 1234
     config.order = "random"
     config.before(:each) do
-        admin = User.create!({
-                :email => "admin@admin.com",
-                :password => "iambatman",
-                :password_confirmation => "iambatman",
-                :phone_number_attributes => {
-                    :area => "123",
-                    :number => "123-4567",
-                    :country => "1"},
-                :first_name => "Mule",
-                :last_name => "Admin"})
-        admin.update_attribute(:role, User::ADMIN)
         Object.any_instance.stub(:load_and_authorize_resource).and_return(true)
     end
 end

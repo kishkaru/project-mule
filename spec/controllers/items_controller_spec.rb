@@ -30,6 +30,10 @@ describe ItemsController do
     # ItemsController. Be sure to keep this updated too.
     let(:valid_session) { {} }
 
+    before(:each) do
+        signed_in_as_admin
+    end
+
     describe "GET index" do
         it "assigns all items as @items" do
             item = Item.create! valid_attributes
