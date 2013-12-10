@@ -22,6 +22,13 @@ Background:
         | 3 | cccccccc      | 
         | 4 | dddddddd      |
 
+
+       And the following DeliveryAreas exist:
+       |name|
+       |F&M District|
+       |Berkeley|
+       |Mission|
+
 Scenario: Server cannot see all users page
 Given I am on the users page
 Then I should be on the home page
@@ -52,5 +59,5 @@ Given I am on the Listing delivery_areas page
 Then I should be on the home page
 
 Scenario: Server can view orders page
-Given I am on the orders page
-Then I should see "Listing orders"
+Given I am on the orders page for "F&M District"
+Then I should see "To Be Picked Up On"

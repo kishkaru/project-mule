@@ -19,6 +19,13 @@ Background:
         | 3 | cccccccc      | 
         | 4 | dddddddd      |
 
+
+   And the following DeliveryAreas exist:
+   |name|
+   |F&M District|
+   |Berkeley|
+   |Mission|
+
         
 Scenario: Customer cannot see all users page
 Given I am on the users page
@@ -56,5 +63,6 @@ Then I should be on the home page
 And I should see "Access denied."
 
 Scenario: Customer cannot view all orders page
-Given I am on the orders page
-And I should see "Listing orders"
+Given I am on the orders page for "F&M District"
+Then I should be on the home page
+And I should see "Access denied."

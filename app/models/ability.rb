@@ -40,12 +40,18 @@ class Ability
       can :addItemToCart, Item
       can :getOldQuantity, Item
       can :removeItemFromCart, Item
+      can :show, Order, :user_id => user.id 
+      can :account, User
     else
       can :manage, :all
     end
 
     if user.role == User::SERVER
-      can :orders, DeliveryArea
+#can :orders, DeliveryArea
+     can :update_picked_up, Order
+     can :un_update_picked_up, Order
+     can :spam_user, DeliveryPoint
+     can :mass_spam_user, DeliveryPoint
     end
   end
 end
