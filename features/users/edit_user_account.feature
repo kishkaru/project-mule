@@ -1,4 +1,3 @@
-@javascript
 Feature: Edit user account
 
 	As a customer
@@ -6,7 +5,7 @@ Feature: Edit user account
 	I want to edit my account information
 
 	Scenario: Edit account info
-		Given a non admin account is set up
+	Given a non admin account is set up
         And I am logged in with a user account
         And I am on the edit user page
         And I fill in "First name" with "Dwayne"

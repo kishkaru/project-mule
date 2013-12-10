@@ -22,7 +22,7 @@ class CartController < ApplicationController
         items = cartItems
         totals = calculateTotals(9, items)
         credit_card_attrs = params[:credit_card]
-        user_attrs = params[:user]
+        user_attrs = params[:modal_user]
 
         if totals[:total] == 0
             render :text => "empty cart" and return

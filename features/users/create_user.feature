@@ -7,7 +7,6 @@ Feature: create a user
     Background:
         Given the admin account is set up
 
-    @javascript
     Scenario: create a user
         Given I am logged in with an admin account
         And I am on the users page

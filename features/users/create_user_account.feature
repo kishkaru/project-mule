@@ -1,4 +1,3 @@
-@javascript
 Feature: create customer account
 
     As a customer
@@ -11,6 +10,7 @@ Feature: create customer account
         And I follow "Sign up"
         Then I should be on the create account page
     
+    @javascript
     Scenario: create an account
         Given I fill in "user_password" with "foobarfoo"
         And I fill in "user_password_confirmation" with "foobarfoo"

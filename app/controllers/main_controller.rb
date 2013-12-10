@@ -1,7 +1,8 @@
 class MainController < ApplicationController
 
     def home
-        @delivery_area = DeliveryArea.all
+        @areas_and_menus = {}
+        today = Time.now.to_s.split.first
     end
 
     def goToMenu
