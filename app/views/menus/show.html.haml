@@ -28,11 +28,13 @@
                   %em= item.description
       .col-md-1
         .item-actions
-          %input.amount-to-add.form-control{type: "number", value: 1, disabled: true}
-          %button.add-to-cart.btn.btn-success{data: {item: item.id}} Add
+          -if can? :order, @menu
+            %input.amount-to-add.form-control{type: "number", value: 1, disabled: true}
+            %button.add-to-cart.btn.btn-success{data: {item: item.id}} Add
 
 .row
   .col-md-9.col-md-offset-1
-    = link_to 'Edit', edit_menu_path(@menu), :class =>  "btn btn-warning btn-sm"
+    -if can? :edit, @menu
+      = link_to 'Edit', edit_menu_path(@menu), :class =>  "btn btn-warning btn-sm"
     |
     \#{link_to 'Back', menus_path, :class =>  "btn btn-default btn-sm"}

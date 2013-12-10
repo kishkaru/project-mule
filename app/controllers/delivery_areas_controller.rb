@@ -1,6 +1,7 @@
 class DeliveryAreasController < ApplicationController
     # GET /delivery_areas
-    # GET /delivery_areas.json
+    # GET /delivery_areas.json  
+   #load_and_authorize_resource
     def index
         @delivery_areas = DeliveryArea.all
 

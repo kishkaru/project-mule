@@ -1,4 +1,5 @@
 %h1 Delivery Points
 = render 'table'
 %br/
-= link_to 'New Delivery point', new_delivery_point_path, :class =>  "btn btn-primary btn-sm"
+-if can? :new, @delivery_points
+  %td= link_to 'New Delivery point', new_delivery_point_path, :class =>  "btn btn-primary btn-sm"

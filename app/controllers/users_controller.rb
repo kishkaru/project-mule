@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+    load_and_authorize_resource
     before_filter :verify_if_admin
 
     def verify_if_admin
