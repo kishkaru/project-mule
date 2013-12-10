@@ -3,3 +3,8 @@ for file in $(find . -type f -name \*.html.erb); do
     git rm ${file}
     git add "$(dirname ${file})/$(basename ${file} .erb).haml"
 done
+for file in $(find . -type f -name \*.erb); do
+    html2haml -e ${file} "$(dirname ${file})/$(basename ${file} .erb).html.haml";
+    git rm ${file}
+    git add "$(dirname ${file})/$(basename ${file} .erb).html.haml"
+done
