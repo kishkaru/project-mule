@@ -50,8 +50,8 @@ class Ability
 #can :orders, DeliveryArea
      can :update_picked_up, Order
      can :un_update_picked_up, Order
-     can :spam_user, DeliveryPoint
-     can :mass_spam_user, DeliveryPoint
+     can :notify_pickup, DeliveryPoint
+     can :notify_pickup, User
      can :orders, DeliveryArea
     end
   end

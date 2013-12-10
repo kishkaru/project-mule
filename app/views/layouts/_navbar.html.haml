@@ -18,6 +18,9 @@
               %option{selected: current_user && current_user.pickup_point && current_user.pickup_point.delivery_area && delivery_area.id == current_user.pickup_point.delivery_area.id, value: delivery_area.id}
                 = delivery_area.name
     %ul.nav.navbar-nav.navbar-right
+      - if @current_menu
+        %li
+          %a{href: menu_path(@current_menu)} Menu
       %li
         %a{href: "#"} About
       %li

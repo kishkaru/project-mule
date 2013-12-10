@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery
 
-    before_filter :initialize_cart, :set_chosen_pickup_point
+    before_filter :initialize_state
 
     rescue_from CanCan::AccessDenied do|exception|
       flash[:error] = "Access denied."
@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
 
 
     protected
+
+    def initialize_state
+        set_current_point
+        set_current_menu
+        initialize_cart
+    end
 
     def initialize_cart
         session[:cart] ||= HashWithIndifferentAccess.new()
@@ -29,8 +35,26 @@ class ApplicationController < ActionController::Base
 
     end
 
-    def set_chosen_pickup_point
-        @chosen_point = session[:customer_pickup_point]
+    def set_current_point
+        session[:customer_pickup_point] ||= (current_user.pickup_point.id if user_signed_in? && current_user.pickup_point)
+
+        @current_point = DeliveryPoint.find(session[:customer_pickup_point])
+    end
+
+    def update_current_point(point)
+        if @current_point && @current_point.delivery_area && point.delivery_area && point.delivery_area.id != @current_point.delivery_area.id
+            session[:cart][:items].clear
+        end
+
+        current_user.update_attribute(:pickup_point, point) if user_signed_in?
+        session[:customer_pickup_point] = point.id
+
+        @current_point = point
+        initialize_cart
+    end
+
+    def set_current_menu
+        @current_menu = @current_point.current_menu if @current_point
     end
 
     # Before filter for if user is logged in

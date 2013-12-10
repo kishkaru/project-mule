@@ -2,9 +2,8 @@ class MainController < ApplicationController
 
     def home
         @areas_and_menus = {}
-        today = Time.now.to_s.split.first
         DeliveryArea.all.each do |area|
-            @areas_and_menus[area] = area.menus.where('date like?', "#{today}%").first
+            @areas_and_menus[area] = area.menus.where(date: (Time.now..Time.now+1.day)).order(:date).first
         end
     end
 
