@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      A new user has signed up: #{@user.email}
+    %p
+      Role: #{User::ROLES_MAPPING[@user.role]}
+      %br/
+      First name: #{@user.first_name}
+      %br/
+      Last name: #{@user.last_name}
+      %br/
+      Username: #{@user.email}
+      %br/
+      Phone number: #{@user.phone_number.asString}
+      %br/
