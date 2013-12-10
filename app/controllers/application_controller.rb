@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     def set_current_point
         session[:customer_pickup_point] ||= (current_user.pickup_point.id if user_signed_in? && current_user.pickup_point)
 
-        @current_point = DeliveryPoint.find(session[:customer_pickup_point])
+        @current_point = session[:customer_pickup_point] ? DeliveryPoint.find(session[:customer_pickup_point]) : nil
     end
 
     def update_current_point(point)
