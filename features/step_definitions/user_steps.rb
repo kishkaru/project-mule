@@ -1,6 +1,9 @@
 Given /the following user accounts exist/ do |users_table|
     map = {'admin' => 1, 'vendor' => 2, 'server' => 3, 'customer' => 4}
     users_table.hashes.each do |user|
+        phone = user.delete('phone_number')
+        phone = phone.split(" ")
+        user[:phone_number_attributes] = {:country => phone[0], :area => phone[1], :number => phone[2]}
         user_to_make = User.new
         user.keys.each do |k|
             val = user[k]
@@ -55,4 +58,8 @@ Given /I am logged in with a user account/ do
     step %{I fill in "user_email" with "a@b.com"}
     step %{I fill in "user_password" with "bbbbbbbb"}
     step %{I press "Sign in"}
+end
+
+Given /I logout/ do
+    visit path_to('logout')
 end

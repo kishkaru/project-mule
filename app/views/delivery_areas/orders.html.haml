@@ -1,0 +1,25 @@
+%h1= "Orders for #{@delivery_area.name}"
+
+.row
+  .form-group.col-lg-4.col-md-4
+    %h3{for: "order-date"} To Be Picked Up On:
+    %input#order-date.form-control{name: "order_options[date]", placeholder: "Enter Date", type: "date", value: Date.today }
+  .col-lg-8.col-md-8
+    %h3 Total Order Items & Quantities
+    %ul.list-group
+      - @item_order_summary.each do |id, attributes|
+        %li.list-group-item
+          = attributes[:name]
+          %span.badge= attributes[:quantity]
+
+= paginate @orders
+.row
+  #order-customers.col-lg-4.col-md-4
+    %h3 Customers
+    %ul.list-group
+      - @orders.each do |order|
+        %a.list-group-item{data: {order: order.id} }
+          = order.user.full_name
+  #customer-order-items.col-lg-8.col-md-8
+
+= paginate @orders

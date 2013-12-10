@@ -1,3 +1,4 @@
+@javascript
 Feature: create customer account
 
     As a customer
@@ -14,10 +15,13 @@ Feature: create customer account
         Given I fill in "user_password" with "foobarfoo"
         And I fill in "user_password_confirmation" with "foobarfoo"
         And I fill in "user_email" with "foo@gmail.com"
+        And I fill in "user_first_name" with "Billy"
+        And I fill in "user_last_name" with "Bob"
+        And I fill in "user_phone_number" with "+1 (123) 123-1232"
         And I press "Sign up"
         Then I should be on the home page
         And I should see "Welcome! You have signed up successfully"
-        And I follow "Logout"
+        And I logout
         And I follow "Login"
         And I fill in "user_email" with "foo@gmail.com"
         And I fill in "user_password" with "foobarfoo"
