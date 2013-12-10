@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery
 
-    before_filter :initialize_cart
+    before_filter :initialize_cart, :set_chosen_pickup_point
 
 
     protected
@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     def initialize_cart
         session[:cart] ||= HashWithIndifferentAccess.new()
         session[:cart][:items] ||= HashWithIndifferentAccess.new()
+    end
+
+    def set_chosen_pickup_point
+        @chosen_point = session[:customer_pickup_point]
     end
 
     # Before filter for if user is logged in

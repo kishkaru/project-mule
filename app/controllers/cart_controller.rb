@@ -19,6 +19,11 @@ class CartController < ApplicationController
 
     def pay
 
+        if !session[:customer_pickup_point].present?
+            @pickup_point_error = "No pickup point chosen"
+            render :partial => 'cart/checkout-errors' and return
+        end
+
         items = cartItems
         totals = calculateTotals(9, items)
         credit_card_attrs = params[:credit_card]

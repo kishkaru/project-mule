@@ -1,8 +1,20 @@
-- if @chosen_point
-  %div.inline-block
+%div.inline-block
+  - if @show_view
     %h4
       %b
-        Your chosen pickup point:
-      = @chosen_point.address.to_s
-  .float-right.inline-block
-    = link_to 'Change your pickup point', root_path
+        Pickup point:
+      - if @chosen_point.present?
+        = @chosen_point.address.to_s
+      - else
+        No pickup point chosen
+  - else 
+    %h5
+      %b
+        Pickup point:
+      - if @chosen_point.present?
+        = @chosen_point.address.to_s
+      - else
+        No pickup point chosen
+.float-right.inline-block
+  %br
+  = link_to 'Change your pickup point', root_path

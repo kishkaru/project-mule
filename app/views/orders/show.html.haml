@@ -7,6 +7,9 @@
 %p
   %b Transaction ID:
   = @order.transaction_id
+  %br
+  %b Pickup point:
+  = @order.delivery_point.address.to_s
 
 %table.table.table-centered.table-striped.table-hover
   %thead
