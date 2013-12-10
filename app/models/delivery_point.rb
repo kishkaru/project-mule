@@ -10,6 +10,10 @@ class DeliveryPoint < ActiveRecord::Base
 
     accepts_nested_attributes_for :address, :update_only => true
 
+    def current_menu
+        return self.delivery_area.current_menu rescue nil
+    end
+
 end
 
 

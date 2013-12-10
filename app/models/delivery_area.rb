@@ -18,4 +18,8 @@ class DeliveryArea < ActiveRecord::Base
         self.delivery_points = points_to_add
     end
 
+    def current_menu
+        return self.menus.where("date > ?", Time.now).order('date ASC, created_at DESC').first
+    end
+
 end

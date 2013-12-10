@@ -3,18 +3,16 @@
     %h4
       %b
         Pickup point:
-      - if @chosen_point.present?
-        = @chosen_point.address.to_s
+      - if @current_point.present?
+        = @current_point.address.to_s
       - else
         No pickup point chosen
-  - else 
+      = link_to '(Change)', root_path
+  - else
     %h5
       %b
         Pickup point:
-      - if @chosen_point.present?
-        = @chosen_point.address.to_s
+      - if @current_point.present?
+        = @current_point.address.to_s
       - else
         No pickup point chosen
-.float-right.inline-block
-  %br
-  = link_to 'Change your pickup point', root_path

@@ -18,14 +18,10 @@ class MenusController < ApplicationController
         @customer_points = DeliveryPoint.where(delivery_area_id: @menu.delivery_areas.pluck(:id))
 
         if params[:delivery_point]
-            # Store the chosen pickup point in the session
-            session[:customer_pickup_point] = DeliveryPoint.find(params[:delivery_point][:id])
-
-            @chosen_point = session[:customer_pickup_point]
+            update_current_point(DeliveryPoint.find(params[:delivery_point][:id]))
         end
 
         @show_view = true
-
 
         respond_to do |format|
             format.html # show.html.erb

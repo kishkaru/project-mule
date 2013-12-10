@@ -3,7 +3,8 @@
     Menu
   %h4.centered
     = @menu.date.strftime("%A %B %e, %Y") if @menu.date
-= render 'delivery_points/chosen-point'
+.col-md-9.col-md-offset-1
+  = render 'delivery_points/chosen-point'
 .row
   #menu-items
     - @menu.items.each do |item|
@@ -17,6 +18,7 @@
               %h4 Left
           .details
             .image
+              %i.glyphicon.glyphicon-cutlery
               %img{ src: "http://www.lifetasteslikefood.com/wp-content/uploads/2011/11/ribbon-pasta-11.jpg" }
             .info
               .title
