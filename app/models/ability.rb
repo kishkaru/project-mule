@@ -32,20 +32,20 @@ class Ability
     user ||= User.new #guest login to Customer
     
     if not user.admin?
-      #can :show, :orders
-      can :show, :cart
+      can :menu, DeliveryArea
+      can :pts, DeliveryArea
+      can :show, Menu
+      can :addItemToCart, Item
+      can :minusItemFromCart, Item
+      can :addItemToCart, Item
+      can :getOldQuantity, Item
+      can :removeItemFromCart, Item
     else
       can :manage, :all
     end
 
-    if user.role == User::CUSTOMER
-      #can :show, :orders
-      can :show, :cart 
-    end
-
     if user.role == User::SERVER
-      can :index, :orders 
-      can :show, :orders
+      can :orders, DeliveryArea
     end
   end
 end

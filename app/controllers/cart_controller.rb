@@ -3,7 +3,6 @@ class CartController < ApplicationController
     include CreditCardsHelper
     include CheckoutHelper
     include CartHelper
-
     def cart
         @subtotal = 0
         @tax_total = 0
