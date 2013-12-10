@@ -29,6 +29,7 @@ end
 group :test do
     gem 'cucumber-rails'
     gem 'cucumber-rails-training-wheels'
+
 end
 group :production do
     gem 'pg'
@@ -50,6 +51,7 @@ gem 'devise'
 gem 'cancan'
 gem 'figaro'
 gem 'braintree'
+gem 'twilio-ruby'
 
 # Use unicorn as the web server
 # gem 'unicorn'
