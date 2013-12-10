@@ -18,8 +18,8 @@ module CheckoutHelper
 		new_order = Order.create_with_items(items)
         new_order.user = user
         new_order.transaction_id = result.transaction.id
-        new_order.delivery_point = session[:customer_pickup_point]
-        user.update_attribute(:pickup_point, session[:customer_pickup_point])
+        new_order.delivery_point = @current_point
+        user.update_attribute(:pickup_point, @current_point)
 
         # Get the date for the order pick up
         delivery_date = items.keys.first.menu.date
@@ -28,13 +28,13 @@ module CheckoutHelper
 
         new_order.save!
         return new_order
-	end
+    end
 
-	# Sends an email to the user who made the order ORDER
-	def sendConfirmationEmail(order)
+    # Sends an email to the user who made the order ORDER
+    def sendConfirmationEmail(order)
     transaction = Braintree::Transaction.find(order.transaction_id)
     UserMailer.order_confirmation(order, transaction).deliver
     #send_sms(order.user.phone_number.asString, "ProjectMule: Order confirmed! Total: #{view_context.number_to_currency(order.total)}")
-	end
+    end
 
 end
