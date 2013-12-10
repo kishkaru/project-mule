@@ -18,9 +18,9 @@ $( function() {
     });
 
 
-    $(window).load(function() {
+    $(window).load(_.delay(function() {
         adjustContainer();
-    });
+    }, 1000));
 
     $('ul.nav .dropdown a').click(function() {
         adjustContainer();
@@ -38,4 +38,9 @@ $( function() {
             'https://dl.dropboxusercontent.com/sh/qz66j1s91ael6z5/VEbeenwBcI/IMG_0218.jpg?token_hash=AAEp5tYrEFxJV0mLEoYb1I61RkPdEcPLMzl7M065WBMQ-A'
         ],{duration: 10000, fade: 750});
     }
+
+    _.delay( function() {
+        alert = $('#main-alert');
+        alert.slideUp(500);
+    }, 3000);
 });

@@ -68,6 +68,7 @@ $(document).ready( function() {
             _.delay(function() {
                 $('#map').append(img);
                 $('#go').removeClass('hidden');
+                $("#main").animate({ scrollTop: $("#main")[0].scrollHeight}, 1000);
             }, 500);
         }
        /* $.ajax({type: 'GET',

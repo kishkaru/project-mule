@@ -72,8 +72,24 @@ header {
         min-height: 100%;
         background-color: rgba(255, 255, 255, 0.95);
         box-shadow: 0 0 10px 1px #444;
+        padding-top: 30px;
         padding-bottom: 30px;
     }
+}
+
+
+#main-alert {
+    margin-top: 0px;
+}
+
+#about-modal {
+    .modal-header {
+        text-align: center;
+    }
+}
+
+#about-logo{
+    width: 150px;
 }
 
 .centered {
@@ -103,27 +119,6 @@ table {
     padding: 6px 12px;
 }
 
-.float-right {
-    float: right;
-}
-
-.input-field {
-    height: 30px;
-}
-
-.name-field {
-    width: 250px;
-}
-
-div.inline-block {
-    display: inline-block;
-}
-
-#credit-card-info, #password-info, #contact-info {
-    margin-top: 10px;
-}
-
-.email-field, .password-field, .first-name-field {
-    width: 250px;
-    margin-right: 10px;
+.row {
+    margin-bottom: 10px;
 }

@@ -1,15 +1,11 @@
 #home {
     padding: 0;
-    padding-top: 50px;
+    padding-top: 5%;
 //    display: inline-block;
     margin: auto;
 //    position: absolute;
 //    height: 80%;
 //    top: 0; left: 0; bottom: 0; right: 0;
-}
-
-#main-alert {
-    margin-top: 20px;
 }
 
 .danger-text {
@@ -48,6 +44,7 @@
     #map img {
         border-radius: 8px;
         border: 1px solid #ccc;
+        width: 100%;
     }
 
     .rounded-border {

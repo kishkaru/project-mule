@@ -1,8 +1,8 @@
 %div
   - if !@editing
-    %a.float-right{href: edit_credit_cards_path}Edit credit cards
+    %a.pull-right{href: edit_credit_cards_path}Edit credit cards
   - if @editing
-    = link_to "Add new card", new_credit_card_path, :id => "new-cc-link", :class => "btn btn-link float-right"
+    = link_to "Add new card", new_credit_card_path, :id => "new-cc-link", :class => "btn btn-link pull-right"
   %h4 Credit Cards
 - if current_user.credit_cards.present?
   %ul
@@ -13,7 +13,7 @@
         - if cc.default
           %span.glyphicon.glyphicon-ok
         - if @editing
-          .editing-links.float-right
+          .editing-links.pull-right
             - if !cc.default
               = link_to 'Make default', set_default_credit_card_path(:cc_id => cc.id), method: :post, data: { confirm: 'Are you sure?'}, :class => "btn btn-link"
             = link_to 'Delete', destroy_credit_card_path(cc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-link", :id => "delete-#{cc.last_four}"
