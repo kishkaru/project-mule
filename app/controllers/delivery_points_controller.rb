@@ -1,6 +1,8 @@
 class DeliveryPointsController < ApplicationController
+    include SmsHelper
     # GET /delivery_points
     # GET /delivery_points.json
+    load_and_authorize_resource
     def index
         if state = params.delete(:state)
             @delivery_points = DeliveryPoint.joins(:address).where("addresses.state = '#{state}'").page(params[:page])
@@ -84,4 +86,18 @@ class DeliveryPointsController < ApplicationController
             format.json { head :no_content }
         end
     end
+
+    
+    def notify_pickup
+        @delivery_point =DeliveryPoint.find(params[:id])
+        @orders = @delivery_point.orders
+        logger.info("Notifying Pickup for Delivery Point #{@delivery_point.id}: #{@delivery_point.address.to_s}")
+
+        @orders.each do |order|
+            send_sms(order.user.phone_number.asString, "Your LuckyBolt order is ready for pickup!")
+        end
+
+        render :partial => 'delivery_points/send_sms'
+    end
+
 end

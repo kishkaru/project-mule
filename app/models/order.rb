@@ -21,18 +21,21 @@ class Order < ActiveRecord::Base
     end
 
     def subtotal
-        return self.item_orders.reduce(0) do |subtotal, item_order|
-            puts item_order.quantity
+        self.item_orders.reduce(0) do |subtotal, item_order|
             subtotal + item_order.quantity * item_order.item.price
         end
     end
 
     def tax
-        return 0.09
+        0.09
+    end
+
+    def tax_total
+        self.tax * subtotal
     end
 
     def total
-        return (1 + self.tax) * subtotal
+        (1 + self.tax) * subtotal
     end
 
 end

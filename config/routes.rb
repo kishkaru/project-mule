@@ -7,15 +7,20 @@ Projectmule::Application.routes.draw do
     end
 
 
+
     resources :phone_numbers
 
 
-    resources :delivery_points
+    resources :delivery_points do
+        member do
+            post 'notify_pickup'
+        end
+    end
 
     resources :delivery_areas do
         member do
             get 'menu'
-            get 'orders'
+            get 'orders', :as => :order_for_area
             get 'pts', :as => :area_points
         end
     end
@@ -26,6 +31,7 @@ Projectmule::Application.routes.draw do
     post '/area_chosen', :to => 'main#goToMenu', :as => :area_chosen
 
     devise_for :users, :controllers => { :registrations => "users_registration"}
+    post '/users/:id/notify_pickup', to: 'users#notify_pickup'
 
     get '/admin/users', :to => 'users#index', :as => :users
     post '/admin/users', :to => 'users#create'
@@ -48,6 +54,12 @@ Projectmule::Application.routes.draw do
 
 
     resources :items
+
+    get '/update_picked_up/:order', to: 'orders#update_picked_up', as: :picked_up
+    get '/un_update_picked_up/:order', to: 'orders#un_update_picked_up', as: :un_picked_up
+
+
+    #get '/send_sms/:order', :to => 'delivery_points#spam_user', :order => :order
 
     get '/cart', :to => 'cart#cart', :as => :cart
 

@@ -1,6 +1,8 @@
 class DeliveryAreasController < ApplicationController
     # GET /delivery_areas
-    # GET /delivery_areas.json
+    # GET /delivery_areas.json  
+    load_and_authorize_resource
+#skip_authorize_resource :only => [:orders] 
     def index
         @delivery_areas = DeliveryArea.page(params[:page])
 
@@ -111,18 +113,24 @@ class DeliveryAreasController < ApplicationController
     end
 
     def pts
-        puts "@@@@@@@@@@@@@@@@@@@@ got me"
         @customer_area = DeliveryArea.find(params[:id])
         render :partial => 'delivery_areas/area-points'
     end
 
     def orders
+        @date = params[:date] ? Date.strptime(params.delete(:date), '%m/%d/%y')  : Date.today
         @delivery_area = DeliveryArea.find(params[:id])
-        @orders = @delivery_area.orders.joins(:user).order("users.first_name").page(params[:page])
+        @delivery_points = {}
+        @delivery_area.delivery_points.each do |delivery_point|
+            @delivery_points[delivery_point.id] = {
+                address: delivery_point.address.lines_to_s,
+                orders: delivery_point.orders.where(pickup_date: (@date..@date+1)).joins(:user).order("users.first_name")
+            }
+        end
         @no_date = true
 
         @item_order_summary = {}
-        @delivery_area.orders.select("orders.id").inject([]){|arr, order| arr + order.item_orders}.each do |item_order|
+        @delivery_area.orders.where(pickup_date: (@date..@date+1)).select("orders.id").inject([]){|arr, order| arr + order.item_orders}.each do |item_order|
             item = item_order.item
             @item_order_summary[item.id] ||= {
                 name: item.name,

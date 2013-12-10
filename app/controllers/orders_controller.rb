@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+    load_and_authorize_resource :only => :show
+
     # GET /orders
     # GET /orders.json
     def index
@@ -35,6 +38,22 @@ class OrdersController < ApplicationController
     # Shows the logged in user all their orders
     def user_orders
         @orders = current_user.orders
+    end
+    
+    def update_picked_up
+        @order = Order.find_by_id(params[:order])
+        @order.picked_up = true
+        @order.save!
+
+        render :partial => 'orders/update_pickup'
+    end
+
+    def un_update_picked_up
+        @order = Order.find_by_id(params[:order])
+        @order.picked_up = false
+        @order.save!
+
+        render :partial => 'orders/update_pickup'
     end
 
 end

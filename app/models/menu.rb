@@ -19,13 +19,10 @@ class Menu < ActiveRecord::Base
     end
 
     def add_items(items_to_add, quantities)
-        puts items_to_add.inspect
-        puts quantities.inspect
         to_destroy = []
         self.items.each do |menu_item|
             if items_to_add.include?(menu_item.item)
                 items_to_add = items_to_add - [menu_item.item]
-                puts quantities[menu_item.item.id]
                 menu_item.update_attribute(:quantity, quantities[menu_item.item.id.to_s])
             else
                 to_destroy << menu_item

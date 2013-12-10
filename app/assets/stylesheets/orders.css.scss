@@ -1,3 +1,56 @@
-#order-customers a {
-    cursor: pointer;
+@import 'colors';
+
+#order-customers {
+
+    .panel-heading {
+        background-color: $heading;
+        a {
+            color: white;
+        }
+
+        &.no-orders {
+            cursor: not-allowed;
+
+            a{
+                color: #888;
+                cursor: not-allowed;
+
+                h4:after {
+                    content: "(No Orders)";
+                }
+            }
+
+            .delivery-point-notify{
+                display: none;
+            }
+        }
+
+        .delivery-point-notify{
+            margin-top: -20px;
+        }
+
+    }
+
+    .panel-body {
+        padding: 0;
+
+        .list-group {
+            margin: 0;
+        }
+    }
+
+    a {
+        cursor: pointer;
+        border-radius: 0;
+        border: none;
+        border-bottom: 2px solid #ddd;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .btn {
+            margin-top: -5px;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 class IngredientsController < ApplicationController
     # GET /ingredients
     # GET /ingredients.json
+    load_and_authorize_resource
     def index
         @ingredients = Ingredient.page(params[:page])
 
@@ -46,7 +47,6 @@ class IngredientsController < ApplicationController
         @ingredient.attributes.each do |name, value|
             if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" ))
                 broken = true
-                #puts "name: #{name} value: #{value}"
                 break
             end
         end

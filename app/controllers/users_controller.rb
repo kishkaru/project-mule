@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
+    include SmsHelper
+
+
+    load_and_authorize_resource
+    before_filter :verify_if_admin
+
 
     before_filter :verify_if_admin, :except => :account
     before_filter :user_logged_in, :only => :account
+
 
     include UsersHelper
     # GET /users
@@ -45,9 +52,11 @@ class UsersController < ApplicationController
     # POST /users.json
     def create
         @user = User.new
-        
+
         respond_to do |format|
             if update_user_attributes(@user)
+                AdminMailer.new_registration(@user).deliver
+                UserMailer.welcome_email(@user).deliver
                 format.html { redirect_to @user, notice: 'User was successfully created.' }
                 format.json { render json: @user, status: :created, location: @user }
             else
@@ -88,6 +97,13 @@ class UsersController < ApplicationController
     # Shows user account info to the user
     def account
         @orders = current_user.orders.page(params[:page])
+    end
+
+    def notify_pickup
+        @user = User.find_by_id(params[:id])
+        send_sms(@user.phone_number.asString, "Your LuckyBolt order is ready for pickup!")
+
+        render :partial => 'delivery_points/send_sms'
     end
 
 end

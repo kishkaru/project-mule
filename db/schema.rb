@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20131210102620) do
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.integer  "delivery_point_id"
+    t.boolean  "picked_up",         :default => false
     t.datetime "pickup_date"
     t.boolean  "picked_up",         :default => false
   end
