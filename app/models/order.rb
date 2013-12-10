@@ -6,7 +6,8 @@ class Order < ActiveRecord::Base
     accepts_nested_attributes_for :user
 
     # Returns the order made with CART_ITEMS or returns false
-    # if there are not enough items left in stock
+    # if there are not enough items left in stock. CART_ITEMS
+    # is a hash of menu items mapped to quantities
     def self.create_with_items(cart_items)
         if itemsStillAvailable(cart_items)
         	new_order = Order.create!
@@ -34,17 +35,6 @@ class Order < ActiveRecord::Base
 
     def total
         return (1 + self.tax) * subtotal
-    end
-
-    # Returns if the items are still available
-    def itemsStillAvailable(items)
-        items.each do |i, qty|
-            updated_menu_item = MenuItem.find(i.id)
-            if updated_menu_item.quantity < qty
-                return false
-            end
-        end
-        return true
     end
 
 end

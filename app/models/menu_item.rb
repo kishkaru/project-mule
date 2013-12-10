@@ -3,6 +3,7 @@ class MenuItem < ActiveRecord::Base
     belongs_to :menu
     has_many :order_items
     attr_accessible :quantity
+    attr_accessible :locked
 
     def description
         return item.description

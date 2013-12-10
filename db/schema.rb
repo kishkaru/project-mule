@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210034143) do
+ActiveRecord::Schema.define(:version => 20131210085253) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20131210034143) do
     t.integer  "menu_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "locked"
   end
 
   add_index "menu_items", ["item_id"], :name => "index_menu_items_on_item_id"

@@ -1,4 +1,5 @@
 module CheckoutHelper
+	include ItemsHelper
 
 	# Make a Braintree transaction with USER's default credit card
 	# for a charge of AMOUNT dollars and returns the result
