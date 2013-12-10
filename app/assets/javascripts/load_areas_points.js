@@ -22,10 +22,20 @@ $(document).ready( function() {
         if($('#points table').length > 0) {
             $('#points div').empty();
             $('#geographic-content img').remove();
-            getDeliveryPoints(self.parent().data("area"));
+            if (self.parent().data("menu") === "") {
+                var no_menu = $("<table class='table table-hover table-responsive table-bordered'><tbody><tr><th id='area-header' class='text-center active'>Sorry, no menu for this area today!</th></tr></tbody></table>");
+                $('#geographic-content #points .rounded-border').append(no_menu);
+            } else {
+                getDeliveryPoints(self.parent().data("area"));
+            }
         } else {
             _.delay(function() {
-                getDeliveryPoints(self.parent().data("area"));
+                if (self.parent().data("menu") === "") {
+                    var no_menu = $("<table class='table table-hover table-responsive table-bordered'><tbody><tr><th id='area-header' class='text-center active'>Sorry, no menu for this area today!</th></tr></tbody></table>");
+                    $('#geographic-content #points .rounded-border').append(no_menu);
+                } else {
+                    getDeliveryPoints(self.parent().data("area"));
+                }
                 $('#points').removeClass('hidden');
             }, 500);
         }
@@ -73,7 +83,7 @@ $(document).ready( function() {
         var menu_id = $('#areas .success').parent().attr('data-menu');
         var url = '/menus/' + menu_id;
         $(this).attr('action', url);
-        var point_id = $('#points .success').attr('data-delivery-point');
+        var point_id = $('#points .success').data('delivery-point');
         $('#delivery-point-id-field').attr('value', point_id);
     });
 });
