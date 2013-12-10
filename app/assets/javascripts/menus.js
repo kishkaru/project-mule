@@ -94,8 +94,10 @@ $( function() {
 
     $("button.add-to-cart").click( function() {
         self = $(this);
-        $.post( "/add_item/" + self.data("item"), function( data ) {
-            alert("Item added to cart!")
+        var amount = $('.amount-to-add').val();
+        $.post( "/add_item/" + self.data("item"), { qty: amount }, function( data ) {
+            var old_qty = Number($('.cart-qty').html());
+            $('.cart-qty').html(old_qty + Number(amount));
         });
     });
 

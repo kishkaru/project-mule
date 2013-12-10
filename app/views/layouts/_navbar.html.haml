@@ -23,6 +23,7 @@
       %li
         %a{href: "#cart", :id => "cart_link", data: {toggle: "modal", target: "#cart"}, :name => "Cart" }
           %span.glyphicon.glyphicon-shopping-cart
+          %span.badge.cart-qty= @cart_item_count
       - if (user_signed_in?)
         - if (current_user.admin?)
           %li
