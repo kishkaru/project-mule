@@ -11,30 +11,43 @@
     = f.label :role
     %br/
     = f.select(:role, options_for_select([ ['Admin', User::ADMIN], ['Vendor', User::VENDOR], ['Server', User::SERVER], ['Customer', User::CUSTOMER]], :selected => @user.role))
-  .field
-    = f.label :password
+  %br
+  %div
+    .field.inline-block
+      = f.label :password
+      %br/
+      = f.password_field :password, { class: 'form-control password-field' }
+    .field.inline-block
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, { class: 'form-control password-field' }
+  %br
+  %div
+    .field.inline-block.first-name-field
+      = f.label :first_name
+      %br/
+      = f.text_field :first_name, { class: 'form-control name-field' }
+    .field.inline-block
+      = f.label :last_name
+      %br/
+      = f.text_field :last_name, { class: 'form-control name-field' }
+  %br
+  %div
+    .field.inline-block
+      = f.label :email
+      %br/
+      = f.text_field :email, { class: 'form-control email-field' }
+    .field.inline-block
+      = f.label :phone_number
+      %br/
+      = f.text_field :phone_number, {:class => "form-control phone-number-field bfh-phone form-control", "data-format" => "+1 (ddd) ddd-dddd",:value => @user.phone_number ? @user.phone_number.asString : ""}
+  %br
+  #delivery-area-collection-select.field{hidden: true}
+    = f.label :delivery_area
     %br/
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  .field
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  .field
-    = f.label :email
-    %br/
-    = f.text_field :email
-  .field
-    = f.label :phone_number
-    %br/
-    = f.text_field :phone_number, {:class => "bfh-phone", "data-format" => "+1 (ddd) ddd-dddd",:value => @user.phone_number ? @user.phone_number.asString : "", :size => 17}
+    = collection_select :server, :delivery_area_id, DeliveryArea.all, :id, :name, { prompt: 'Select a delivery area'}, { class: 'form-control delivery-area-field'}
+  %br
   .actions
     = f.submit
+  %br
 

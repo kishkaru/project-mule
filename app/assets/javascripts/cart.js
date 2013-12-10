@@ -17,7 +17,7 @@ $( function() {
 	  top: 'auto', // Top position relative to parent in px
 	  left: 'auto' // Left position relative to parent in px
 	};
-
+	
 	$("#cart_link").click( function () {
 		$("#cart-modal-table").html("");
 		$('#spinner-cart-center').spin(opts);
