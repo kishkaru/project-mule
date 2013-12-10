@@ -5,14 +5,20 @@ class Order < ActiveRecord::Base
     attr_accessible :transaction_id
     accepts_nested_attributes_for :user
 
+    # Returns the order made with CART_ITEMS or returns false
+    # if there are not enough items left in stock
     def self.create_with_items(cart_items)
-    	new_order = Order.create!
-    	cart_items.each do |item, qty|
-    		item_order = item.create_order(qty)
-    		item_order.order = new_order
-    		item_order.save!
-    	end
-    	return new_order
+        if itemsStillAvailable(cart_items)
+        	new_order = Order.create!
+        	cart_items.each do |item, qty|
+        		item_order = item.create_order(qty)
+        		item_order.order = new_order
+        		item_order.save!
+        	end
+        	return new_order
+        else
+            return false
+        end
     end
 
     def subtotal
@@ -28,6 +34,17 @@ class Order < ActiveRecord::Base
 
     def total
         return (1 + self.tax) * subtotal
+    end
+
+    # Returns if the items are still available
+    def itemsStillAvailable(items)
+        items.each do |i, qty|
+            updated_menu_item = MenuItem.find(i.id)
+            if updated_menu_item.quantity < qty
+                return false
+            end
+        end
+        return true
     end
 
 end
