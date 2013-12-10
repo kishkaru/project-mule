@@ -12,6 +12,8 @@ Feature: see all vendors
       | La Buritta  | churro@laburitta.com | 4321 Grape Avenue, Berkeley, CA, 94709 |
       | Cheeseboard | duro@cheeseboard.com | 987 Oak Way, Berkeley, CA, 94705       |
 
+    And the admin account is set up
+    And I am logged in with an admin account
     And I am on the all_vendors page
 
   Scenario: successfully see all Vendors

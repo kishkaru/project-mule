@@ -4,15 +4,19 @@ Feature: create a new vendor to be stored in the database
   So that I can create Items from a Vendor to add to aMenu
   I want to store a Vendor in the database
 
+Background:
+    Given the admin account is set up
+    And I am logged in with an admin account
+
 Scenario: get form to create new Vendor
-  Given I am on the all_vendors page
+    Given I am on the all_vendors page
     And I follow "New Vendor"
     Then I should be on the create_new_vendor page
 
 Scenario: successfully create a new Vendor
     Given I am on the create_new_vendor page
     And I fill in "Name" with "Chipotle"
-    And I fill in "vendor_mail" with "bandito@chipotle.com"
+    And I fill in "vendor_email" with "bandito@chipotle.com"
     And I fill in "vendor_address_attributes_line1" with "123 Dwight"
     And I fill in "vendor_address_attributes_city" with "Berkeley"
     And I fill in "vendor_address_attributes_state" with "CA"
