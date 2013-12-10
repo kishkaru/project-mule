@@ -46,9 +46,6 @@ Feature: Checkout and pay for logged in user with default credit card
         Given I follow "cart_link"
         And I press "Checkout"
     	And I press "Pay with card ending in 1111"
-    	Then I should see "Order #"
-    	And I should see "Regular Burrito"
-        And I should see "Spicy Burrito"
 
     @javascript
     Scenario: Defauly card is selected for the "Use a different credit card" option
@@ -65,9 +62,6 @@ Feature: Checkout and pay for logged in user with default credit card
     	And I choose "cc-ending-0004"
     	And I press "Use selected card"
     	And I press "Pay with card ending in 0004"
-    	Then I should see "Order #"
-    	And I should see "Regular Burrito"
-        And I should see "Spicy Burrito"
 
     @javascript
     Scenario: Pay with a new invalid card
@@ -87,9 +81,7 @@ Feature: Checkout and pay for logged in user with default credit card
     	And I fill in "credit_card_exp_date" with "12/2020"
     	And I press "Save new credit card"
     	And I press "Pay with card ending in 4444"
-    	Then I should see "Order #"
-    	And I should see "Regular Burrito"
-        And I should see "Spicy Burrito"
+
 
     @javascript
     Scenario: Try to pay with a new card that has already been added

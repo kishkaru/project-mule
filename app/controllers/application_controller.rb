@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
         session[:cart][:items].each do |item, qty|
             @cart_item_count += qty
         end
+        @cart_item_count = "" if @cart_item_count == 0
 
     end
 

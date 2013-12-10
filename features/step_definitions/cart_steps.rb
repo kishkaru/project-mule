@@ -3,7 +3,7 @@ Given /I have added the following items to my cart/ do | table |
 	table.hashes.each do |item|
 		cart[:items][Item.where(:name => item[:name]).last.menu_items.order("created_at").last.id] = item[:qty].to_i
 	end
-	page.set_rack_session(:cart => cart)
+	page.set_rack_session(:cart => cart, :customer_pickup_point => DeliveryPoint.all.last)
 end
 
 Given /I increase the quantity of "(.*)"/ do | item |
