@@ -35,7 +35,7 @@
     > * {
         margin-top: 10px;
         margin-bottom: 10px;
-        height: 96px;
+        min-height: 96px;
     }
 
     .item-actions {
@@ -59,7 +59,7 @@
 
         > * {
             vertical-align: top;
-            height: 96px;
+            min-height: 96px;
             overflow: hidden;
             padding: 8px;
             box-sizing: border-box;
@@ -67,6 +67,7 @@
         }
 
         .details {
+            border-right: solid #ddd 1px;
 
             * {
                 vertical-align: top;
@@ -96,7 +97,6 @@
             float: right;
             width: 75px;
             text-align: center;
-            border-left: solid #ddd 1px;
 
             .quantity {
                 margin-top: 10px;
