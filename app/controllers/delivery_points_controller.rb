@@ -87,7 +87,6 @@ class DeliveryPointsController < ApplicationController
         end
     end
 
-    
     def notify_pickup
         @delivery_point =DeliveryPoint.find(params[:id])
         @orders = @delivery_point.orders

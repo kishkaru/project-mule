@@ -21,6 +21,10 @@
       - if @current_menu
         %li
           %a{href: menu_path(@current_menu)} Menu
+      - if (user_signed_in?)
+        - if (current_user.server?)
+          %li
+            = link_to 'My Area', order_for_area_delivery_area_path(DeliveryArea.where(:server_id => current_user.id).first)
       %li
         %a{href: "#", data: {toggle: "modal", target: "#about-modal"}} About
       %li

@@ -15,6 +15,10 @@ module UsersHelper
                 user_to_update.send("#{attr}=", attr_given)
             end
         end
+        if params[:user][:role] == "3"
+            user_to_update.delivery_area = params[:server][:delivery_area_id].present? ? DeliveryArea.find(params[:server][:delivery_area_id]) : nil
+        end
         user_to_update.save
     end
+
 end
