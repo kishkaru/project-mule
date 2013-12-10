@@ -46,7 +46,6 @@ class IngredientsController < ApplicationController
         @ingredient.attributes.each do |name, value|
             if ((value == nil || value == "") && (name != "id" && name != "created_at" && name != "updated_at" ))
                 broken = true
-                #puts "name: #{name} value: #{value}"
                 break
             end
         end

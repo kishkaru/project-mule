@@ -20,7 +20,6 @@ class Order < ActiveRecord::Base
 
     def subtotal
         self.item_orders.reduce(0) do |subtotal, item_order|
-            puts item_order.quantity
             subtotal + item_order.quantity * item_order.item.price
         end
     end
