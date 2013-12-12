@@ -2,7 +2,7 @@
   = "Your" if current_user == @order.user
   Order #
   = @order.id
-  = "for #{@order.user.full_name}" if current_user != @order.user
+  = "for #{@order.customer_name}" if current_user != @order.user
 
 %p
   %b Transaction ID:
