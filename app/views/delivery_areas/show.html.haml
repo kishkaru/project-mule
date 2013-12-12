@@ -1,7 +1,11 @@
 %h1= "Delivery Area - #{@delivery_area.name}"
-
-%h3 Delivery Points:
-= render 'delivery_points/table'
--if can? :edit, @delivery_area
-  = link_to 'Edit', edit_delivery_area_path(@delivery_area), :class =>  "btn btn-warning btn-sm" |
-\#{link_to 'Back', delivery_areas_path, :class =>  "btn btn-primary btn-sm"}
+.row
+  .col-lg-3.col-md-4
+    %h3 Details
+    = link_to "View Orders", orders_for_delivery_area_path(@delivery_area), :class => "btn btn-primary btn-large"
+  .col-lg-9.col-md-8
+    %h3 Delivery Points:
+    = render 'delivery_points/table'
+- if can? :edit, @delivery_area
+  = link_to 'Edit', edit_delivery_area_path(@delivery_area), :class =>  "btn btn-warning btn-sm"
+= link_to 'Back', delivery_areas_path, :class =>  "btn btn-primary btn-sm"

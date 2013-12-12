@@ -36,7 +36,7 @@ module NavigationHelpers
 
 	      ### ORDER ###
         when /^the orders page for "(.*)"$/
-            order_for_area_delivery_area_path(DeliveryArea.find_by_name($1).id)
+            orders_for_delivery_area_path(DeliveryArea.find_by_name($1).id)
 
         ### PHONE NUMBER ###
         when /^the all_phone_numbers page$/
