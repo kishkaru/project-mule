@@ -74,7 +74,7 @@ $( function() {
                     self.addClass('btn-success');
                     self.unbind('click');
                     list_item.slideUp(500, function () {
-                        $('#order-customers .list-group').append(list_item);
+                        list_item.parent().append(list_item);
                         list_item.slideDown(500);
                     });
                     bind_success_texts();
