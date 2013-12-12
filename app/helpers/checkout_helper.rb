@@ -17,6 +17,8 @@ module CheckoutHelper
 	def createOrder(user, items, result)
 		new_order = Order.create_with_items(items)
         new_order.user = user
+        new_order.customer_name = user.full_name
+        new_order.customer_email = user.email
         new_order.transaction_id = result.transaction.id
         new_order.delivery_point = @current_point
         user.update_attribute(:pickup_point, @current_point)

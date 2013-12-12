@@ -12,7 +12,8 @@
     %tr
       %td= User::ROLES_MAPPING[user.role]
       %td= link_to user.first_name + ' ' + user.last_name, user
-      %td= user.email
+      %td
+        %a{href: 'mailto:' + user.email}= user.email
       -if user.server?
         %td= DeliveryArea.where(:server_id => user.id).first.name
       -else

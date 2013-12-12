@@ -12,7 +12,11 @@
       %td= link_to '#' + order.id.to_s.rjust(8, "0"), order
       - unless @no_date
         %td= order.created_at.to_formatted_s(:long_ordinal)
-      %td= link_to order.user.full_name, order.user
-      %td= order.user.email
+      - if order.user
+        %td= link_to order.customer_name, order.user
+      - else
+        %td= order.customer_name
+      %td
+        %a{href: 'mailto:' + order.customer_email}= order.customer_email
       %td= order.transaction_id
 = paginate @orders
