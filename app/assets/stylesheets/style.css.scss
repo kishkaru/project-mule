@@ -119,6 +119,23 @@ table {
     padding: 6px 12px;
 }
 
+.name-field {
+    width: 250px;
+}
+
+div.inline-block {
+    display: inline-block;
+}
+
+#credit-card-info, #password-info, #contact-info {
+    margin-top: 10px;
+}
+
+.email-field, .password-field, .first-name-field {
+    width: 250px;
+    margin-right: 10px;
+}
+
 .row {
     margin-bottom: 10px;
 }
