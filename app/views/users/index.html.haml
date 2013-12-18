@@ -15,7 +15,7 @@
       %td
         %a{href: 'mailto:' + user.email}= user.email
       -if user.server?
-        %td= DeliveryArea.where(:server_id => user.id).first.name
+        %td= DeliveryArea.where(:server_id => user.id).first.name if DeliveryArea.where(:server_id => user.id).first
       -else
         %td= "n/a"
 = paginate @users
